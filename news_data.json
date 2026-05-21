@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-20T04:57:04.203519+00:00",
+  "updated": "2026-05-21T05:02:56.327093+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -48,14 +48,14 @@
       "level": "danger"
     },
     {
-      "id": "bb86c6b66248",
-      "title": "중국 배후 해킹그룹 Storm-1175, 제로데이로 랜섬웨어 무차별 살포 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1nSDhPZjhldTBqekFlazJrLTNLOWxnS0JpQWh5UmZpY25TOGYtbV8xQXpqQ0YwaVRkY0xLQnJWaEVFWXlyZmFmYUdBUlRKNG9QcjhUS1UyRV9EZ1lYZmNv?oc=5",
-      "summary": "중국 배후 해킹그룹 Storm-1175, 제로데이로 랜섬웨어 무차별 살포&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2026-04-08T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
+      "id": "1a8272efd1a5",
+      "title": "리드코프 자회사, 악성코드 감염으로 고객정보 유출…보안 대책 시급 - 뉴스인사이드",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE04UjRveHFSajh3ekpwS0RmRWJrQTJsTWttTkY1YmFLSjlTeVBtYjMzUlRBQm90ekhqU0lWZEpkWjJneUVCRlRvb2Zpd0JWZVBXM2xlS1M0NzJxS2o5QVBxR2FwSTVpbVZlaUJ5OVJB?oc=5",
+      "summary": "리드코프 자회사, 악성코드 감염으로 고객정보 유출…보안 대책 시급&nbsp;&nbsp;뉴스인사이드",
+      "pubDate": "2026-03-23T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
       "lang": "ko",
-      "category": "랜섬웨어",
+      "category": "악성코드",
       "level": "danger"
     },
     {
@@ -103,6 +103,17 @@
       "level": "danger"
     },
     {
+      "id": "0016a5c425c8",
+      "title": "해커들의 놀이터 된 ‘오픈클로우’... API 키 탈취와 악성코드의 심각한 온상돼 - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5laFRQRlNuRktLaWlaUUlrVENpQWpVbzhzNm1EUnp4VUlXTzZ6V0FOanhBaFJFVl90WDBjOGt1RFVjalotS1ZDVEc5V2d4Mko2QUxBMGJZOFhiWnVwUkR3?oc=5",
+      "summary": "해커들의 놀이터 된 ‘오픈클로우’... API 키 탈취와 악성코드의 심각한 온상돼&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2026-02-23T08:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "악성코드",
+      "level": "danger"
+    },
+    {
       "id": "cf4ebac492fc",
       "title": "[설날기획] 해킹에서 암호까지... 디지털 위협을 읽는 보안 도서들 - 보안뉴스",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1FZGdKZXljSzNnRDR4U1RaMFBzMlBpMHhPZXY0b1QtOGFHaktqcFZpUGpKd3VXVl9WUHNVaFA4QzNLU2xpVmlnWmlEcFlNX09fTS1OQXNIcFBQUFZyZHhN?oc=5",
@@ -125,9 +136,9 @@
       "level": "danger"
     },
     {
-      "id": "c60ace48ab61",
+      "id": "ec9baf69d4bc",
       "title": "2026년 연초부터 뚫린 ‘대학병원’…랜섬웨어 ‘공포’ - 데일리메디",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IQkd5UERoVktSN0N1UlFNMHJjSHFQZEsyVG5MVVZyZ2RuLURiZ2ZVU2ctREpsZUVteWxNOU14eFZmUU1ObVFxa0lMZ0czR3NmZWJoT2Z1cHdzWTQtZVotbk1oc0hkSVhaOUxZSA?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE16MjltMDN0Ukh4Rzl5X1ZUZHBtc1dWYm5KMmNIQkZqaEpVN2ktck42Q0dxWDl5MHNvaGd5VzVpeGgyMXMtRVR4QlZpVTRYMzBYRHNzaXNzYVJRQWVLclJIa2t4MjctWXVz?oc=5",
       "summary": "2026년 연초부터 뚫린 ‘대학병원’…랜섬웨어 ‘공포’&nbsp;&nbsp;데일리메디",
       "pubDate": "2026-01-29T08:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
@@ -169,6 +180,17 @@
       "level": "danger"
     },
     {
+      "id": "bd10cee362dc",
+      "title": "루마니아 전력 30% 담당 최대 발전사, 랜섬웨어 공격으로 IT 인프라 마비 - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9aSGNTUTF3ZEQyMUQ2U0I0WlcwTFAwNXNGc1Qyb183dlEzWVpJaV9wYkxaZVl2alpPdXQ5U21MUDByLXlmSmdwUUxfYnRwSVc3eTFCVEhjS0pyRF9PNTRQUzYtTjBCU2tHc29CaG5n?oc=5",
+      "summary": "루마니아 전력 30% 담당 최대 발전사, 랜섬웨어 공격으로 IT 인프라 마비&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2025-12-30T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
       "id": "b5af35e3f3dc",
       "title": "인하대, 해커 랜섬웨어 공격에 홈페이지 마비…14시간 만에 복구 - 경기일보",
       "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1adTJFSjZhM0xsTF85bklsYWljZF94VWhLT2gxc1VDSlFaQUFxUTJPc1RtNXJnOEx0ZDJYZjBFRUJvQ09sb08ySXFVRXRxZ0hVck9VU255eWE3ckU?oc=5",
@@ -191,17 +213,6 @@
       "level": "warning"
     },
     {
-      "id": "b7035bb4e320",
-      "title": "AI 봇이 랜섬웨어 협상하고, GPU 자원도 털린다... “2026년, AI 에이전트 해킹 원년” - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5DUkhhT1hPLTFtNmFLQU1YT2dxMDhPYmtubmlwN2VIODhwaWtXZHdlNThBM2hZaERUejhkZWNIem8tZ3NjODd5YUh6ZktjdkxRQkRuYlRjX01BVXV1UjE2akRZbDg1Z3JQa1lMZ1J3?oc=5",
-      "summary": "AI 봇이 랜섬웨어 협상하고, GPU 자원도 털린다... “2026년, AI 에이전트 해킹 원년”&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2025-12-17T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
       "id": "5a19fbfe7ca4",
       "title": "[2025 보안 사고·이슈 결산-2] “갈아탈 곳도 없다” 해킹에 무너진 통신 3사 - 보안뉴스",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE82RzFsa3UtTmZfcHpNVVk3cERkSzBuY1N2WFVOOTRIbEtIcDMwOWJnTlR1YVY1d1o3WjRNeldxbEIwZVNDcjZpRFZxV05iMzNIdWVBRmxYSU82TnZSV1Br?oc=5",
@@ -222,6 +233,17 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
+    },
+    {
+      "id": "28853c48d5b1",
+      "title": "내년 사이버위협은 무엇?...\"AI 악용 공격 두드러질 것\" - 지디넷코리아",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4xZWkzV3h3WFFPemo0a2luRFBaRzVXcWV5M1BMakxHYjBCWjJ3bG1kYllBek93VG5ZTXNXVjhWS1R5VlJuUktyZG1NVExUWmpWWDZ5eU13?oc=5",
+      "summary": "내년 사이버위협은 무엇?...\"AI 악용 공격 두드러질 것\"&nbsp;&nbsp;지디넷코리아",
+      "pubDate": "2025-11-04T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
     },
     {
       "id": "e074319bb885",
@@ -268,6 +290,17 @@
       "level": "warning"
     },
     {
+      "id": "6ed22d1c0065",
+      "title": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황 - 데일리시큐",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9aLXZXR3dtZ0dBLWh4eHNVSDFqSWVVTF9xQ01vYVl2b3dsbV9NX3R4V28yNmZ3REkwT1AxZkdfT1QwWW52MVlhNWRSS29kMjF6VkRNZV9WUWtld21ROFJyNGNUTFQzM0pnMVRNOQ?oc=5",
+      "summary": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황&nbsp;&nbsp;데일리시큐",
+      "pubDate": "2025-09-01T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
       "id": "3bbeddd72253",
       "title": "SKT, 2021년부터 해커 공격 받아…보안 미흡이 사태 키워 - 연합뉴스",
       "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tbVZSbXEyU01QNnR3TkZYM3p2RXFFRmZPYmxFaUJHVXhTRjVfaDd0dkZTQUN3ZmFJQXNyODZ2ZFg0UkoxLUROSFlXb29XeVA5V3RPbVJHd29USFHSAWBBVV95cUxQejBSTk1rLWRWSURic2tRUDVhaGVNMndzTjhJZDNFc0xhczhoRmN3and5NmZQZk51X29ndVp3dVhrTW15cXVKTWlGN3dDamc4Z21wSHk1M1NMYzBiZ1J3b1A?oc=5",
@@ -279,25 +312,14 @@
       "level": "info"
     },
     {
-      "id": "bd13b2b17780",
-      "title": "금융권 해킹으로 6년여간 5만명 정보유출 - 뉴시스",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9jSUp0dWVsOGxJRFl0N1pqQzV3TUxwZnJBb3lwZjRsNUJyRzZyLUYzdzE3dERPY21zOThWN21WMk9jbVVRTTJKZmdPeU54bDVpTW94VW1ZVUhsQ2FaNHhkb9IBeEFVX3lxTE45UVhWa3pVSU4yOHBkTjZfNkhycjJFc0JUSWMzal9WVk5RYjhydURnbS1HcEZtWWRTVXBwY3M3ekxTWkROejdvdmhGODF2V2Q2NGc0cnRsS3hyQUlJbk5SSENJRW9INU8zcmh4MldHRTVEb0F1OTRWUw?oc=5",
-      "summary": "금융권 해킹으로 6년여간 5만명 정보유출&nbsp;&nbsp;뉴시스",
-      "pubDate": "2025-06-25T07:00:00+00:00",
+      "id": "6abc99cfbe0d",
+      "title": "[이슈조명] SKT 고객 유심 정보 유출, 민낯 드러난 韓 사이버보안 - 아이티데일리",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBaMlZLdnhVREhVZGZXcjZwemY1WlNvTmNEZ0lMRXVhYnV5aWowSGhNSnNDeGRUVXRvdjdXcy1jakN6MWtzTDZZTF85X2FaWjhVakZOODFVUlplNHdqbEp5eVRKWkdSSGM?oc=5",
+      "summary": "[이슈조명] SKT 고객 유심 정보 유출, 민낯 드러난 韓 사이버보안&nbsp;&nbsp;아이티데일리",
+      "pubDate": "2025-05-31T07:00:00+00:00",
       "source": "Google 뉴스 — 취약점",
       "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "e1e6fb1905c5",
-      "title": "\"악성코드 클릭에…\" 보험대리점 1100명 개인정보 유출 - 프라임경제",
-      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ocEl3cS1jcm16Y0ZFZ3pYSnBOaVF1bklBSXJpUU5rZnVRM0pYREhmZWFkUVBDOUV3LUoyQmR6QkhkdldfeDlhVzI2Nk14bW50cU5pZ1VHcDhleS1oVmk1eno0SQ?oc=5",
-      "summary": "\"악성코드 클릭에…\" 보험대리점 1100명 개인정보 유출&nbsp;&nbsp;프라임경제",
-      "pubDate": "2025-05-20T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "악성코드",
+      "category": "개인정보",
       "level": "danger"
     },
     {
@@ -310,28 +332,6 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
-    },
-    {
-      "id": "9d4c12682da6",
-      "title": "믿었던 SKT마저 해킹사고...고객정보 유출 가능성에 '발칵' - 뉴스;트리",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9mejBJOEpPOG1JRFV5ZThTREMzbDd6YXNHdlduU1BuaDRwcjJmNm1tb3RvLUxyX2NvbUd6UjlvbHZtZGpTQThTWFpZaUM5NkRVUERiWVRwbzdQYjh1?oc=5",
-      "summary": "믿었던 SKT마저 해킹사고...고객정보 유출 가능성에 '발칵'&nbsp;&nbsp;뉴스;트리",
-      "pubDate": "2025-04-22T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "0885930844b1",
-      "title": "2016년 주요 보안취약점 및 보안사고 동향 - 이글루코퍼레이션",
-      "link": "https://news.google.com/rss/articles/CBMimgJBVV95cUxPeWttLTlJbGVhUFZEY0N0cktnVzZ4M3ltYzVhdGJwTFB5dkVUXzY0SHBfQmgxYzk4VVhiWnFGRmtTTTcyOTZmRHYxc0hPQ080cl9laXltYVRtTGJkSzNIT3hIR2VPWHZudGlJc1RUdzRBTnM0NkxzM0pNengyNHBCcjV1ellZNzRhRk5ESWxsS0xnWC1haDJBeGZ1ZlpGY3JxOFVDNmsxeFJYM3lQcXEtX1dHeGJwVElSZWhsM2Z2VXF0S0VlNXZ0c1Q4NU1vTTduSUZyeUpJUDBQVW9QTGVBMGI3MEFWREF4WlpKWTdnQWJUSGE3OWNTSzFRTFZCWms0VERha3JDandaOUtEV2VZZk50MFg1UWdsVlE?oc=5",
-      "summary": "2016년 주요 보안취약점 및 보안사고 동향&nbsp;&nbsp;이글루코퍼레이션",
-      "pubDate": "2017-01-04T08:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "취약점",
-      "level": "info"
     }
   ]
 }
