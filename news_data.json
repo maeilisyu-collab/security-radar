@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-21T05:02:56.327093+00:00",
+  "updated": "2026-05-22T04:54:51.476439+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -48,6 +48,17 @@
       "level": "danger"
     },
     {
+      "id": "d629134d3112",
+      "title": "AI와 상호작용하는 악성코드… 해킹 더 정교해졌다 - 조선일보",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQTzdYRk9qRFhaa3ROeDJTVGFUVEZMRTdCMTJoWnJRVnZWb294bTZSVmdla0l5UUdfOWVQRGw4dXl4a2xuZ3U2b0pVeDUxQzZKTnhOY2lQUjJNb3NBNS1lYjJqX2VvU1BlbHVnVEozV1ZWLTUxdXRvNW5lWmRYWlV3TEN0OA?oc=5",
+      "summary": "AI와 상호작용하는 악성코드… 해킹 더 정교해졌다&nbsp;&nbsp;조선일보",
+      "pubDate": "2026-04-23T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
       "id": "1a8272efd1a5",
       "title": "리드코프 자회사, 악성코드 감염으로 고객정보 유출…보안 대책 시급 - 뉴스인사이드",
       "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE04UjRveHFSajh3ekpwS0RmRWJrQTJsTWttTkY1YmFLSjlTeVBtYjMzUlRBQm90ekhqU0lWZEpkWjJneUVCRlRvb2Zpd0JWZVBXM2xlS1M0NzJxS2o5QVBxR2FwSTVpbVZlaUJ5OVJB?oc=5",
@@ -56,17 +67,6 @@
       "source": "Google 뉴스 — 취약점",
       "lang": "ko",
       "category": "악성코드",
-      "level": "danger"
-    },
-    {
-      "id": "3cdd25e1bc20",
-      "title": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위 - 지디넷코리아",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hTzVSZEpEMjRyNTJtOHh5aC01Ul9DT01mV0xGZmJqVE9Pdnh0RGdlZFJBT0dDTGlQRWh6bTZYT2lVZTcwYWxzd1dSNEVBa0V6dzAwaXB3?oc=5",
-      "summary": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위&nbsp;&nbsp;지디넷코리아",
-      "pubDate": "2026-03-15T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
       "level": "danger"
     },
     {
@@ -213,11 +213,11 @@
       "level": "warning"
     },
     {
-      "id": "5a19fbfe7ca4",
-      "title": "[2025 보안 사고·이슈 결산-2] “갈아탈 곳도 없다” 해킹에 무너진 통신 3사 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE82RzFsa3UtTmZfcHpNVVk3cERkSzBuY1N2WFVOOTRIbEtIcDMwOWJnTlR1YVY1d1o3WjRNeldxbEIwZVNDcjZpRFZxV05iMzNIdWVBRmxYSU82TnZSV1Br?oc=5",
-      "summary": "[2025 보안 사고·이슈 결산-2] “갈아탈 곳도 없다” 해킹에 무너진 통신 3사&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2025-12-15T08:00:00+00:00",
+      "id": "b0a3bea65705",
+      "title": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보 - 월요신문",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5pMXRPZFZfUjRyZmV6ekljLWg3a3FNbWs1WWpJMGlBUXd0WXh0OV8yTkhNUjdjWlFTbUJnMm1PUGpjWWE4WlhHV1ptaTBqN0RzeExKYy12dUpTVHp3M0R5QjY2a1B0OEo4OFE?oc=5",
+      "summary": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보&nbsp;&nbsp;월요신문",
+      "pubDate": "2025-12-25T08:00:00+00:00",
       "source": "Google 뉴스 — 취약점",
       "lang": "ko",
       "category": "해킹",
@@ -257,6 +257,17 @@
       "level": "danger"
     },
     {
+      "id": "3835c52b9a04",
+      "title": "\"돈내면 누구나 해커되는 '서비스형 랜섬웨어' 北해킹서 확인\" - 연합뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5oVXdKaGxxVmpnTl85bzQ0RTlKU0J2MEpaSnFWLU81OFloVzNlRndkNTZac21Gd3gyQkM3djRvbnIwTjFtalJRNTBkejRoaGtjWEtGaEw0bm1VbHPSAWBBVV95cUxQRGFBdEg1VkUweVdXZ2RkODRCRjhMY204bG5zSWZuejN3Tm9maE02ZEZLLW52YWRhdUZkc3ZIQUVrOFN1WkQ5TG50bGpiUmxRZDNIU0swN01tQmF1QkdyWng?oc=5",
+      "summary": "\"돈내면 누구나 해커되는 '서비스형 랜섬웨어' 北해킹서 확인\"&nbsp;&nbsp;연합뉴스",
+      "pubDate": "2025-10-17T07:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
       "id": "7515b6966d44",
       "title": "롯데카드 해킹, 시작은 취약점 패치안된 서버…개인정보 유출은 좀더 조사해야 - 데일리시큐",
       "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5sbFRtRDRDNTJiWHFrdE5fb1pJT0hmWlhNZHZINUFKVzRBT3ljSG5NRnRZbkhMNm1yVlQ4ZzJOU1FONmtoU2JQS1ZfcHlJRm1pckozaVJEYXMyQ2hqdnpIbXhSUGtqQnhoanhERA?oc=5",
@@ -277,6 +288,17 @@
       "lang": "ko",
       "category": "악성코드",
       "level": "danger"
+    },
+    {
+      "id": "9785d9677443",
+      "title": "\"보안직원 단 4명, 비밀번호는 0000\"…SGI서울보증 내부통제 도마 - 뉴시스",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBGLTBGOVBfREVYNkY5a0dkbkRpdmJ6cUdRRjFyV1ZzMTFqbG1fbjZfY2lEM3oxa3ViYlJ1bUlMd2hNYVhFRDNTZXRzWVN3N0NSUjNQdjRiYlRPY3ZWdlRNWtIBeEFVX3lxTE5xMWhOcURUeDhGQTUyZmZwekRZcU0waE9xX1FmRlB2NEFfaVAxSF9IR0d6blphSzNhRUpHZTdSUFRMT19CeW0tUko3OEpGYzNKZ3RKXzVqY1VaM1Y0eTFqeG5KLXhtYThYblhmY1VEclN3a19zejFzMA?oc=5",
+      "summary": "\"보안직원 단 4명, 비밀번호는 0000\"…SGI서울보증 내부통제 도마&nbsp;&nbsp;뉴시스",
+      "pubDate": "2025-09-02T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
     },
     {
       "id": "76bc9cf3e369",
@@ -310,28 +332,6 @@
       "lang": "ko",
       "category": "보안뉴스",
       "level": "info"
-    },
-    {
-      "id": "6abc99cfbe0d",
-      "title": "[이슈조명] SKT 고객 유심 정보 유출, 민낯 드러난 韓 사이버보안 - 아이티데일리",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBaMlZLdnhVREhVZGZXcjZwemY1WlNvTmNEZ0lMRXVhYnV5aWowSGhNSnNDeGRUVXRvdjdXcy1jakN6MWtzTDZZTF85X2FaWjhVakZOODFVUlplNHdqbEp5eVRKWkdSSGM?oc=5",
-      "summary": "[이슈조명] SKT 고객 유심 정보 유출, 민낯 드러난 韓 사이버보안&nbsp;&nbsp;아이티데일리",
-      "pubDate": "2025-05-31T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "개인정보",
-      "level": "danger"
-    },
-    {
-      "id": "b4a94bf664b1",
-      "title": "이번엔 SKT 해킹···전문가 \"서버 보호 대책 미흡했을 것\" - 지디넷코리아",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBkcVhLX2V1eGJmSG9CZHRrbmVmTzlkd19seVdUQmJsZjhPRU5ReFFQYjUzclhrenNEal80M01UdUVIM0RNNGlkeGpsTGJYdVdXRlQ2S1V3?oc=5",
-      "summary": "이번엔 SKT 해킹···전문가 \"서버 보호 대책 미흡했을 것\"&nbsp;&nbsp;지디넷코리아",
-      "pubDate": "2025-04-22T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
     }
   ]
 }
