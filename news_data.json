@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-23T04:32:13.342256+00:00",
+  "updated": "2026-05-24T04:56:44.618472+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -81,17 +81,6 @@
       "level": "danger"
     },
     {
-      "id": "3cdd25e1bc20",
-      "title": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위 - 지디넷코리아",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hTzVSZEpEMjRyNTJtOHh5aC01Ul9DT01mV0xGZmJqVE9Pdnh0RGdlZFJBT0dDTGlQRWh6bTZYT2lVZTcwYWxzd1dSNEVBa0V6dzAwaXB3?oc=5",
-      "summary": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위&nbsp;&nbsp;지디넷코리아",
-      "pubDate": "2026-03-15T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
       "id": "f03429fa8a6e",
       "title": "신뢰 악용한 AI 피싱·공급망 해킹 확산… 한국도 랜섬웨어 공격 ‘아태 5위’ - 산업일보",
       "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE9idVN3OXVNQk5TZ2o3MjcwRFZ6Z1FGT2NjOWF4TWpQdFlxRlhYYlFaRHl2YmRUdU1yang3STVDbFNmUWdK?oc=5",
@@ -103,11 +92,11 @@
       "level": "danger"
     },
     {
-      "id": "1a8b58c92383",
-      "title": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영 - 프레시안",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBWUDZoRWFsc3Y4ZnpqYkdwTmMzbE0zZEpvVjJDMEZQMXAzbTYyX2hfaXZ1YjFnRTlNRGtob1h4NDNYUElWWmlJbmJyRW42ZHhHUVMtcmxfdV96T3h4Ui1KR2tFanM2dVNiRXlB?oc=5",
-      "summary": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영&nbsp;&nbsp;프레시안",
-      "pubDate": "2026-03-05T08:00:00+00:00",
+      "id": "836cf6a7d7ff",
+      "title": "카스퍼스키, 2026년 자동차 사이버 위협 전망 발표...랜섬웨어·차량 절도 위험↑ - 헬로티",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBKWHNfbVJ3OFh6amM4UDhKNjlrWFlHTER4d3lHeHFORjRKNHd0VXZfMTlhR1E1VGxZbk1HNS1TaHVJWURScEUwMmFQa21NSTNBQ3NFU2lLUHZrbEhmSGtN?oc=5",
+      "summary": "카스퍼스키, 2026년 자동차 사이버 위협 전망 발표...랜섬웨어·차량 절도 위험↑&nbsp;&nbsp;헬로티",
+      "pubDate": "2026-03-09T07:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
       "category": "랜섬웨어",
@@ -122,17 +111,6 @@
       "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
       "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
-      "id": "0016a5c425c8",
-      "title": "해커들의 놀이터 된 ‘오픈클로우’... API 키 탈취와 악성코드의 심각한 온상돼 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5laFRQRlNuRktLaWlaUUlrVENpQWpVbzhzNm1EUnp4VUlXTzZ6V0FOanhBaFJFVl90WDBjOGt1RFVjalotS1ZDVEc5V2d4Mko2QUxBMGJZOFhiWnVwUkR3?oc=5",
-      "summary": "해커들의 놀이터 된 ‘오픈클로우’... API 키 탈취와 악성코드의 심각한 온상돼&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2026-02-23T08:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "악성코드",
       "level": "danger"
     },
     {
@@ -158,9 +136,9 @@
       "level": "danger"
     },
     {
-      "id": "ec9baf69d4bc",
+      "id": "c60ace48ab61",
       "title": "2026년 연초부터 뚫린 ‘대학병원’…랜섬웨어 ‘공포’ - 데일리메디",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE16MjltMDN0Ukh4Rzl5X1ZUZHBtc1dWYm5KMmNIQkZqaEpVN2ktck42Q0dxWDl5MHNvaGd5VzVpeGgyMXMtRVR4QlZpVTRYMzBYRHNzaXNzYVJRQWVLclJIa2t4MjctWXVz?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IQkd5UERoVktSN0N1UlFNMHJjSHFQZEsyVG5MVVZyZ2RuLURiZ2ZVU2ctREpsZUVteWxNOU14eFZmUU1ObVFxa0lMZ0czR3NmZWJoT2Z1cHdzWTQtZVotbk1oc0hkSVhaOUxZSA?oc=5",
       "summary": "2026년 연초부터 뚫린 ‘대학병원’…랜섬웨어 ‘공포’&nbsp;&nbsp;데일리메디",
       "pubDate": "2026-01-29T08:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
@@ -224,15 +202,15 @@
       "level": "warning"
     },
     {
-      "id": "b0a3bea65705",
-      "title": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보 - 월요신문",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5pMXRPZFZfUjRyZmV6ekljLWg3a3FNbWs1WWpJMGlBUXd0WXh0OV8yTkhNUjdjWlFTbUJnMm1PUGpjWWE4WlhHV1ptaTBqN0RzeExKYy12dUpTVHp3M0R5QjY2a1B0OEo4OFE?oc=5",
-      "summary": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보&nbsp;&nbsp;월요신문",
-      "pubDate": "2025-12-25T08:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
+      "id": "e6a533febac2",
+      "title": "사이버 보안 사고 ‘도미노’ 1년… 보안 기본 없었다 [아듀 2025] - IT조선",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5aZlQ4QkJ6b2V5MERGNFdPLTFaRVVvVlpBb01LNnFlckRQTDMydHZJdjVCeENndjlvU1dkeTVCamhHWUVvNWVnVVRBMTE1OVJhZEZka0l0NGVPdk1ucHRyNUk0VVJCbkFKdFRfOGFNNUbSAXRBVV95cUxQYVZvLXk4cEYzLUFoNDRDVkxaR3k4Y3MtNjdfdzdFbEhxMzdLQUJRQURrVWhZMGZPVUdUVEplNzBDbGhGX2V6ODREend4RTc2QVdBLUp3YloyQ3RFQVFNdUxyRUN1eGFLQWEwcS1lbmowbks1MQ?oc=5",
+      "summary": "사이버 보안 사고 ‘도미노’ 1년… 보안 기본 없었다 [아듀 2025]&nbsp;&nbsp;IT조선",
+      "pubDate": "2025-12-24T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
+      "category": "보안뉴스",
+      "level": "info"
     },
     {
       "id": "431a494c4acd",
@@ -244,6 +222,17 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger"
+    },
+    {
+      "id": "5a19fbfe7ca4",
+      "title": "[2025 보안 사고·이슈 결산-2] “갈아탈 곳도 없다” 해킹에 무너진 통신 3사 - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE82RzFsa3UtTmZfcHpNVVk3cERkSzBuY1N2WFVOOTRIbEtIcDMwOWJnTlR1YVY1d1o3WjRNeldxbEIwZVNDcjZpRFZxV05iMzNIdWVBRmxYSU82TnZSV1Br?oc=5",
+      "summary": "[2025 보안 사고·이슈 결산-2] “갈아탈 곳도 없다” 해킹에 무너진 통신 3사&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2025-12-15T08:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
     },
     {
       "id": "c727861d9d34",
@@ -290,17 +279,6 @@
       "level": "warning"
     },
     {
-      "id": "b2e9dfa3e58e",
-      "title": "롯데카드, 서버 악성코드 감염…\"고객 정보 유출 없는 듯\" - 디일렉",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB0aUl5N0pLcjhKRHdiSVRUZW9sY2dGUmdzVEFyY3ZMbEQ0OG1jQ09yNlJKdU5XcklQLXlzNWE5ZWxaek1MeWhXLVp1ZUtrVlRYLXN1RzE1cHBESzJDQ0xtU3hWSF9uUQ?oc=5",
-      "summary": "롯데카드, 서버 악성코드 감염…\"고객 정보 유출 없는 듯\"&nbsp;&nbsp;디일렉",
-      "pubDate": "2025-09-02T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "악성코드",
-      "level": "danger"
-    },
-    {
       "id": "76bc9cf3e369",
       "title": "[이슈&논란] 967만명 회원보유한 롯데카드 해킹…\"역대급 보안사고\"에 금융업계 비상 - 뉴스스페이스",
       "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBiR2twMXNVUVJkVXktR181dDVCSlJZVUJfZGNxUTAwazk2NTduVzdTSV9nMERJY2pNUnVZMVAxNlNMRjVYWXhYQUdRQVlmVGpCUTY2Y3loUUplNmVqLU9R?oc=5",
@@ -310,6 +288,28 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
+    },
+    {
+      "id": "6ed22d1c0065",
+      "title": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황 - 데일리시큐",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9aLXZXR3dtZ0dBLWh4eHNVSDFqSWVVTF9xQ01vYVl2b3dsbV9NX3R4V28yNmZ3REkwT1AxZkdfT1QwWW52MVlhNWRSS29kMjF6VkRNZV9WUWtld21ROFJyNGNUTFQzM0pnMVRNOQ?oc=5",
+      "summary": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황&nbsp;&nbsp;데일리시큐",
+      "pubDate": "2025-09-01T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
+      "id": "126c9c3c9b8b",
+      "title": "또 SSL-VPN 보안 미흡 랜섬웨어...해성디에스도 당해 - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1RT1cybFZXRWhnMkplMkk5U3d1ODI5NHkycEdyM2tXUWdUbTZYVVBrdmJSSnp1YzBZR3BIM0N1M3NCYlJYM1F5NTNvRFVqckRxZ1RmWmVBd1dCbE11ck5v?oc=5",
+      "summary": "또 SSL-VPN 보안 미흡 랜섬웨어...해성디에스도 당해&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2025-07-24T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
     },
     {
       "id": "3bbeddd72253",
