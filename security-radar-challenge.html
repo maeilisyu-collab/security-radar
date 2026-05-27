@@ -1705,8 +1705,8 @@ function openReader(idx){
     </div>
     <div class="reader-source-box">
       <div class="rsb-left">
-        <strong>${sourceLabel}</strong>
-        ${link ? sourceLabel + ' 원문 기사를 확인하세요' : '"' + title.slice(0,20) + '..." 관련 기사 검색'}
+        <strong>${title.slice(0,50)}${title.length>50?'…':''}</strong>
+        <span style="color:var(--muted);font-size:.8rem;">${sourceLabel}</span>
       </div>
       <a class="btn-orig" href="${link || searchLink}" target="_blank" rel="noopener noreferrer">
         ${link ? '🔗 원문 보기' : '🔍 관련 기사 검색'}
