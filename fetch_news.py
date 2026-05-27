@@ -52,7 +52,11 @@ from email.utils import parsedate_to_datetime
 RSS_SOURCES = [
     {
         "name": "KISA 보호나라",
-        "url": "https://www.kisa.or.kr/rss/rss.jsp",
+        "url": (
+            "https://news.google.com/rss/search"
+            "?q=KISA+보호나라+보안공지"
+            "&hl=ko&gl=KR&ceid=KR:ko"
+        ),
         "lang": "ko",
         "priority": 1,
     },
