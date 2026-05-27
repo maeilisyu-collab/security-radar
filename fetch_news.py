@@ -215,7 +215,7 @@ def fetch_source(source: dict) -> list:
 
         # AI 요약 생성
         ai = generate_ai_summary(title, summary)
-        time.sleep(0.3)  # API rate limit 방지
+        time.sleep(1.5)  # API rate limit 방지
 
         articles.append({
             "id":         uid,
