@@ -159,28 +159,31 @@ def generate_ai_summary(title: str, summary: str = "") -> dict | None:
 - analysis: 3~5개, 제목+설명 형식
 - 모두 한국어로"""
 
-    try:
-        resp = requests.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": api_key,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
-            json={
-                "model": "claude-haiku-4-5-20251001",
-                "max_tokens": 500,
-                "messages": [{"role": "user", "content": prompt}],
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        text = resp.json()["content"][0]["text"]
-        text = text.replace("```json", "").replace("```", "").strip()
-        return json.loads(text)
-    except Exception as e:
-        print(f"    ⚠ AI 요약 실패: {e}")
-        return None
+    for attempt in range(3):  # 최대 3회 재시도
+        try:
+            resp = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json",
+                },
+                json={
+                    "model": "claude-haiku-4-5-20251001",
+                    "max_tokens": 500,
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+                timeout=20,
+            )
+            resp.raise_for_status()
+            text = resp.json()["content"][0]["text"]
+            text = text.replace("```json", "").replace("```", "").strip()
+            return json.loads(text)
+        except Exception as e:
+            print(f"    ⚠ AI 요약 실패 (시도 {attempt+1}/3): {e}")
+            if attempt < 2:
+                time.sleep(2)
+    return None
 
 
 def fetch_source(source: dict) -> list:
