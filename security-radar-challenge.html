@@ -1624,20 +1624,31 @@ async function fetchNews(){
   document.getElementById('newsUpdated').textContent = '업데이트 중...';
   allArticles = [];
 
-  for(const feedUrl of KO_RSS_FEEDS){
-    try{
-      let items = await fetchViaRss2json(feedUrl);
-      if(items.length === 0){
-        // rss2json 실패 시 allorigins 시도
-        items = await fetchViaAllOrigins(feedUrl);
+  // ── 1순위: GitHub Actions가 매일 생성하는 news_data.json ──
+  try{
+    const r = await fetch('./news_data.json?_='+Date.now(), {signal:AbortSignal.timeout(8000)});
+    if(r.ok){
+      const d = await r.json();
+      if(d.articles && d.articles.length > 0){
+        allArticles = d.articles;
       }
-      allArticles = [...allArticles, ...items];
-    }catch(e){}
-  }
+    }
+  }catch(e){}
 
-  // 중복 제거 + 최신순 정렬
-  allArticles = deduplicateArticles(allArticles)
-    .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+  // ── 2순위(fallback): RSS 프록시 직접 fetch ──
+  if(allArticles.length === 0){
+    for(const feedUrl of KO_RSS_FEEDS){
+      try{
+        let items = await fetchViaRss2json(feedUrl);
+        if(items.length === 0){
+          items = await fetchViaAllOrigins(feedUrl);
+        }
+        allArticles = [...allArticles, ...items];
+      }catch(e){}
+    }
+    allArticles = deduplicateArticles(allArticles)
+      .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+  }
 
   if(allArticles.length===0){
     allArticles=getFallbackNews();
@@ -1673,9 +1684,14 @@ function openReader(idx){
   const a = allArticles[idx];
   if(!a) return;
   const title   = cleanHtml(a.title||'제목 없음');
-  const summary = cleanHtml(a.summary||a.description||'요약 정보가 없습니다.');
+  const rawSum  = cleanHtml(a.summary||a.description||'');
+  // 요약이 제목과 같거나 너무 짧으면 숨김
+  const titleShort = title.toLowerCase().trim().slice(0,30);
+  const isSameAsTitle = rawSum.toLowerCase().trim() === title.toLowerCase().trim()
+    || rawSum.toLowerCase().trim().startsWith(titleShort);
+  const summary = (!rawSum || isSameAsTitle || rawSum.length < 30) ? '' : rawSum;
   const cat     = boardCategorize(a.title||'');
-  const kps     = generateKeypoints(summary, title);
+  const kps     = generateKeypoints(rawSum||title, title);
   const pubDate = boardFormatDate(a.pubDate||new Date());
   const ago     = boardTimeAgo(a.pubDate||new Date());
   const source  = a.source||a.author||'보안레이더';
@@ -1696,7 +1712,7 @@ function openReader(idx){
       <span>📅 ${pubDate}</span>
       <span>🕐 ${ago}</span>
     </div>
-    <div class="reader-summary">${summary.slice(0,300)}${summary.length>300?'…':''}</div>
+    ${summary ? `<div class="reader-summary">${summary.slice(0,300)}${summary.length>300?'…':''}</div>` : ''}
     <div class="reader-keypoints">
       <h4>[ 핵심 포인트 ]</h4>
       ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
