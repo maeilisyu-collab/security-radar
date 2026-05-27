@@ -139,25 +139,14 @@ def generate_ai_summary(title: str, summary: str = "") -> dict | None:
     if not api_key:
         return None  # 키 없으면 건너뜀 (로컬 테스트용)
 
-    prompt = f"""보안 기사를 분석해서 JSON으로만 응답하세요. 다른 텍스트나 마크다운 없이 JSON만.
+    prompt = f"""보안 기사를 분석해서 JSON만 반환하세요. 마크다운 없이 JSON만.
 
-기사 제목: {title}
-기사 내용: {summary[:400] if summary else "없음"}
+제목: {title}
+내용: {summary[:300] if summary else "없음"}
 
-응답 형식:
-{{
-  "keypoints": ["핵심 요점 첫 번째 문장", "핵심 요점 두 번째 문장"],
-  "analysis": [
-    {{"title": "소제목1", "desc": "설명 1~2문장"}},
-    {{"title": "소제목2", "desc": "설명 1~2문장"}},
-    {{"title": "소제목3", "desc": "설명 1~2문장"}}
-  ]
-}}
+{{"keypoints":["핵심 요점 첫째 문장","핵심 요점 둘째 문장"],"analysis":[{{"title":"소제목1","desc":"설명1"}},{{"title":"소제목2","desc":"설명2"}},{{"title":"소제목3","desc":"설명3"}}]}}
 
-규칙:
-- keypoints: 정확히 2개, 각각 한 문장
-- analysis: 3~5개, 제목+설명 형식
-- 모두 한국어로"""
+keypoints 2개, analysis 3개, 모두 한국어로."""
 
     for attempt in range(3):  # 최대 3회 재시도
         try:
@@ -170,7 +159,7 @@ def generate_ai_summary(title: str, summary: str = "") -> dict | None:
                 },
                 json={
                     "model": "claude-haiku-4-5-20251001",
-                    "max_tokens": 500,
+                    "max_tokens": 1024,
                     "messages": [{"role": "user", "content": prompt}],
                 },
                 timeout=20,
