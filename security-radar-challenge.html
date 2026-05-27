@@ -1624,20 +1624,31 @@ async function fetchNews(){
   document.getElementById('newsUpdated').textContent = '업데이트 중...';
   allArticles = [];
 
-  for(const feedUrl of KO_RSS_FEEDS){
-    try{
-      let items = await fetchViaRss2json(feedUrl);
-      if(items.length === 0){
-        // rss2json 실패 시 allorigins 시도
-        items = await fetchViaAllOrigins(feedUrl);
+  // ── 1순위: GitHub Actions가 매일 생성하는 news_data.json ──
+  try{
+    const r = await fetch('./news_data.json?_='+Date.now(), {signal:AbortSignal.timeout(8000)});
+    if(r.ok){
+      const d = await r.json();
+      if(d.articles && d.articles.length > 0){
+        allArticles = d.articles;
       }
-      allArticles = [...allArticles, ...items];
-    }catch(e){}
-  }
+    }
+  }catch(e){}
 
-  // 중복 제거 + 최신순 정렬
-  allArticles = deduplicateArticles(allArticles)
-    .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+  // ── 2순위(fallback): RSS 프록시 직접 fetch ──
+  if(allArticles.length === 0){
+    for(const feedUrl of KO_RSS_FEEDS){
+      try{
+        let items = await fetchViaRss2json(feedUrl);
+        if(items.length === 0){
+          items = await fetchViaAllOrigins(feedUrl);
+        }
+        allArticles = [...allArticles, ...items];
+      }catch(e){}
+    }
+    allArticles = deduplicateArticles(allArticles)
+      .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+  }
 
   if(allArticles.length===0){
     allArticles=getFallbackNews();
@@ -1673,41 +1684,58 @@ function openReader(idx){
   const a = allArticles[idx];
   if(!a) return;
   const title   = cleanHtml(a.title||'제목 없음');
-  const summary = cleanHtml(a.summary||a.description||'요약 정보가 없습니다.');
   const cat     = boardCategorize(a.title||'');
-  const kps     = generateKeypoints(summary, title);
   const pubDate = boardFormatDate(a.pubDate||new Date());
   const ago     = boardTimeAgo(a.pubDate||new Date());
   const source  = a.source||a.author||'보안레이더';
-  // 제목 끝에서 실제 매체명 추출 (예: "기사 제목 - 보안뉴스" → "보안뉴스")
-  const titleSource = title.match(/[\-—]\s*([^\-—\|]{2,20})\s*$/);
-  const sourceLabel = (titleSource && titleSource[1].trim()) || source.replace(/Google 뉴스 — /,'');
   const link    = a.link && a.link !== '#' ? a.link : null;
   const searchQ = encodeURIComponent(title);
   const searchLink = 'https://www.google.com/search?q=' + searchQ + '+보안';
   const related = allArticles
     .filter((r,i) => i!==idx && boardCategorize(r.title||'').l === cat.l)
     .slice(0,3);
+
+  // AI 요약 데이터 (fetch_news.py가 생성)
+  const ai = a.ai_summary || null;
+  const kps = ai && ai.keypoints && ai.keypoints.length
+    ? ai.keypoints
+    : ['원문 기사에서 상세 내용을 확인하세요.'];
+  const analysisItems = ai && ai.analysis && ai.analysis.length
+    ? ai.analysis
+    : [];
+
+  // 원문 출처명 정리 (Google 뉴스 경유 기사는 실제 매체명 추출)
+  const sourceLabel = source.replace(/Google 뉴스 — /,'').replace(/"([^"]+)"/,'$1');
+
+  // textarea 기본값 미리 계산 (백틱 충돌 방지)
+  const defaultSummary = loadSummary(idx) ||
+    (ai && ai.analysis && ai.analysis.length
+      ? ai.analysis.map((item,i)=>(i+1)+'. '+(item.t||item.title)+'\n'+(item.d||item.desc)).join('\n\n')
+      : '');
+
   document.getElementById('readerTopTitle').textContent = title;
+  document.getElementById('readerPanel').scrollTop = 0;
   document.getElementById('readerBody').innerHTML = `
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
       <span class="board-cat ${cat.c}" style="font-size:.7rem">${cat.l}</span>
     </div>
     <div class="reader-h1">${title}</div>
     <div class="reader-byline">
-      <span>📰 ${source}</span>
+      <span>📰 ${sourceLabel}</span>
       <span>📅 ${pubDate}</span>
       <span>🕐 ${ago}</span>
     </div>
-    <div class="reader-summary">${summary.slice(0,300)}${summary.length>300?'…':''}</div>
+
     <div class="reader-keypoints">
       <h4>[ 핵심 포인트 ]</h4>
       ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
     </div>
+
+
     <div class="reader-source-box">
       <div class="rsb-left">
         <strong>${sourceLabel}</strong>
-        ${link ? sourceLabel + ' 원문 기사를 확인하세요' : '"' + title.slice(0,20) + '..." 관련 기사 검색'}
+        <span style="color:var(--muted);font-size:.8rem;">${link ? sourceLabel + ' 원문 기사를 확인하세요' : '"' + title.slice(0,20) + '..." 관련 기사 검색'}</span>
       </div>
       <a class="btn-orig" href="${link || searchLink}" target="_blank" rel="noopener noreferrer">
         ${link ? '🔗 원문 보기' : '🔍 관련 기사 검색'}
@@ -1743,7 +1771,7 @@ function openReader(idx){
       </p>
       <textarea class="summary-editor" id="summaryEditor_${idx}"
         placeholder="예) 이번 해킹 사고의 핵심은... / 한국 사용자가 지금 당장 해야 할 것은..."
-        oninput="autoSaveSummary(${idx}, this.value)">${loadSummary(idx)}</textarea>
+        oninput="autoSaveSummary(${idx}, this.value)">${defaultSummary}</textarea>
       <div class="summary-actions">
         <span class="summary-hint">💡 자동 저장됩니다</span>
         <div style="display:flex;align-items:center;gap:8px;">
