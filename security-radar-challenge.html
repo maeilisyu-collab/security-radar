@@ -53,7 +53,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
   -webkit-backdrop-filter:blur(12px);
 }
 .header-inner{
-  max-width:960px;margin:0 auto;
+  max-width:1200px;margin:0 auto;
   display:flex;align-items:center;gap:1.5rem;
   padding:.75rem 1.25rem;
 }
@@ -83,7 +83,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
 }
 
 /* ═══════════════════ LAYOUT ═══════════════════ */
-.page-shell{max-width:960px;margin:0 auto;padding:0 1.25rem 2rem;}
+.page-shell{max-width:1200px;margin:0 auto;padding:0 1.25rem 2rem;}
 
 .section-divider{
   display:flex;align-items:center;gap:12px;
@@ -1734,7 +1734,7 @@ function openReader(idx){
 
     <div class="reader-source-box">
       <div class="rsb-left">
-        <strong>${title}</strong>
+        <strong>${sourceLabel}</strong>
         <span style="color:var(--muted);font-size:.8rem;">${link ? sourceLabel + ' 원문 기사를 확인하세요' : '"' + title.slice(0,20) + '..." 관련 기사 검색'}</span>
       </div>
       <a class="btn-orig" href="${link || searchLink}" target="_blank" rel="noopener noreferrer">
