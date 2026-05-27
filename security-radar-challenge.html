@@ -1730,16 +1730,6 @@ function openReader(idx){
       ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
     </div>
 
-    ${analysisItems.length > 0 ? `
-    <div class="reader-keypoints" style="margin-top:1rem;">
-      <h4>[ 상세 분석 ]</h4>
-      ${analysisItems.map((item,i)=>`
-        <div class="kp-item" style="align-items:flex-start;margin-bottom:.6rem;">
-          <span style="color:var(--accent);font-weight:700;min-width:1.2rem;">${i+1}.</span>
-          <span><strong>${item.title}</strong><br>
-          <span style="color:var(--muted);font-size:.85rem;">${item.desc}</span></span>
-        </div>`).join('')}
-    </div>` : ''}
 
     <div class="reader-source-box">
       <div class="rsb-left">
