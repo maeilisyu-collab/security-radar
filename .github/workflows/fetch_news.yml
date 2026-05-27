@@ -1,20 +1,22 @@
 name: 보안 뉴스 자동 수집
+ 
 on:
   schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+    - cron: '0 1 * * *'   # 매일 한국시간 오전 10시 (UTC 01:00)
+  workflow_dispatch:        # 수동 실행 가능
+ 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install requests feedparser
+      - run: pip install requests feedparser anthropic
       - run: python fetch_news.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - name: 결과 커밋
         run: |
           git config user.name "news-bot"
@@ -22,3 +24,4 @@ jobs:
           git add news_data.json
           git diff --staged --quiet || git commit -m "뉴스 업데이트 $(date '+%Y-%m-%d %H:%M')"
           git push
+ 
