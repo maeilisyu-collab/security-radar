@@ -38,12 +38,12 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;}
-
+ 
 /* ═══════════════════ SCROLLBAR ═══════════════════ */
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:var(--bg2);}
 ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px;}
-
+ 
 /* ═══════════════════ HEADER ═══════════════════ */
 .site-header{
   position:sticky;top:0;z-index:100;
@@ -81,10 +81,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
   background:var(--bg3);border:1px solid var(--border);
   padding:4px 10px;border-radius:6px;flex-shrink:0;
 }
-
+ 
 /* ═══════════════════ LAYOUT ═══════════════════ */
 .page-shell{max-width:960px;margin:0 auto;padding:0 1.25rem 2rem;}
-
+ 
 .section-divider{
   display:flex;align-items:center;gap:12px;
   margin:3rem 0 1.5rem;
@@ -96,7 +96,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
 .section-divider::before,.section-divider::after{
   content:'';flex:1;height:1px;background:var(--border);
 }
-
+ 
 /* ═══════════════════ NEWS SECTION ═══════════════════ */
 .news-header{
   display:flex;align-items:center;justify-content:space-between;
@@ -112,7 +112,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
   animation:pulse 2s ease-in-out infinite;display:inline-block;
 }
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-
+ 
 .news-tabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
 .news-tab{
   font-size:.75rem;font-weight:600;padding:5px 14px;border-radius:99px;
@@ -121,9 +121,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
 }
 .news-tab.active{background:var(--green-d);border-color:rgba(0,230,118,.35);color:var(--green);}
 .news-tab:hover:not(.active){background:var(--bg3);color:var(--text);}
-
+ 
 .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
-
+ 
 .news-card{
   background:var(--bg2);border:1px solid var(--border);border-radius:12px;
   padding:16px;cursor:pointer;text-decoration:none;
@@ -142,7 +142,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
 .nc-time{font-size:.75rem;color:var(--muted);font-family:var(--mono);}
 .nc-title{font-size:1rem;font-weight:600;line-height:1.45;color:var(--text);margin-bottom:8px;}
 .nc-source{font-size:.82rem;color:var(--muted);}
-
+ 
 .news-loading{
   grid-column:1/-1;text-align:center;padding:3rem;
   font-family:var(--mono);font-size:.8rem;color:var(--muted);
@@ -153,19 +153,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
   animation:shimmer 1.5s ease-in-out infinite;
 }
 @keyframes shimmer{0%,100%{opacity:.5;}50%{opacity:1;}}
-
+ 
 /* ═══════════════════ DIAGNOSTIC (original) ═══════════════════ */
 .diag-wrap{
   background:var(--bg2);border:1px solid var(--border);
   border-radius:16px;padding:2rem 1.5rem;
 }
-
+ 
 #landing{text-align:center;padding:3rem 0 2rem;}
 .scan-icon{width:72px;height:72px;margin:0 auto 1.5rem;position:relative;}
 .scan-icon svg{width:100%;height:100%;}
 .scan-ring{animation:spin 3s linear infinite;transform-origin:center;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
+ 
 h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.75rem;}
 h1 span{color:var(--green);}
 .subtitle{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:440px;margin:0 auto 2rem;}
@@ -178,7 +178,7 @@ h1 span{color:var(--green);}
 .btn-scan:hover{opacity:.9;transform:translateY(-1px);}
 .trust-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:1.25rem;}
 .trust-tag{font-size:.72rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:3px 11px;border-radius:99px;}
-
+ 
 #scanning{display:none;}
 .terminal{
   background:#07090e;border:1px solid var(--border);border-radius:10px;
@@ -196,12 +196,12 @@ h1 span{color:var(--green);}
 .progress-bar-wrap{background:var(--bg3);border-radius:6px;height:5px;overflow:hidden;}
 .progress-bar{height:100%;background:var(--green);border-radius:6px;width:0%;transition:width .4s ease;}
 .progress-label{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:5px;text-align:right;}
-
+ 
 #diag-results{display:none;}
 .d-section-head{display:flex;align-items:center;gap:8px;margin:1.5rem 0 .75rem;}
 .d-section-head h3{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
 .d-section-head::after{content:'';flex:1;height:1px;background:var(--border);}
-
+ 
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:.5rem;}
 .dcard{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:border-color .2s;}
 .dcard:hover{border-color:var(--border2);}
@@ -214,7 +214,7 @@ h1 span{color:var(--green);}
 .b-bad{background:var(--red-d);color:var(--red);}
 .b-info{background:var(--blue-d);color:var(--blue);}
 .b-purple{background:rgba(206,147,216,0.12);color:var(--purple);}
-
+ 
 .check-list{display:flex;flex-direction:column;gap:7px;}
 .check-item{
   display:flex;align-items:center;justify-content:space-between;
@@ -225,7 +225,7 @@ h1 span{color:var(--green);}
 .check-name{font-size:.85rem;font-weight:500;}
 .check-desc{font-size:.7rem;color:var(--muted);margin-top:1px;}
 .check-status{font-family:var(--mono);font-size:.68rem;padding:2px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
-
+ 
 .checklist-item{
   display:flex;align-items:flex-start;gap:10px;
   background:var(--bg3);border:1px solid var(--border);border-radius:9px;
@@ -237,7 +237,7 @@ h1 span{color:var(--green);}
 .cl-title{font-size:.85rem;font-weight:500;}
 .cl-desc{font-size:.7rem;color:var(--muted);margin-top:2px;line-height:1.5;}
 .cl-pts{font-family:var(--mono);font-size:.68rem;color:var(--green);margin-left:auto;flex-shrink:0;padding-top:2px;}
-
+ 
 .btn-calc{
   width:100%;margin-top:1.25rem;
   display:flex;align-items:center;justify-content:center;gap:8px;
@@ -246,7 +246,7 @@ h1 span{color:var(--green);}
   transition:opacity .15s;
 }
 .btn-calc:hover{opacity:.88;}
-
+ 
 #score-section{display:none;}
 .score-wrap{
   text-align:center;padding:2rem 1rem;
@@ -279,7 +279,7 @@ h1 span{color:var(--green);}
   font-family:var(--sans);font-size:.85rem;padding:9px 20px;border-radius:8px;cursor:pointer;transition:background .15s;
 }
 .btn-outline-green:hover{background:var(--green-d);}
-
+ 
 /* ═══════════════════ STATS SECTION ═══════════════════ */
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:1.25rem;}
 .stat-card{
@@ -291,14 +291,14 @@ h1 span{color:var(--green);}
 .stat-card-trend{font-size:.72rem;margin-top:4px;}
 .trend-up{color:var(--green);}
 .trend-dn{color:var(--red);}
-
+ 
 .chart-box{
   background:var(--bg2);border:1px solid var(--border);border-radius:12px;
   padding:18px;margin-bottom:1rem;
 }
 .chart-title{font-size:.82rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
 .chart-title span{font-size:.7rem;color:var(--muted);font-family:var(--mono);}
-
+ 
 .ad-panel{
   background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;
 }
@@ -308,7 +308,7 @@ h1 span{color:var(--green);}
 .ad-metric-label{font-size:.65rem;color:var(--muted);margin-bottom:4px;font-family:var(--mono);}
 .ad-metric-value{font-size:1.1rem;font-weight:700;}
 .ad-metric-note{font-size:.62rem;color:var(--muted);margin-top:2px;}
-
+ 
 /* ═══════════════════ AFFILIATE ═══════════════════ */
 .aff-section{
   margin-top:1.5rem;
@@ -321,7 +321,7 @@ h1 span{color:var(--green);}
 }
 .aff-header-title{font-size:.88rem;font-weight:600;color:var(--text);}
 .aff-header-sub{font-size:.72rem;color:var(--muted);margin-left:auto;font-family:var(--mono);}
-
+ 
 .aff-item{
   display:grid;
   grid-template-columns:48px 1fr auto;
@@ -331,7 +331,7 @@ h1 span{color:var(--green);}
 }
 .aff-item:last-child{border-bottom:none;}
 .aff-item:hover{background:var(--bg3);}
-
+ 
 .aff-icon{
   width:44px;height:44px;border-radius:10px;
   display:flex;align-items:center;justify-content:center;
@@ -340,12 +340,12 @@ h1 span{color:var(--green);}
 .aff-icon-vpn{background:rgba(0,180,216,0.15);border:1px solid rgba(0,180,216,0.3);}
 .aff-icon-av{background:rgba(0,230,118,0.12);border:1px solid rgba(0,230,118,0.25);}
 .aff-icon-mw{background:rgba(255,77,77,0.12);border:1px solid rgba(255,77,77,0.25);}
-
+ 
 .aff-info{min-width:0;}
 .aff-rank{font-size:.62rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
 .aff-name{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:2px;}
 .aff-desc{font-size:.75rem;color:var(--muted);line-height:1.45;}
-
+ 
 .aff-btns{display:flex;flex-direction:column;gap:6px;flex-shrink:0;}
 .aff-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
@@ -358,14 +358,14 @@ h1 span{color:var(--green);}
 .aff-btn-sub{background:var(--green);color:#000;}
 .aff-btn-one{background:transparent;color:var(--green);border:1px solid rgba(0,230,118,.4);}
 .aff-btn-one:hover{background:var(--green-d);}
-
+ 
 .aff-badge{
   display:inline-block;font-size:.58rem;font-family:var(--mono);font-weight:700;
   padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;
 }
 .aff-badge-hot{background:var(--red-d);color:var(--red);}
 .aff-badge-rec{background:var(--green-d);color:var(--green);}
-
+ 
 /* ── 아마존 배너 ── */
 .amz-banners{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -387,7 +387,7 @@ h1 span{color:var(--green);}
   font-size:.7rem;font-weight:700;color:#FF9900;
   font-family:var(--mono);flex-shrink:0;
 }
-
+ 
 /* ── QUICK FIX BAR ── */
 .quick-fix-bar{
   margin:1rem 0 .5rem;
@@ -411,18 +411,18 @@ h1 span{color:var(--green);}
 .qf-vpn{background:rgba(0,180,216,0.15);color:#00b4d8;border:1px solid rgba(0,180,216,0.3);}
 .qf-av{background:rgba(0,230,118,0.12);color:#00e676;border:1px solid rgba(0,230,118,0.25);}
 .qf-mw{background:rgba(255,77,77,0.12);color:#ff6b6b;border:1px solid rgba(255,77,77,0.25);}
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
 .site-footer{
   border-top:1px solid var(--border);
   text-align:center;font-size:.72rem;color:var(--muted);
   padding:1.5rem 1.25rem;line-height:1.8;margin-top:1rem;
 }
-
+ 
 /* ═══════════════════ CHALLENGE ═══════════════════ */
 .challenge-box{
   background:linear-gradient(135deg,rgba(0,230,118,0.06) 0%,rgba(64,196,255,0.06) 100%);
@@ -463,7 +463,7 @@ h1 span{color:var(--green);}
 }
 .my-score-num{font-size:1.6rem;font-weight:700;font-family:var(--mono);}
 .my-score-grade{font-size:1rem;font-family:var(--mono);}
-
+ 
 /* ═══════════════════ LEADERBOARD ═══════════════════ */
 .lb-wrap{
   background:var(--bg2);border:1px solid var(--border);
@@ -518,8 +518,8 @@ h1 span{color:var(--green);}
   font-size:.65rem;color:var(--muted);font-family:var(--mono);
   border-top:1px solid var(--border);
 }
-
-
+ 
+ 
 /* READER PANEL */
 .reader-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px);}
 .reader-overlay.open{opacity:1;pointer-events:all;}
@@ -543,7 +543,7 @@ h1 span{color:var(--green);}
 .btn-orig{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#000;font-family:var(--sans);font-weight:700;font-size:.78rem;padding:8px 16px;border:none;border-radius:7px;cursor:pointer;transition:opacity .15s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
 .btn-orig:hover{opacity:.88;}
 .reader-related h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;}
-
+ 
 /* ── SUMMARY EDITOR ── */
 .summary-section{margin-top:2rem;border-top:1px solid var(--border);padding-top:1.5rem;}
 .summary-section h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.85rem;}
@@ -578,7 +578,7 @@ h1 span{color:var(--green);}
   font-size:.7rem;color:var(--green);font-family:var(--mono);
   display:none;align-items:center;gap:4px;
 }
-
+ 
 /* ── REACTION BAR ── */
 .reaction-bar{
   display:flex;align-items:center;gap:8px;
@@ -595,7 +595,7 @@ h1 span{color:var(--green);}
 .reaction-btn.reacted{background:var(--green-d);border-color:rgba(0,230,118,.35);color:var(--green);}
 .reaction-btn.reacted-warn{background:var(--amber-d);border-color:rgba(255,179,0,.35);color:var(--amber);}
 .reaction-count{font-family:var(--mono);font-size:.72rem;}
-
+ 
 /* ── 보안 히스토리 ── */
 .history-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
 .history-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
@@ -606,7 +606,7 @@ h1 span{color:var(--green);}
 .history-fill{height:100%;border-radius:3px;transition:width .6s ease;}
 .history-score{font-weight:700;width:40px;text-align:right;flex-shrink:0;}
 .history-diff{font-size:.7rem;width:40px;text-align:right;flex-shrink:0;}
-
+ 
 /* ── VPN 비교 ── */
 .vpn-compare-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
 .vpn-compare-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
@@ -619,7 +619,7 @@ h1 span{color:var(--green);}
   border:1px solid rgba(64,196,255,0.25);border-radius:8px;color:var(--blue);
   font-size:.8rem;font-weight:600;cursor:pointer;font-family:var(--sans);}
 .vpn-save-btn:hover{background:rgba(64,196,255,0.2);}
-
+ 
 /* ── 공유 버튼 ── */
 .share-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:.5rem;}
 .share-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;
@@ -630,20 +630,20 @@ h1 span{color:var(--green);}
 .share-twitter{background:#1DA1F2;color:#fff;}
 .share-copy{background:var(--bg4);color:var(--text);border:1px solid var(--border)!important;}
 .share-img{background:var(--green);color:#000;}
-
+ 
 #shareCanvas{display:none;}
-
+ 
 .related-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
 .related-row:last-child{border:none;}
 .related-row:hover .related-title{color:var(--green);}
 .related-arrow{color:var(--muted);font-size:.75rem;flex-shrink:0;}
 .related-title{font-size:.82rem;color:var(--text);transition:color .15s;flex:1;}
 .related-time{font-size:.66rem;color:var(--muted);font-family:var(--mono);flex-shrink:0;}
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="site-header">
   <div class="header-inner">
@@ -659,9 +659,9 @@ h1 span{color:var(--green);}
     <div class="live-clock" id="liveClock">00:00:00</div>
   </div>
 </header>
-
+ 
 <div class="page-shell">
-
+ 
   <!-- ══════════════ NEWS ══════════════ -->
   <div id="news-section" style="padding-top:2rem;">
     <div class="news-header">
@@ -686,7 +686,7 @@ h1 span{color:var(--green);}
       <div class="news-skeleton"></div>
     </div>
   </div>
-
+ 
   <!-- READER OVERLAY + PANEL -->
   <div class="reader-overlay" id="readerOverlay" onclick="closeReader()"></div>
   <div class="reader-panel" id="readerPanel">
@@ -696,11 +696,11 @@ h1 span{color:var(--green);}
     </div>
     <div class="reader-body" id="readerBody"></div>
   </div>
-
+ 
   <!-- ══════════════ DIAGNOSTIC ══════════════ -->
   <div class="section-divider" id="diag-section"><h2>🔍 무료 PC 보안 진단</h2></div>
   <div class="diag-wrap">
-
+ 
     <section id="landing">
       <div class="scan-icon">
         <svg viewBox="0 0 80 80" fill="none">
@@ -727,7 +727,7 @@ h1 span{color:var(--green);}
         <span class="trust-tag">🔑 보안 키 감지</span>
       </div>
     </section>
-
+ 
     <section id="scanning">
       <div class="terminal">
         <div class="terminal-bar">
@@ -741,7 +741,7 @@ h1 span{color:var(--green);}
       <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
       <div class="progress-label" id="progressLabel">0%</div>
     </section>
-
+ 
     <section id="diag-results">
       <div class="d-section-head"><h3>🌐 네트워크 · IP 정보</h3></div>
       <div id="ipExpandCard" style="margin-bottom:10px;"></div>
@@ -754,7 +754,7 @@ h1 span{color:var(--green);}
       <div id="manualChecklist"></div>
       <button class="btn-calc" id="calcBtn">📊 최종 보안 점수 계산하기</button>
     </section>
-
+ 
     <section id="score-section">
       <div class="d-section-head"><h3>📊 최종 진단 결과</h3></div>
       <div class="score-wrap">
@@ -767,7 +767,7 @@ h1 span{color:var(--green);}
           <button class="btn-ghost" id="shareBtn">📋 결과 공유하기</button>
           <button class="btn-outline-green" id="retryBtn">↺ 다시 진단</button>
         </div>
-
+ 
         <!-- 공유 버튼 확장 -->
         <div class="share-btns" id="shareBtns" style="display:none;">
           <button class="share-btn share-img" id="shareImgBtn">🖼️ 이미지 저장</button>
@@ -776,13 +776,13 @@ h1 span{color:var(--green);}
           <button class="share-btn share-copy" id="shareCopyBtn">📋 텍스트 복사</button>
         </div>
         <canvas id="shareCanvas" width="600" height="340"></canvas>
-
+ 
         <!-- 보안 히스토리 -->
         <div class="history-wrap" id="historyWrap" style="display:none;">
           <div class="history-title">📈 내 보안 점수 히스토리</div>
           <div class="history-list" id="historyList"></div>
         </div>
-
+ 
         <!-- VPN 전후 비교 -->
         <div class="vpn-compare-wrap" id="vpnCompareWrap">
           <div class="vpn-compare-title">🔒 VPN 효과 측정</div>
@@ -802,7 +802,7 @@ h1 span{color:var(--green);}
             💾 현재 결과를 "VPN 전" 데이터로 저장
           </button>
         </div>
-
+ 
         <!-- 챌린지 참여 박스 -->
         <div class="challenge-box" id="challengeBox">
           <div class="challenge-title">🏆 <span>보안 점수 챌린지</span>에 참여하세요!</div>
@@ -826,14 +826,14 @@ h1 span{color:var(--green);}
         </div>
       </div>
     </section>
-
+ 
   </div><!-- /diag-wrap -->
-
+ 
   <!-- ══════════════ STATS ══════════════ -->
   <div class="section-divider" id="stats-section"><h2>📊 방문자 통계 & 광고 지표</h2></div>
-
+ 
   <div class="stats-grid" id="statsCards"></div>
-
+ 
   <div class="chart-box">
     <div class="chart-title">
       시간대별 방문자 분포 (오늘)
@@ -843,14 +843,14 @@ h1 span{color:var(--green);}
       <canvas id="hourChart" role="img" aria-label="시간대별 방문자 분포 차트">시간대별 방문자 수 데이터</canvas>
     </div>
   </div>
-
+ 
   <div class="chart-box">
     <div class="chart-title">최근 7일 방문자 추이 <span>누적 로컬 데이터</span></div>
     <div style="position:relative;height:180px;">
       <canvas id="weekChart" role="img" aria-label="최근 7일 방문자 추이 차트">7일 방문자 추이 데이터</canvas>
     </div>
   </div>
-
+ 
   <div class="ad-panel">
     <div class="ad-panel-title">📢 광고 운영 지표 (애드핏 · 구글 애드센스 연동용)</div>
     <div class="ad-metrics" id="adMetrics"></div>
@@ -859,7 +859,7 @@ h1 span{color:var(--green);}
       <strong style="color:var(--muted2);">Kakao Adfit</strong> 또는 <strong style="color:var(--muted2);">Google Analytics 4</strong>를 추가 연동하세요.
     </p>
   </div>
-
+ 
   <!-- ══════════════ LEADERBOARD ══════════════ -->
   <div class="section-divider"><h2>🏆 보안 점수 챌린지 — 실시간 TOP 5</h2></div>
   <div class="lb-wrap" id="leaderboardWrap">
@@ -872,23 +872,23 @@ h1 span{color:var(--green);}
     </div>
     <div class="lb-updated" id="lbUpdated">—</div>
   </div>
-
+ 
   <!-- ══════════════ AFFILIATE PRODUCTS ══════════════ -->
   <div class="section-divider" style="margin-top:2rem;"><h2>🛡️ 내 PC를 지금 바로 보호하세요</h2></div>
-
+ 
   <!-- 점수별 개인화 메시지 -->
   <div id="affPersonalMsg" style="
     background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.2);
     border-radius:10px;padding:12px 18px;margin-bottom:1rem;
     font-size:.85rem;color:var(--muted2);line-height:1.6;display:none;">
   </div>
-
+ 
   <div class="aff-section" id="affSection">
     <div class="aff-header">
       <div class="aff-header-title">✅ 보안 전문가들이 실제로 사용하는 검증된 솔루션</div>
       <div class="aff-header-sub">무료 체험 가능 · 환불 보장</div>
     </div>
-
+ 
     <!-- 1. VPN -->
     <div class="aff-item">
       <div class="aff-icon aff-icon-vpn">🌐</div>
@@ -906,7 +906,7 @@ h1 span{color:var(--green);}
         </a>
       </div>
     </div>
-
+ 
     <!-- 2. 백신 -->
     <div class="aff-item">
       <div class="aff-icon aff-icon-av">🛡️</div>
@@ -924,7 +924,7 @@ h1 span{color:var(--green);}
         </a>
       </div>
     </div>
-
+ 
     <!-- 3. 멀웨어 -->
     <div class="aff-item">
       <div class="aff-icon aff-icon-mw">🔍</div>
@@ -942,7 +942,7 @@ h1 span{color:var(--green);}
         </a>
       </div>
     </div>
-
+ 
     <!-- 4. PC 최적화 -->
     <div class="aff-item">
       <div class="aff-icon" style="background:rgba(255,165,0,0.12);font-size:1.4rem;">🧹</div>
@@ -960,7 +960,7 @@ h1 span{color:var(--green);}
         </a>
       </div>
     </div>
-
+ 
     <!-- 5. Revo Uninstaller -->
     <div class="aff-item">
       <div class="aff-icon" style="background:rgba(100,149,237,0.12);font-size:1.4rem;">🗑️</div>
@@ -983,9 +983,9 @@ h1 span{color:var(--green);}
         </a>
       </div>
     </div>
-
+ 
   </div><!-- /aff-section -->
-
+ 
   <!-- ══════════════ AMAZON BANNERS ══════════════ -->
   <div class="section-divider">
     <h2>🛒 하드웨어로 더 강하게 보호하기</h2>
@@ -1010,9 +1010,9 @@ h1 span{color:var(--green);}
       <div class="amz-banner-cta">보러가기 ↗</div>
     </a>
   </div><!-- /amz-banners -->
-
+ 
 </div><!-- /page-shell -->
-
+ 
 <footer class="site-footer">
   <button onclick="goHome()"
     style="display:inline-flex;align-items:center;gap:6px;
@@ -1026,7 +1026,7 @@ h1 span{color:var(--green);}
   뉴스 출처: KISA 보호나라 · 보안뉴스 · Google News (한국)<br>
   ※ 진단 데이터는 서버로 전송되지 않습니다. 개인정보 보호 정책 적용.
 </footer>
-
+ 
 <!-- ══════════════ SCRIPTS ══════════════ -->
 <script>
 /* ════════════════════════════════════════════════
@@ -1035,7 +1035,7 @@ h1 span{color:var(--green);}
 (function(){
   const host = location.hostname;
   const protocol = location.protocol;
-
+ 
   // 허용 도메인 목록 — 도메인 구매 후 실제 주소로 교체하세요
   const ALLOWED_DOMAINS = [
     'securityradar.com',
@@ -1048,10 +1048,10 @@ h1 span{color:var(--green);}
     'localhost',
     '127.0.0.1',
   ];
-
+ 
   const isFile   = protocol === 'file:';
   const isLocal  = ALLOWED_DOMAINS.includes(host);
-
+ 
   // file:// 로컬 파일로 열었을 때 차단
   if(isFile){
     document.documentElement.innerHTML = `
@@ -1089,7 +1089,7 @@ h1 span{color:var(--green);}
     return;
   }
 })();
-
+ 
 /* ════════════════════════════════════════════════
    ★ FIREBASE 설정 — 본인 Firebase 프로젝트 값으로 교체하세요
    console.firebase.google.com → 프로젝트 생성 →
@@ -1104,10 +1104,10 @@ const FIREBASE_CONFIG = {
   messagingSenderId: "681124719283",
   appId:             "1:681124719283:web:527cf17588a061a8e35ec6"
 };
-
+ 
 let db = null;
 let firebaseReady = false;
-
+ 
 function initFirebase(){
   // 즉시 데모 랭킹 먼저 표시
   renderDemoLeaderboard();
@@ -1126,7 +1126,7 @@ function initFirebase(){
     // 데모 데이터는 이미 표시 중 — 그대로 유지
   }
 }
-
+ 
 /* ─── 실시간 랭킹 리스닝 ─── */
 function listenLeaderboard(){
   if(!firebaseReady || !db) return;
@@ -1137,7 +1137,7 @@ function listenLeaderboard(){
       const rows = [];
       snap.forEach(child=>rows.push(child.val()));
       rows.sort((a,b)=>b.score-a.score);
-
+ 
       if(rows.length > 0){
         // 5개 미만이면 데모 데이터로 나머지 채우기
         const demoFill = [
@@ -1159,11 +1159,11 @@ function listenLeaderboard(){
       }
     });
 }
-
+ 
 /* ─── 랭킹 렌더링 ─── */
 const RANK_EMOJI = ['🥇','🥈','🥉','4️⃣','5️⃣'];
 const RANK_CLASS = ['rank-1','rank-2','rank-3','rank-other','rank-other'];
-
+ 
 function gradeColor(score){
   if(score>=90) return '#00e676';
   if(score>=80) return '#00e676';
@@ -1180,7 +1180,7 @@ function gradeLabel(score){
   if(score>=40) return 'D';
   return 'F';
 }
-
+ 
 function renderLeaderboard(rows){
   const list = document.getElementById('leaderboardList');
   const updated = document.getElementById('lbUpdated');
@@ -1208,7 +1208,7 @@ function renderLeaderboard(rows){
   if(updated) updated.textContent =
     '마지막 업데이트: '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
 }
-
+ 
 /* ─── 데모 랭킹 (Firebase 미설정 시) ─── */
 function renderDemoLeaderboard(){
   const demo = [
@@ -1222,11 +1222,11 @@ function renderDemoLeaderboard(){
   const updated = document.getElementById('lbUpdated');
   if(updated) updated.textContent = '🏆 지금 진단하고 랭킹에 도전해보세요!';
 }
-
+ 
 /* ─── 챌린지 점수 등록 ─── */
 let _challengeScore = 0;
 let _challengeGrade = '';
-
+ 
 function openChallengeBox(score, grade){
   _challengeScore = score;
   _challengeGrade = grade;
@@ -1237,19 +1237,19 @@ function openChallengeBox(score, grade){
   if(gs) gs.style.color = gradeColor(score);
   if(sn) sn.style.color = gradeColor(score);
 }
-
+ 
 async function submitToChallenge(){
   const nickEl  = document.getElementById('challengeNick');
   const resultEl= document.getElementById('challengeResult');
   const btn     = document.getElementById('challengeSubmitBtn');
   const nick    = (nickEl&&nickEl.value.trim()) || '익명';
-
+ 
   if(!resultEl||!btn) return;
-
+ 
   btn.disabled = true;
   resultEl.className='challenge-result';
   resultEl.textContent='🔄 등록 중...';
-
+ 
   try{
     if(firebaseReady && db){
       const os      = detectOS();
@@ -1280,10 +1280,10 @@ async function submitToChallenge(){
     }, 600);
   }
 }
-
+ 
 // Firebase 초기화
 window.addEventListener('load', initFirebase);
-
+ 
 /* ─── CLOCK ─── */
 function toggleFpGuide(){
   const g=document.getElementById('fpGuide'), b=document.getElementById('fpGuideBtn');
@@ -1299,7 +1299,7 @@ function toggleCvGuide(){
   g.style.display=open?'block':'none';
   b.textContent=open?'⚡ Canvas 추적 차단 방법 ▲':'⚡ Canvas 추적 차단 방법 ▼';
 }
-
+ 
 function toggleBsecGuide(){
   const guide = document.getElementById('bsecGuide');
   const btn   = document.getElementById('bsecGuideBtn');
@@ -1310,7 +1310,7 @@ function toggleBsecGuide(){
     ? '⚡ 브라우저별 추적방지 설정법 ▲'
     : '⚡ 브라우저별 추적방지 설정법 ▼';
 }
-
+ 
 function toggleWebRTCGuide(){
   const guide = document.getElementById('webrtcGuide');
   const btn   = document.getElementById('webrtcGuideBtn');
@@ -1321,7 +1321,7 @@ function toggleWebRTCGuide(){
     ? '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▲'
     : '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▼';
 }
-
+ 
 function toggleIPReveal(){
   const panel = document.getElementById('ipRevealPanel');
   const arrow = document.getElementById('ipRevealArrow');
@@ -1331,54 +1331,54 @@ function toggleIPReveal(){
   arrow.textContent   = open ? '▲ 닫기' : '▼ 내 위치 확인';
   card.style.borderColor = open ? 'rgba(255,77,77,0.4)' : 'rgba(255,180,0,0.3)';
 }
-
+ 
 function goHome(){
   // 스캔 관련 섹션 숨기기
   ['scanning','diag-results','score-section'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.style.display='none';
   });
-
+ 
   // 랜딩(스타트 버튼) 섹션 다시 보이기
   const landing=document.getElementById('landing');
   if(landing) landing.style.display='';
-
+ 
   // 카드 초기화
   ['ipExpandCard','netCards','sysCards','autoChecks','manualChecklist'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.innerHTML='';
   });
-
+ 
   // 로딩바·로그 초기화
   const lb=document.getElementById('loadingBar');
   if(lb) lb.style.display='none';
   const log=document.getElementById('logBox');
   if(log) log.innerHTML='';
-
+ 
   // 스타트 버튼 복원
   const btn=document.getElementById('startBtn');
   if(btn) btn.disabled=false;
-
+ 
   // 맨 위로 — 뉴스 재로딩 없음
   window.scrollTo({top:0, behavior:'smooth'});
 }
-
+ 
 function tickClock(){
   const now=new Date();
   document.getElementById('liveClock').textContent=
     now.toLocaleTimeString('ko-KR',{hour12:false});
 }
 tickClock(); setInterval(tickClock,1000);
-
+ 
 /* ─── VISITOR STATS ─── */
 const TODAY = new Date().toISOString().slice(0,10);
 const STORE_KEY = 'sr_stats_v2';
-
+ 
 function loadStats(){
   try{ return JSON.parse(localStorage.getItem(STORE_KEY))||{}; }catch{ return {}; }
 }
 function saveStats(d){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(d)); }catch{} }
-
+ 
 function recordVisit(){
   const d = loadStats();
   const h = new Date().getHours();
@@ -1388,7 +1388,7 @@ function recordVisit(){
   saveStats(d);
   return d;
 }
-
+ 
 function getLast7Days(){
   const d=loadStats(); const res=[];
   for(let i=6;i>=0;i--){
@@ -1398,12 +1398,12 @@ function getLast7Days(){
   }
   return res;
 }
-
+ 
 function getTotalAll(){
   const d=loadStats();
   return Object.values(d).reduce((s,v)=>s+(v.total||0),0);
 }
-
+ 
 function renderStats(data){
   const today=data[TODAY]||{total:0,hours:Array(24).fill(0)};
   const yesterday=new Date(); yesterday.setDate(yesterday.getDate()-1);
@@ -1412,9 +1412,9 @@ function renderStats(data){
   const diff=today.total-ydTotal;
   const totalAll=getTotalAll();
   const peakHour=today.hours.indexOf(Math.max(...today.hours));
-
+ 
   document.getElementById('statsDate').textContent=TODAY;
-
+ 
   document.getElementById('statsCards').innerHTML=`
     <div class="stat-card">
       <div class="stat-card-label">오늘 방문자</div>
@@ -1438,14 +1438,14 @@ function renderStats(data){
       <div class="stat-card-sub">최다 방문 시간대</div>
     </div>
   `;
-
+ 
   const device = /Mobile|Android|iPhone|iPad/.test(navigator.userAgent)?'모바일':'데스크톱';
   const browser = detectBrowser();
   document.getElementById('adMetrics').innerHTML=`
     <div class="ad-metric"><div class="ad-metric-label">추정 기기 타입</div><div class="ad-metric-value">${device}</div><div class="ad-metric-note">현재 접속</div></div>
     <div class="ad-metric"><div class="ad-metric-label">브라우저</div><div class="ad-metric-value" style="font-size:.85rem">${browser.split(' ')[0]}</div><div class="ad-metric-note">현재 접속</div></div>
   `;
-
+ 
   /* hour chart */
   const hLabels=Array.from({length:24},(_,i)=>i+'시');
   const hData=today.hours;
@@ -1469,7 +1469,7 @@ function renderStats(data){
       }
     }
   });
-
+ 
   /* week chart */
   const week=getLast7Days();
   new Chart(document.getElementById('weekChart'),{
@@ -1493,13 +1493,13 @@ function renderStats(data){
     }
   });
 }
-
+ 
 const statsData = recordVisit();
 renderStats(statsData);
-
+ 
 /* ─── NEWS FETCH ─── */
 let allArticles=[];
-
+ 
 // ── 한국어 보안 뉴스 소스만 (영어 제거)
 // rss2json.com 무료 = 하루 60회 제한 → 복수 프록시로 대응
 const KO_RSS_FEEDS = [
@@ -1512,12 +1512,12 @@ const KO_RSS_FEEDS = [
   // 보안뉴스 직접 RSS
   'https://www.boannews.com/rss/rss_all.xml',
 ];
-
+ 
 const RSS_PROXIES = [
   url => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&count=12&_=${Date.now()}`,
   url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}&_=${Date.now()}`,
 ];
-
+ 
 const CATEGORY_MAP=[
   {k:'랜섬웨어',c:'badge-red',label:'랜섬웨어'},
   {k:'ransomware',c:'badge-red',label:'Ransomware'},
@@ -1535,7 +1535,7 @@ const CATEGORY_MAP=[
   {k:'제로데이',c:'badge-red',label:'제로데이'},
   {k:'zero-day',c:'badge-red',label:'제로데이'},
 ];
-
+ 
 function categorize(title){
   const t=title.toLowerCase();
   for(const m of CATEGORY_MAP){
@@ -1543,7 +1543,7 @@ function categorize(title){
   }
   return {cls:'badge-blue',label:'보안뉴스'};
 }
-
+ 
 function timeAgo(dateStr){
   const diff=(Date.now()-new Date(dateStr).getTime())/1000;
   if(diff<60) return '방금 전';
@@ -1551,7 +1551,7 @@ function timeAgo(dateStr){
   if(diff<86400) return Math.floor(diff/3600)+'시간 전';
   return Math.floor(diff/86400)+'일 전';
 }
-
+ 
 function deduplicateArticles(articles){
   const seen = new Set();
   return articles.filter(a=>{
@@ -1560,7 +1560,7 @@ function deduplicateArticles(articles){
     seen.add(key); return true;
   });
 }
-
+ 
 function renderNews(articles){
   const grid=document.getElementById('newsGrid');
   if(!articles||articles.length===0){
@@ -1581,7 +1581,7 @@ function renderNews(articles){
     </div>`;
   }).join('');
 }
-
+ 
 function filterNews(kw,btn){
   document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
@@ -1590,7 +1590,7 @@ function filterNews(kw,btn){
     c.style.display=(kw==='all'||t.includes(kw))?'':'none';
   });
 }
-
+ 
 // rss2json 프록시로 파싱
 async function fetchViaRss2json(feedUrl){
   const url = RSS_PROXIES[0](feedUrl);
@@ -1599,7 +1599,7 @@ async function fetchViaRss2json(feedUrl){
   if(d.status==='ok' && d.items && d.items.length>0) return d.items;
   return [];
 }
-
+ 
 // allorigins 프록시로 파싱 (fallback)
 async function fetchViaAllOrigins(feedUrl){
   const url = RSS_PROXIES[1](feedUrl);
@@ -1619,11 +1619,11 @@ async function fetchViaAllOrigins(feedUrl){
     summary: item.querySelector('description')?.textContent||'',
   }));
 }
-
+ 
 async function fetchNews(){
   document.getElementById('newsUpdated').textContent = '업데이트 중...';
   allArticles = [];
-
+ 
   // ── 1순위: GitHub Actions가 매일 생성하는 news_data.json ──
   try{
     const r = await fetch('./news_data.json?_='+Date.now(), {signal:AbortSignal.timeout(8000)});
@@ -1634,7 +1634,7 @@ async function fetchNews(){
       }
     }
   }catch(e){}
-
+ 
   // ── 2순위(fallback): RSS 프록시 직접 fetch ──
   if(allArticles.length === 0){
     for(const feedUrl of KO_RSS_FEEDS){
@@ -1649,16 +1649,16 @@ async function fetchNews(){
     allArticles = deduplicateArticles(allArticles)
       .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
   }
-
+ 
   if(allArticles.length===0){
     allArticles=getFallbackNews();
   }
-
+ 
   renderNews(allArticles);
   document.getElementById('newsUpdated').textContent=
     '업데이트 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
 }
-
+ 
 function getFallbackNews(){
   return [
     {title:'악성코드 유포 조직, 피싱 이메일로 기업 내부망 침투 시도',link:'https://www.boannews.com',pubDate:new Date(Date.now()-3600000).toISOString(),source:'보안뉴스'},
@@ -1669,17 +1669,17 @@ function getFallbackNews(){
     {title:'국내 쇼핑몰 DB 해킹으로 회원정보 23만 건 유출',link:'https://www.boannews.com',pubDate:new Date(Date.now()-21600000).toISOString(),source:'보안뉴스'},
   ];
 }
-
+ 
 // 최초 로드
 fetchNews();
 // 30분마다 자동 갱신
 setInterval(fetchNews, 30 * 60 * 1000);
-
-
+ 
+ 
 function openNewsCard(idx){
   openReader(idx);
 }
-
+ 
 function openReader(idx){
   const a = allArticles[idx];
   if(!a) return;
@@ -1694,7 +1694,7 @@ function openReader(idx){
   const related = allArticles
     .filter((r,i) => i!==idx && boardCategorize(r.title||'').l === cat.l)
     .slice(0,3);
-
+ 
   // AI 요약 데이터 (fetch_news.py가 생성)
   const ai = a.ai_summary || null;
   const kps = ai && ai.keypoints && ai.keypoints.length
@@ -1703,16 +1703,16 @@ function openReader(idx){
   const analysisItems = ai && ai.analysis && ai.analysis.length
     ? ai.analysis
     : [];
-
+ 
   // 원문 출처명 정리 (Google 뉴스 경유 기사는 실제 매체명 추출)
   const sourceLabel = source.replace(/Google 뉴스 — /,'').replace(/"([^"]+)"/,'$1');
-
+ 
   // textarea 기본값 미리 계산 (백틱 충돌 방지)
   const defaultSummary = loadSummary(idx) ||
     (ai && ai.analysis && ai.analysis.length
       ? ai.analysis.map((item,i)=>(i+1)+'. '+(item.t||item.title)+'\n'+(item.d||item.desc)).join('\n\n')
       : '');
-
+ 
   document.getElementById('readerTopTitle').textContent = title;
   document.getElementById('readerPanel').scrollTop = 0;
   document.getElementById('readerBody').innerHTML = `
@@ -1725,13 +1725,13 @@ function openReader(idx){
       <span>📅 ${pubDate}</span>
       <span>🕐 ${ago}</span>
     </div>
-
+ 
     <div class="reader-keypoints">
       <h4>[ 핵심 포인트 ]</h4>
       ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
     </div>
-
-
+ 
+ 
     <div class="reader-source-box">
       <div class="rsb-left">
         <strong>${sourceLabel}</strong>
@@ -1751,11 +1751,11 @@ function openReader(idx){
           <span class="related-time">${boardTimeAgo(r.pubDate||new Date())}</span>
         </div>`).join('')}
     </div>`:''}
-
+ 
     <!-- ── 요약글 에디터 ── -->
     <div class="summary-section">
       <h4>[ 📝 제목 수정 · 요약 · 분석 ]</h4>
-
+ 
       <!-- 제목 수정 -->
       <p style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem;">
         ✏️ 제목 수정 <span style="color:var(--muted2);">— SEO 최적화 또는 한국 독자에 맞게 바꿔보세요</span>
@@ -1764,7 +1764,7 @@ function openReader(idx){
         placeholder="예) SKT 유심 해킹 — 지금 당장 유심보호서비스 신청하세요"
         value="${loadTitle(idx) || title}"
         oninput="autoSaveTitle(${idx}, this.value)">
-
+ 
       <!-- 요약 · 분석 -->
       <p style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem;">
         💬 한 줄 코멘트 <span style="color:var(--muted2);">— 운영자 관점의 짧은 해설 (E-E-A-T 핵심)</span>
@@ -1780,7 +1780,7 @@ function openReader(idx){
         </div>
       </div>
     </div>
-
+ 
     <!-- ── 반응 버튼 ── -->
     <div class="reaction-bar" id="reactionBar_${idx}">
       <span style="font-size:.72rem;color:var(--muted);font-family:var(--mono);">이 기사가 도움이 됐나요?</span>
@@ -1797,27 +1797,27 @@ function openReader(idx){
         🔗 <span>공유</span>
       </button>
     </div>
-
+ 
   `;
   document.getElementById('readerOverlay').classList.add('open');
   document.getElementById('readerPanel').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
+ 
 function closeReader(){
   document.getElementById('readerOverlay').classList.remove('open');
   document.getElementById('readerPanel').classList.remove('open');
   document.body.style.overflow = '';
 }
-
+ 
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeReader(); });
-
+ 
 /* ─── SUMMARY FUNCTIONS ─── */
 function summaryKey(idx){ return 'sr_summary_'+idx; }
 function titleKey(idx)  { return 'sr_title_'+idx; }
 function loadSummary(idx){ try{ return localStorage.getItem(summaryKey(idx))||''; }catch{ return ''; } }
 function loadTitle(idx)  { try{ return localStorage.getItem(titleKey(idx))||''; }catch{ return ''; } }
-
+ 
 let saveTimer = null;
 function autoSaveSummary(idx, val){
   clearTimeout(saveTimer);
@@ -1847,7 +1847,7 @@ function showSaved(idx){
   const badge = document.getElementById('savedBadge_'+idx);
   if(badge){ badge.style.display='flex'; setTimeout(()=>badge.style.display='none', 2000); }
 }
-
+ 
 /* ─── REACTION FUNCTIONS ─── */
 function reactionKey(idx, type){ return 'sr_reaction_'+idx+'_'+type; }
 function myReactionKey(idx){ return 'sr_myreaction_'+idx; }
@@ -1894,9 +1894,9 @@ function shareArticle(title, link){
   else if(navigator.clipboard){ navigator.clipboard.writeText(text).then(()=>alert('📋 링크가 복사됐습니다!')); }
   else{ prompt('복사하세요:',text); }
 }
-
-
-
+ 
+ 
+ 
 /* ─── READER UTILS ─── */
 function boardCategorize(title){
   const CMAP=[
@@ -1930,12 +1930,12 @@ function generateKeypoints(summary,title){
   if(sentences.length>0)return sentences;
   return['이 보안 이슈는 즉각적인 주의가 필요합니다.','관련 시스템 업데이트 및 패치 적용을 권장합니다.','원문 기사에서 상세 내용을 확인하세요.'];
 }
-
+ 
 /* ─── DIAGNOSTIC ENGINE ─── */
 const $=id=>document.getElementById(id);
 let scanData={},autoScores={},manualScores={};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-
+ 
 function addLog(text){
   const box=$('logBox');
   const line=document.createElement('div');
@@ -1992,7 +1992,7 @@ async function fetchIP(){
     catch{return{ip:'조회 실패',country_name:'-',org:'-'};}
   }
 }
-
+ 
 /* ─── NEW: DNS LEAK DETECTION ─── */
 async function detectDNSLeak(publicIP){
   try{
@@ -2010,7 +2010,7 @@ async function detectDNSLeak(publicIP){
     return {status:'unknown',dnsIP:null};
   }
 }
-
+ 
 /* ─── NEW: BROWSER FINGERPRINT SCORE ─── */
 function calcFingerprintScore(){
   const attrs=[
@@ -2029,7 +2029,7 @@ function calcFingerprintScore(){
   const pct=Math.round((exposed/attrs.length)*100);
   return {attrs,exposed,total:attrs.length,pct};
 }
-
+ 
 /* ─── NEW: CANVAS / WEBGL FINGERPRINT ─── */
 function detectCanvasWebGL(){
   const result={canvas:{exposed:false,blocked:false},webgl:{renderer:'N/A',vendor:'N/A',supported:false}};
@@ -2061,7 +2061,7 @@ function detectCanvasWebGL(){
   }catch{}
   return result;
 }
-
+ 
 /* ─── NEW: OPEN PORT INDIRECT DETECTION (WebSocket timing) ─── */
 async function detectOpenPorts(){
   const PORTS=[
@@ -2081,7 +2081,7 @@ async function detectOpenPorts(){
   ));
   return open;
 }
-
+ 
 /* ─── IPv6 누출 탐지 ─── */
 async function detectIPv6Leak(){
   return new Promise(resolve=>{
@@ -2102,7 +2102,7 @@ async function detectIPv6Leak(){
     }catch{ resolve([]); }
   });
 }
-
+ 
 /* ─── 브라우저 보안 설정 탐지 ─── */
 function detectBrowserSecurity(){
   const dnt=navigator.doNotTrack==='1'||navigator.doNotTrack==='yes'||window.doNotTrack==='1';
@@ -2113,7 +2113,7 @@ function detectBrowserSecurity(){
   return { dnt, trackingProtection, cookiesEnabled:navigator.cookieEnabled,
            storageBlocked, secureCtx:window.isSecureContext===true };
 }
-
+ 
 /* ─── 보안 키(YubiKey 등) 감지 ───────────────────────────────────
    WebAuthn API로 하드웨어 보안 키 지원 여부를 확인합니다.
    브라우저 개인정보 보호 정책상 브랜드(YubiKey)는 특정 불가.
@@ -2133,7 +2133,7 @@ async function detectSecurityKey(){
     return { supported:false, platform:false, conditional:false, reason:'감지 불가' };
   }
 }
-
+ 
 /* ─── 인터넷 속도 측정 ────────────────────────────────────────────
    Cloudflare speed test 서버에서 1MB 다운로드 시간 측정
    → 다운로드 속도(Mbps) + 레이턴시(ms) 계산
@@ -2142,26 +2142,26 @@ async function detectSecurityKey(){
 async function measureInternetSpeed(){
   const TEST_URL = 'https://speed.cloudflare.com/__down?bytes=2000000'; // 2MB
   const PING_URL = 'https://speed.cloudflare.com/__down?bytes=1';
-
+ 
   try{
     // 레이턴시 측정 (ping)
     const p1 = performance.now();
     await fetch(PING_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(3000)});
     const latency = Math.round(performance.now() - p1);
-
+ 
     // 다운로드 속도 측정
     const s1 = performance.now();
     const res = await fetch(TEST_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(15000)});
     const blob = await res.blob();
     const duration = (performance.now() - s1) / 1000;
     const mbps = ((blob.size * 8) / duration / 1024 / 1024).toFixed(1);
-
+ 
     return { mbps: parseFloat(mbps), latency, status: 'ok' };
   }catch(e){
     return { mbps: 0, latency: 0, status: 'fail' };
   }
 }
-
+ 
 function makeCard(label,value,sub,badge,bc){
   return`<div class="dcard"><div class="dcard-label">${label}</div><div class="dcard-value">${value}</div>${sub?`<div class="dcard-sub">${sub}</div>`:''} ${badge?`<div class="dcard-badge ${bc}">${badge}</div>`:''}</div>`;
 }
@@ -2175,7 +2175,7 @@ function makeCheck(icon,name,desc,status,cls,btn){
     <div><div class="check-name">${name}</div><div class="check-desc">${desc}</div>${btnHtml}</div></div>
     <div class="check-status ${cls}">${status}</div></div>`;
 }
-
+ 
 const CHECKLIST=[
   {id:'antivirus',title:'백신 프로그램 설치됨',desc:'Windows Defender, V3, 알약 등 실시간 감시 활성화',pts:15},
   {id:'win_update',title:'Windows 최신 업데이트 완료',desc:'설정 > Windows 업데이트 확인',pts:15},
@@ -2187,7 +2187,7 @@ const CHECKLIST=[
   {id:'browser_up',title:'브라우저 최신 버전 사용',desc:'구버전은 보안 취약점 노출 위험',pts:8},
   {id:'clean_apps',title:'출처 불명 앱 미설치',desc:'토렌트·비공식 경로 프로그램 없음',pts:6},
 ];
-
+ 
 function renderChecklist(){
   $('manualChecklist').innerHTML=CHECKLIST.map(item=>`
     <label class="checklist-item" id="cl_${item.id}">
@@ -2201,13 +2201,13 @@ function onCheck(el){
   el.checked?manualScores[id]=pts:delete manualScores[id];
   el.closest('label').classList.toggle('checked',el.checked);
 }
-
+ 
 async function runScan(){
   $('landing').style.display='none';
   $('scanning').style.display='block';
   addLog('<span class="dim">보안 진단 엔진 초기화...</span>');
   setProgress(5); await sleep(500);
-
+ 
   const os=detectOS(),browser=detectBrowser();
   const cores=navigator.hardwareConcurrency||'?';
   const memory=navigator.deviceMemory?navigator.deviceMemory+'GB':'?';
@@ -2218,14 +2218,14 @@ async function runScan(){
   addLog(`CPU ${cores}코어 / RAM ${memory}`);
   scanData={os,browser,cores,memory,connType,screen:screen.width+'×'+screen.height};
   setProgress(18,'시스템 분석...'); await sleep(400);
-
+ 
   addLog('공개 IP 조회 중...');
   const ipData=await fetchIP();
   scanData.ip=ipData;
   addLog(`공개 IP: <span class="ok">${ipData.ip}</span> — ${ipData.country_name||''} ${ipData.org||''}`);
   autoScores.ip=ipData.ip&&ipData.ip!=='조회 실패'?10:0;
   setProgress(32,'IP 조회...');
-
+ 
   addLog('WebRTC IP 누출 검사...');
   const wips=await detectWebRTC();
   scanData.wips=wips;
@@ -2236,7 +2236,7 @@ async function runScan(){
     :addLog('<span class="ok">WebRTC 누출: 없음 (안전)</span>');
   autoScores.webrtc=pubViaRTC.length>0?0:15;
   setProgress(48,'WebRTC 검사...');
-
+ 
   // WebRTC로 잡은 공인 IP가 있고 ipapi.co에서 상세 정보 못 받았을 때 재조회
   if(pubViaRTC.length>0 && !ipData.city){
     try{
@@ -2256,17 +2256,17 @@ async function runScan(){
       }
     }catch{}
   }
-
+ 
   addLog('HTTPS 보안 연결 확인...');
   await sleep(300);
   const isHttps=location.protocol==='https:';
   autoScores.https=isHttps?10:0;
   addLog(`HTTPS: <span class="${isHttps?'ok':'err'}">${isHttps?'암호화됨 ✓':'미적용 ✗'}</span>`);
-
+ 
   const osOld=/Windows 7|Windows XP/.test(os);
   autoScores.os=osOld?0:12;
   setProgress(58,'시스템 검사...');
-
+ 
   /* ── NEW: DNS LEAK ── */
   addLog('DNS 누출 검사 중...');
   const dnsResult=await detectDNSLeak(ipData.ip);
@@ -2282,7 +2282,7 @@ async function runScan(){
     autoScores.dns=4;
   }
   setProgress(68,'DNS 검사...');
-
+ 
   /* ── NEW: FINGERPRINT ── */
   addLog('브라우저 핑거프린팅 분석 중...');
   await sleep(200);
@@ -2291,7 +2291,7 @@ async function runScan(){
   addLog(`핑거프린팅 노출: <span class="${fpResult.pct>70?'err':'warn'}">${fpResult.exposed}/${fpResult.total}개 속성 추적 가능 (${fpResult.pct}%)</span>`);
   autoScores.fingerprint=fpResult.pct<=50?6:fpResult.pct<=75?3:0;
   setProgress(78,'핑거프린팅 분석...');
-
+ 
   /* ── NEW: CANVAS / WEBGL ── */
   addLog('Canvas / WebGL 식별 검사 중...');
   await sleep(200);
@@ -2309,7 +2309,7 @@ async function runScan(){
   }
   if(cvResult.webgl.supported) addLog(`WebGL 렌더러: <span class="warn">${cvResult.webgl.renderer||'N/A'}</span>`);
   setProgress(87,'Canvas/WebGL 검사...');
-
+ 
   /* ── NEW: PORT SCAN ── */
   addLog('위험 포트 간접 탐지 중 (SSH·RDP·VNC)...');
   const openPorts=await detectOpenPorts();
@@ -2322,7 +2322,7 @@ async function runScan(){
     autoScores.ports=8;
   }
   setProgress(95,'포트 탐지...');
-
+ 
   /* ── IPv6 누출 ── */
   addLog('IPv6 누출 검사 중...');
   const ipv6List=await detectIPv6Leak();
@@ -2335,7 +2335,7 @@ async function runScan(){
     addLog('<span class="ok">IPv6 누출: 없음 (안전)</span>');
     autoScores.ipv6=5;
   }
-
+ 
   /* ── 보안 키 (YubiKey 등) 감지 ── */
   addLog('하드웨어 보안 키 감지 중...');
   const skResult = await detectSecurityKey();
@@ -2349,7 +2349,7 @@ async function runScan(){
   }
   autoScores.securityKey = (skResult.platform || skResult.conditional) ? 8 : 0;
   setProgress(82,'보안 키 감지...');
-
+ 
   /* ── 인터넷 속도 측정 ── */
   addLog('인터넷 속도 측정 중...');
   const speedResult = await measureInternetSpeed();
@@ -2366,24 +2366,24 @@ async function runScan(){
     autoScores.speed = 0;
   }
   setProgress(88,'속도 측정...');
-
+ 
   addLog('브라우저 보안 설정 분석 중...');
   const bsec=detectBrowserSecurity();
   scanData.bsec=bsec;
   autoScores.bsec=(bsec.dnt?2:0)+(bsec.trackingProtection?2:0)+(bsec.secureCtx?1:0);
   addLog(`보안 설정: DNT ${bsec.dnt?'<span class="ok">켜짐</span>':'<span class="warn">꺼짐</span>'} · 추적방지 ${bsec.trackingProtection?'<span class="ok">활성</span>':'<span class="warn">비활성</span>'}`);
-
+ 
   await sleep(400);
   addLog('<span class="ok">분석 완료. 결과를 출력합니다...</span>');
   setProgress(100); await sleep(600);
-
+ 
   $('scanning').style.display='none';
   $('diag-results').style.display='block';
-
+ 
   const pubRTC=wips.filter(ip=>!/^(192\.168|10\.|172\.(1[6-9]|2\d|3[01]))/.test(ip));
   const webrtcLeak=pubRTC.length>0;
   const osOldFlag=/Windows 7|Windows XP/.test(os);
-
+ 
   // ISP 이름 정리 (AS12345 KT Corp → KT Corp)
   const ispRaw = ipData.org||'';
   const isp    = ispRaw.replace(/^AS\d+\s*/,'');
@@ -2395,7 +2395,7 @@ async function runScan(){
   const hasDetail = !!(city || isp || lat);
   // 주소 포맷: 경상남도 창원시 순서로
   const addrStr = [region, city].filter(Boolean).join(' ');
-
+ 
   // IP 카드 — 전체 폭 (그리드 밖)
   $('ipExpandCard').innerHTML=
     `<div class="dcard" id="ipRevealCard"
@@ -2407,7 +2407,7 @@ async function runScan(){
         <div id="ipRevealArrow" style="font-size:.8rem;color:var(--amber);white-space:nowrap;">▼ 내 위치 확인</div>
       </div>
       <div class="dcard-badge b-warn">외부 노출됨</div>
-
+ 
       <div id="ipRevealPanel" style="display:none;margin-top:14px;padding-top:14px;
         border-top:1px solid rgba(255,77,77,0.2);">
         <div style="background:rgba(255,77,77,0.07);border:1px solid rgba(255,77,77,0.25);
@@ -2443,7 +2443,7 @@ async function runScan(){
         </a>
       </div>
     </div>`;
-
+ 
   // 나머지 네트워크 카드 — 그리드
   $('netCards').innerHTML=
     makeCard('WebRTC 누출',webrtcLeak?pubRTC.join(', '):'감지 안 됨',
@@ -2467,7 +2467,7 @@ async function runScan(){
       scanData.speed?.status==='ok'
         ? (scanData.speed.mbps>=30?'b-ok':'b-warn')
         : 'b-warn');
-
+ 
   $('sysCards').innerHTML=
     makeCard('운영체제',os,'',osOldFlag?'⚠ 지원 종료':'✓ 최신 계열',osOldFlag?'b-bad':'b-ok')+
     makeCard('브라우저',browser,'','','b-info')+
@@ -2486,7 +2486,7 @@ async function runScan(){
     makeCard('위험 포트',scanData.ports.length>0?scanData.ports.map(p=>p.port+'/'+p.name).join(', '):'없음',
       scanData.ports.length>0?'즉시 차단 필요':'위험 포트 미감지',
       scanData.ports.length>0?'✗ 위험':'✓ 안전',scanData.ports.length>0?'b-bad':'b-ok');
-
+ 
   $('autoChecks').innerHTML=
     makeCheck('🌐','HTTPS 보안 연결','페이지 암호화 여부',isHttps?'✓ 안전':'✗ 미암호화',isHttps?'b-ok':'b-bad')+
     makeCheck('📡','WebRTC IP 누출',
@@ -2511,7 +2511,7 @@ async function runScan(){
         브라우저 설정을 매번 바꾸기 번거롭다면 <b style="color:var(--text);">VPN 내장 라우터(ASUS·GL.iNet)</b>를 도입하세요.<br>
         하드웨어 킬스위치를 켜두면 WebRTC 누출 걱정 없이 모든 기기가 보호됩니다.
       </div>
-
+ 
       <!-- 5분 해결 가이드 -->
       <div style="margin-top:10px;">
         <button onclick="toggleWebRTCGuide()" id="webrtcGuideBtn"
@@ -2525,10 +2525,10 @@ async function runScan(){
           background:var(--bg3);border:1px solid var(--border);
           border-radius:10px;padding:14px 16px;font-size:.8rem;
           color:var(--muted2);line-height:1.9;">
-
+ 
           <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
             margin-bottom:10px;letter-spacing:.06em;">STEP BY STEP — NORDVPN 설정</div>
-
+ 
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="display:flex;gap:12px;align-items:flex-start;">
               <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
@@ -2564,7 +2564,7 @@ async function runScan(){
               설정 완료 후 다시 진단하면 WebRTC 누출이 사라집니다 ✅</span>
             </div>
           </div>
-
+ 
           <a href="#" onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth'});return false;"
             style="display:flex;align-items:center;justify-content:center;gap:8px;
             margin-top:14px;padding:10px;background:var(--green);color:#000;
@@ -2642,7 +2642,7 @@ async function runScan(){
         </a>
       </div>
     </div>` : '')+
-
+ 
     makeCheck('🎨','Canvas/WebGL 식별','고유 기기 값 노출 여부',
       scanData.cv.canvas.blocked?'✓ 차단됨 (안전)':
       scanData.cv.canvas.exposed?`⚠ 노출 — ${scanData.cv.webgl.renderer||'렌더러 미확인'}`:'✓ 정상',
@@ -2750,7 +2750,7 @@ async function runScan(){
       쇼핑몰에서 본 상품이 다른 사이트 광고로 따라다니는 이유입니다.<br><br>
       <b style="color:var(--text);">③ 데이터 판매</b><br>
       수집된 데이터가 <b style="color:var(--text);">제3자 광고업체에 판매</b>됩니다.
-
+ 
       <button onclick="toggleBsecGuide()" id="bsecGuideBtn"
         style="width:100%;margin-top:10px;padding:9px 14px;
         background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
@@ -2765,28 +2765,28 @@ async function runScan(){
         <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
           margin-bottom:10px;letter-spacing:.06em;">BROWSER SETTINGS</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-
+ 
           <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
             <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🌐 Chrome</div>
             <div style="font-size:.75rem;">설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터<br>
             → <b style="color:var(--text);">"서드 파티 쿠키 차단"</b> 선택<br>
             설정 → 개인정보 보호 → <b style="color:var(--text);">"추적 안함 요청 전송"</b> ON</div>
           </div>
-
+ 
           <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
             <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🦊 Firefox</div>
             <div style="font-size:.75rem;">설정 → 개인 정보 및 보안<br>
             → <b style="color:var(--text);">"향상된 추적 방지" → "엄격"</b> 선택<br>
             → 가장 강력한 추적 차단 모드입니다</div>
           </div>
-
+ 
           <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
             <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🧭 Safari</div>
             <div style="font-size:.75rem;">환경설정 → 개인정보 보호<br>
             → <b style="color:var(--text);">"크로스 사이트 추적 방지"</b> 체크<br>
             → Apple ITP가 자동으로 추적을 차단합니다</div>
           </div>
-
+ 
           <div style="padding:10px 12px;background:rgba(0,230,118,0.06);
             border:1px solid rgba(0,230,118,0.15);border-radius:8px;">
             <div style="font-weight:700;color:var(--green);margin-bottom:4px;">
@@ -2805,18 +2805,18 @@ async function runScan(){
         </a>
       </div>
     </div>` : '');
-
+ 
   renderChecklist();
   $('calcBtn').onclick=calcScore;
 }
-
+ 
 function calcScore(){
   const aT=Object.values(autoScores).reduce((a,b)=>a+b,0);
   const mT=Object.values(manualScores).reduce((a,b)=>a+b,0);
   const aN=Math.round((aT/74)*50);
   const mN=Math.round((mT/100)*50);
   const total=Math.min(100,aN+mN);
-
+ 
   let grade,color,label;
   if(total>=90){grade='A+';color='#00e676';label='매우 안전 — 우수한 보안 환경';}
   else if(total>=80){grade='A';color='#00e676';label='안전 — 대부분의 위협에서 보호됨';}
@@ -2824,11 +2824,11 @@ function calcScore(){
   else if(total>=55){grade='C';color='#ffb300';label='보통 — 주요 취약점이 존재합니다';}
   else if(total>=40){grade='D';color='#ff7043';label='위험 — 즉각적인 조치가 필요합니다';}
   else{grade='F';color='#ff4d4d';label='매우 위험 — 지금 바로 조치하세요!';}
-
+ 
   $('diag-results').style.display='none';
   $('score-section').style.display='block';
   setTimeout(()=>{ document.getElementById('score-section')?.scrollIntoView({behavior:'smooth',block:'start'}); },100);
-
+ 
   $('gradeRing').innerHTML=`
     <svg viewBox="0 0 120 120">
       <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="9"/>
@@ -2837,7 +2837,7 @@ function calcScore(){
         stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset 1s ease"/>
     </svg>
     <div class="grade-letter" style="color:${color}">${grade}</div>`;
-
+ 
   $('scoreNum').innerHTML=`<span style="color:${color}">${total}점</span> / 100점`;
   $('scoreLbl').textContent=label;
   $('scoreBars').innerHTML=[
@@ -2845,7 +2845,7 @@ function calcScore(){
     {label:'수동 체크리스트',val:Math.round(mT),c:'#00e676'},
     {label:'종합 점수',val:total,c:color},
   ].map(b=>`<div class="sbar-row"><div class="sbar-label">${b.label}</div><div class="sbar-track"><div class="sbar-fill" style="background:${b.c};width:${b.val}%"></div></div><div class="sbar-val">${b.val}점</div></div>`).join('');
-
+ 
   // 권고사항 — 텍스트 + 어필리에이트 링크 객체 구조
   const recos=[];
   if(scanData.speed?.status==='ok' && scanData.speed.mbps < 10) recos.push({
@@ -2928,7 +2928,7 @@ function calcScore(){
     text:'현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다! 🎉',
     link:null, linkText:null
   });
-
+ 
   $('recoList').innerHTML='<div style="font-size:.75rem;color:var(--muted);margin-bottom:12px;">[ 지금 바로 해결할 수 있어요 ]</div>'+
     recos.map(r=>`
       <div class="reco-item" style="flex-direction:column;align-items:flex-start;gap:5px;margin-bottom:10px;">
@@ -2945,7 +2945,7 @@ function calcScore(){
           ${r.linkText} ↓
         </button>` : ''}
       </div>`).join('');
-
+ 
   // ── 어필리에이트 개인화 메시지 (점수 기반) ──
   const affMsg = document.getElementById('affPersonalMsg');
   if(affMsg){
@@ -2970,57 +2970,57 @@ function calcScore(){
       affMsg.style.background = 'rgba(0,230,118,0.04)';
     }
   }
-
+ 
   /* ── 공유 버튼 ── */
   $('shareBtn').onclick=()=>{
     const btns = $('shareBtns');
     btns.style.display = btns.style.display==='none' ? 'flex' : 'none';
   };
-
+ 
   // 이미지 카드 생성 + 저장
   $('shareImgBtn').onclick=()=>{
     const c = $('shareCanvas');
     c.style.display='block';
     const ctx = c.getContext('2d');
     const color = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
-
+ 
     // 배경
     ctx.fillStyle='#0d1117';
     ctx.fillRect(0,0,600,340);
-
+ 
     // 상단 바
     ctx.fillStyle=color;
     ctx.fillRect(0,0,600,6);
-
+ 
     // 로고
     ctx.font='bold 18px system-ui';
     ctx.fillStyle='#ffffff';
     ctx.fillText('🛡️ 보안레이더', 36, 52);
-
+ 
     // 점수
     ctx.font='bold 88px system-ui';
     ctx.fillStyle=color;
     ctx.fillText(total, 36, 165);
-
+ 
     ctx.font='bold 24px system-ui';
     ctx.fillStyle='rgba(255,255,255,0.4)';
     ctx.fillText('/ 100점', 36, 195);
-
+ 
     // 등급
     ctx.font='bold 22px system-ui';
     ctx.fillStyle=color;
     ctx.fillText(grade+' '+label, 36, 240);
-
+ 
     // 날짜
     ctx.font='14px system-ui';
     ctx.fillStyle='rgba(255,255,255,0.3)';
     ctx.fillText(new Date().toLocaleDateString('ko-KR'), 36, 275);
-
+ 
     // URL
     ctx.font='13px monospace';
     ctx.fillStyle='rgba(255,255,255,0.2)';
     ctx.fillText('securityradar.io', 36, 310);
-
+ 
     // 우측 항목 표시
     const items=[
       {label:'WebRTC', ok: autoScores.webrtc>0,  okText:'안전', failText:'누출'},
@@ -3040,14 +3040,14 @@ function calcScore(){
       const status=item.ok?`✓ ${item.label} ${item.okText}`:`✗ ${item.label} ${item.failText}`;
       ctx.fillText(status, x+14, y+24);
     });
-
+ 
     const link = document.createElement('a');
     link.download=`보안레이더_${total}점.png`;
     link.href = c.toDataURL();
     link.click();
     c.style.display='none';
   };
-
+ 
   function roundRect(ctx,x,y,w,h,r){
     ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
     ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);
@@ -3055,27 +3055,27 @@ function calcScore(){
     ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);
     ctx.arcTo(x,y,x+r,y,r);ctx.closePath();ctx.fill();
   }
-
+ 
   // 트위터 공유
   $('shareTwitterBtn').onclick=()=>{
     const txt=encodeURIComponent(`🛡️ 내 PC 보안 점수: ${total}점/100점 (${grade} ${label})\nWebRTC누출·DNS누출·IP추적 등 무료 보안진단\n#보안레이더 #PC보안`);
     const url=encodeURIComponent(location.href);
     window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,'_blank');
   };
-
+ 
   // 카카오톡 공유 (Web Share API fallback)
   $('shareKakaoBtn').onclick=()=>{
     const txt=`🛡️ 내 PC 보안 점수: ${total}점/100점\n${grade} ${label}\n\n보안레이더에서 무료로 확인하세요`;
     if(navigator.share){ navigator.share({title:'보안레이더 진단결과',text:txt,url:location.href}).catch(()=>{}); }
     else { navigator.clipboard?.writeText(txt+'\n'+location.href).then(()=>alert('카카오톡에 붙여넣기 하세요!')); }
   };
-
+ 
   // 텍스트 복사
   $('shareCopyBtn').onclick=()=>{
     const txt=`🛡️ PC 보안 진단 결과\n등급: ${grade} (${total}점/100점)\n${label}\n\n보안레이더에서 내 PC 점수 확인 → ${location.href}`;
     navigator.clipboard?.writeText(txt).then(()=>alert('📋 클립보드에 복사됐습니다!'));
   };
-
+ 
   /* ── 보안 히스토리 ── */
   const HISTORY_KEY='sr_score_history';
   function loadHistory(){ try{ return JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]'); }catch{ return []; } }
@@ -3105,17 +3105,17 @@ function calcScore(){
   }
   saveHistory(total, grade);
   renderHistory();
-
+ 
   /* ── VPN Before/After ── */
   const VPN_KEY='sr_vpn_before';
   function loadVpnBefore(){ try{ return JSON.parse(localStorage.getItem(VPN_KEY)||'null'); }catch{ return null; } }
-
+ 
   // 현재 결과 표시 (After 컬럼)
   const vpnAfterColor = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
   $('vpnAfterScore').textContent=total+'점';
   $('vpnAfterScore').style.color=vpnAfterColor;
   $('vpnAfterDetail').innerHTML=`IP: ${scanData.ip?.ip||'—'}<br>WebRTC: ${autoScores.webrtc>0?'✓ 안전':'✗ 누출'}<br>속도: ${scanData.speed?.mbps||'—'} Mbps`;
-
+ 
   // VPN 전 데이터 표시
   const vpnBefore=loadVpnBefore();
   if(vpnBefore){
@@ -3124,7 +3124,7 @@ function calcScore(){
     $('vpnBeforeScore').style.color=bc;
     $('vpnBeforeDetail').innerHTML=`IP: ${vpnBefore.ip||'—'}<br>WebRTC: ${vpnBefore.webrtc?'✓ 안전':'✗ 누출'}<br>속도: ${vpnBefore.mbps||'—'} Mbps`;
     $('vpnSaveBtn').textContent='💾 현재 결과로 "VPN 전" 데이터 업데이트';
-
+ 
     // 점수 차이 계산
     const diff=total-vpnBefore.score;
     if(diff!==0){
@@ -3135,7 +3135,7 @@ function calcScore(){
       $('vpnCompareGrid').after(diffEl);
     }
   }
-
+ 
   // VPN 전 저장 버튼
   $('vpnSaveBtn').onclick=()=>{
     try{
@@ -3155,14 +3155,15 @@ function calcScore(){
     scanData={};autoScores={};manualScores={};
     $('logBox').innerHTML='';
   };
-
+ 
   // ── 챌린지 박스 활성화 ──
   openChallengeBox(total, grade);
-
+ 
   // ── 점수별 빠른 해결 버튼 생성 ──
 }
-
+ 
 $('startBtn').onclick=()=>runScan().catch(e=>addLog(`<span class="err">오류: ${e.message}</span>`));
 </script>
 </body>
 </html>
+ 
