@@ -1712,7 +1712,7 @@ function openReader(idx){
       <span>📅 ${pubDate}</span>
       <span>🕐 ${ago}</span>
     </div>
-    ${summary ? `<div class="reader-summary">${summary.slice(0,300)}${summary.length>300?'…':''}</div>` : ''}
+
     <div class="reader-keypoints">
       <h4>[ 핵심 포인트 ]</h4>
       ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
