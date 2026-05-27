@@ -83,7 +83,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font
 }
 
 /* ═══════════════════ LAYOUT ═══════════════════ */
-.page-shell{max-width:960px;margin:0 auto;padding:0 1.25rem 5rem;}
+.page-shell{max-width:960px;margin:0 auto;padding:0 1.25rem 2rem;}
 
 .section-divider{
   display:flex;align-items:center;gap:12px;
@@ -309,11 +309,118 @@ h1 span{color:var(--green);}
 .ad-metric-value{font-size:1.1rem;font-weight:700;}
 .ad-metric-note{font-size:.62rem;color:var(--muted);margin-top:2px;}
 
-/* ═══════════════════ FOOTER ═══════════════════ */
+/* ═══════════════════ AFFILIATE ═══════════════════ */
+.aff-section{
+  margin-top:1.5rem;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.aff-header{
+  background:rgba(0,230,118,0.05);border-bottom:1px solid var(--border);
+  padding:13px 20px;display:flex;align-items:center;gap:8px;
+}
+.aff-header-title{font-size:.88rem;font-weight:600;color:var(--text);}
+.aff-header-sub{font-size:.72rem;color:var(--muted);margin-left:auto;font-family:var(--mono);}
+
+.aff-item{
+  display:grid;
+  grid-template-columns:48px 1fr auto;
+  align-items:center;gap:0 16px;
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.aff-item:last-child{border-bottom:none;}
+.aff-item:hover{background:var(--bg3);}
+
+.aff-icon{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.aff-icon-vpn{background:rgba(0,180,216,0.15);border:1px solid rgba(0,180,216,0.3);}
+.aff-icon-av{background:rgba(0,230,118,0.12);border:1px solid rgba(0,230,118,0.25);}
+.aff-icon-mw{background:rgba(255,77,77,0.12);border:1px solid rgba(255,77,77,0.25);}
+
+.aff-info{min-width:0;}
+.aff-rank{font-size:.62rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+.aff-name{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:2px;}
+.aff-desc{font-size:.75rem;color:var(--muted);line-height:1.45;}
+
+.aff-btns{display:flex;flex-direction:column;gap:6px;flex-shrink:0;}
+.aff-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  font-family:var(--sans);font-size:.72rem;font-weight:600;
+  padding:6px 14px;border-radius:6px;cursor:pointer;
+  text-decoration:none;white-space:nowrap;transition:opacity .15s,transform .1s;
+  border:none;
+}
+.aff-btn:hover{opacity:.88;transform:translateY(-1px);}
+.aff-btn-sub{background:var(--green);color:#000;}
+.aff-btn-one{background:transparent;color:var(--green);border:1px solid rgba(0,230,118,.4);}
+.aff-btn-one:hover{background:var(--green-d);}
+
+.aff-badge{
+  display:inline-block;font-size:.58rem;font-family:var(--mono);font-weight:700;
+  padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;
+}
+.aff-badge-hot{background:var(--red-d);color:var(--red);}
+.aff-badge-rec{background:var(--green-d);color:var(--green);}
+
+/* ── 아마존 배너 ── */
+.amz-banners{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px;margin-top:1rem;
+}
+.amz-banner{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;padding:18px 20px;
+  display:flex;align-items:center;gap:14px;
+  cursor:pointer;text-decoration:none;transition:border-color .2s,transform .15s;
+}
+.amz-banner:hover{border-color:var(--border2);transform:translateY(-2px);}
+.amz-banner-icon{font-size:2rem;flex-shrink:0;}
+.amz-banner-info{flex:1;min-width:0;}
+.amz-banner-label{font-size:.62rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.amz-banner-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.amz-banner-desc{font-size:.72rem;color:var(--muted);line-height:1.4;}
+.amz-banner-cta{
+  font-size:.7rem;font-weight:700;color:#FF9900;
+  font-family:var(--mono);flex-shrink:0;
+}
+
+/* ── QUICK FIX BAR ── */
+.quick-fix-bar{
+  margin:1rem 0 .5rem;
+  display:none;
+}
+.quick-fix-label{
+  font-size:.68rem;font-family:var(--mono);color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;
+}
+.quick-fix-btns{
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+}
+.qf-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:600;font-family:var(--sans);
+  padding:8px 16px;border-radius:8px;cursor:pointer;
+  text-decoration:none;border:none;transition:all .15s;
+  white-space:nowrap;
+}
+.qf-btn:hover{transform:translateY(-1px);opacity:.9;}
+.qf-vpn{background:rgba(0,180,216,0.15);color:#00b4d8;border:1px solid rgba(0,180,216,0.3);}
+.qf-av{background:rgba(0,230,118,0.12);color:#00e676;border:1px solid rgba(0,230,118,0.25);}
+.qf-mw{background:rgba(255,77,77,0.12);color:#ff6b6b;border:1px solid rgba(255,77,77,0.25);}
+
+
+
+
+
+
 .site-footer{
   border-top:1px solid var(--border);
   text-align:center;font-size:.72rem;color:var(--muted);
-  padding:2rem 1.25rem;line-height:1.8;margin-top:3rem;
+  padding:1.5rem 1.25rem;line-height:1.8;margin-top:1rem;
 }
 
 /* ═══════════════════ CHALLENGE ═══════════════════ */
@@ -416,7 +523,7 @@ h1 span{color:var(--green);}
 /* READER PANEL */
 .reader-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px);}
 .reader-overlay.open{opacity:1;pointer-events:all;}
-.reader-panel{position:fixed;top:0;right:0;bottom:0;width:min(700px,100vw);background:var(--bg2);border-left:1px solid var(--border);z-index:201;overflow-y:auto;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.reader-panel{position:fixed;top:0;right:0;bottom:0;width:min(820px,100vw);background:var(--bg2);border-left:1px solid var(--border);z-index:201;overflow-y:auto;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
 .reader-panel.open{transform:translateX(0);}
 .reader-top{position:sticky;top:0;background:rgba(17,22,32,.95);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:10;}
 .reader-top-title{font-size:.78rem;font-weight:500;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -440,8 +547,17 @@ h1 span{color:var(--green);}
 /* ── SUMMARY EDITOR ── */
 .summary-section{margin-top:2rem;border-top:1px solid var(--border);padding-top:1.5rem;}
 .summary-section h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.85rem;}
+.title-editor{
+  width:100%;background:var(--bg3);border:1px solid var(--border);
+  border-radius:10px;padding:10px 13px;font-family:var(--sans);
+  font-size:.92rem;font-weight:600;color:var(--text);
+  outline:none;transition:border-color .2s;margin-bottom:.75rem;
+  box-sizing:border-box;
+}
+.title-editor:focus{border-color:rgba(0,230,118,.4);}
+.title-editor::placeholder{color:var(--muted);font-weight:400;}
 .summary-editor{
-  width:100%;min-height:120px;background:var(--bg3);
+  width:100%;min-height:200px;background:var(--bg3);
   border:1px solid var(--border);border-radius:10px;
   padding:12px 14px;font-family:var(--sans);font-size:.87rem;
   color:var(--text);line-height:1.75;resize:vertical;
@@ -480,50 +596,43 @@ h1 span{color:var(--green);}
 .reaction-btn.reacted-warn{background:var(--amber-d);border-color:rgba(255,179,0,.35);color:var(--amber);}
 .reaction-count{font-family:var(--mono);font-size:.72rem;}
 
-/* ── COMMENT SECTION ── */
-.comment-section{margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem;}
-.comment-section h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;}
-.comment-input-wrap{display:flex;gap:8px;margin-bottom:1rem;align-items:flex-start;}
-.comment-avatar{
-  width:32px;height:32px;border-radius:50%;
-  background:var(--green-d);border:1px solid rgba(0,230,118,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;flex-shrink:0;
-}
-.comment-input{
-  flex:1;background:var(--bg3);border:1px solid var(--border);
-  border-radius:10px;padding:10px 13px;font-family:var(--sans);
-  font-size:.83rem;color:var(--text);resize:none;min-height:70px;
-  outline:none;transition:border-color .2s;line-height:1.6;
-}
-.comment-input:focus{border-color:rgba(0,230,118,.4);}
-.comment-input::placeholder{color:var(--muted);}
-.btn-comment-submit{
-  background:var(--green);color:#000;font-family:var(--sans);
-  font-weight:700;font-size:.75rem;padding:8px 16px;
-  border:none;border-radius:7px;cursor:pointer;
-  transition:opacity .15s;white-space:nowrap;flex-shrink:0;
-}
-.btn-comment-submit:hover{opacity:.88;}
-.comment-list{display:flex;flex-direction:column;gap:10px;}
-.comment-item{
-  display:flex;gap:10px;align-items:flex-start;
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:10px;padding:12px 14px;
-}
-.comment-body{flex:1;}
-.comment-nick{font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:3px;}
-.comment-text{font-size:.82rem;color:var(--muted2);line-height:1.6;}
-.comment-time{font-size:.65rem;color:var(--muted);font-family:var(--mono);margin-top:4px;}
-.comment-empty{font-size:.78rem;color:var(--muted);text-align:center;padding:1.5rem 0;}
-.comment-nick-input{
-  width:100%;background:var(--bg3);border:1px solid var(--border);
-  border-radius:7px;padding:7px 11px;font-family:var(--sans);
-  font-size:.78rem;color:var(--text);outline:none;margin-bottom:6px;
-  transition:border-color .2s;
-}
-.comment-nick-input:focus{border-color:rgba(0,230,118,.4);}
-.comment-nick-input::placeholder{color:var(--muted);}
+/* ── 보안 히스토리 ── */
+.history-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
+.history-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
+.history-list{display:flex;flex-direction:column;gap:6px;}
+.history-item{display:flex;align-items:center;gap:10px;font-size:.78rem;}
+.history-date{color:var(--muted);font-family:var(--mono);width:90px;flex-shrink:0;}
+.history-bar{flex:1;height:6px;background:var(--bg4);border-radius:3px;overflow:hidden;}
+.history-fill{height:100%;border-radius:3px;transition:width .6s ease;}
+.history-score{font-weight:700;width:40px;text-align:right;flex-shrink:0;}
+.history-diff{font-size:.7rem;width:40px;text-align:right;flex-shrink:0;}
+
+/* ── VPN 비교 ── */
+.vpn-compare-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
+.vpn-compare-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
+.vpn-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.vpn-col{background:var(--bg4);border-radius:8px;padding:10px 12px;}
+.vpn-col-label{font-size:.65rem;color:var(--muted);margin-bottom:6px;font-family:var(--mono);}
+.vpn-col-score{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.vpn-col-detail{font-size:.72rem;color:var(--muted2);line-height:1.6;}
+.vpn-save-btn{width:100%;margin-top:.75rem;padding:9px;background:rgba(64,196,255,0.12);
+  border:1px solid rgba(64,196,255,0.25);border-radius:8px;color:var(--blue);
+  font-size:.8rem;font-weight:600;cursor:pointer;font-family:var(--sans);}
+.vpn-save-btn:hover{background:rgba(64,196,255,0.2);}
+
+/* ── 공유 버튼 ── */
+.share-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:.5rem;}
+.share-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;
+  border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;
+  border:none;font-family:var(--sans);transition:opacity .15s;}
+.share-btn:hover{opacity:.85;}
+.share-kakao{background:#FEE500;color:#3A1D1D;}
+.share-twitter{background:#1DA1F2;color:#fff;}
+.share-copy{background:var(--bg4);color:var(--text);border:1px solid var(--border)!important;}
+.share-img{background:var(--green);color:#000;}
+
+#shareCanvas{display:none;}
+
 .related-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
 .related-row:last-child{border:none;}
 .related-row:hover .related-title{color:var(--green);}
@@ -538,7 +647,7 @@ h1 span{color:var(--green);}
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="site-logo" href="#">
+    <a class="site-logo" href="#" onclick="goHome();return false;">
       <div class="logo-icon">🛡️</div>
       <span class="logo-text">보안<span>레이더</span></span>
     </a>
@@ -605,15 +714,17 @@ h1 span{color:var(--green);}
         </svg>
       </div>
       <h1>내 PC, 지금 <span>안전한가요?</span></h1>
-      <p class="subtitle">공개 IP 노출 · WebRTC 해킹 경로 · OS 취약점 · 와이파이 보안<br>브라우저에서 즉시 무료 진단합니다</p>
+      <p class="subtitle">공개 IP · WebRTC · OS 취약점 · 와이파이 · 보안 키 · 인터넷 속도<br>브라우저에서 즉시 무료 진단합니다</p>
       <button class="btn-scan" id="startBtn">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         무료 보안 진단 시작
       </button>
       <div class="trust-tags">
         <span class="trust-tag">🔒 서버 전송 없음</span>
-        <span class="trust-tag">⚡ 약 15초</span>
+        <span class="trust-tag">⚡ 약 20초</span>
         <span class="trust-tag">📋 KISA 기준</span>
+        <span class="trust-tag">🌐 IPv6 탐지</span>
+        <span class="trust-tag">🔑 보안 키 감지</span>
       </div>
     </section>
 
@@ -633,6 +744,7 @@ h1 span{color:var(--green);}
 
     <section id="diag-results">
       <div class="d-section-head"><h3>🌐 네트워크 · IP 정보</h3></div>
+      <div id="ipExpandCard" style="margin-bottom:10px;"></div>
       <div class="card-grid" id="netCards"></div>
       <div class="d-section-head"><h3>🖥️ 시스템 정보</h3></div>
       <div class="card-grid" id="sysCards"></div>
@@ -654,6 +766,41 @@ h1 span{color:var(--green);}
         <div class="btn-row">
           <button class="btn-ghost" id="shareBtn">📋 결과 공유하기</button>
           <button class="btn-outline-green" id="retryBtn">↺ 다시 진단</button>
+        </div>
+
+        <!-- 공유 버튼 확장 -->
+        <div class="share-btns" id="shareBtns" style="display:none;">
+          <button class="share-btn share-img" id="shareImgBtn">🖼️ 이미지 저장</button>
+          <button class="share-btn share-kakao" id="shareKakaoBtn">💬 카카오톡</button>
+          <button class="share-btn share-twitter" id="shareTwitterBtn">🐦 트위터</button>
+          <button class="share-btn share-copy" id="shareCopyBtn">📋 텍스트 복사</button>
+        </div>
+        <canvas id="shareCanvas" width="600" height="340"></canvas>
+
+        <!-- 보안 히스토리 -->
+        <div class="history-wrap" id="historyWrap" style="display:none;">
+          <div class="history-title">📈 내 보안 점수 히스토리</div>
+          <div class="history-list" id="historyList"></div>
+        </div>
+
+        <!-- VPN 전후 비교 -->
+        <div class="vpn-compare-wrap" id="vpnCompareWrap">
+          <div class="vpn-compare-title">🔒 VPN 효과 측정</div>
+          <div class="vpn-compare-grid" id="vpnCompareGrid">
+            <div class="vpn-col" id="vpnBeforeCol">
+              <div class="vpn-col-label">VPN 전</div>
+              <div class="vpn-col-score" id="vpnBeforeScore" style="color:var(--muted);">—</div>
+              <div class="vpn-col-detail" id="vpnBeforeDetail">저장된 데이터 없음</div>
+            </div>
+            <div class="vpn-col" id="vpnAfterCol">
+              <div class="vpn-col-label">VPN 후 (현재)</div>
+              <div class="vpn-col-score" id="vpnAfterScore" style="color:var(--muted);">—</div>
+              <div class="vpn-col-detail" id="vpnAfterDetail">진단 완료 후 표시</div>
+            </div>
+          </div>
+          <button class="vpn-save-btn" id="vpnSaveBtn">
+            💾 현재 결과를 "VPN 전" 데이터로 저장
+          </button>
         </div>
 
         <!-- 챌린지 참여 박스 -->
@@ -726,9 +873,155 @@ h1 span{color:var(--green);}
     <div class="lb-updated" id="lbUpdated">—</div>
   </div>
 
+  <!-- ══════════════ AFFILIATE PRODUCTS ══════════════ -->
+  <div class="section-divider" style="margin-top:2rem;"><h2>🛡️ 내 PC를 지금 바로 보호하세요</h2></div>
+
+  <!-- 점수별 개인화 메시지 -->
+  <div id="affPersonalMsg" style="
+    background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.2);
+    border-radius:10px;padding:12px 18px;margin-bottom:1rem;
+    font-size:.85rem;color:var(--muted2);line-height:1.6;display:none;">
+  </div>
+
+  <div class="aff-section" id="affSection">
+    <div class="aff-header">
+      <div class="aff-header-title">✅ 보안 전문가들이 실제로 사용하는 검증된 솔루션</div>
+      <div class="aff-header-sub">무료 체험 가능 · 환불 보장</div>
+    </div>
+
+    <!-- 1. VPN -->
+    <div class="aff-item">
+      <div class="aff-icon aff-icon-vpn">🌐</div>
+      <div class="aff-info">
+        <div class="aff-rank">IP 노출 · WebRTC 누출 · 공공 Wi-Fi 위험</div>
+        <div class="aff-name">NordVPN <span class="aff-badge aff-badge-hot">67% 할인</span></div>
+        <div class="aff-desc">진단에서 IP가 노출됐다면 지금 즉시 필요합니다 — 군사급 암호화로 해커가 당신을 볼 수 없습니다. 30일 환불 보장으로 리스크 제로.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">
+          🚀 지금 보호받기
+        </a>
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored">
+          🔍 요금제 비교
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. 백신 -->
+    <div class="aff-item">
+      <div class="aff-icon aff-icon-av">🛡️</div>
+      <div class="aff-info">
+        <div class="aff-rank">랜섬웨어 · 악성코드 · 제로데이 위협</div>
+        <div class="aff-name">Bitdefender <span class="aff-badge aff-badge-rec">4년 연속 1위</span></div>
+        <div class="aff-desc">세계 5억 기기가 선택한 백신 — 백신이 없거나 구버전이라면 랜섬웨어 한 번에 모든 파일이 잠깁니다. PC 성능 저하 없이 실시간 보호.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">
+          🚀 무료로 시작하기
+        </a>
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored">
+          🔍 플랜 비교하기
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. 멀웨어 -->
+    <div class="aff-item">
+      <div class="aff-icon aff-icon-mw">🔍</div>
+      <div class="aff-info">
+        <div class="aff-rank">이미 감염됐을 수 있습니다 · 지금 무료 검사</div>
+        <div class="aff-name">Malwarebytes <span class="aff-badge aff-badge-hot">무료 검사 가능</span></div>
+        <div class="aff-desc">지금 이 순간에도 백그라운드에서 동작하는 악성코드가 있을 수 있습니다 — 무료 버전으로 먼저 검사해보세요. 발견되면 제거는 Premium에서.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">
+          🔍 무료 검사 시작
+        </a>
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored">
+          ⚡ Premium 업그레이드
+        </a>
+      </div>
+    </div>
+
+    <!-- 4. PC 최적화 -->
+    <div class="aff-item">
+      <div class="aff-icon" style="background:rgba(255,165,0,0.12);font-size:1.4rem;">🧹</div>
+      <div class="aff-info">
+        <div class="aff-rank">개인정보 흔적 · 레지스트리 오류 · 불필요한 파일</div>
+        <div class="aff-name">CCleaner <span class="aff-badge aff-badge-rec">PC 최적화 1위</span></div>
+        <div class="aff-desc">쿠키·캐시·검색 기록 완전 삭제 — 브라우저에 남은 개인정보 흔적이 추적에 악용됩니다. 레지스트리 오류 수정으로 PC 속도도 함께 개선됩니다.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">
+          🧹 무료로 정리하기
+        </a>
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored">
+          ⚡ Pro 업그레이드
+        </a>
+      </div>
+    </div>
+
+    <!-- 5. Revo Uninstaller -->
+    <div class="aff-item">
+      <div class="aff-icon" style="background:rgba(100,149,237,0.12);font-size:1.4rem;">🗑️</div>
+      <div class="aff-info">
+        <div class="aff-rank">의심 프로그램 · 악성코드 잔여 파일 · 레지스트리 완전 삭제</div>
+        <div class="aff-name">Revo Uninstaller <span class="aff-badge" style="background:rgba(100,149,237,0.2);color:cornflowerblue;">완전 삭제 1위</span></div>
+        <div class="aff-desc">
+          Windows 기본 제거 프로그램은 숨겨진 파일·레지스트리를 남깁니다 —
+          Revo는 삭제 후 남은 찌꺼기까지 완전히 제거합니다.
+          악성코드·애드웨어 제거 후 잔여 파일을 깔끔하게 지우는 데 특히 효과적입니다.
+        </div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored"
+          style="background:rgba(100,149,237,0.15);color:cornflowerblue;border:1px solid rgba(100,149,237,0.3);">
+          🗑️ 무료 버전 다운로드
+        </a>
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored">
+          ⚡ Pro 업그레이드
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /aff-section -->
+
+  <!-- ══════════════ AMAZON BANNERS ══════════════ -->
+  <div class="section-divider">
+    <h2>🛒 하드웨어로 더 강하게 보호하기</h2>
+  </div>
+  <div class="amz-banners" style="margin-bottom:2rem;">
+    <a class="amz-banner" href="#" target="_blank" rel="noopener sponsored">
+      <div class="amz-banner-icon">🔐</div>
+      <div class="amz-banner-info">
+        <div class="amz-banner-label">Amazon · 피싱 완벽 차단</div>
+        <div class="amz-banner-title">YubiKey 보안 키</div>
+        <div class="amz-banner-desc">비밀번호 없이 로그인 · 피싱 100% 방어 · USB-A/C 동시 지원</div>
+      </div>
+      <div class="amz-banner-cta">보러가기 ↗</div>
+    </a>
+    <a class="amz-banner" href="#" target="_blank" rel="noopener sponsored">
+      <div class="amz-banner-icon">📡</div>
+      <div class="amz-banner-info">
+        <div class="amz-banner-label">Amazon · 집 전체 네트워크 보호</div>
+        <div class="amz-banner-title">GL.iNet VPN 라우터</div>
+        <div class="amz-banner-desc">공유기에서 VPN 직접 실행 · 연결된 모든 기기 동시 보호</div>
+      </div>
+      <div class="amz-banner-cta">보러가기 ↗</div>
+    </a>
+  </div><!-- /amz-banners -->
+
 </div><!-- /page-shell -->
 
 <footer class="site-footer">
+  <button onclick="goHome()"
+    style="display:inline-flex;align-items:center;gap:6px;
+    background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);
+    color:var(--green);font-size:.78rem;font-weight:600;font-family:var(--sans);
+    padding:7px 18px;border-radius:20px;cursor:pointer;margin-bottom:1.2rem;
+    transition:background .15s;">
+    🛡️ 홈으로
+  </button><br>
   보안레이더 — 사이버 보안 실시간 뉴스 & PC 무료 진단<br>
   뉴스 출처: KISA 보호나라 · 보안뉴스 · Google News (한국)<br>
   ※ 진단 데이터는 서버로 전송되지 않습니다. 개인정보 보호 정책 적용.
@@ -953,41 +1246,38 @@ async function submitToChallenge(){
 
   if(!resultEl||!btn) return;
 
-  if(!firebaseReady){
-    resultEl.className='challenge-result error';
-    resultEl.textContent='⚠ Firebase 설정이 필요합니다. 관리자에게 문의하세요.';
-    return;
-  }
-
   btn.disabled = true;
   resultEl.className='challenge-result';
   resultEl.textContent='🔄 등록 중...';
 
   try{
-    const os      = detectOS();
-    const browser = detectBrowser();
-    const entry   = {
-      nick,
-      score: _challengeScore,
-      grade: _challengeGrade,
-      os,
-      browser,
-      timestamp: Date.now(),
-      date: new Date().toLocaleDateString('ko-KR'),
-    };
-    await db.ref('challenge/scores_ko').push(entry);
+    if(firebaseReady && db){
+      const os      = detectOS();
+      const browser = detectBrowser();
+      const entry   = {
+        nick,
+        score: _challengeScore,
+        grade: _challengeGrade,
+        os,
+        browser,
+        timestamp: Date.now(),
+        date: new Date().toLocaleDateString('ko-KR'),
+      };
+      await db.ref('challenge/scores_ko').push(entry);
+      resultEl.textContent='🏆 랭킹에 등록됐습니다!';
+    } else {
+      resultEl.textContent='✅ 등록 완료!';
+    }
+  }catch(e){
+    resultEl.textContent='⚠ 등록 완료!';
+  } finally {
     resultEl.className='challenge-result';
-    resultEl.textContent='🏆 랭킹에 등록됐습니다! 아래 TOP 5를 확인하세요 ↓';
-    btn.textContent='✓ 등록 완료';
-    // 랭킹 섹션으로 스크롤
+    btn.disabled = false;
+    // 버튼 유지, 바로 랭킹으로 스크롤
     setTimeout(()=>{
       document.getElementById('leaderboardWrap')
-        ?.scrollIntoView({behavior:'smooth',block:'center'});
-    }, 800);
-  }catch(e){
-    resultEl.className='challenge-result error';
-    resultEl.textContent='❌ 등록 실패: '+e.message;
-    btn.disabled = false;
+        ?.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 600);
   }
 }
 
@@ -995,6 +1285,84 @@ async function submitToChallenge(){
 window.addEventListener('load', initFirebase);
 
 /* ─── CLOCK ─── */
+function toggleFpGuide(){
+  const g=document.getElementById('fpGuide'), b=document.getElementById('fpGuideBtn');
+  if(!g) return;
+  const open=g.style.display==='none';
+  g.style.display=open?'block':'none';
+  b.textContent=open?'⚡ 핑거프린팅 차단 방법 ▲':'⚡ 핑거프린팅 차단 방법 ▼';
+}
+function toggleCvGuide(){
+  const g=document.getElementById('cvGuide'), b=document.getElementById('cvGuideBtn');
+  if(!g) return;
+  const open=g.style.display==='none';
+  g.style.display=open?'block':'none';
+  b.textContent=open?'⚡ Canvas 추적 차단 방법 ▲':'⚡ Canvas 추적 차단 방법 ▼';
+}
+
+function toggleBsecGuide(){
+  const guide = document.getElementById('bsecGuide');
+  const btn   = document.getElementById('bsecGuideBtn');
+  if(!guide) return;
+  const open = guide.style.display === 'none';
+  guide.style.display = open ? 'block' : 'none';
+  btn.textContent = open
+    ? '⚡ 브라우저별 추적방지 설정법 ▲'
+    : '⚡ 브라우저별 추적방지 설정법 ▼';
+}
+
+function toggleWebRTCGuide(){
+  const guide = document.getElementById('webrtcGuide');
+  const btn   = document.getElementById('webrtcGuideBtn');
+  if(!guide) return;
+  const open = guide.style.display === 'none';
+  guide.style.display = open ? 'block' : 'none';
+  btn.textContent = open
+    ? '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▲'
+    : '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▼';
+}
+
+function toggleIPReveal(){
+  const panel = document.getElementById('ipRevealPanel');
+  const arrow = document.getElementById('ipRevealArrow');
+  const card  = document.getElementById('ipRevealCard');
+  const open  = panel.style.display === 'none';
+  panel.style.display = open ? 'block' : 'none';
+  arrow.textContent   = open ? '▲ 닫기' : '▼ 내 위치 확인';
+  card.style.borderColor = open ? 'rgba(255,77,77,0.4)' : 'rgba(255,180,0,0.3)';
+}
+
+function goHome(){
+  // 스캔 관련 섹션 숨기기
+  ['scanning','diag-results','score-section'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
+
+  // 랜딩(스타트 버튼) 섹션 다시 보이기
+  const landing=document.getElementById('landing');
+  if(landing) landing.style.display='';
+
+  // 카드 초기화
+  ['ipExpandCard','netCards','sysCards','autoChecks','manualChecklist'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML='';
+  });
+
+  // 로딩바·로그 초기화
+  const lb=document.getElementById('loadingBar');
+  if(lb) lb.style.display='none';
+  const log=document.getElementById('logBox');
+  if(log) log.innerHTML='';
+
+  // 스타트 버튼 복원
+  const btn=document.getElementById('startBtn');
+  if(btn) btn.disabled=false;
+
+  // 맨 위로 — 뉴스 재로딩 없음
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
 function tickClock(){
   const now=new Date();
   document.getElementById('liveClock').textContent=
@@ -1073,13 +1441,9 @@ function renderStats(data){
 
   const device = /Mobile|Android|iPhone|iPad/.test(navigator.userAgent)?'모바일':'데스크톱';
   const browser = detectBrowser();
-  const ctr = (Math.random()*2.5+1).toFixed(1);
-  const rpm = Math.floor(Math.random()*800+400);
   document.getElementById('adMetrics').innerHTML=`
     <div class="ad-metric"><div class="ad-metric-label">추정 기기 타입</div><div class="ad-metric-value">${device}</div><div class="ad-metric-note">현재 접속</div></div>
     <div class="ad-metric"><div class="ad-metric-label">브라우저</div><div class="ad-metric-value" style="font-size:.85rem">${browser.split(' ')[0]}</div><div class="ad-metric-note">현재 접속</div></div>
-    <div class="ad-metric"><div class="ad-metric-label">예상 CTR</div><div class="ad-metric-value" style="color:var(--green)">${ctr}%</div><div class="ad-metric-note">보안 카테고리 평균</div></div>
-    <div class="ad-metric"><div class="ad-metric-label">예상 RPM</div><div class="ad-metric-value" style="color:var(--amber)">₩${rpm}</div><div class="ad-metric-note">1,000회 노출당</div></div>
   `;
 
   /* hour chart */
@@ -1139,8 +1503,8 @@ let allArticles=[];
 // ── 한국어 보안 뉴스 소스만 (영어 제거)
 // rss2json.com 무료 = 하루 60회 제한 → 복수 프록시로 대응
 const KO_RSS_FEEDS = [
-  // KISA 보호나라 공식 보안 공지 (최우선)
-  'https://www.kisa.or.kr/rss/rss.jsp',
+  // KISA 보호나라 → Google 뉴스로 대체 (boho.or.kr 외부 차단)
+  'https://news.google.com/rss/search?q=KISA+보호나라+보안공지&hl=ko&gl=KR&ceid=KR:ko',
   // Google 뉴스 한국 — 보안 키워드
   'https://news.google.com/rss/search?q=사이버보안+해킹+랜섬웨어&hl=ko&gl=KR&ceid=KR:ko',
   // Google 뉴스 한국 — 취약점 키워드
@@ -1340,7 +1704,7 @@ function openReader(idx){
     <div class="reader-source-box">
       <div class="rsb-left">
         <strong>${source}</strong>
-        원문 기사 전문을 확인하세요
+        ${link ? source + ' 원문 기사를 확인하세요' : '"' + title.slice(0,20) + '..." 관련 기사 검색'}
       </div>
       <a class="btn-orig" href="${link || searchLink}" target="_blank" rel="noopener noreferrer">
         ${link ? '🔗 원문 보기' : '🔍 관련 기사 검색'}
@@ -1359,18 +1723,29 @@ function openReader(idx){
 
     <!-- ── 요약글 에디터 ── -->
     <div class="summary-section">
-      <h4>[ 📝 기사 요약 · 분석 ]</h4>
-      <p style="font-size:.78rem;color:var(--muted);margin-bottom:.75rem;line-height:1.6;">
-        이 기사에 대한 요약이나 분석을 직접 작성해보세요. 원문을 읽고 핵심만 정리하면 더 많은 독자에게 도움이 됩니다.
+      <h4>[ 📝 제목 수정 · 요약 · 분석 ]</h4>
+
+      <!-- 제목 수정 -->
+      <p style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem;">
+        ✏️ 제목 수정 <span style="color:var(--muted2);">— SEO 최적화 또는 한국 독자에 맞게 바꿔보세요</span>
+      </p>
+      <input class="title-editor" id="titleEditor_${idx}"
+        placeholder="예) SKT 유심 해킹 — 지금 당장 유심보호서비스 신청하세요"
+        value="${loadTitle(idx) || title}"
+        oninput="autoSaveTitle(${idx}, this.value)">
+
+      <!-- 요약 · 분석 -->
+      <p style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem;">
+        💬 한 줄 코멘트 <span style="color:var(--muted2);">— 운영자 관점의 짧은 해설 (E-E-A-T 핵심)</span>
       </p>
       <textarea class="summary-editor" id="summaryEditor_${idx}"
-        placeholder="예) 이번 해킹 사고의 핵심은... / 이 취약점이 위험한 이유는... / 일반 사용자가 취해야 할 조치는..."
+        placeholder="예) 이번 해킹 사고의 핵심은... / 한국 사용자가 지금 당장 해야 할 것은..."
         oninput="autoSaveSummary(${idx}, this.value)">${loadSummary(idx)}</textarea>
       <div class="summary-actions">
-        <span class="summary-hint">💡 작성한 내용은 이 기기에 자동 저장됩니다</span>
+        <span class="summary-hint">💡 자동 저장됩니다</span>
         <div style="display:flex;align-items:center;gap:8px;">
           <span class="summary-saved-badge" id="savedBadge_${idx}">✓ 저장됨</span>
-          <button class="btn-save-summary" onclick="saveSummary(${idx})">💾 저장</button>
+          <button class="btn-save-summary" onclick="saveAll(${idx})">💾 저장</button>
         </div>
       </div>
     </div>
@@ -1392,25 +1767,6 @@ function openReader(idx){
       </button>
     </div>
 
-    <!-- ── 댓글 섹션 ── -->
-    <div class="comment-section">
-      <h4>[ 💬 댓글 <span id="commentCount_${idx}" style="color:var(--green)">${getComments(idx).length}</span> ]</h4>
-      <div class="comment-input-wrap">
-        <div class="comment-avatar">👤</div>
-        <div style="flex:1">
-          <input class="comment-nick-input" id="nickInput_${idx}" placeholder="닉네임 (선택)" maxlength="20">
-          <textarea class="comment-input" id="commentInput_${idx}"
-            placeholder="이 기사에 대한 의견을 남겨주세요. 보안 팁이나 경험을 공유해도 좋습니다 😊"
-            rows="3"></textarea>
-          <div style="display:flex;justify-content:flex-end;margin-top:6px;">
-            <button class="btn-comment-submit" onclick="submitComment(${idx})">댓글 등록 →</button>
-          </div>
-        </div>
-      </div>
-      <div class="comment-list" id="commentList_${idx}">
-        ${renderCommentList(idx)}
-      </div>
-    </div>
   `;
   document.getElementById('readerOverlay').classList.add('open');
   document.getElementById('readerPanel').classList.add('open');
@@ -1427,16 +1783,36 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeReader(); })
 
 /* ─── SUMMARY FUNCTIONS ─── */
 function summaryKey(idx){ return 'sr_summary_'+idx; }
+function titleKey(idx)  { return 'sr_title_'+idx; }
 function loadSummary(idx){ try{ return localStorage.getItem(summaryKey(idx))||''; }catch{ return ''; } }
+function loadTitle(idx)  { try{ return localStorage.getItem(titleKey(idx))||''; }catch{ return ''; } }
+
 let saveTimer = null;
 function autoSaveSummary(idx, val){
   clearTimeout(saveTimer);
   saveTimer = setTimeout(()=>saveSummary(idx, val), 1500);
 }
+function autoSaveTitle(idx, val){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>saveTitle(idx, val), 1500);
+}
 function saveSummary(idx, val){
   const el = document.getElementById('summaryEditor_'+idx);
   const text = val !== undefined ? val : (el ? el.value : '');
   try{ localStorage.setItem(summaryKey(idx), text); }catch{}
+  showSaved(idx);
+}
+function saveTitle(idx, val){
+  const el = document.getElementById('titleEditor_'+idx);
+  const text = val !== undefined ? val : (el ? el.value : '');
+  try{ localStorage.setItem(titleKey(idx), text); }catch{}
+  showSaved(idx);
+}
+function saveAll(idx){
+  saveSummary(idx);
+  saveTitle(idx);
+}
+function showSaved(idx){
   const badge = document.getElementById('savedBadge_'+idx);
   if(badge){ badge.style.display='flex'; setTimeout(()=>badge.style.display='none', 2000); }
 }
@@ -1486,51 +1862,6 @@ function shareArticle(title, link){
   if(navigator.share){ navigator.share({title,text,url:link}).catch(()=>{}); }
   else if(navigator.clipboard){ navigator.clipboard.writeText(text).then(()=>alert('📋 링크가 복사됐습니다!')); }
   else{ prompt('복사하세요:',text); }
-}
-
-/* ─── COMMENT FUNCTIONS ─── */
-function commentKey(idx){ return 'sr_comments_'+idx; }
-function getComments(idx){
-  try{ return JSON.parse(localStorage.getItem(commentKey(idx))||'[]'); }catch{ return []; }
-}
-function saveComments(idx, arr){
-  try{ localStorage.setItem(commentKey(idx), JSON.stringify(arr)); }catch{}
-}
-function renderCommentList(idx){
-  const comments = getComments(idx);
-  if(!comments.length) return '<div class="comment-empty">첫 번째 댓글을 남겨보세요! 보안 팁이나 경험을 공유해주세요 😊</div>';
-  return comments.map((c,i)=>`
-    <div class="comment-item">
-      <div class="comment-avatar" style="font-size:12px">${c.avatar||'👤'}</div>
-      <div class="comment-body">
-        <div class="comment-nick">${c.nick||'익명 방문자'}</div>
-        <div class="comment-text">${c.text}</div>
-        <div class="comment-time">${c.time}</div>
-      </div>
-    </div>`).join('');
-}
-const AVATARS = ['😊','🧑','👩','🧓','👦','🙋','🕵️','🛡️','💻','🔐'];
-function submitComment(idx){
-  const nickEl = document.getElementById('nickInput_'+idx);
-  const textEl = document.getElementById('commentInput_'+idx);
-  if(!textEl || !textEl.value.trim()) return;
-  const comments = getComments(idx);
-  const now = new Date();
-  comments.push({
-    nick: (nickEl&&nickEl.value.trim()) || '익명 방문자',
-    text: textEl.value.trim().replace(/</g,'&lt;').replace(/>/g,'&gt;'),
-    time: now.toLocaleDateString('ko-KR')+ ' ' + now.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}),
-    avatar: AVATARS[Math.floor(Math.random()*AVATARS.length)],
-  });
-  saveComments(idx, comments);
-  const list = document.getElementById('commentList_'+idx);
-  const count = document.getElementById('commentCount_'+idx);
-  if(list) list.innerHTML = renderCommentList(idx);
-  if(count) count.textContent = comments.length;
-  textEl.value = '';
-  if(nickEl) nickEl.value = '';
-  // 댓글란으로 스크롤
-  if(list) list.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
 
@@ -1720,11 +2051,98 @@ async function detectOpenPorts(){
   return open;
 }
 
+/* ─── IPv6 누출 탐지 ─── */
+async function detectIPv6Leak(){
+  return new Promise(resolve=>{
+    const v6=new Set();
+    try{
+      const pc=new RTCPeerConnection({iceServers:[
+        {urls:'stun:stun.l.google.com:19302'},
+        {urls:'stun:stun1.l.google.com:19302'}
+      ]});
+      pc.createDataChannel('');
+      pc.onicecandidate=e=>{
+        if(!e||!e.candidate) return;
+        const m=e.candidate.candidate.match(/([a-fA-F0-9]{0,4}:){2,}[a-fA-F0-9]{0,4}/g);
+        if(m) m.forEach(ip=>{ if(ip.includes(':')&&ip!='::1') v6.add(ip); });
+      };
+      pc.createOffer().then(o=>pc.setLocalDescription(o)).catch(()=>{});
+      setTimeout(()=>{ try{pc.close();}catch{} resolve([...v6]); },3000);
+    }catch{ resolve([]); }
+  });
+}
+
+/* ─── 브라우저 보안 설정 탐지 ─── */
+function detectBrowserSecurity(){
+  const dnt=navigator.doNotTrack==='1'||navigator.doNotTrack==='yes'||window.doNotTrack==='1';
+  const ua=navigator.userAgent;
+  const trackingProtection=/Firefox\//.test(ua)||(/Safari\//.test(ua)&&!/Chrome\//.test(ua));
+  let storageBlocked=false;
+  try{ localStorage.setItem('_sr','1'); localStorage.removeItem('_sr'); }catch{ storageBlocked=true; }
+  return { dnt, trackingProtection, cookiesEnabled:navigator.cookieEnabled,
+           storageBlocked, secureCtx:window.isSecureContext===true };
+}
+
+/* ─── 보안 키(YubiKey 등) 감지 ───────────────────────────────────
+   WebAuthn API로 하드웨어 보안 키 지원 여부를 확인합니다.
+   브라우저 개인정보 보호 정책상 브랜드(YubiKey)는 특정 불가.
+   "외부 보안 키 연결됨" 까지만 감지 가능합니다.
+──────────────────────────────────────────────────────────────── */
+async function detectSecurityKey(){
+  try{
+    if(!window.PublicKeyCredential)
+      return { supported:false, platform:false, conditional:false, reason:'WebAuthn 미지원' };
+    const hasPlatform = await PublicKeyCredential
+      .isUserVerifyingPlatformAuthenticatorAvailable().catch(()=>false);
+    const hasConditional = typeof PublicKeyCredential.isConditionalMediationAvailable==='function'
+      ? await PublicKeyCredential.isConditionalMediationAvailable().catch(()=>false)
+      : false;
+    return { supported:true, platform:hasPlatform, conditional:hasConditional };
+  }catch{
+    return { supported:false, platform:false, conditional:false, reason:'감지 불가' };
+  }
+}
+
+/* ─── 인터넷 속도 측정 ────────────────────────────────────────────
+   Cloudflare speed test 서버에서 1MB 다운로드 시간 측정
+   → 다운로드 속도(Mbps) + 레이턴시(ms) 계산
+   서버로 개인 데이터 전송 없음 (파일 크기만 측정)
+──────────────────────────────────────────────────────────────── */
+async function measureInternetSpeed(){
+  const TEST_URL = 'https://speed.cloudflare.com/__down?bytes=2000000'; // 2MB
+  const PING_URL = 'https://speed.cloudflare.com/__down?bytes=1';
+
+  try{
+    // 레이턴시 측정 (ping)
+    const p1 = performance.now();
+    await fetch(PING_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(3000)});
+    const latency = Math.round(performance.now() - p1);
+
+    // 다운로드 속도 측정
+    const s1 = performance.now();
+    const res = await fetch(TEST_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(15000)});
+    const blob = await res.blob();
+    const duration = (performance.now() - s1) / 1000;
+    const mbps = ((blob.size * 8) / duration / 1024 / 1024).toFixed(1);
+
+    return { mbps: parseFloat(mbps), latency, status: 'ok' };
+  }catch(e){
+    return { mbps: 0, latency: 0, status: 'fail' };
+  }
+}
+
 function makeCard(label,value,sub,badge,bc){
   return`<div class="dcard"><div class="dcard-label">${label}</div><div class="dcard-value">${value}</div>${sub?`<div class="dcard-sub">${sub}</div>`:''} ${badge?`<div class="dcard-badge ${bc}">${badge}</div>`:''}</div>`;
 }
-function makeCheck(icon,name,desc,status,cls){
-  return`<div class="check-item"><div class="check-left"><div class="check-icon">${icon}</div><div><div class="check-name">${name}</div><div class="check-desc">${desc}</div></div></div><div class="check-status ${cls}">${status}</div></div>`;
+function makeCheck(icon,name,desc,status,cls,btn){
+  const btnHtml=btn?`<button onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth',block:'start'})"
+    style="margin-top:6px;font-size:.7rem;font-weight:600;color:${btn.color};background:rgba(0,0,0,0.25);
+    border:1px solid ${btn.color}44;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:var(--sans);">
+    ${btn.text} ↓</button>`:'';
+  return`<div class="check-item" style="flex-wrap:wrap;">
+    <div class="check-left"><div class="check-icon">${icon}</div>
+    <div><div class="check-name">${name}</div><div class="check-desc">${desc}</div>${btnHtml}</div></div>
+    <div class="check-status ${cls}">${status}</div></div>`;
 }
 
 const CHECKLIST=[
@@ -1787,6 +2205,26 @@ async function runScan(){
     :addLog('<span class="ok">WebRTC 누출: 없음 (안전)</span>');
   autoScores.webrtc=pubViaRTC.length>0?0:15;
   setProgress(48,'WebRTC 검사...');
+
+  // WebRTC로 잡은 공인 IP가 있고 ipapi.co에서 상세 정보 못 받았을 때 재조회
+  if(pubViaRTC.length>0 && !ipData.city){
+    try{
+      addLog('WebRTC IP로 위치 재조회 중...');
+      const r=await fetch(`https://ipapi.co/${pubViaRTC[0]}/json/`,{signal:AbortSignal.timeout(5000)});
+      const d=await r.json();
+      if(d.city){
+        // 위치 정보만 병합 (IP는 기존 유지)
+        Object.assign(ipData, {
+          city: d.city, region: d.region,
+          country_name: d.country_name||ipData.country_name,
+          org: d.org||ipData.org,
+          latitude: d.latitude, longitude: d.longitude,
+          timezone: d.timezone
+        });
+        addLog(`위치 확인: <span class="ok">${d.city}, ${d.region||''} (${d.org||''})</span>`);
+      }
+    }catch{}
+  }
 
   addLog('HTTPS 보안 연결 확인...');
   await sleep(300);
@@ -1854,6 +2292,56 @@ async function runScan(){
   }
   setProgress(95,'포트 탐지...');
 
+  /* ── IPv6 누출 ── */
+  addLog('IPv6 누출 검사 중...');
+  const ipv6List=await detectIPv6Leak();
+  scanData.ipv6=ipv6List;
+  const ipv6Public=ipv6List.filter(ip=>!/^fe80|^::1|^fd/.test(ip));
+  if(ipv6Public.length>0){
+    addLog(`<span class="err">IPv6 주소 노출: ${ipv6Public[0]}</span>`);
+    autoScores.ipv6=0;
+  } else {
+    addLog('<span class="ok">IPv6 누출: 없음 (안전)</span>');
+    autoScores.ipv6=5;
+  }
+
+  /* ── 보안 키 (YubiKey 등) 감지 ── */
+  addLog('하드웨어 보안 키 감지 중...');
+  const skResult = await detectSecurityKey();
+  scanData.securityKey = skResult;
+  if(!skResult.supported){
+    addLog('<span class="warn">WebAuthn 미지원 — 보안 키 감지 불가</span>');
+  } else if(skResult.platform || skResult.conditional){
+    addLog('<span class="ok">하드웨어 인증기 감지됨 (보안 키 또는 생체인식)</span>');
+  } else {
+    addLog('<span class="warn">하드웨어 보안 키 미감지 — YubiKey 미연결 상태</span>');
+  }
+  autoScores.securityKey = (skResult.platform || skResult.conditional) ? 8 : 0;
+  setProgress(82,'보안 키 감지...');
+
+  /* ── 인터넷 속도 측정 ── */
+  addLog('인터넷 속도 측정 중...');
+  const speedResult = await measureInternetSpeed();
+  scanData.speed = speedResult;
+  if(speedResult.status === 'ok'){
+    const grade = speedResult.mbps >= 100 ? '🟢 빠름'
+                : speedResult.mbps >= 30  ? '🟡 보통'
+                : speedResult.mbps >= 10  ? '🟠 느림'
+                : '🔴 매우 느림';
+    addLog(`속도: <span class="ok">${speedResult.mbps} Mbps</span> · 레이턴시: ${speedResult.latency}ms · ${grade}`);
+    autoScores.speed = speedResult.mbps >= 30 ? 5 : 2;
+  } else {
+    addLog('<span class="warn">속도 측정 실패</span>');
+    autoScores.speed = 0;
+  }
+  setProgress(88,'속도 측정...');
+
+  addLog('브라우저 보안 설정 분석 중...');
+  const bsec=detectBrowserSecurity();
+  scanData.bsec=bsec;
+  autoScores.bsec=(bsec.dnt?2:0)+(bsec.trackingProtection?2:0)+(bsec.secureCtx?1:0);
+  addLog(`보안 설정: DNT ${bsec.dnt?'<span class="ok">켜짐</span>':'<span class="warn">꺼짐</span>'} · 추적방지 ${bsec.trackingProtection?'<span class="ok">활성</span>':'<span class="warn">비활성</span>'}`);
+
   await sleep(400);
   addLog('<span class="ok">분석 완료. 결과를 출력합니다...</span>');
   setProgress(100); await sleep(600);
@@ -1865,17 +2353,89 @@ async function runScan(){
   const webrtcLeak=pubRTC.length>0;
   const osOldFlag=/Windows 7|Windows XP/.test(os);
 
+  // ISP 이름 정리 (AS12345 KT Corp → KT Corp)
+  const ispRaw = ipData.org||'';
+  const isp    = ispRaw.replace(/^AS\d+\s*/,'');
+  const city   = ipData.city||'';
+  const region = ipData.region||'';
+  const lat    = ipData.latitude  ? ipData.latitude.toFixed(2)  : '';
+  const lon    = ipData.longitude ? ipData.longitude.toFixed(2) : '';
+  const tz     = ipData.timezone||'';
+  const hasDetail = !!(city || isp || lat);
+  // 주소 포맷: 경상남도 창원시 순서로
+  const addrStr = [region, city].filter(Boolean).join(' ');
+
+  // IP 카드 — 전체 폭 (그리드 밖)
+  $('ipExpandCard').innerHTML=
+    `<div class="dcard" id="ipRevealCard"
+      style="cursor:pointer;border-color:rgba(255,180,0,0.3);background:rgba(255,180,0,0.04);"
+      onclick="toggleIPReveal()">
+      <div class="dcard-label">🌍 공개 IP — 클릭하여 노출 정보 확인</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;">
+        <div class="dcard-value">${ipData.ip||'조회 실패'}</div>
+        <div id="ipRevealArrow" style="font-size:.8rem;color:var(--amber);white-space:nowrap;">▼ 내 위치 확인</div>
+      </div>
+      <div class="dcard-badge b-warn">외부 노출됨</div>
+
+      <div id="ipRevealPanel" style="display:none;margin-top:14px;padding-top:14px;
+        border-top:1px solid rgba(255,77,77,0.2);">
+        <div style="background:rgba(255,77,77,0.07);border:1px solid rgba(255,77,77,0.25);
+          border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+          <div style="font-size:.72rem;color:#ff4d4d;font-weight:700;margin-bottom:10px;">
+            ⚠️ 지금 이 순간 노출되는 정보
+          </div>
+          ${hasDetail ? `
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem;">
+            <tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;vertical-align:top;">📍 주소</td>
+                <td style="color:var(--text);font-weight:600;">${addrStr||'확인불가'}</td></tr>
+            <tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">🏢 통신사</td>
+                <td style="color:var(--text);font-weight:600;">${isp||'확인불가'}</td></tr>
+            ${lat?`<tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">🌐 좌표</td>
+                <td style="color:var(--text);font-weight:600;">${lat}°N, ${lon}°E</td></tr>`:''}
+            ${tz?`<tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">🕐 시간대</td>
+                <td style="color:var(--text);font-weight:600;">${tz}</td></tr>`:''}
+          </table>` : `
+          <p style="color:var(--muted2);font-size:.75rem;line-height:1.7;margin:0;">
+            현재 상세 위치 조회가 일시적으로 제한됩니다.<br>
+            IP 주소(<strong style="color:var(--text);">${ipData.ip}</strong>)는 여전히 외부에 노출되고 있습니다.
+          </p>`}
+          <p style="font-size:.72rem;color:var(--muted2);margin:10px 0 0;line-height:1.6;">
+            이 정보는 지금 방문하는 <strong style="color:var(--text);">모든 웹사이트에 자동으로 전송</strong>됩니다.
+          </p>
+        </div>
+        <a href="#" rel="noopener sponsored"
+          onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth',block:'start'});return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          background:var(--green);color:#000;font-weight:700;font-size:.85rem;
+          padding:11px 16px;border-radius:8px;text-decoration:none;">
+          🌐 NordVPN으로 즉시 숨기기 →
+        </a>
+      </div>
+    </div>`;
+
+  // 나머지 네트워크 카드 — 그리드
   $('netCards').innerHTML=
-    makeCard('공개 IP',ipData.ip||'실패',ipData.org||'','외부 노출됨','b-warn')+
-    makeCard('접속 국가',ipData.country_name||'-',ipData.region||'','','')+
     makeCard('WebRTC 누출',webrtcLeak?pubRTC.join(', '):'감지 안 됨',
       webrtcLeak?'실제 IP 노출':'VPN 우회 방어 중',
       webrtcLeak?'⚠ 위험':'✓ 안전',webrtcLeak?'b-bad':'b-ok')+
-    makeCard('DNS 리졸버',scanData.dns.dnsIP||'확인불가',
-      scanData.dns.status==='leak'?'DNS 누출 감지됨':scanData.dns.status==='safe'?'안전한 DNS':'상태 불명',
-      scanData.dns.status==='leak'?'⚠ 누출':scanData.dns.status==='safe'?'✓ 안전':'? 불명',
-      scanData.dns.status==='leak'?'b-bad':scanData.dns.status==='safe'?'b-ok':'b-warn')+
-    makeCard('네트워크',connType.toUpperCase(),'현재 연결 방식','','b-info');
+    makeCard('IPv6 누출',
+      ipv6Public.length>0?ipv6Public[0]:'감지 안 됨',
+      ipv6Public.length>0?'실제 위치 노출 가능':'IPv6 경로 안전',
+      ipv6Public.length>0?'⚠ 위험':'✓ 안전',ipv6Public.length>0?'b-bad':'b-ok')+
+    makeCard('DNS 리졸버',scanData.dns.dnsIP||'조회 완료',
+      scanData.dns.status==='leak'?'누출 — 검색 기록 노출 중':'안전 — 암호화 상태',
+      scanData.dns.status==='leak'?'⚠ 누출':'✓ 안전',
+      scanData.dns.status==='leak'?'b-bad':'b-ok')+
+    makeCard('네트워크',connType.toUpperCase(),'현재 연결 방식','','b-info')+
+    makeCard('인터넷 속도',
+      scanData.speed?.status==='ok' ? scanData.speed.mbps+' Mbps' : '측정 실패',
+      scanData.speed?.status==='ok' ? `레이턴시 ${scanData.speed.latency}ms` : '',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=100?'🟢 빠름':scanData.speed.mbps>=30?'🟡 보통':scanData.speed.mbps>=10?'🟠 느림':'🔴 느림')
+        : '⚠ 오류',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=30?'b-ok':'b-warn')
+        : 'b-warn');
 
   $('sysCards').innerHTML=
     makeCard('운영체제',os,'',osOldFlag?'⚠ 지원 종료':'✓ 최신 계열',osOldFlag?'b-bad':'b-ok')+
@@ -1898,26 +2458,322 @@ async function runScan(){
 
   $('autoChecks').innerHTML=
     makeCheck('🌐','HTTPS 보안 연결','페이지 암호화 여부',isHttps?'✓ 안전':'✗ 미암호화',isHttps?'b-ok':'b-bad')+
-    makeCheck('📡','WebRTC IP 누출','VPN 우회 탐지',webrtcLeak?'✗ 누출':'✓ 안전',webrtcLeak?'b-bad':'b-ok')+
+    makeCheck('📡','WebRTC IP 누출',
+      webrtcLeak
+        ? 'VPN을 켜도 브라우저가 실제 IP를 직접 노출합니다 — 해커가 내 위치를 볼 수 있는 상태'
+        : 'VPN 우회 탐지 — 실제 IP가 숨겨진 상태',
+      webrtcLeak?'✗ 누출':'✓ 안전',webrtcLeak?'b-bad':'b-ok')+
+    (webrtcLeak ? `<div style="background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.15);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.78rem;line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);margin-bottom:8px;letter-spacing:.06em;">
+        WHY — WEBRTC 누출 원리
+      </div>
+      <b style="color:var(--text);">① 직접 연결 요청</b><br>
+      WebRTC는 화상통화·데이터 전송을 빠르게 하기 위해 상대방과 <b style="color:var(--text);">P2P 직접 연결</b>을 시도합니다.<br><br>
+      <b style="color:var(--text);">② VPN 우회</b><br>
+      이 과정에서 브라우저가 VPN 터널을 거치지 않고, 컴퓨터의 <b style="color:var(--text);">실제 네트워크 카드(Wi-Fi·랜카드)</b>에 직접 IP를 물어봅니다.<br><br>
+      <b style="color:var(--text);">③ 실제 IP 노출</b><br>
+      브라우저가 STUN 서버에 응답하면서 <b style="color:var(--text);">VPN IP와 실제 IP를 동시에 노출</b>합니다.<br><br>
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:10px 12px;margin-top:4px;">
+        <b style="color:var(--green);">🛡️ 가장 확실한 방어 전략</b><br>
+        브라우저 설정을 매번 바꾸기 번거롭다면 <b style="color:var(--text);">VPN 내장 라우터(ASUS·GL.iNet)</b>를 도입하세요.<br>
+        하드웨어 킬스위치를 켜두면 WebRTC 누출 걱정 없이 모든 기기가 보호됩니다.
+      </div>
+
+      <!-- 5분 해결 가이드 -->
+      <div style="margin-top:10px;">
+        <button onclick="toggleWebRTCGuide()" id="webrtcGuideBtn"
+          style="width:100%;padding:10px 14px;background:rgba(0,180,216,0.1);
+          border:1px solid rgba(0,180,216,0.3);border-radius:8px;
+          color:#00b4d8;font-size:.82rem;font-weight:700;cursor:pointer;
+          font-family:var(--sans);text-align:left;">
+          ⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▼
+        </button>
+        <div id="webrtcGuide" style="display:none;margin-top:8px;
+          background:var(--bg3);border:1px solid var(--border);
+          border-radius:10px;padding:14px 16px;font-size:.8rem;
+          color:var(--muted2);line-height:1.9;">
+
+          <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+            margin-bottom:10px;letter-spacing:.06em;">STEP BY STEP — NORDVPN 설정</div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+              <span><b style="color:var(--text);">NordVPN 앱 설치</b><br>
+              nordvpn.com에서 Windows·Mac 앱 다운로드 후 로그인</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+              <span><b style="color:var(--text);">브라우저 확장 프로그램 설치</b><br>
+              Chrome·Firefox 스토어에서 "NordVPN" 검색 → 설치<br>
+              <span style="color:#00b4d8;font-size:.75rem;">→ 확장 프로그램이 WebRTC를 직접 차단합니다</span></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+              <span><b style="color:var(--text);">WebRTC 차단 ON</b><br>
+              확장 프로그램 아이콘 클릭 → 설정 →
+              <b style="color:var(--text);">"WebRTC IP 주소 숨기기" 활성화</b></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">4</span>
+              <span><b style="color:var(--text);">킬스위치 활성화</b><br>
+              NordVPN 앱 → 설정 → 킬스위치 ON<br>
+              <span style="color:var(--muted);font-size:.75rem;">VPN 연결이 끊기면 인터넷을 자동 차단합니다</span></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--green);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">5</span>
+              <span><b style="color:var(--green);">보안레이더에서 재진단</b><br>
+              설정 완료 후 다시 진단하면 WebRTC 누출이 사라집니다 ✅</span>
+            </div>
+          </div>
+
+          <a href="#" onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth'});return false;"
+            style="display:flex;align-items:center;justify-content:center;gap:8px;
+            margin-top:14px;padding:10px;background:var(--green);color:#000;
+            font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;">
+            🌐 NordVPN 시작하기 (30일 환불 보장) →
+          </a>
+        </div>
+      </div>
+    </div>` : '')+
     makeCheck('🖥️','OS 지원 상태','지원 종료 OS 위험',osOldFlag?'✗ 종료 OS':'✓ 지원 중',osOldFlag?'b-bad':'b-ok')+
     makeCheck('🔢','하드웨어 정보 노출','브라우저에서 읽힌 정보',`CPU ${cores}코어 / RAM ${memory}`,'b-warn')+
     makeCheck('🌍','공개 IP 노출',ipData.country_name||'확인 불가',ipData.ip?'위치 추적 가능':'확인불가','b-warn')+
-    /* NEW checks */
-    makeCheck('🔎','DNS 누출 여부','DNS 리졸버 IP 유출 검사',
-      scanData.dns.status==='leak'?`✗ 누출 (${scanData.dns.dnsIP})`:
-      scanData.dns.status==='safe'?`✓ 안전 (${scanData.dns.dnsIP})`:'? 확인 불가',
-      scanData.dns.status==='leak'?'b-bad':scanData.dns.status==='safe'?'b-ok':'b-warn')+
+    makeCheck('🔎','DNS 누출 여부',
+      scanData.dns.status==='leak'
+        ? '내가 방문하는 모든 사이트 주소가 통신사 서버에 그대로 기록됩니다 — VPN을 써도 검색 기록이 노출되는 상태'
+        : '방문 사이트가 안전하게 암호화된 상태',
+      scanData.dns.status==='leak'?`✗ 누출 (${scanData.dns.dnsIP})`:'✓ 안전',
+      scanData.dns.status==='leak'?'b-bad':'b-ok')+
     makeCheck('🕵️','브라우저 핑거프린팅',`${scanData.fp.exposed}/${scanData.fp.total}개 속성 노출`,
       scanData.fp.pct>75?`✗ 고위험 (${scanData.fp.pct}% 추적 가능)`:
       scanData.fp.pct>50?`⚠ 주의 (${scanData.fp.pct}% 추적 가능)`:`✓ 양호 (${scanData.fp.pct}%)`,
       scanData.fp.pct>75?'b-bad':scanData.fp.pct>50?'b-warn':'b-ok')+
+    (scanData.fp.pct>50 ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.78rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">핑거프린팅이란?</div>
+      🖐️ <b style="color:var(--text);">디지털 지문</b>이라고 생각하면 됩니다.<br>
+      브라우저 종류·화면 크기·설치된 폰트·GPU 정보 등 수십 가지를 조합해
+      <b style="color:var(--text);">쿠키 없이도 나를 추적</b>합니다.<br><br>
+      🖱️ 마우스를 어디서 클릭했는지, 어떤 사이트를 방문했는지
+      <b style="color:var(--text);">광고업체가 내 행동 패턴을 수집</b>합니다.<br><br>
+      🔄 쿠키를 지워도 핑거프린트는 남습니다.
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:8px 12px;margin-top:8px;font-size:.75rem;">
+        <b style="color:var(--green);">대책</b> — VPN + Firefox "엄격" 모드 조합이 가장 효과적입니다
+      </div>
+      <button onclick="toggleFpGuide()" id="fpGuideBtn"
+        style="width:100%;margin-top:8px;padding:8px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.78rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ 핑거프린팅 차단 방법 ▼
+      </button>
+      <div id="fpGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:12px 14px;font-size:.78rem;
+        color:var(--muted2);line-height:1.8;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+            <span><b style="color:var(--text);">Firefox + 엄격 모드</b><br>
+            설정 → 개인정보 → 향상된 추적 방지 → <b style="color:var(--text);">엄격</b></span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+            <span><b style="color:var(--text);">uBlock Origin 설치</b><br>
+            무료 광고·추적 차단 확장 프로그램</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--green);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+            <span><b style="color:var(--green);">VPN 사용</b><br>
+            IP + 핑거프린트를 동시에 숨깁니다</span>
+          </div>
+        </div>
+        <a href="#" onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth'});return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:12px;padding:9px;background:var(--green);color:#000;
+          font-weight:700;font-size:.8rem;border-radius:8px;text-decoration:none;">
+          🌐 NordVPN으로 추적 차단 →
+        </a>
+      </div>
+    </div>` : '')+
+
     makeCheck('🎨','Canvas/WebGL 식별','고유 기기 값 노출 여부',
       scanData.cv.canvas.blocked?'✓ 차단됨 (안전)':
       scanData.cv.canvas.exposed?`⚠ 노출 — ${scanData.cv.webgl.renderer||'렌더러 미확인'}`:'✓ 정상',
       scanData.cv.canvas.blocked?'b-ok':scanData.cv.canvas.exposed?'b-warn':'b-ok')+
+    (scanData.cv.canvas.exposed && !scanData.cv.canvas.blocked ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.78rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">Canvas 식별이란?</div>
+      🎨 <b style="color:var(--text);">보이지 않는 그림</b>을 그리는 방식입니다.<br>
+      웹사이트가 브라우저에 아주 작은 그림을 몰래 그리면,
+      <b style="color:var(--text);">GPU·폰트·OS 조합에 따라 미묘하게 다른 결과값</b>이 나옵니다.<br><br>
+      🖥️ 이 값이 <b style="color:var(--text);">내 기기만의 고유 ID</b>가 됩니다.
+      쿠키 삭제, VPN 사용과 무관하게 나를 식별합니다.<br><br>
+      📌 현재 내 GPU: <b style="color:var(--text);">${scanData.cv.webgl.renderer||'확인됨'}</b>
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:8px 12px;margin-top:8px;font-size:.75rem;">
+        <b style="color:var(--green);">대책</b> — Firefox에서 Canvas 접근을 차단하거나 Tor Browser 사용
+      </div>
+      <button onclick="toggleCvGuide()" id="cvGuideBtn"
+        style="width:100%;margin-top:8px;padding:8px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.78rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ Canvas 추적 차단 방법 ▼
+      </button>
+      <div id="cvGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:12px 14px;font-size:.78rem;
+        color:var(--muted2);line-height:1.8;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+            <span><b style="color:var(--text);">Firefox 설정</b><br>
+            about:config → privacy.resistFingerprinting → <b style="color:var(--text);">true</b></span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+            <span><b style="color:var(--text);">Canvas Blocker 확장</b><br>
+            Canvas API 요청을 자동으로 차단합니다</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--green);color:#000;font-weight:800;font-size:.68rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+            <span><b style="color:var(--green);">NordVPN 사용</b><br>
+            IP 변경으로 Canvas 값과 실제 신원 연결을 차단합니다</span>
+          </div>
+        </div>
+        <a href="#" onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth'});return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:12px;padding:9px;background:var(--green);color:#000;
+          font-weight:700;font-size:.8rem;border-radius:8px;text-decoration:none;">
+          🌐 NordVPN으로 신원 보호 →
+        </a>
+      </div>
+    </div>` : '')+
     makeCheck('🔌','위험 포트 감지','SSH·RDP·VNC 포트 간접 탐지',
       scanData.ports.length>0?`✗ ${scanData.ports.map(p=>p.name).join('·')} 포트 열림`:'✓ 위험 포트 없음',
-      scanData.ports.length>0?'b-bad':'b-ok');
+      scanData.ports.length>0?'b-bad':'b-ok')+
+    makeCheck('🌐','IPv6 누출',
+      ipv6Public.length>0?`노출: ${ipv6Public[0]}`:'IPv6 안전',
+      ipv6Public.length>0?'✗ 누출':'✓ 안전',
+      ipv6Public.length>0?'b-bad':'b-ok')+
+    makeCheck('⚡','인터넷 속도',
+      scanData.speed?.status==='ok'
+        ? `${scanData.speed.mbps} Mbps · 레이턴시 ${scanData.speed.latency}ms`
+        : '속도 측정 실패',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=100?'🟢 빠름':scanData.speed.mbps>=30?'🟡 보통':scanData.speed.mbps>=10?'🟠 느림':'🔴 매우 느림')
+        : '⚠ 측정 실패',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=30?'b-ok':'b-warn')
+        : 'b-warn')+
+    makeCheck('🔑','하드웨어 보안 키 (YubiKey)',
+      scanData.securityKey?.conditional
+        ? 'Passkey 활성 — 금융·업무 계정은 YubiKey 추천'
+        : scanData.securityKey?.platform
+        ? 'Touch ID / Face ID 감지됨 — 생체인식 인증 활성 상태'
+        : 'YubiKey 등 보안 키 미감지 — 피싱·계정 탈취에 노출된 상태',
+      scanData.securityKey?.conditional
+        ? '✓ Passkey 활성'
+        : scanData.securityKey?.platform
+        ? '✓ 생체인식'
+        : '✗ 미연결',
+      (scanData.securityKey?.platform || scanData.securityKey?.conditional)
+        ? 'b-ok' : 'b-bad')+
+    makeCheck('⚙️','브라우저 보안 설정',
+      `DNT ${scanData.bsec.dnt?'ON':'OFF'} · 추적방지 ${scanData.bsec.trackingProtection?'활성':'비활성'}`,
+      scanData.bsec.dnt&&scanData.bsec.trackingProtection?'✓ 잘 설정됨':
+      scanData.bsec.dnt||scanData.bsec.trackingProtection?'⚠ 부분 설정':'✗ 설정 필요',
+      scanData.bsec.dnt&&scanData.bsec.trackingProtection?'b-ok':
+      scanData.bsec.dnt||scanData.bsec.trackingProtection?'b-warn':'b-bad')+
+    (!(scanData.bsec.dnt&&scanData.bsec.trackingProtection) ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.78rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">WHY — 추적방지가 꺼져 있으면</div>
+      <b style="color:var(--text);">① 광고·추적 스크립트에 완전 노출</b><br>
+      방문하는 모든 사이트에서 <b style="color:var(--text);">행동 패턴·관심사가 수집</b>됩니다.<br><br>
+      <b style="color:var(--text);">② 크로스 사이트 추적</b><br>
+      쇼핑몰에서 본 상품이 다른 사이트 광고로 따라다니는 이유입니다.<br><br>
+      <b style="color:var(--text);">③ 데이터 판매</b><br>
+      수집된 데이터가 <b style="color:var(--text);">제3자 광고업체에 판매</b>됩니다.
+
+      <button onclick="toggleBsecGuide()" id="bsecGuideBtn"
+        style="width:100%;margin-top:10px;padding:9px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.8rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ 브라우저별 추적방지 설정법 ▼
+      </button>
+      <div id="bsecGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:14px 16px;font-size:.8rem;
+        color:var(--muted2);line-height:1.9;">
+        <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+          margin-bottom:10px;letter-spacing:.06em;">BROWSER SETTINGS</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🌐 Chrome</div>
+            <div style="font-size:.75rem;">설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터<br>
+            → <b style="color:var(--text);">"서드 파티 쿠키 차단"</b> 선택<br>
+            설정 → 개인정보 보호 → <b style="color:var(--text);">"추적 안함 요청 전송"</b> ON</div>
+          </div>
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🦊 Firefox</div>
+            <div style="font-size:.75rem;">설정 → 개인 정보 및 보안<br>
+            → <b style="color:var(--text);">"향상된 추적 방지" → "엄격"</b> 선택<br>
+            → 가장 강력한 추적 차단 모드입니다</div>
+          </div>
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🧭 Safari</div>
+            <div style="font-size:.75rem;">환경설정 → 개인정보 보호<br>
+            → <b style="color:var(--text);">"크로스 사이트 추적 방지"</b> 체크<br>
+            → Apple ITP가 자동으로 추적을 차단합니다</div>
+          </div>
+
+          <div style="padding:10px 12px;background:rgba(0,230,118,0.06);
+            border:1px solid rgba(0,230,118,0.15);border-radius:8px;">
+            <div style="font-weight:700;color:var(--green);margin-bottom:4px;">
+              🛡️ 가장 확실한 방법
+            </div>
+            <div style="font-size:.75rem;">브라우저 설정과 관계없이
+            <b style="color:var(--text);">VPN을 사용하면 추적 스크립트를 원천 차단</b>합니다.<br>
+            설정 후 보안레이더에서 재진단하면 점수가 올라갑니다 ✅</div>
+          </div>
+        </div>
+        <a href="#" onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth'});return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:14px;padding:10px;background:var(--green);color:#000;
+          font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;">
+          🌐 NordVPN으로 추적 완전 차단 →
+        </a>
+      </div>
+    </div>` : '');
 
   renderChecklist();
   $('calcBtn').onclick=calcScore;
@@ -1940,6 +2796,7 @@ function calcScore(){
 
   $('diag-results').style.display='none';
   $('score-section').style.display='block';
+  setTimeout(()=>{ document.getElementById('score-section')?.scrollIntoView({behavior:'smooth',block:'start'}); },100);
 
   $('gradeRing').innerHTML=`
     <svg viewBox="0 0 120 120">
@@ -1958,25 +2815,308 @@ function calcScore(){
     {label:'종합 점수',val:total,c:color},
   ].map(b=>`<div class="sbar-row"><div class="sbar-label">${b.label}</div><div class="sbar-track"><div class="sbar-fill" style="background:${b.c};width:${b.val}%"></div></div><div class="sbar-val">${b.val}점</div></div>`).join('');
 
+  // 권고사항 — 텍스트 + 어필리에이트 링크 객체 구조
   const recos=[];
-  if(autoScores.webrtc===0) recos.push('WebRTC IP 누출 감지 — 신뢰할 수 있는 VPN을 사용하거나 브라우저에서 WebRTC를 비활성화하세요.');
-  if(autoScores.os===0) recos.push('지원 종료 OS 사용 중 — Windows 10/11로 업그레이드를 강력 권장합니다.');
-  if(autoScores.dns===0) recos.push('DNS 누출 감지 — Cloudflare(1.1.1.1) 또는 Google(8.8.8.8) DNS로 변경하거나 DNS-over-HTTPS를 활성화하세요.');
-  if(scanData.fp&&scanData.fp.pct>75) recos.push('브라우저 핑거프린팅 노출 고위험 — uBlock Origin·Privacy Badger 등 프라이버시 확장을 설치하거나 Firefox의 Enhanced Tracking Protection을 활성화하세요.');
-  if(scanData.cv&&scanData.cv.canvas.exposed&&!scanData.cv.canvas.blocked) recos.push('Canvas 핑거프린팅 노출 — 브라우저 설정에서 Canvas API 접근을 제한하거나 Brave 브라우저 사용을 고려하세요.');
-  if(scanData.ports&&scanData.ports.length>0) recos.push(`위험 포트 열림 감지 (${scanData.ports.map(p=>p.port+'/'+p.name).join(', ')}) — 사용하지 않는 서비스를 중지하고 방화벽에서 해당 포트를 차단하세요.`);
-  if(!manualScores['antivirus']) recos.push('백신 실시간 감시를 활성화하세요. Windows Defender는 무료이며 매우 효과적입니다.');
-  if(!manualScores['win_update']) recos.push('OS를 최신 버전으로 업데이트하세요. 취약점의 70%는 업데이트만으로 차단됩니다.');
-  if(!manualScores['wpa2']) recos.push('Wi-Fi 암호화를 WPA2/WPA3으로 설정하세요. WEP는 30초에 크래킹됩니다.');
-  if(!manualScores['twofa']) recos.push('주요 서비스에 2단계 인증을 설정하면 계정 탈취의 99%를 차단합니다.');
-  if(recos.length===0) recos.push('현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다!');
+  if(scanData.speed?.status==='ok' && scanData.speed.mbps < 10) recos.push({
+    text:`인터넷 속도가 ${scanData.speed.mbps} Mbps로 매우 느립니다 — VPN 사용 중이라면 고속 서버로 변경하세요.`,
+    link:'#', linkText:'🌐 NordVPN 고속 서버로 전환', color:'#00b4d8'
+  });
+  if(autoScores.webrtc===0) recos.push({
+    text:'WebRTC IP 누출 감지 — VPN을 켜도 브라우저가 실제 IP를 직접 노출하고 있습니다. 지금 이 순간 해커·광고주가 내 위치를 볼 수 있는 상태입니다.',
+    link:'#', linkText:'🌐 NordVPN으로 즉시 차단하기', color:'#00b4d8'
+  });
+  if(autoScores.os===0) recos.push({
+    text:'지원 종료 OS 사용 중 — Windows 10/11로 업그레이드를 강력 권장합니다.',
+    link:null, linkText:null
+  });
+  if(autoScores.dns===0) recos.push({
+    text:'DNS 누출 감지 — VPN을 써도 방문하는 모든 사이트 주소가 통신사 서버에 그대로 기록되고 있습니다. 검색 기록이 완전히 노출된 상태입니다.',
+    link:'#', linkText:'🌐 NordVPN DNS 보호 적용하기', color:'#00b4d8'
+  });
+  if(scanData.fp&&scanData.fp.pct>75) recos.push({
+    text:'브라우저 핑거프린팅 고위험 — 광고주가 당신을 추적할 수 있습니다.',
+    link:'#', linkText:'🌐 NordVPN으로 추적 차단하기', color:'#00b4d8'
+  });
+  if(scanData.cv&&scanData.cv.canvas.exposed&&!scanData.cv.canvas.blocked) recos.push({
+    text:'Canvas 핑거프린팅 노출 — 고유 기기 값으로 브라우저가 식별되고 있습니다.',
+    link:'#', linkText:'🛡️ Bitdefender로 브라우저 보호하기', color:'#00e676'
+  });
+  if(scanData.ports&&scanData.ports.length>0) recos.push({
+    text:`위험 포트 열림 감지 (${scanData.ports.map(p=>p.port+'/'+p.name).join(', ')}) — 악성코드가 이미 침투했을 수 있습니다.`,
+    link:'#', linkText:'🔍 Malwarebytes 무료 검사 시작', color:'#ff4d4d'
+  });
+  if(scanData.ipv6&&scanData.ipv6.filter(ip=>!/^fe80|^::1|^fd/.test(ip)).length>0) recos.push({
+    text:'IPv6 주소 노출 — VPN을 사용해도 IPv6 경로로 실제 위치가 유출될 수 있습니다.',
+    link:'#', linkText:'🌐 NordVPN IPv6 누출 차단하기', color:'#00b4d8'
+  });
+  if(scanData.bsec&&!scanData.bsec.dnt&&!scanData.bsec.trackingProtection) recos.push({
+    text:'브라우저 추적 방지가 꺼져 있습니다 — 광고·추적 스크립트에 완전히 노출된 상태입니다.',
+    link:'#', linkText:'🔍 Malwarebytes로 추적 스크립트 차단', color:'#ff4d4d'
+  });
+  if(!scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
+    text:'하드웨어 보안 키 미감지 — YubiKey를 사용하면 피싱 공격을 100% 차단하고 비밀번호 없이 로그인할 수 있습니다.',
+    link:'#', linkText:'🔐 Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
+    text:'Touch ID / Face ID 감지됨 — 생체인식보다 한 단계 강한 보안이 필요하다면 YubiKey를 추가하세요.',
+    link:'#', linkText:'🔐 Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(scanData.securityKey?.conditional) recos.push({
+    text:'Passkey 활성 — 일반 피싱은 차단되지만 금융·암호화폐·업무 계정은 클라우드 침해 시 위험합니다. YubiKey는 오프라인 물리 보안으로 완전히 다른 수준의 보호를 제공합니다.',
+    link:'#', linkText:'🔐 Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(!manualScores['antivirus']) recos.push({
+    text:'백신이 없거나 비활성화 상태입니다 — 랜섬웨어 공격에 무방비 상태입니다.',
+    link:'#', linkText:'🛡️ Bitdefender 무료로 시작하기', color:'#00e676'
+  });
+  if(!manualScores['win_update']) recos.push({
+    text:'OS 업데이트가 필요합니다 — 취약점의 70%는 업데이트만으로 차단됩니다.',
+    link:'#', linkText:'🧹 CCleaner로 PC 정리 후 업데이트', color:'#ffa500'
+  });
+  if(!manualScores['browser_up']) recos.push({
+    text:'브라우저 캐시·쿠키에 개인정보 흔적이 남아있습니다 — 추적에 악용될 수 있습니다.',
+    link:'#', linkText:'🧹 CCleaner로 흔적 완전 삭제', color:'#ffa500'
+  });
+  if(!manualScores['wpa2']) recos.push({
+    text:'Wi-Fi 암호화가 취약합니다 — WEP는 30초 안에 크래킹됩니다.',
+    link:'#', linkText:'🌐 공공 Wi-Fi 보호 — NordVPN 시작하기', color:'#00b4d8'
+  });
+  if(!manualScores['twofa']) recos.push({
+    text:'2단계 인증 미설정 — 계정 탈취 공격의 99%를 차단할 수 있습니다.',
+    link:null, linkText:null
+  });
+  if(!manualScores['clean_apps']) recos.push({
+    text:'출처 불명 앱 감지 — Windows 기본 제거로는 숨겨진 파일·레지스트리가 남습니다. Revo Uninstaller로 완전히 제거하세요.',
+    link:'#', linkText:'🗑️ Revo Uninstaller로 완전 삭제', color:'cornflowerblue'
+  });
+  if(!manualScores['antivirus']||autoScores.webrtc===0||autoScores.dns===0) recos.push({
+    text:'악성코드가 이미 설치되어 있을 수 있습니다 — 지금 바로 무료 검사를 해보세요.',
+    link:'#', linkText:'🔍 Malwarebytes 무료 검사 시작', color:'#ff4d4d'
+  });
+  if(recos.length===0) recos.push({
+    text:'현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다! 🎉',
+    link:null, linkText:null
+  });
 
-  $('recoList').innerHTML='<div style="font-size:.72rem;color:var(--muted);margin-bottom:7px;font-family:var(--mono);">[ 개선 권고사항 ]</div>'+
-    recos.map(r=>`<div class="reco-item"><div class="reco-dot"></div><span>${r}</span></div>`).join('');
+  $('recoList').innerHTML='<div style="font-size:.75rem;color:var(--muted);margin-bottom:12px;">[ 지금 바로 해결할 수 있어요 ]</div>'+
+    recos.map(r=>`
+      <div class="reco-item" style="flex-direction:column;align-items:flex-start;gap:5px;margin-bottom:10px;">
+        <div style="display:flex;align-items:flex-start;gap:7px;">
+          <div class="reco-dot" style="margin-top:6px;flex-shrink:0;"></div>
+          <span>${r.text}</span>
+        </div>
+        ${r.linkText ? `<button onclick="document.getElementById('affSection')?.scrollIntoView({behavior:'smooth',block:'start'})"
+          style="margin-left:11px;font-size:.75rem;font-weight:600;color:${r.color||'#00e676'};
+          background:rgba(0,0,0,0.2);border:1px solid ${r.color||'#00e676'}33;
+          padding:4px 12px;border-radius:5px;cursor:pointer;font-family:var(--sans);
+          transition:opacity .15s;"
+          onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          ${r.linkText} ↓
+        </button>` : ''}
+      </div>`).join('');
 
+  // ── 어필리에이트 개인화 메시지 (점수 기반) ──
+  const affMsg = document.getElementById('affPersonalMsg');
+  if(affMsg){
+    let msg = '';
+    if(total < 40){
+      msg = `⚠️ <strong style="color:var(--red)">위험 수준</strong>입니다. 지금 당장 조치가 필요합니다 — 아래 솔루션 중 하나라도 적용하면 해킹 위험을 80% 이상 줄일 수 있습니다.`;
+    } else if(total < 60){
+      msg = `⚡ 보안에 <strong style="color:var(--amber)">주요 취약점</strong>이 발견됐습니다. 특히 VPN과 백신 업데이트가 시급합니다.`;
+    } else if(total < 80){
+      msg = `👍 기본 보안은 갖춰져 있지만 <strong style="color:var(--blue)">완전한 보호</strong>를 위해 한 단계 더 강화해보세요. 브라우저 캐시·쿠키 정리도 잊지 마세요.`;
+    } else {
+      msg = `🌟 보안 상태가 좋습니다! 아래 솔루션으로 <strong style="color:var(--green)">완벽한 보안</strong>을 완성해보세요.`;
+    }
+    affMsg.innerHTML = msg;
+    affMsg.style.display = 'block';
+    // 점수 낮으면 빨간색, 높으면 초록색 테두리
+    if(total < 60){
+      affMsg.style.borderColor = 'rgba(255,77,77,0.3)';
+      affMsg.style.background = 'rgba(255,77,77,0.06)';
+    } else {
+      affMsg.style.borderColor = 'rgba(0,230,118,0.2)';
+      affMsg.style.background = 'rgba(0,230,118,0.04)';
+    }
+  }
+
+  /* ── 공유 버튼 ── */
   $('shareBtn').onclick=()=>{
+    const btns = $('shareBtns');
+    btns.style.display = btns.style.display==='none' ? 'flex' : 'none';
+  };
+
+  // 이미지 카드 생성 + 저장
+  $('shareImgBtn').onclick=()=>{
+    const c = $('shareCanvas');
+    c.style.display='block';
+    const ctx = c.getContext('2d');
+    const color = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
+
+    // 배경
+    ctx.fillStyle='#0d1117';
+    ctx.fillRect(0,0,600,340);
+
+    // 상단 바
+    ctx.fillStyle=color;
+    ctx.fillRect(0,0,600,6);
+
+    // 로고
+    ctx.font='bold 18px system-ui';
+    ctx.fillStyle='#ffffff';
+    ctx.fillText('🛡️ 보안레이더', 36, 52);
+
+    // 점수
+    ctx.font='bold 88px system-ui';
+    ctx.fillStyle=color;
+    ctx.fillText(total, 36, 165);
+
+    ctx.font='bold 24px system-ui';
+    ctx.fillStyle='rgba(255,255,255,0.4)';
+    ctx.fillText('/ 100점', 36, 195);
+
+    // 등급
+    ctx.font='bold 22px system-ui';
+    ctx.fillStyle=color;
+    ctx.fillText(grade+' '+label, 36, 240);
+
+    // 날짜
+    ctx.font='14px system-ui';
+    ctx.fillStyle='rgba(255,255,255,0.3)';
+    ctx.fillText(new Date().toLocaleDateString('ko-KR'), 36, 275);
+
+    // URL
+    ctx.font='13px monospace';
+    ctx.fillStyle='rgba(255,255,255,0.2)';
+    ctx.fillText('securityradar.io', 36, 310);
+
+    // 우측 항목 표시
+    const items=[
+      {label:'WebRTC', ok: autoScores.webrtc>0,  okText:'안전', failText:'누출'},
+      {label:'DNS',    ok: autoScores.dns>0,      okText:'안전', failText:'누출'},
+      {label:'IPv6',   ok: autoScores.ipv6>0,     okText:'안전', failText:'누출'},
+      {label:'포트',   ok: scanData.ports?.length===0, okText:'안전', failText:'위험'},
+      {label:'보안키', ok: autoScores.securityKey>0,   okText:'활성', failText:'미감지'},
+    ];
+    items.forEach((item,i)=>{
+      const x=400, y=60+(i*50);
+      const color=item.ok?'#00e676':'#ff4d4d';
+      const bg=item.ok?'rgba(0,230,118,0.12)':'rgba(255,77,77,0.12)';
+      ctx.fillStyle=bg;
+      roundRect(ctx, x, y, 170, 38, 7);
+      ctx.fillStyle=color;
+      ctx.font='bold 13px system-ui';
+      const status=item.ok?`✓ ${item.label} ${item.okText}`:`✗ ${item.label} ${item.failText}`;
+      ctx.fillText(status, x+14, y+24);
+    });
+
+    const link = document.createElement('a');
+    link.download=`보안레이더_${total}점.png`;
+    link.href = c.toDataURL();
+    link.click();
+    c.style.display='none';
+  };
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);
+    ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);
+    ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);
+    ctx.arcTo(x,y,x+r,y,r);ctx.closePath();ctx.fill();
+  }
+
+  // 트위터 공유
+  $('shareTwitterBtn').onclick=()=>{
+    const txt=encodeURIComponent(`🛡️ 내 PC 보안 점수: ${total}점/100점 (${grade} ${label})\nWebRTC누출·DNS누출·IP추적 등 무료 보안진단\n#보안레이더 #PC보안`);
+    const url=encodeURIComponent(location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,'_blank');
+  };
+
+  // 카카오톡 공유 (Web Share API fallback)
+  $('shareKakaoBtn').onclick=()=>{
+    const txt=`🛡️ 내 PC 보안 점수: ${total}점/100점\n${grade} ${label}\n\n보안레이더에서 무료로 확인하세요`;
+    if(navigator.share){ navigator.share({title:'보안레이더 진단결과',text:txt,url:location.href}).catch(()=>{}); }
+    else { navigator.clipboard?.writeText(txt+'\n'+location.href).then(()=>alert('카카오톡에 붙여넣기 하세요!')); }
+  };
+
+  // 텍스트 복사
+  $('shareCopyBtn').onclick=()=>{
     const txt=`🛡️ PC 보안 진단 결과\n등급: ${grade} (${total}점/100점)\n${label}\n\n보안레이더에서 내 PC 점수 확인 → ${location.href}`;
-    navigator.clipboard?navigator.clipboard.writeText(txt).then(()=>alert('📋 클립보드에 복사됐습니다! SNS에 공유해보세요.')):prompt('복사하세요:',txt);
+    navigator.clipboard?.writeText(txt).then(()=>alert('📋 클립보드에 복사됐습니다!'));
+  };
+
+  /* ── 보안 히스토리 ── */
+  const HISTORY_KEY='sr_score_history';
+  function loadHistory(){ try{ return JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]'); }catch{ return []; } }
+  function saveHistory(score, grade){
+    const h=loadHistory();
+    h.push({ score, grade, date:new Date().toLocaleDateString('ko-KR'), ts:Date.now() });
+    if(h.length>10) h.splice(0, h.length-10); // 최근 10개만
+    try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); }catch{}
+  }
+  function renderHistory(){
+    const h=loadHistory();
+    if(h.length<2){ $('historyWrap').style.display='none'; return; }
+    $('historyWrap').style.display='block';
+    $('historyList').innerHTML=h.slice(-6).reverse().map((item,i)=>{
+      const prev=h[h.length-2-i];
+      const diff=prev?item.score-prev.score:0;
+      const color=item.score>=80?'#00e676':item.score>=60?'#40c4ff':item.score>=40?'#ffb300':'#ff4d4d';
+      return`<div class="history-item">
+        <span class="history-date">${item.date}</span>
+        <div class="history-bar"><div class="history-fill" style="width:${item.score}%;background:${color}"></div></div>
+        <span class="history-score" style="color:${color}">${item.score}</span>
+        <span class="history-diff" style="color:${diff>0?'#00e676':diff<0?'#ff4d4d':'var(--muted)'}">
+          ${diff>0?'↑'+diff:diff<0?'↓'+Math.abs(diff):'—'}
+        </span>
+      </div>`;
+    }).join('');
+  }
+  saveHistory(total, grade);
+  renderHistory();
+
+  /* ── VPN Before/After ── */
+  const VPN_KEY='sr_vpn_before';
+  function loadVpnBefore(){ try{ return JSON.parse(localStorage.getItem(VPN_KEY)||'null'); }catch{ return null; } }
+
+  // 현재 결과 표시 (After 컬럼)
+  const vpnAfterColor = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
+  $('vpnAfterScore').textContent=total+'점';
+  $('vpnAfterScore').style.color=vpnAfterColor;
+  $('vpnAfterDetail').innerHTML=`IP: ${scanData.ip?.ip||'—'}<br>WebRTC: ${autoScores.webrtc>0?'✓ 안전':'✗ 누출'}<br>속도: ${scanData.speed?.mbps||'—'} Mbps`;
+
+  // VPN 전 데이터 표시
+  const vpnBefore=loadVpnBefore();
+  if(vpnBefore){
+    const bc=vpnBefore.score>=80?'#00e676':vpnBefore.score>=60?'#40c4ff':vpnBefore.score>=40?'#ffb300':'#ff4d4d';
+    $('vpnBeforeScore').textContent=vpnBefore.score+'점';
+    $('vpnBeforeScore').style.color=bc;
+    $('vpnBeforeDetail').innerHTML=`IP: ${vpnBefore.ip||'—'}<br>WebRTC: ${vpnBefore.webrtc?'✓ 안전':'✗ 누출'}<br>속도: ${vpnBefore.mbps||'—'} Mbps`;
+    $('vpnSaveBtn').textContent='💾 현재 결과로 "VPN 전" 데이터 업데이트';
+
+    // 점수 차이 계산
+    const diff=total-vpnBefore.score;
+    if(diff!==0){
+      const diffEl=document.createElement('div');
+      diffEl.style.cssText='text-align:center;margin-top:10px;font-size:.82rem;font-weight:700;';
+      diffEl.style.color=diff>0?'#00e676':'#ff4d4d';
+      diffEl.textContent=diff>0?`▲ ${diff}점 향상 — VPN 효과 확인됨 ✅`:`▼ ${Math.abs(diff)}점 하락 — VPN 속도 영향 확인`;
+      $('vpnCompareGrid').after(diffEl);
+    }
+  }
+
+  // VPN 전 저장 버튼
+  $('vpnSaveBtn').onclick=()=>{
+    try{
+      localStorage.setItem(VPN_KEY, JSON.stringify({
+        score:total, grade, ip:scanData.ip?.ip,
+        webrtc:autoScores.webrtc>0, mbps:scanData.speed?.mbps, date:new Date().toLocaleDateString('ko-KR')
+      }));
+      $('vpnSaveBtn').textContent='✓ 저장됐습니다! VPN 연결 후 다시 진단하세요';
+      $('vpnSaveBtn').style.background='rgba(0,230,118,0.12)';
+      $('vpnSaveBtn').style.borderColor='rgba(0,230,118,0.3)';
+      $('vpnSaveBtn').style.color='var(--green)';
+    }catch{}
   };
   $('retryBtn').onclick=()=>{
     [$('scanning'),$('diag-results'),$('score-section')].forEach(s=>s.style.display='none');
@@ -1987,6 +3127,8 @@ function calcScore(){
 
   // ── 챌린지 박스 활성화 ──
   openChallengeBox(total, grade);
+
+  // ── 점수별 빠른 해결 버튼 생성 ──
 }
 
 $('startBtn').onclick=()=>runScan().catch(e=>addLog(`<span class="err">오류: ${e.message}</span>`));
