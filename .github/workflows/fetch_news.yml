@@ -1,13 +1,13 @@
 name: 보안 뉴스 자동 수집
-
 on:
   schedule:
     - cron: '0 1 * * *'
   workflow_dispatch:
-
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
