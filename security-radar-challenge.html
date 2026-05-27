@@ -1774,7 +1774,7 @@ function openReader(idx){
       </p>
       <textarea class="summary-editor" id="summaryEditor_${idx}"
         placeholder="예) 이번 해킹 사고의 핵심은... / 한국 사용자가 지금 당장 해야 할 것은..."
-        oninput="autoSaveSummary(${idx}, this.value)">${loadSummary(idx)}</textarea>
+        oninput="autoSaveSummary(${idx}, this.value)">${loadSummary(idx) || (ai && ai.analysis && ai.analysis.length ? ai.analysis.map((item,i)=>`${i+1}. ${item.title}\n${item.desc}`).join('\n\n') : '')}</textarea>
       <div class="summary-actions">
         <span class="summary-hint">💡 자동 저장됩니다</span>
         <div style="display:flex;align-items:center;gap:8px;">
@@ -3169,3 +3169,4 @@ $('startBtn').onclick=()=>runScan().catch(e=>addLog(`<span class="err">오류: $
 </script>
 </body>
 </html>
+ 
