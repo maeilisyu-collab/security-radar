@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T02:25:47.203433+00:00",
+  "updated": "2026-05-27T04:04:30.924476+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -37,6 +37,17 @@
       "level": "danger"
     },
     {
+      "id": "6ea6af405196",
+      "title": "“랜섬웨어·해킹 꼼짝마” KB손해보험, AI 보안과 손잡고 사이버보험 체급 키운다 - 스마트경제",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9wdWNyOGVMTWtSRU5WeWpGRmFCcnNmMUhFZ2VUY2xRV0xUQkJEcEJ2dG0yYklYMHRXa3FRTHVqWE9ad2VySF9wZVZOTXZTcHJabGpVcE1VS2VPbG9VR1JNdk9HVHh0VUVtSVJNMGZzSQ?oc=5",
+      "summary": "“랜섬웨어·해킹 꼼짝마” KB손해보험, AI 보안과 손잡고 사이버보험 체급 키운다&nbsp;&nbsp;스마트경제",
+      "pubDate": "2026-04-23T07:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
       "id": "f157071e7748",
       "title": "개인정보위, 듀오 등 3개 사업자 제재 - IT조선",
       "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBzUHR6ZjB5MHRfTmkxYXhNZEp0T1hEUHdMdVFCSDZyMGFMWnV2Y29aMklSeFJnWVVMeGw3UzVkdUZRWkF5R2ZBUVZ6Z2w2Vm5ibVVNRXJ4UHFRMDFGYnJfWGQ4WFFwWnNvQzBpaVZvdzPSAXRBVV95cUxOamFCdjlzSkxMd3B1M3NLcEUwdkZNOGRwQmI2RE5kWVo2c09HMzBSX0pxOVRzSG4zbWJaM2VIbGlYUVhZcGp3NkVNaFdSWW1RRU1aN3c4ZXctNk16dnBmZ1dReThNZWxWaUdLV3R3QWdzWjhQOA?oc=5",
@@ -57,17 +68,6 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
-    },
-    {
-      "id": "e6467b0084c5",
-      "title": "데이터 노리는 숨은 공격자 ‘악성코드’… 바이러스에서 랜섬웨어까지 [보안TMI] - IT조선",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lZ0hyVDJnT18yNHJvRjRjQk1iX2VwQWRBSXp0SXQ0Vnk5S0JKTUNNdVZBWkgtTFhRcVd4T1dNeThFbEhyNURLRWt1RUpWODhGa21pNlhiaUVFRlpCcEozanVQYWxZV3k2R051bjBxZ3jSAXRBVV95cUxPajZ5YzYyTU5zTmEzYUl3X25FZEppS2EwZzhJNUZ3ZXplWXM1NWp5bWJmTnlqdWVkSUlZbWxtTWZ4QW5IYnZYeUZRdThJNGtHQ184c1BqRGw5Tm96MmVSeDgyU3FLa1htRm51REF5amV6XzlEbg?oc=5",
-      "summary": "데이터 노리는 숨은 공격자 ‘악성코드’… 바이러스에서 랜섬웨어까지 [보안TMI]&nbsp;&nbsp;IT조선",
-      "pubDate": "2026-04-05T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
     },
     {
       "id": "3cdd25e1bc20",
@@ -103,6 +103,28 @@
       "level": "danger"
     },
     {
+      "id": "1a8b58c92383",
+      "title": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영 - 프레시안",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBWUDZoRWFsc3Y4ZnpqYkdwTmMzbE0zZEpvVjJDMEZQMXAzbTYyX2hfaXZ1YjFnRTlNRGtob1h4NDNYUElWWmlJbmJyRW42ZHhHUVMtcmxfdV96T3h4Ui1KR2tFanM2dVNiRXlB?oc=5",
+      "summary": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영&nbsp;&nbsp;프레시안",
+      "pubDate": "2026-03-05T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
+      "id": "0ab45b2930c1",
+      "title": "북한 라자루스 해킹그룹, 메두사 랜섬웨어로 美 의료기관 타깃 공격 - 데일리시큐",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IRjNmMVZQZmtfajdfV0hKelN6M0VfOVhqeElZa3prMWpoZ3BzenI1WXhoLUg5amh3SmhLVllCYzZOeHJ3RW1YX3J2M0NyQ1gydVhsTUVmMWlzcEkxYlV6TThuUE5jNEhLNWYxYQ?oc=5",
+      "summary": "북한 라자루스 해킹그룹, 메두사 랜섬웨어로 美 의료기관 타깃 공격&nbsp;&nbsp;데일리시큐",
+      "pubDate": "2026-02-25T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
       "id": "459aff0f6b77",
       "title": "“AI 악용·랜섬웨어 주의”…삼성SDS, ‘5대 사이버 보안 위협’ 선정 - 조선비즈 - Chosunbiz",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS3JybFpLNllZSm5XbEpIaURFeWlQbDlTYjhRcEZxdkxscDJDdGlJTExkU2VWUHFCeXgxSWF5X01ia19aMlZZZ3hFYkI3S1RzR1ZFZnlRWmRXWlZlSkZSOGJEb2F1bzNnUmlsSVc5NVYyRGFuLUk2bElHNHplODBlSVp30gGWAUFVX3lxTE9DQlp0NHNWaElka3VJVjVZOTdoaXNFZFJzZFFTbnQ2Mml6SWlsY0R6ZWtIdkNMMWVlRlRyb2Z2ZVMyNTZyejQyWUdtYm5FV0JhblVvTXhpUGprMVlFSTQ3eFRPcXpIdUVjSTN4c0p4N0NsclM0NEVOcEdhel82S1p3MEczVW1HVW45V0M5dHdLeEl4SHJCZw?oc=5",
@@ -112,6 +134,17 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger"
+    },
+    {
+      "id": "e1ed71b62f05",
+      "title": "삼성SDS, 2026년 5대 사이버 보안 위협 제시 - 뉴스후플러스",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVR1pNSlczNHM4ZVA1djRBV3p3NFRBbEVoWDVXVGc5OXBxOFFvdFg3T25ReFNaQzV6Q3V3QUVPZ3BwcXh3czkwN2R1TDZDQVlOeGpZS3VUOGxXUExzWG1KLXViSEpkYkZKUzRxcTR3?oc=5",
+      "summary": "삼성SDS, 2026년 5대 사이버 보안 위협 제시&nbsp;&nbsp;뉴스후플러스",
+      "pubDate": "2026-02-23T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
     },
     {
       "id": "172639be841e",
@@ -180,17 +213,6 @@
       "level": "danger"
     },
     {
-      "id": "b5af35e3f3dc",
-      "title": "인하대, 해커 랜섬웨어 공격에 홈페이지 마비…14시간 만에 복구 - 경기일보",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1adTJFSjZhM0xsTF85bklsYWljZF94VWhLT2gxc1VDSlFaQUFxUTJPc1RtNXJnOEx0ZDJYZjBFRUJvQ09sb08ySXFVRXRxZ0hVck9VU255eWE3ckU?oc=5",
-      "summary": "인하대, 해커 랜섬웨어 공격에 홈페이지 마비…14시간 만에 복구&nbsp;&nbsp;경기일보",
-      "pubDate": "2025-12-29T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
       "id": "9cc95e9731a1",
       "title": "KT 침해사고로 2.2만명 정보 유출…BPF도어 등 악성코드 103종 감염 - 아이티데일리",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Oa3dLVThmSWxpa3lEYTJWTWpYZjlyaGtLZ3gteWNIeE4wVVlOVnhjWGVDNlMzczJZXzh5Q3VvdnFNMjQ0T0F1RzNoM2dWZ0VoMnJoQ290ZExHNTBCSXF6VnNmTkVaSGc?oc=5",
@@ -200,17 +222,6 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
-    },
-    {
-      "id": "431a494c4acd",
-      "title": "“고양이에게 생선 맡겼다”... 낮에는 보안 전문가, 밤에는 해커로 랜섬웨어 공격 가담 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1aWkN3WWg5YzJnZUJIbFlwVHhXNm9HWl9fZUp2UkxKS1BnNlFxTk8xS29CQkxmUnQ4N25DbW5OSUJlS2VaeVVKd2hXb3BqMTlPRXdXazJJZTlCaVJ6Q2c?oc=5",
-      "summary": "“고양이에게 생선 맡겼다”... 낮에는 보안 전문가, 밤에는 해커로 랜섬웨어 공격 가담&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2025-12-22T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
     },
     {
       "id": "5a19fbfe7ca4",
@@ -233,17 +244,6 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
-    },
-    {
-      "id": "e074319bb885",
-      "title": "韓 기업 노리는 '그 놈들'…랜섬웨어, 더 강해진다 - 지디넷코리아",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5nam15Y21jSmxmRS1vWERmVzR3Sk8zY3BlM1dKQi04cEtxcUxQLTZBTGpiZm5HX1hXdXdCSlVqT2FsVlg5VHNtY01yQVRYbUNXeDliTDR3?oc=5",
-      "summary": "韓 기업 노리는 '그 놈들'…랜섬웨어, 더 강해진다&nbsp;&nbsp;지디넷코리아",
-      "pubDate": "2025-10-17T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
     },
     {
       "id": "7515b6966d44",
