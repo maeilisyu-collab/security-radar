@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T05:59:31.462237+00:00",
+  "updated": "2026-05-27T06:55:59.951777+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -25,7 +25,26 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "중소·중견기업이 랜섬웨어와 정보유출 공격의 집중 피해 대상이 되고 있다.",
+          "해킹 발생 후 인지까지 평균 106일이 소요되어 대응 시간이 매우 길다."
+        ],
+        "analysis": [
+          {
+            "title": "중소·중견기업 피해 현황",
+            "desc": "중소·중견기업이 랜섬웨어와 정보유출 공격의 주요 피해 대상이 되고 있으며, 이는 보안 인프라가 부족한 중소기업의 취약성을 악용한 공격으로 분석된다."
+          },
+          {
+            "title": "지연된 위협 탐지",
+            "desc": "해킹 발생 후 실제 인지까지 평균 106일이 소요되는 것으로 나타나, 초기 대응 시간을 놓치고 피해 규모가 확대되는 악순환이 발생하고 있다."
+          },
+          {
+            "title": "보안 모니터링 강화 필요",
+            "desc": "신속한 위협 탐지를 위해 24시간 보안 모니터링 체계 구축과 자동화된 탐지 도구 도입이 시급한 상황이다."
+          }
+        ]
+      }
     },
     {
       "id": "98be8dac8296",
@@ -76,18 +95,6 @@
       "ai_summary": null
     },
     {
-      "id": "4c32a6b1357f",
-      "title": "경남도, 중소기업 사이버 보안 지원 - 스트레이트뉴스",
-      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBGZ1EyTEdFdDU2b1JkczFWdFJSQ3BhWEpCODYyTzZoRFdndFRjTGxtUV9DRGRTVjBVRE1LOUxVcHAyNHdxa0FEOWI4emhvdkJTZFN2emdORVZnNW1URWdILUxRb0xvaTlaNGRxRVF5OE1RQlHSAXdBVV95cUxORzA3MllHRUQtUWN0SzljTG1aYU9IejNpYk9DdnVvTmxibVZ1aC1oWFBjM3pOMnNFS0dOTWRJOWxrTXFxVFdqWE1pbndkRVN5bkc0WWl2T3pHVnAxVXowRTNKOG05RjIxd0pKUWFzRk9wTEtucjdmaw?oc=5",
-      "summary": "경남도, 중소기업 사이버 보안 지원&nbsp;&nbsp;스트레이트뉴스",
-      "pubDate": "2026-03-16T07:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": null
-    },
-    {
       "id": "3cdd25e1bc20",
       "title": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위 - 지디넷코리아",
       "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hTzVSZEpEMjRyNTJtOHh5aC01Ul9DT01mV0xGZmJqVE9Pdnh0RGdlZFJBT0dDTGlQRWh6bTZYT2lVZTcwYWxzd1dSNEVBa0V6dzAwaXB3?oc=5",
@@ -97,7 +104,26 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "전세계 랜섬웨어 공격자 중 킬린(Killian)이 1위로 확인되었다.",
+          "랜섬웨어 공격 위협이 지속적으로 증가하고 있으며 주요 공격자들의 활동을 추적하는 것이 중요하다."
+        ],
+        "analysis": [
+          {
+            "title": "킬린 그룹의 위협도",
+            "desc": "킬린이 전세계 랜섬웨어 공격자 중 1위로 평가되었으며, 높은 활동 수준과 영향력을 보유하고 있다. 이는 조직의 보안 위협이 매우 심각함을 의미한다."
+          },
+          {
+            "title": "상위 10개 공격 그룹",
+            "desc": "전세계 주요 랜섬웨어 공격자들의 순위가 분석되어 보안 위협도 파악이 가능하다. 각 그룹의 활동 패턴과 공격 대상을 이해하는 것이 방어 전략 수립에 필수적이다."
+          },
+          {
+            "title": "랜섬웨어 공격 현황",
+            "desc": "현재 전세계적으로 조직화된 랜섬웨어 공격 그룹들이 활발하게 활동 중이다. 기업과 기관들은 이러한 위협에 대비하기 위해 보안 대책 강화가 필요하다."
+          }
+        ]
+      }
     },
     {
       "id": "f03429fa8a6e",
@@ -109,7 +135,26 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "AI 기술을 악용한 피싱 공격과 공급망 해킹이 확산되고 있는 추세이다.",
+          "한국은 아태 지역에서 랜섬웨어 공격 피해국 5위에 위치하고 있다."
+        ],
+        "analysis": [
+          {
+            "title": "AI 피싱 공격의 확산",
+            "desc": "신뢰 관계를 악용한 AI 기반 피싱 공격이 증가하고 있다. 고도화된 기술로 인해 일반 사용자들이 피해를 입을 위험이 높아지고 있다."
+          },
+          {
+            "title": "공급망 해킹 위협",
+            "desc": "기업의 공급망을 목표로 한 해킹 시도가 확산되는 중이다. 공급망 침해를 통해 대규모 피해를 야기할 수 있는 위험성이 존재한다."
+          },
+          {
+            "title": "한국의 랜섬웨어 피해 현황",
+            "desc": "한국은 아시아태평양 지역에서 랜섬웨어 공격으로 인한 피해가 5번째로 많은 국가이다. 국내 기관과 기업들의 적극적인 보안 강화가 필요한 상황이다."
+          }
+        ]
+      }
     },
     {
       "id": "836cf6a7d7ff",
@@ -148,18 +193,6 @@
       "ai_summary": null
     },
     {
-      "id": "1204ab627384",
-      "title": "해킹·피싱으로 얼룩진 2025년…올해 주목해야 할 보안 이슈는? - IT비즈뉴스",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1tOGdiUF9RQ0NjM09ndEh5cldSNndKTFdPVXBZc3NzYmVaVGN3Sm1LTUpEREVuNk1Fc19fR05GVDRzVnFadnVSQ0xSTUJjWVNRRUlhTF9CcWV4ekYzVEVSVHBFeTFTRTBiZXBLSA?oc=5",
-      "summary": "해킹·피싱으로 얼룩진 2025년…올해 주목해야 할 보안 이슈는?&nbsp;&nbsp;IT비즈뉴스",
-      "pubDate": "2026-02-24T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": null
-    },
-    {
       "id": "459aff0f6b77",
       "title": "“AI 악용·랜섬웨어 주의”…삼성SDS, ‘5대 사이버 보안 위협’ 선정 - 조선비즈 - Chosunbiz",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS3JybFpLNllZSm5XbEpIaURFeWlQbDlTYjhRcEZxdkxscDJDdGlJTExkU2VWUHFCeXgxSWF5X01ia19aMlZZZ3hFYkI3S1RzR1ZFZnlRWmRXWlZlSkZSOGJEb2F1bzNnUmlsSVc5NVYyRGFuLUk2bElHNHplODBlSVp30gGWAUFVX3lxTE9DQlp0NHNWaElka3VJVjVZOTdoaXNFZFJzZFFTbnQ2Mml6SWlsY0R6ZWtIdkNMMWVlRlRyb2Z2ZVMyNTZyejQyWUdtYm5FV0JhblVvTXhpUGprMVlFSTQ3eFRPcXpIdUVjSTN4c0p4N0NsclM0NEVOcEdhel82S1p3MEczVW1HVW45V0M5dHdLeEl4SHJCZw?oc=5",
@@ -170,6 +203,37 @@
       "category": "랜섬웨어",
       "level": "danger",
       "ai_summary": null
+    },
+    {
+      "id": "e1ed71b62f05",
+      "title": "삼성SDS, 2026년 5대 사이버 보안 위협 제시 - 뉴스후플러스",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVR1pNSlczNHM4ZVA1djRBV3p3NFRBbEVoWDVXVGc5OXBxOFFvdFg3T25ReFNaQzV6Q3V3QUVPZ3BwcXh3czkwN2R1TDZDQVlOeGpZS3VUOGxXUExzWG1KLXViSEpkYkZKUzRxcTR3?oc=5",
+      "summary": "삼성SDS, 2026년 5대 사이버 보안 위협 제시&nbsp;&nbsp;뉴스후플러스",
+      "pubDate": "2026-02-23T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "삼성SDS가 2026년 사이버 보안 위협으로 5가지 주요 위협 요소를 제시했습니다.",
+          "향후 사이버 보안 산업의 방향성과 대응 방안에 대한 예측을 제공하고 있습니다."
+        ],
+        "analysis": [
+          {
+            "title": "2026년 사이버 위협 예측",
+            "desc": "삼성SDS는 향후 2년간 기업과 개인을 위협할 5가지 주요 사이버 보안 위협을 분석했습니다. 이는 기술 발전에 따른 새로운 공격 벡터의 등장을 의미합니다."
+          },
+          {
+            "title": "산업별 보안 전략 필요성",
+            "desc": "변화하는 위협 환경에 대응하기 위해 기업들은 맞춤형 사이버 보안 전략 수립이 필수적입니다. 선제적인 위협 대응과 보안 인프라 강화가 요구됩니다."
+          },
+          {
+            "title": "보안 전문가의 역할 강화",
+            "desc": "증가하는 위협에 대응하기 위해 보안 전문 인력과 기술의 중요성이 더욱 높아질 것으로 예상됩니다. 기업의 사이버 보안 투자 확대가 이루어질 것으로 전망됩니다."
+          }
+        ]
+      }
     },
     {
       "id": "172639be841e",
@@ -220,18 +284,6 @@
       "ai_summary": null
     },
     {
-      "id": "3dfe8840ebc8",
-      "title": "KISA “신원 미상 해커그룹, 국내 웹 사이트 대상 공격 지속” - 아이티데일리",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92TUlWdzVFYjJPYU9rVVQ0QzIwc1RFU1IwZWIxZkdoSi13UGVIR3c3dXlwY2d6SXd1enRxTTJyTm5RYmlrZHloWV9HV1dwUkhBbWpwd3ZNRDUwbDFPejd6dFkwdUZKQjg?oc=5",
-      "summary": "KISA “신원 미상 해커그룹, 국내 웹 사이트 대상 공격 지속”&nbsp;&nbsp;아이티데일리",
-      "pubDate": "2026-01-06T08:00:00+00:00",
-      "source": "KISA 보호나라",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": null
-    },
-    {
       "id": "0020eb7c0b21",
       "title": "AI 해킹·랜섬웨어 대응···KB금융 사이버 보안센터 최초 출범 - 여성경제신문",
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8xMVY4WEJvVkx5cFZLeS1xcTFYZHBuTHBoa1RGMmVfYkFORDlBSUdWaUVWaXJSVUJnT0VhWEhVYkt6OEttNzFiQ19nN3JNTVNubGkyRHhvdEVhT3l2TzBRdEZFZHZ6Y09GUTJsOUNKNldibXfSAXdBVV95cUxNcnhMRTlmWDUzQTh3Y0lSdjBrWTB3MWtIbHZuUkVRT056N3BraGpJSVRSRnczZXduYmI0b1R3VzRQMDdIa2NfVDhYYm1iMHdmWHhpVE1XUkFtN05zMjAyQm9IOUJUUXNhTnNFaFNKZXBhemR3SDZuSQ?oc=5",
@@ -242,6 +294,37 @@
       "category": "랜섬웨어",
       "level": "danger",
       "ai_summary": null
+    },
+    {
+      "id": "ba450e3fbfa3",
+      "title": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격 - 아시아투데이",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBhU0dCQWpYaTVhSWI0c0tTM2hZSFo0d1J6QllCYkZxUl9KQWZXOTdSTVhTRmc3bzRfX0tNMy14RERfbzIyVk5UNV8xSmZOaHk5TWR1WlhTenUtdEdFcjVkRzJ3cjczaDJ4eThKRlNR?oc=5",
+      "summary": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격&nbsp;&nbsp;아시아투데이",
+      "pubDate": "2026-01-01T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger",
+      "ai_summary": {
+        "keypoints": [
+          "2026년 사이버 보안 위협의 핵심은 AI, 랜섬웨어, 표적 공격 3가지로 집중된다.",
+          "이러한 위협들은 기업과 개인의 정보 보안에 심각한 영향을 미칠 것으로 예상된다."
+        ],
+        "analysis": [
+          {
+            "title": "AI 기반 사이버 위협",
+            "desc": "인공지능 기술이 고도화되면서 더욱 정교한 사이버 공격이 가능해진다. 자동화된 AI 공격은 대규모 조직을 표적으로 신속하게 확산될 수 있다."
+          },
+          {
+            "title": "랜섬웨어 공격의 확대",
+            "desc": "랜섬웨어는 기업과 기관의 중요 데이터를 암호화하여 경제적 손실을 야기한다. 점점 더 복잡해지는 변종들이 지속적으로 출현할 것으로 보인다."
+          },
+          {
+            "title": "표적화된 공격 증가",
+            "desc": "특정 기업이나 기관을 겨냥한 맞춤형 사이버 공격이 증가하고 있다. 이러한 표적 공격은 기존 보안 체계를 무력화할 수 있는 위험성이 높다."
+          }
+        ]
+      }
     },
     {
       "id": "b0a582267567",
@@ -265,7 +348,26 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "KT가 침해사고로 인해 2.2만명의 개인정보가 유출되었다.",
+          "BPF도어를 포함한 103종의 악성코드에 감염되어 대규모 보안 위협이 발생했다."
+        ],
+        "analysis": [
+          {
+            "title": "피해 규모",
+            "desc": "약 2.2만명의 개인정보가 유출된 것으로 파악되었다. 이는 대규모 통신사 침해사고로 개인 고객들의 정보보안이 심각하게 침해되었음을 의미한다."
+          },
+          {
+            "title": "악성코드 감염 현황",
+            "desc": "BPF도어를 포함한 총 103종의 악성코드가 시스템에 감염되었다. 다양한 종류의 악성코드 감염은 공격자들의 체계적이고 정교한 침해 시도를 보여준다."
+          },
+          {
+            "title": "보안 위협 심각성",
+            "desc": "대규모 악성코드 감염과 함께 개인정보 유출까지 발생한 것은 초기 탐지 실패와 시스템 보안의 취약성을 드러낸다. 통신사의 중요 인프라 보안 강화가 시급한 상황이다."
+          }
+        ]
+      }
     },
     {
       "id": "b0a3bea65705",
@@ -277,7 +379,30 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "2025년 IT 보안의 주요 이슈로 해킹이 부각되고 있으며, 이는 기업과 개인에게 심각한 위협이 되고 있다.",
+          "개인정보가 더 이상 개인의 것이 아닌 공공재 수준으로 유출되면서 정보보호의 중요성이 극대화되고 있다."
+        ],
+        "analysis": [
+          {
+            "title": "해킹의 심각성 증대",
+            "desc": "2025년 IT 이슈의 중심에 해킹이 있으며, 고도화된 사이버 공격 기술이 증가하고 있다."
+          },
+          {
+            "title": "개인정보 유출 현황",
+            "desc": "개인정보가 공공재 수준으로 전락할 정도로 광범위하게 유출되고 있어 보안 위기가 심각하다."
+          },
+          {
+            "title": "보안 인식 제고의 필요성",
+            "desc": "개인과 조직이 적극적인 보안 대책을 마련하고 정보보호 의식을 강화해야 한다."
+          },
+          {
+            "title": "제도적 보완 과제",
+            "desc": "정보보호법 강화와 대대적인 보안 투자가 필요한 시점이다."
+          }
+        ]
+      }
     },
     {
       "id": "5a19fbfe7ca4",
@@ -288,18 +413,6 @@
       "source": "Google 뉴스 — 취약점",
       "lang": "ko",
       "category": "해킹",
-      "level": "warning",
-      "ai_summary": null
-    },
-    {
-      "id": "72721e30ce89",
-      "title": "한국인터넷진흥원(KISA) \"쿠팡 개인정보 유출 사고 악용 '피해보상' 피싱 주의\" - 컨슈머타임스",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9BQ2Nwb2lQWVJ6MHJobHdXbHpPcEVITW01YmdBekJFS2VCUUpHUFJFUENEVjVaUDZSMmZWSXVNN1NyUmxGY29NRGRkQ3MwU2pVSzRJS2lRT1hyOTR3Z1VkRi03YUFHbFgwNVE?oc=5",
-      "summary": "한국인터넷진흥원(KISA) \"쿠팡 개인정보 유출 사고 악용 '피해보상' 피싱 주의\"&nbsp;&nbsp;컨슈머타임스",
-      "pubDate": "2025-12-11T08:00:00+00:00",
-      "source": "KISA 보호나라",
-      "lang": "ko",
-      "category": "피싱",
       "level": "warning",
       "ai_summary": null
     },
@@ -337,7 +450,26 @@
       "lang": "ko",
       "category": "피싱",
       "level": "warning",
-      "ai_summary": null
+      "ai_summary": {
+        "keypoints": [
+          "KISA가 쿠팡 개인정보 유출 사고를 악용한 피싱 공격에 대해 주의를 당부했다.",
+          "사기범들이 피해보상을 명목으로 사칭해 개인정보를 탈취하려는 시도가 증가하고 있다."
+        ],
+        "analysis": [
+          {
+            "title": "악용 대상",
+            "desc": "쿠팡의 대규모 개인정보 유출 사고가 사이버범죄의 소재로 악용되고 있다. 광범위한 피해자를 대상으로 신뢰도 높은 피싱이 가능해졌다."
+          },
+          {
+            "title": "피싱 수법",
+            "desc": "사기범들이 쿠팡 또는 KISA를 사칭하여 피해보상 지급을 명목으로 연락하는 방식을 사용한다. 개인정보 재확인이라는 핑계로 민감한 정보를 수집하려 시도한다."
+          },
+          {
+            "title": "주의사항",
+            "desc": "공식 채널이 아닌 출처에서의 피해보상 안내는 의심해야 한다. 개인정보 재입력이나 계좌 이체 요구시 즉시 거부해야 한다."
+          }
+        ]
+      }
     },
     {
       "id": "63e7e5ba7cc3",
@@ -361,7 +493,69 @@
       "lang": "ko",
       "category": "취약점",
       "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "KISA가 브로드컴 VMware 취약점에 대해 재차 경고를 발표했습니다.",
+          "중국 연계 해커 그룹이 해당 취약점을 악용할 가능성이 높아지고 있습니다."
+        ],
+        "analysis": [
+          {
+            "title": "KISA의 경고 배경",
+            "desc": "한국인터넷진흥원(KISA)은 브로드컴 VMware의 심각한 취약점에 대해 재차 주의를 당부했습니다. 이는 취약점의 위험성이 지속적으로 증가하고 있음을 의미합니다."
+          },
+          {
+            "title": "중국 연계 해커의 위협",
+            "desc": "중국과 연계된 해커 집단들이 해당 취약점을 실제 공격에 활용할 가능성이 높아지고 있습니다. 이는 국내 기업들의 시스템 보안을 직접적으로 위협하는 상황입니다."
+          },
+          {
+            "title": "VMware 취약점의 심각성",
+            "desc": "브로드컴 VMware 취약점은 광범위한 시스템에 영향을 미칠 수 있는 치명적인 결함입니다. 많은 기업과 기관이 VMware를 사용하고 있어 피해 범위가 클 것으로 예상됩니다."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2bfebe9212e1",
+      "title": "“[국제발신] 클릭 금지”… 정부·공공기관 사칭 문자 주의 - IT조선",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE90Tk9BbUY4R0pCTmI2ZWdEa3lrQ01xZXFWV2VCajVTMVNHRVBBWjBzWnFCcnN5Z2tPeGtWX1J5cGFSQUttZzJfbUZ1dUtDdFJyNVBEZ1dqQTVPamFud3RkN3JwVlFxeFZ1Z1kzVVBhSHTSAXRBVV95cUxQSG9ETFB0UnhMcGllajlISDNzLTVXYkFxZVN2RmdRMXpvMHFuYy1WNE9QTzRMcUo5SE5rR2F0bnNEd085MDhZcW53TEVNU3l4Mnhlc3RKeEJIaHV4bDFtV0RReHJtUFJ3dk9NNEEwNDZ2Ujl2SA?oc=5",
+      "summary": "“[국제발신] 클릭 금지”… 정부·공공기관 사칭 문자 주의&nbsp;&nbsp;IT조선",
+      "pubDate": "2025-10-01T07:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
       "ai_summary": null
+    },
+    {
+      "id": "7515b6966d44",
+      "title": "롯데카드 해킹, 시작은 취약점 패치안된 서버…개인정보 유출은 좀더 조사해야 - 데일리시큐",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5sbFRtRDRDNTJiWHFrdE5fb1pJT0hmWlhNZHZINUFKVzRBT3ljSG5NRnRZbkhMNm1yVlQ4ZzJOU1FONmtoU2JQS1ZfcHlJRm1pckozaVJEYXMyQ2hqdnpIbXhSUGtqQnhoanhERA?oc=5",
+      "summary": "롯데카드 해킹, 시작은 취약점 패치안된 서버…개인정보 유출은 좀더 조사해야&nbsp;&nbsp;데일리시큐",
+      "pubDate": "2025-09-02T07:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "롯데카드 해킹의 원인은 보안 취약점이 패치되지 않은 서버였다.",
+          "개인정보 유출 범위에 대해서는 추가적인 조사가 필요한 상황이다."
+        ],
+        "analysis": [
+          {
+            "title": "해킹 원인",
+            "desc": "롯데카드 시스템이 보안 취약점이 해결되지 않은 서버를 운영 중이었던 것이 해킹의 주요 진입점이 되었다. 미흡한 보안 패치 관리가 대형 금융사의 보안 사고로 이어진 것으로 분석된다."
+          },
+          {
+            "title": "개인정보 유출 현황",
+            "desc": "현재까지 확인된 개인정보 유출 규모와 범위에 대한 전면적인 조사가 진행 중이다. 피해 범위를 정확히 파악하기 위해서는 시간이 더 필요할 것으로 예상된다."
+          },
+          {
+            "title": "보안 관리 체계의 문제점",
+            "desc": "대형 금융기관에서도 알려진 취약점에 대한 패치가 제때 이루어지지 않았다는 점은 보안 관리 프로세스의 개선이 필요함을 시사한다. 정기적인 보안 점검 및 신속한 업데이트 체계 구축이 중요하다."
+          }
+        ]
+      }
     }
   ]
 }
