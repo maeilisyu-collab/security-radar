@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-26T04:56:09.993139+00:00",
+  "updated": "2026-05-27T00:46:29.391735+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -103,43 +103,10 @@
       "level": "danger"
     },
     {
-      "id": "1a8b58c92383",
-      "title": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영 - 프레시안",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBWUDZoRWFsc3Y4ZnpqYkdwTmMzbE0zZEpvVjJDMEZQMXAzbTYyX2hfaXZ1YjFnRTlNRGtob1h4NDNYUElWWmlJbmJyRW42ZHhHUVMtcmxfdV96T3h4Ui1KR2tFanM2dVNiRXlB?oc=5",
-      "summary": "“랜섬웨어·해킹 대응 거점 만든다”…전북도, 정보보호 지원센터 운영&nbsp;&nbsp;프레시안",
-      "pubDate": "2026-03-05T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
-      "id": "0ab45b2930c1",
-      "title": "북한 라자루스 해킹그룹, 메두사 랜섬웨어로 美 의료기관 타깃 공격 - 데일리시큐",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IRjNmMVZQZmtfajdfV0hKelN6M0VfOVhqeElZa3prMWpoZ3BzenI1WXhoLUg5amh3SmhLVllCYzZOeHJ3RW1YX3J2M0NyQ1gydVhsTUVmMWlzcEkxYlV6TThuUE5jNEhLNWYxYQ?oc=5",
-      "summary": "북한 라자루스 해킹그룹, 메두사 랜섬웨어로 美 의료기관 타깃 공격&nbsp;&nbsp;데일리시큐",
-      "pubDate": "2026-02-25T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
       "id": "459aff0f6b77",
       "title": "“AI 악용·랜섬웨어 주의”…삼성SDS, ‘5대 사이버 보안 위협’ 선정 - 조선비즈 - Chosunbiz",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS3JybFpLNllZSm5XbEpIaURFeWlQbDlTYjhRcEZxdkxscDJDdGlJTExkU2VWUHFCeXgxSWF5X01ia19aMlZZZ3hFYkI3S1RzR1ZFZnlRWmRXWlZlSkZSOGJEb2F1bzNnUmlsSVc5NVYyRGFuLUk2bElHNHplODBlSVp30gGWAUFVX3lxTE9DQlp0NHNWaElka3VJVjVZOTdoaXNFZFJzZFFTbnQ2Mml6SWlsY0R6ZWtIdkNMMWVlRlRyb2Z2ZVMyNTZyejQyWUdtYm5FV0JhblVvTXhpUGprMVlFSTQ3eFRPcXpIdUVjSTN4c0p4N0NsclM0NEVOcEdhel82S1p3MEczVW1HVW45V0M5dHdLeEl4SHJCZw?oc=5",
       "summary": "“AI 악용·랜섬웨어 주의”…삼성SDS, ‘5대 사이버 보안 위협’ 선정 - 조선비즈&nbsp;&nbsp;Chosunbiz",
-      "pubDate": "2026-02-23T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
-      "id": "4886a3d29913",
-      "title": "해상으로 번진 랜섬웨어와 공급망 공격…싸이터(CYTUR), ‘2026 해양 사이버 위협 백서’ 통해 위기 경고 - 데일리시큐",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5JVnFPcVhCVXZ3Rmdqc0pmZDVaSlBjZGV2ZXBIRnVJbjZzY0RlSktiajU1VXdjZE5mNmIxalhIOTJvZ0cteWFQOGtMNVNTOFQ0ZVJqTTc1UDRYYnRfaVZLeWVON0FIV0o5eERhTw?oc=5",
-      "summary": "해상으로 번진 랜섬웨어와 공급망 공격…싸이터(CYTUR), ‘2026 해양 사이버 위협 백서’ 통해 위기 경고&nbsp;&nbsp;데일리시큐",
       "pubDate": "2026-02-23T08:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
@@ -180,22 +147,33 @@
       "level": "danger"
     },
     {
+      "id": "cb3fb831eb40",
+      "title": "KISA, 대학·병원 등 '연쇄 해킹'에 긴급 보안 점검 당부 - 지디넷코리아",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBNa0w5ZmdiVlYzTHBNay1USXNyWElHOEZtNFlwQ1ZGNkFsNFAzNXdrQmFJQWJEX29UNFZJRnJaLTZVVEk3T0RmQUZidmdUU0tPYTBicFJn?oc=5",
+      "summary": "KISA, 대학·병원 등 '연쇄 해킹'에 긴급 보안 점검 당부&nbsp;&nbsp;지디넷코리아",
+      "pubDate": "2026-01-06T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
+      "id": "3dfe8840ebc8",
+      "title": "KISA “신원 미상 해커그룹, 국내 웹 사이트 대상 공격 지속” - 아이티데일리",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92TUlWdzVFYjJPYU9rVVQ0QzIwc1RFU1IwZWIxZkdoSi13UGVIR3c3dXlwY2d6SXd1enRxTTJyTm5RYmlrZHloWV9HV1dwUkhBbWpwd3ZNRDUwbDFPejd6dFkwdUZKQjg?oc=5",
+      "summary": "KISA “신원 미상 해커그룹, 국내 웹 사이트 대상 공격 지속”&nbsp;&nbsp;아이티데일리",
+      "pubDate": "2026-01-06T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
+    },
+    {
       "id": "0020eb7c0b21",
       "title": "AI 해킹·랜섬웨어 대응···KB금융 사이버 보안센터 최초 출범 - 여성경제신문",
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8xMVY4WEJvVkx5cFZLeS1xcTFYZHBuTHBoa1RGMmVfYkFORDlBSUdWaUVWaXJSVUJnT0VhWEhVYkt6OEttNzFiQ19nN3JNTVNubGkyRHhvdEVhT3l2TzBRdEZFZHZ6Y09GUTJsOUNKNldibXfSAXdBVV95cUxNcnhMRTlmWDUzQTh3Y0lSdjBrWTB3MWtIbHZuUkVRT056N3BraGpJSVRSRnczZXduYmI0b1R3VzRQMDdIa2NfVDhYYm1iMHdmWHhpVE1XUkFtN05zMjAyQm9IOUJUUXNhTnNFaFNKZXBhemR3SDZuSQ?oc=5",
       "summary": "AI 해킹·랜섬웨어 대응···KB금융 사이버 보안센터 최초 출범&nbsp;&nbsp;여성경제신문",
       "pubDate": "2026-01-06T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
-      "id": "ba450e3fbfa3",
-      "title": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격 - 아시아투데이",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBhU0dCQWpYaTVhSWI0c0tTM2hZSFo0d1J6QllCYkZxUl9KQWZXOTdSTVhTRmc3bzRfX0tNMy14RERfbzIyVk5UNV8xSmZOaHk5TWR1WlhTenUtdEdFcjVkRzJ3cjczaDJ4eThKRlNR?oc=5",
-      "summary": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격&nbsp;&nbsp;아시아투데이",
-      "pubDate": "2026-01-01T08:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
       "category": "랜섬웨어",
@@ -213,6 +191,17 @@
       "level": "danger"
     },
     {
+      "id": "b5af35e3f3dc",
+      "title": "인하대, 해커 랜섬웨어 공격에 홈페이지 마비…14시간 만에 복구 - 경기일보",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1adTJFSjZhM0xsTF85bklsYWljZF94VWhLT2gxc1VDSlFaQUFxUTJPc1RtNXJnOEx0ZDJYZjBFRUJvQ09sb08ySXFVRXRxZ0hVck9VU255eWE3ckU?oc=5",
+      "summary": "인하대, 해커 랜섬웨어 공격에 홈페이지 마비…14시간 만에 복구&nbsp;&nbsp;경기일보",
+      "pubDate": "2025-12-29T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
+    },
+    {
       "id": "9cc95e9731a1",
       "title": "KT 침해사고로 2.2만명 정보 유출…BPF도어 등 악성코드 103종 감염 - 아이티데일리",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Oa3dLVThmSWxpa3lEYTJWTWpYZjlyaGtLZ3gteWNIeE4wVVlOVnhjWGVDNlMzczJZXzh5Q3VvdnFNMjQ0T0F1RzNoM2dWZ0VoMnJoQ290ZExHNTBCSXF6VnNmTkVaSGc?oc=5",
@@ -222,6 +211,28 @@
       "lang": "ko",
       "category": "해킹",
       "level": "warning"
+    },
+    {
+      "id": "b0a3bea65705",
+      "title": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보 - 월요신문",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5pMXRPZFZfUjRyZmV6ekljLWg3a3FNbWs1WWpJMGlBUXd0WXh0OV8yTkhNUjdjWlFTbUJnMm1PUGpjWWE4WlhHV1ptaTBqN0RzeExKYy12dUpTVHp3M0R5QjY2a1B0OEo4OFE?oc=5",
+      "summary": "2025년 IT 이슈 키워드, '해킹'…공공재 된 개인정보&nbsp;&nbsp;월요신문",
+      "pubDate": "2025-12-25T08:00:00+00:00",
+      "source": "Google 뉴스 — 취약점",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
+      "id": "431a494c4acd",
+      "title": "“고양이에게 생선 맡겼다”... 낮에는 보안 전문가, 밤에는 해커로 랜섬웨어 공격 가담 - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1aWkN3WWg5YzJnZUJIbFlwVHhXNm9HWl9fZUp2UkxKS1BnNlFxTk8xS29CQkxmUnQ4N25DbW5OSUJlS2VaeVVKd2hXb3BqMTlPRXdXazJJZTlCaVJ6Q2c?oc=5",
+      "summary": "“고양이에게 생선 맡겼다”... 낮에는 보안 전문가, 밤에는 해커로 랜섬웨어 공격 가담&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2025-12-22T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger"
     },
     {
       "id": "5a19fbfe7ca4",
@@ -235,6 +246,61 @@
       "level": "warning"
     },
     {
+      "id": "72721e30ce89",
+      "title": "한국인터넷진흥원(KISA) \"쿠팡 개인정보 유출 사고 악용 '피해보상' 피싱 주의\" - 컨슈머타임스",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9BQ2Nwb2lQWVJ6MHJobHdXbHpPcEVITW01YmdBekJFS2VCUUpHUFJFUENEVjVaUDZSMmZWSXVNN1NyUmxGY29NRGRkQ3MwU2pVSzRJS2lRT1hyOTR3Z1VkRi03YUFHbFgwNVE?oc=5",
+      "summary": "한국인터넷진흥원(KISA) \"쿠팡 개인정보 유출 사고 악용 '피해보상' 피싱 주의\"&nbsp;&nbsp;컨슈머타임스",
+      "pubDate": "2025-12-11T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "피싱",
+      "level": "warning"
+    },
+    {
+      "id": "fc3ce3783e59",
+      "title": "쿠팡 피해보상 사칭 피싱 발견…이용자 주의 필요 - 테크월드",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1kTWRNU205ekZsZHlkNjBRRnFBUjdQeGxTeTFTUkxZT095MEZlTC1SZGlCTDdXOXpldVNNVmhtc3M2b0VWQ0FoMkxQV043V1I5YzFQanpLTkJBeFhWMGwyTlpYbGRYWkNn?oc=5",
+      "summary": "쿠팡 피해보상 사칭 피싱 발견…이용자 주의 필요&nbsp;&nbsp;테크월드",
+      "pubDate": "2025-12-10T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "피싱",
+      "level": "warning"
+    },
+    {
+      "id": "e036a94f7ad7",
+      "title": "'쿠팡 피해보상' 피싱 기승…금감원·수사기관 사칭 주의 - v.daum.net",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBJR1FVR015VVRNZGpjYS1UMVBXNE16RkYtc3VoXzFVcWM0Nkg2aTZEU0NQU3BtMUQta1NtbS1XcnFwdnBLc3AxZE5sd1NqU00?oc=5",
+      "summary": "'쿠팡 피해보상' 피싱 기승…금감원·수사기관 사칭 주의&nbsp;&nbsp;v.daum.net",
+      "pubDate": "2025-12-10T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "피싱",
+      "level": "warning"
+    },
+    {
+      "id": "9ee23762d63a",
+      "title": "KISA, 쿠팡 개인정보 유출 사고 이슈를 악용한 '피해보상' 사칭 피싱 주의 - BBS불교방송",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9jQTg5bWIwZVBBOE05cS1Jb3BGUHU0S0k1c0hVYTF0TFJsWjhqdFB2MEFaSGNCRHkxdEZMNnZHVDJoUVRPMnBLdUxLTHgxem1pQkl4XzFxaHVsUEROeUFiOHZ0cnlLMVRWOVdF?oc=5",
+      "summary": "KISA, 쿠팡 개인정보 유출 사고 이슈를 악용한 '피해보상' 사칭 피싱 주의&nbsp;&nbsp;BBS불교방송",
+      "pubDate": "2025-12-10T08:00:00+00:00",
+      "source": "KISA 보호나라",
+      "lang": "ko",
+      "category": "피싱",
+      "level": "warning"
+    },
+    {
+      "id": "395d3682f3dd",
+      "title": "한국은 해커들 ‘쉬운 먹잇감’… 원인은 투자 등한시 [무너진IT강국①] - IT조선",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBJSS0zNW5JOTZ2dkpwNHJkQnhIa1piQ1FXOEViaWJ3emgxRnh1M3I3QzJabmNJcVlPM2ZhbUVOQTlrSVA2SXBlNm1KRjMxWW96NlBYMHVqYzdzLWh4RjFwR1hjWjQ1Sjg1dW1QTV9tMTXSAXRBVV95cUxPTTdfcElMOTFTMmcwM1Q2RlN0cmtUZDA5VXJtT3k1QXhVdlZyeFl6UDJ5VERkTWRCeGR3TzFWWDI5NllSZnk0SDRzSkRaYXR1LWZWYVpnNzZ0Um1UZFVjUm43ejBkZkJDTGUzdzhGUkp0QnFBcw?oc=5",
+      "summary": "한국은 해커들 ‘쉬운 먹잇감’… 원인은 투자 등한시 [무너진IT강국①]&nbsp;&nbsp;IT조선",
+      "pubDate": "2025-12-10T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
+    },
+    {
       "id": "63e7e5ba7cc3",
       "title": "[보안 취약점 ②] 패치 공개에도 관리 소홀…대규모 해킹 사고 낳아 - 아이티데일리",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5OMzgwZkFJVy0zMHR5aXNXU2l6NnBBVDVmU2JfWm0xSEp1cTVZLXlEdGUzcS1fQXBSWVdCNkJRdVlEVl90eUw0Q1poTmp4eHRyU3VLc2tFcWpRVXpDa0MtYi1QdUlkOHc?oc=5",
@@ -246,91 +312,25 @@
       "level": "warning"
     },
     {
-      "id": "7515b6966d44",
-      "title": "롯데카드 해킹, 시작은 취약점 패치안된 서버…개인정보 유출은 좀더 조사해야 - 데일리시큐",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5sbFRtRDRDNTJiWHFrdE5fb1pJT0hmWlhNZHZINUFKVzRBT3ljSG5NRnRZbkhMNm1yVlQ4ZzJOU1FONmtoU2JQS1ZfcHlJRm1pckozaVJEYXMyQ2hqdnpIbXhSUGtqQnhoanhERA?oc=5",
-      "summary": "롯데카드 해킹, 시작은 취약점 패치안된 서버…개인정보 유출은 좀더 조사해야&nbsp;&nbsp;데일리시큐",
-      "pubDate": "2025-09-02T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
+      "id": "98be02d97218",
+      "title": "KISA, 브로드컴 VM웨어 취약점 재차 경고...중국 연계 해커 악용 가능성↑ - 보안뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9rV0ZuYUJ6RzVZTlpLOU0yV0lENnFrd05YY21BeUk5TXUxelFPZ1hVZUVSTU1PNU9CNEh5UzJZZm9KSjRTN2xWNG5qa0ZjMFFBMV8yYkR4TDZLMlhKVGc?oc=5",
+      "summary": "KISA, 브로드컴 VM웨어 취약점 재차 경고...중국 연계 해커 악용 가능성↑&nbsp;&nbsp;보안뉴스",
+      "pubDate": "2025-11-03T08:00:00+00:00",
+      "source": "KISA 보호나라",
       "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "b2e9dfa3e58e",
-      "title": "롯데카드, 서버 악성코드 감염…\"고객 정보 유출 없는 듯\" - 디일렉",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB0aUl5N0pLcjhKRHdiSVRUZW9sY2dGUmdzVEFyY3ZMbEQ0OG1jQ09yNlJKdU5XcklQLXlzNWE5ZWxaek1MeWhXLVp1ZUtrVlRYLXN1RzE1cHBESzJDQ0xtU3hWSF9uUQ?oc=5",
-      "summary": "롯데카드, 서버 악성코드 감염…\"고객 정보 유출 없는 듯\"&nbsp;&nbsp;디일렉",
-      "pubDate": "2025-09-02T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "악성코드",
-      "level": "danger"
-    },
-    {
-      "id": "76bc9cf3e369",
-      "title": "[이슈&논란] 967만명 회원보유한 롯데카드 해킹…\"역대급 보안사고\"에 금융업계 비상 - 뉴스스페이스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBiR2twMXNVUVJkVXktR181dDVCSlJZVUJfZGNxUTAwazk2NTduVzdTSV9nMERJY2pNUnVZMVAxNlNMRjVYWXhYQUdRQVlmVGpCUTY2Y3loUUplNmVqLU9R?oc=5",
-      "summary": "[이슈&논란] 967만명 회원보유한 롯데카드 해킹…\"역대급 보안사고\"에 금융업계 비상&nbsp;&nbsp;뉴스스페이스",
-      "pubDate": "2025-09-01T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "6ed22d1c0065",
-      "title": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황 - 데일리시큐",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9aLXZXR3dtZ0dBLWh4eHNVSDFqSWVVTF9xQ01vYVl2b3dsbV9NX3R4V28yNmZ3REkwT1AxZkdfT1QwWW52MVlhNWRSS29kMjF6VkRNZV9WUWtld21ROFJyNGNUTFQzM0pnMVRNOQ?oc=5",
-      "summary": "[단독] 롯데카드 온라인 결제 시스템 해킹 시도 포착…웹쉘 업로드 통한 내부자료 1.7GB 유출 정황&nbsp;&nbsp;데일리시큐",
-      "pubDate": "2025-09-01T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "3bbeddd72253",
-      "title": "SKT, 2021년부터 해커 공격 받아…보안 미흡이 사태 키워 - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tbVZSbXEyU01QNnR3TkZYM3p2RXFFRmZPYmxFaUJHVXhTRjVfaDd0dkZTQUN3ZmFJQXNyODZ2ZFg0UkoxLUROSFlXb29XeVA5V3RPbVJHd29USFHSAWBBVV95cUxQejBSTk1rLWRWSURic2tRUDVhaGVNMndzTjhJZDNFc0xhczhoRmN3and5NmZQZk51X29ndVp3dVhrTW15cXVKTWlGN3dDamc4Z21wSHk1M1NMYzBiZ1J3b1A?oc=5",
-      "summary": "SKT, 2021년부터 해커 공격 받아…보안 미흡이 사태 키워&nbsp;&nbsp;연합뉴스",
-      "pubDate": "2025-07-04T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "보안뉴스",
+      "category": "취약점",
       "level": "info"
     },
     {
-      "id": "bd13b2b17780",
-      "title": "금융권 해킹으로 6년여간 5만명 정보유출 - 뉴시스",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9jSUp0dWVsOGxJRFl0N1pqQzV3TUxwZnJBb3lwZjRsNUJyRzZyLUYzdzE3dERPY21zOThWN21WMk9jbVVRTTJKZmdPeU54bDVpTW94VW1ZVUhsQ2FaNHhkb9IBeEFVX3lxTE45UVhWa3pVSU4yOHBkTjZfNkhycjJFc0JUSWMzal9WVk5RYjhydURnbS1HcEZtWWRTVXBwY3M3ekxTWkROejdvdmhGODF2V2Q2NGc0cnRsS3hyQUlJbk5SSENJRW9INU8zcmh4MldHRTVEb0F1OTRWUw?oc=5",
-      "summary": "금융권 해킹으로 6년여간 5만명 정보유출&nbsp;&nbsp;뉴시스",
-      "pubDate": "2025-06-25T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
+      "id": "e074319bb885",
+      "title": "韓 기업 노리는 '그 놈들'…랜섬웨어, 더 강해진다 - 지디넷코리아",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5nam15Y21jSmxmRS1vWERmVzR3Sk8zY3BlM1dKQi04cEtxcUxQLTZBTGpiZm5HX1hXdXdCSlVqT2FsVlg5VHNtY01yQVRYbUNXeDliTDR3?oc=5",
+      "summary": "韓 기업 노리는 '그 놈들'…랜섬웨어, 더 강해진다&nbsp;&nbsp;지디넷코리아",
+      "pubDate": "2025-10-17T07:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "b4a94bf664b1",
-      "title": "이번엔 SKT 해킹···전문가 \"서버 보호 대책 미흡했을 것\" - 지디넷코리아",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBkcVhLX2V1eGJmSG9CZHRrbmVmTzlkd19seVdUQmJsZjhPRU5ReFFQYjUzclhrenNEal80M01UdUVIM0RNNGlkeGpsTGJYdVdXRlQ2S1V3?oc=5",
-      "summary": "이번엔 SKT 해킹···전문가 \"서버 보호 대책 미흡했을 것\"&nbsp;&nbsp;지디넷코리아",
-      "pubDate": "2025-04-22T07:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning"
-    },
-    {
-      "id": "479b1a496173",
-      "title": "카카오엔터프라이즈 서버에 악성코드…임직원 60여명 정보 유출 - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5QajBqQzBWUzFOU3lmNTMtWFEtWldRVWhSRjRXakZQc3dDdUgtaXh5VEhrblNWV093RnVNZEhuWEZGbjQ3cDh1Mm9sWklKVUV0bDNqUEZQSE1HNEHSAWBBVV95cUxPRGREa3RKT3JCZ0h3OFdmSHk5MUJSWHptSXJWZW9hTno3cWVhdmpoeWtuRHFJN1YyX1VNel9uNTh2dlZXRlFYOE95UmVuOEJUMTdNdXB3RmdMbGEtWkRhd2E?oc=5",
-      "summary": "카카오엔터프라이즈 서버에 악성코드…임직원 60여명 정보 유출&nbsp;&nbsp;연합뉴스",
-      "pubDate": "2025-03-05T08:00:00+00:00",
-      "source": "Google 뉴스 — 취약점",
-      "lang": "ko",
-      "category": "악성코드",
+      "category": "랜섬웨어",
       "level": "danger"
     }
   ]
