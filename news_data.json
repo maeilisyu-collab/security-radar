@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T04:04:30.924476+00:00",
+  "updated": "2026-05-27T05:08:16.000207+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
@@ -70,6 +70,17 @@
       "level": "warning"
     },
     {
+      "id": "4c32a6b1357f",
+      "title": "경남도, 중소기업 사이버 보안 지원 - 스트레이트뉴스",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBGZ1EyTEdFdDU2b1JkczFWdFJSQ3BhWEpCODYyTzZoRFdndFRjTGxtUV9DRGRTVjBVRE1LOUxVcHAyNHdxa0FEOWI4emhvdkJTZFN2emdORVZnNW1URWdILUxRb0xvaTlaNGRxRVF5OE1RQlHSAXdBVV95cUxORzA3MllHRUQtUWN0SzljTG1aYU9IejNpYk9DdnVvTmxibVZ1aC1oWFBjM3pOMnNFS0dOTWRJOWxrTXFxVFdqWE1pbndkRVN5bkc0WWl2T3pHVnAxVXowRTNKOG05RjIxd0pKUWFzRk9wTEtucjdmaw?oc=5",
+      "summary": "경남도, 중소기업 사이버 보안 지원&nbsp;&nbsp;스트레이트뉴스",
+      "pubDate": "2026-03-16T07:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info"
+    },
+    {
       "id": "3cdd25e1bc20",
       "title": "전세계 랜섬웨어 공격자 상위 1~10위는?..킬린 1위 - 지디넷코리아",
       "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hTzVSZEpEMjRyNTJtOHh5aC01Ul9DT01mV0xGZmJqVE9Pdnh0RGdlZFJBT0dDTGlQRWh6bTZYT2lVZTcwYWxzd1dSNEVBa0V6dzAwaXB3?oc=5",
@@ -125,6 +136,17 @@
       "level": "danger"
     },
     {
+      "id": "1204ab627384",
+      "title": "해킹·피싱으로 얼룩진 2025년…올해 주목해야 할 보안 이슈는? - IT비즈뉴스",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1tOGdiUF9RQ0NjM09ndEh5cldSNndKTFdPVXBZc3NzYmVaVGN3Sm1LTUpEREVuNk1Fc19fR05GVDRzVnFadnVSQ0xSTUJjWVNRRUlhTF9CcWV4ekYzVEVSVHBFeTFTRTBiZXBLSA?oc=5",
+      "summary": "해킹·피싱으로 얼룩진 2025년…올해 주목해야 할 보안 이슈는?&nbsp;&nbsp;IT비즈뉴스",
+      "pubDate": "2026-02-24T08:00:00+00:00",
+      "source": "Google 뉴스 — 사이버보안",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning"
+    },
+    {
       "id": "459aff0f6b77",
       "title": "“AI 악용·랜섬웨어 주의”…삼성SDS, ‘5대 사이버 보안 위협’ 선정 - 조선비즈 - Chosunbiz",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS3JybFpLNllZSm5XbEpIaURFeWlQbDlTYjhRcEZxdkxscDJDdGlJTExkU2VWUHFCeXgxSWF5X01ia19aMlZZZ3hFYkI3S1RzR1ZFZnlRWmRXWlZlSkZSOGJEb2F1bzNnUmlsSVc5NVYyRGFuLUk2bElHNHplODBlSVp30gGWAUFVX3lxTE9DQlp0NHNWaElka3VJVjVZOTdoaXNFZFJzZFFTbnQ2Mml6SWlsY0R6ZWtIdkNMMWVlRlRyb2Z2ZVMyNTZyejQyWUdtYm5FV0JhblVvTXhpUGprMVlFSTQ3eFRPcXpIdUVjSTN4c0p4N0NsclM0NEVOcEdhel82S1p3MEczVW1HVW45V0M5dHdLeEl4SHJCZw?oc=5",
@@ -134,17 +156,6 @@
       "lang": "ko",
       "category": "랜섬웨어",
       "level": "danger"
-    },
-    {
-      "id": "e1ed71b62f05",
-      "title": "삼성SDS, 2026년 5대 사이버 보안 위협 제시 - 뉴스후플러스",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVR1pNSlczNHM4ZVA1djRBV3p3NFRBbEVoWDVXVGc5OXBxOFFvdFg3T25ReFNaQzV6Q3V3QUVPZ3BwcXh3czkwN2R1TDZDQVlOeGpZS3VUOGxXUExzWG1KLXViSEpkYkZKUzRxcTR3?oc=5",
-      "summary": "삼성SDS, 2026년 5대 사이버 보안 위협 제시&nbsp;&nbsp;뉴스후플러스",
-      "pubDate": "2026-02-23T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info"
     },
     {
       "id": "172639be841e",
@@ -185,17 +196,6 @@
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8xMVY4WEJvVkx5cFZLeS1xcTFYZHBuTHBoa1RGMmVfYkFORDlBSUdWaUVWaXJSVUJnT0VhWEhVYkt6OEttNzFiQ19nN3JNTVNubGkyRHhvdEVhT3l2TzBRdEZFZHZ6Y09GUTJsOUNKNldibXfSAXdBVV95cUxNcnhMRTlmWDUzQTh3Y0lSdjBrWTB3MWtIbHZuUkVRT056N3BraGpJSVRSRnczZXduYmI0b1R3VzRQMDdIa2NfVDhYYm1iMHdmWHhpVE1XUkFtN05zMjAyQm9IOUJUUXNhTnNFaFNKZXBhemR3SDZuSQ?oc=5",
       "summary": "AI 해킹·랜섬웨어 대응···KB금융 사이버 보안센터 최초 출범&nbsp;&nbsp;여성경제신문",
       "pubDate": "2026-01-06T08:00:00+00:00",
-      "source": "Google 뉴스 — 사이버보안",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger"
-    },
-    {
-      "id": "ba450e3fbfa3",
-      "title": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격 - 아시아투데이",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBhU0dCQWpYaTVhSWI0c0tTM2hZSFo0d1J6QllCYkZxUl9KQWZXOTdSTVhTRmc3bzRfX0tNMy14RERfbzIyVk5UNV8xSmZOaHk5TWR1WlhTenUtdEdFcjVkRzJ3cjczaDJ4eThKRlNR?oc=5",
-      "summary": "2026년 사이버 보안 ‘3대 리스크’, AI·랜섬웨어·표적 공격&nbsp;&nbsp;아시아투데이",
-      "pubDate": "2026-01-01T08:00:00+00:00",
       "source": "Google 뉴스 — 사이버보안",
       "lang": "ko",
       "category": "랜섬웨어",
