@@ -86,7 +86,10 @@ RSS_SOURCES = [
     },
     {
         "name": "KISA 보호나라",
-        "url": "https://www.kisa.or.kr/rss/rss.jsp",
+        "url": (
+            "https://news.google.com/rss/search"
+            "?q=KISA+보호나라+보안공지&hl=ko&gl=KR&ceid=KR:ko"
+        ),
         "lang": "ko",
         "priority": 5,
     },
@@ -139,14 +142,27 @@ def generate_ai_summary(title: str, summary: str = "") -> dict | None:
     if not api_key:
         return None  # 키 없으면 건너뜀 (로컬 테스트용)
 
-    prompt = f"""보안 기사를 분석해서 JSON만 반환하세요. 마크다운 없이 JSON만.
+    # ★ 핵심 변경 포인트:
+    # 1. keypoints: 원문 복붙 금지, 명사형 압축 (20자 이내)
+    # 2. analysis: 운영자 편집용 3항목 초안
+    # 3. suggested_title: SEO 최적화 제목 초안 (운영자 확인 후 사용)
+    prompt = f"""보안 기사를 분석해서 JSON만 반환하세요. 마크다운 없이 순수 JSON만.
 
 제목: {title}
-내용: {summary[:300] if summary else "없음"}
+내용: {summary[:400] if summary else "없음"}
 
-{{"keypoints":["핵심 요점 첫째 문장","핵심 요점 둘째 문장"],"analysis":[{{"title":"소제목1","desc":"설명1"}},{{"title":"소제목2","desc":"설명2"}},{{"title":"소제목3","desc":"설명3"}}]}}
+반환 형식:
+{{"keypoints":["명사형압축1","명사형압축2"],"analysis":[{{"title":"소제목1","desc":"설명1"}},{{"title":"소제목2","desc":"설명2"}},{{"title":"소제목3","desc":"설명3"}}],"suggested_title":"재작성제목"}}
 
-keypoints 2개, analysis 3개, 모두 한국어로."""
+규칙:
+- keypoints 2개: 원문 문장 절대 복붙 금지. 명사형으로 압축. 각 20자 이내.
+  좋은 예: "본선 진출 확정", "개인정보 100만 건 유출", "패치 미적용 시 위험"
+  나쁜 예: "엔키화이트햇 연구원들이 DEF CON CTF 2026 예선에서 상위권 성적을 거뒀다" (원문 복붙)
+- analysis 3개: 각각 소제목(10자 이내) + 설명(50자 이내). 운영자가 편집할 초안.
+- suggested_title: 원제목을 SEO에 맞게 재작성. 30자 이내. 핵심 키워드 앞에.
+  좋은 예: "모젠코리아, AI 비서 탑재 플랫폼 출시"
+  나쁜 예: "모젠코리아, 중앙 집중식 관리와 AI 비서 탑재한 BQN 플랫폼 R5.0 출시" (원제목 그대로)
+- 모두 한국어로."""
 
     for attempt in range(3):  # 최대 3회 재시도
         try:
@@ -216,19 +232,32 @@ def fetch_source(source: dict) -> list:
             "lang":       "ko",
             "category":   cat["label"],
             "level":      cat["level"],
-            "ai_summary": ai,  # {"keypoints": [...], "analysis": [...]} or null
+            "ai_summary": ai,
+            # ai_summary 구조:
+            # {
+            #   "keypoints": ["명사형압축1", "명사형압축2"],          ← 핵심 포인트 표시용
+            #   "analysis":  [{"title":"소제목","desc":"설명"}, ...], ← 공란 3항목 초안
+            #   "suggested_title": "SEO 최적화된 제목 초안"           ← 제목 편집창 기본값
+            # }
         })
 
     print(f"    ✓ {len(articles)}건 수집")
     return articles
 
 
+# ★ 중복 필터링 강화: URL(id) + 제목 앞 20자 동시 체크
 def deduplicate(articles: list) -> list:
-    seen, result = set(), []
+    seen_ids    = set()
+    seen_titles = set()
+    result      = []
     for a in articles:
-        if a["id"] not in seen:
-            seen.add(a["id"])
+        title_key = a["title"][:20].strip()  # 제목 앞 20자로 유사 중복 체크
+        if a["id"] not in seen_ids and title_key not in seen_titles:
+            seen_ids.add(a["id"])
+            seen_titles.add(title_key)
             result.append(a)
+        else:
+            print(f"    ↳ 중복 제거: {a['title'][:40]}")
     return result
 
 
