@@ -1,0 +1,27 @@
+name: Security News Auto-Fetch (EN)
+# © 2026 SecurityRadar (securityradar.io). All rights reserved.
+# Unauthorized copying or distribution is prohibited.
+on:
+  schedule:
+    - cron: '0 1 * * *'   # Daily at 10:00 AM KST (UTC 01:00)
+  workflow_dispatch:        # Manual trigger available
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests feedparser anthropic
+      - run: python fetch_news_en.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Commit results
+        run: |
+          git config user.name "news-bot"
+          git config user.email "bot@example.com"
+          git add news_data_en.json
+          git diff --staged --quiet || git commit -m "News update $(date '+%Y-%m-%d %H:%M')"
+          git push
