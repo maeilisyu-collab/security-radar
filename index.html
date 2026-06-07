@@ -1,0 +1,3437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보안레이더 — WebRTC 누출·DNS 누출·IP 추적 무료 진단 | 실시간 보안 뉴스</title>
+<meta name="description" content="WebRTC 누출 확인, DNS 누출 테스트, IP 추적 여부를 브라우저에서 즉시 무료 진단. 설치 없이 20초 — 보안레이더">
+<!-- OG / SNS 공유 카드 -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://securityradar.io">
+<meta property="og:title"       content="보안레이더 — WebRTC 누출·DNS 누출·IP 추적 무료 진단">
+<meta property="og:description" content="WebRTC 누출 확인, DNS 누출 테스트, IP 추적 여부를 브라우저에서 즉시 무료 진단. 설치 없이 20초">
+<meta property="og:image"       content="https://securityradar.io/og-image.png">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="보안레이더 — WebRTC 누출·DNS 누출·IP 추적 무료 진단">
+<meta name="twitter:description" content="WebRTC 누출 확인, DNS 누출 테스트, IP 추적 여부를 브라우저에서 즉시 무료 진단. 설치 없이 20초">
+<meta name="twitter:image"       content="https://securityradar.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<!-- ★ Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<style>
+/* ═══════════════════ TOKENS ═══════════════════ */
+:root {
+  --bg:       #090d12;
+  --bg2:      #111620;
+  --bg3:      #1a2030;
+  --bg4:      #222a3a;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --green:    #00e676;
+  --green-d:  rgba(0,230,118,0.10);
+  --red:      #ff4d4d;
+  --red-d:    rgba(255,77,77,0.10);
+  --amber:    #ffb300;
+  --amber-d:  rgba(255,179,0,0.10);
+  --blue:     #40c4ff;
+  --blue-d:   rgba(64,196,255,0.10);
+  --purple:   #ce93d8;
+  --text:     #dde3ee;
+  --muted:    #6b7a94;
+  --muted2:   #99a3b8;
+  --mono:     'JetBrains Mono', monospace;
+  --sans:     'Pretendard', system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:112%;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* ═══════════════════ SCROLLBAR ═══════════════════ */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px;}
+
+/* ═══════════════════ HEADER ═══════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(9,13,18,0.92);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.75rem 1.25rem;
+}
+.site-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;flex-shrink:0;
+}
+.logo-icon{
+  width:34px;height:34px;background:var(--green-d);
+  border:1px solid rgba(0,230,118,0.3);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;
+}
+.logo-text{font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:-.02em;}
+.logo-text span{color:var(--green);}
+.site-nav{display:flex;gap:4px;margin-left:auto;}
+.nav-link{
+  font-size:1.05rem;color:var(--muted2);text-decoration:none;
+  padding:5px 12px;border-radius:6px;transition:background .15s,color .15s;
+  font-weight:500;
+}
+.nav-link:hover{background:var(--bg3);color:var(--text);}
+.live-clock{
+  font-family:var(--mono);font-size:.75rem;color:var(--muted);
+  background:var(--bg3);border:1px solid var(--border);
+  padding:4px 10px;border-radius:6px;flex-shrink:0;
+}
+
+/* ═══════════════════ LAYOUT ═══════════════════ */
+.page-shell{max-width:1100px;margin:0 auto;padding:0 1.5rem 2.5rem;}
+
+.section-divider{
+  display:flex;align-items:center;gap:12px;
+  margin:3.5rem 0 1.75rem;
+}
+.section-divider h2{
+  font-size:.72rem;font-family:var(--mono);color:var(--muted);
+  text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;
+}
+.section-divider::before,.section-divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+/* ═══════════════════ NEWS SECTION ═══════════════════ */
+.news-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1rem;flex-wrap:wrap;gap:8px;
+}
+.news-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;}
+.news-meta{
+  font-size:.75rem;color:var(--muted);font-family:var(--mono);
+  display:flex;align-items:center;gap:8px;
+}
+.live-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+  animation:pulse 2s ease-in-out infinite;display:inline-block;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.news-tabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
+.news-tab{
+  font-size:.85rem;font-weight:600;padding:5px 14px;border-radius:99px;
+  border:1px solid var(--border);background:transparent;color:var(--muted2);
+  cursor:pointer;transition:all .15s;font-family:var(--sans);
+}
+.news-tab.active{background:var(--green-d);border-color:rgba(0,230,118,.35);color:var(--green);}
+.news-tab:hover:not(.active){background:var(--bg3);color:var(--text);}
+
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+
+.news-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px;cursor:pointer;text-decoration:none;
+  transition:border-color .2s,transform .15s;display:block;
+}
+.news-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.nc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.nc-badge{
+  font-size:.65rem;font-weight:700;font-family:var(--mono);
+  padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em;
+}
+.badge-red{background:var(--red-d);color:var(--red);}
+.badge-amber{background:var(--amber-d);color:var(--amber);}
+.badge-blue{background:var(--blue-d);color:var(--blue);}
+.badge-green{background:var(--green-d);color:var(--green);}
+.nc-time{font-size:.75rem;color:var(--muted);font-family:var(--mono);}
+.nc-title{font-size:1.05rem;font-weight:600;line-height:1.45;color:var(--text);margin-bottom:8px;}
+.nc-source{font-size:.88rem;color:var(--muted);}
+
+.news-loading{
+  grid-column:1/-1;text-align:center;padding:3rem;
+  font-family:var(--mono);font-size:.8rem;color:var(--muted);
+}
+.news-skeleton{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px;min-height:140px;
+  animation:shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer{0%,100%{opacity:.5;}50%{opacity:1;}}
+
+/* ═══════════════════ DIAGNOSTIC (original) ═══════════════════ */
+.diag-wrap{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;padding:2rem 1.5rem;
+}
+
+#landing{text-align:center;padding:3rem 0 2rem;}
+.scan-icon{width:72px;height:72px;margin:0 auto 1.5rem;position:relative;}
+.scan-icon svg{width:100%;height:100%;}
+.scan-ring{animation:spin 3s linear infinite;transform-origin:center;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.75rem;}
+h1 span{color:var(--green);}
+.subtitle{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:440px;margin:0 auto 2rem;}
+.btn-scan{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--green);color:#000;font-family:var(--sans);
+  font-weight:700;font-size:.95rem;padding:13px 28px;
+  border:none;border-radius:8px;cursor:pointer;transition:opacity .15s,transform .15s;
+}
+.btn-scan:hover{opacity:.9;transform:translateY(-1px);}
+.trust-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:1.25rem;}
+.trust-tag{font-size:.72rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:3px 11px;border-radius:99px;}
+
+#scanning{display:none;}
+.terminal{
+  background:#07090e;border:1px solid var(--border);border-radius:10px;
+  padding:1.25rem;font-family:var(--mono);font-size:.77rem;min-height:230px;margin-bottom:1rem;
+}
+.terminal-bar{display:flex;align-items:center;gap:5px;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);}
+.tdot{width:9px;height:9px;border-radius:50%;}
+.terminal-title{margin:0 auto;color:var(--muted);font-size:.68rem;}
+.log-line{margin-bottom:4px;opacity:0;animation:fadein .3s forwards;}
+@keyframes fadein{to{opacity:1;}}
+.log-line .ok{color:var(--green);}
+.log-line .warn{color:var(--amber);}
+.log-line .err{color:var(--red);}
+.log-line .dim{color:var(--muted);}
+.progress-bar-wrap{background:var(--bg3);border-radius:6px;height:5px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--green);border-radius:6px;width:0%;transition:width .4s ease;}
+.progress-label{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:5px;text-align:right;}
+
+#diag-results{display:none;}
+.d-section-head{display:flex;align-items:center;gap:8px;margin:1.5rem 0 .75rem;}
+.d-section-head h3{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.d-section-head::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:.5rem;}
+.dcard{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:border-color .2s;}
+.dcard:hover{border-color:var(--border2);}
+.dcard-label{font-size:.75rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
+.dcard-value{font-size:1.05rem;font-weight:600;color:var(--text);word-break:break-all;}
+.dcard-sub{font-size:.82rem;color:var(--muted);margin-top:2px;}
+.dcard-badge{display:inline-block;font-size:.65rem;font-family:var(--mono);padding:2px 7px;border-radius:4px;margin-top:5px;}
+.b-ok{background:var(--green-d);color:var(--green);}
+.b-warn{background:var(--amber-d);color:var(--amber);}
+.b-bad{background:var(--red-d);color:var(--red);}
+.b-info{background:var(--blue-d);color:var(--blue);}
+.b-purple{background:rgba(206,147,216,0.12);color:var(--purple);}
+
+.check-list{display:flex;flex-direction:column;gap:7px;}
+.check-item{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:11px 14px;gap:10px;
+}
+.check-left{display:flex;align-items:center;gap:9px;}
+.check-icon{font-size:1rem;flex-shrink:0;}
+.check-name{font-size:.95rem;font-weight:500;}
+.check-desc{font-size:.8rem;color:var(--muted);margin-top:1px;}
+.check-status{font-family:var(--mono);font-size:.78rem;padding:2px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+
+.checklist-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:9px;
+  padding:12px 14px;cursor:pointer;transition:border-color .15s;margin-bottom:7px;
+}
+.checklist-item:hover{border-color:var(--border2);}
+.checklist-item input[type="checkbox"]{width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:2px;cursor:pointer;}
+.checklist-item.checked{border-color:rgba(0,230,118,.3);}
+.cl-title{font-size:.95rem;font-weight:500;}
+.cl-desc{font-size:.88rem;color:var(--muted);margin-top:2px;line-height:1.5;}
+.cl-pts{font-family:var(--mono);font-size:.68rem;color:var(--green);margin-left:auto;flex-shrink:0;padding-top:2px;}
+
+.btn-calc{
+  width:100%;margin-top:1.25rem;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(0,230,118,0.08);
+  color:var(--green);
+  border:1px solid rgba(0,230,118,0.35);
+  font-family:var(--sans);
+  font-weight:700;font-size:1.05rem;padding:14px;border-radius:8px;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.btn-calc:hover{background:rgba(0,230,118,0.16);border-color:rgba(0,230,118,.6);}
+
+#score-section{display:none;}
+.score-wrap{
+  text-align:center;padding:2rem 1rem;
+  background:var(--bg3);border:1px solid var(--border);border-radius:14px;margin-top:1rem;
+}
+.grade-ring{width:120px;height:120px;margin:0 auto 1rem;position:relative;}
+.grade-ring svg{width:100%;height:100%;}
+.grade-letter{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;font-weight:700;font-family:var(--mono);}
+.score-num{font-size:1.7rem;font-weight:700;font-family:var(--mono);margin-bottom:.2rem;}
+.score-lbl{font-size:.82rem;color:var(--muted);margin-bottom:1.25rem;}
+.score-lbl .lbl-main{display:block;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+.score-lbl .lbl-sub{display:block;font-size:.78rem;color:var(--muted);font-weight:400;}
+.score-lbl .lbl-main{display:block;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+.score-lbl .lbl-sub{display:block;font-size:.78rem;color:var(--muted);font-weight:400;}
+.score-bars{text-align:left;max-width:380px;margin:0 auto 1.25rem;}
+.sbar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.sbar-label{font-size:.75rem;color:var(--muted);width:120px;flex-shrink:0;}
+.sbar-track{flex:1;height:5px;background:var(--bg4);border-radius:4px;overflow:hidden;}
+.sbar-fill{height:100%;border-radius:4px;transition:width 1s ease;width:0;}
+.sbar-val{font-family:var(--mono);font-size:.68rem;color:var(--muted);width:30px;text-align:right;flex-shrink:0;}
+.reco-list{text-align:left;max-width:480px;margin:0 auto;}
+.reco-item{display:flex;align-items:flex-start;gap:7px;font-size:.78rem;color:var(--muted);margin-bottom:7px;line-height:1.5;}
+.reco-dot{width:4px;height:4px;border-radius:50%;background:var(--amber);margin-top:6px;flex-shrink:0;}
+.btn-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--border2);background:transparent;color:var(--text);
+  font-family:var(--sans);font-size:.85rem;padding:9px 20px;border-radius:8px;cursor:pointer;transition:background .15s;
+}
+.btn-ghost:hover{background:var(--bg4);}
+.btn-outline-green{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--green);background:transparent;color:var(--green);
+  font-family:var(--sans);font-size:.85rem;padding:9px 20px;border-radius:8px;cursor:pointer;transition:background .15s;
+}
+.btn-outline-green:hover{background:var(--green-d);}
+
+/* ═══════════════════ STATS SECTION ═══════════════════ */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:1.25rem;}
+.stat-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;
+}
+.stat-card-label{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.stat-card-value{font-size:1.7rem;font-weight:700;color:var(--text);}
+.stat-card-sub{font-size:.72rem;color:var(--muted);margin-top:3px;}
+.stat-card-trend{font-size:.72rem;margin-top:4px;}
+.trend-up{color:var(--green);}
+.trend-dn{color:var(--red);}
+
+.chart-box{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:18px;margin-bottom:1rem;
+}
+.chart-title{font-size:.82rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.chart-title span{font-size:.7rem;color:var(--muted);font-family:var(--mono);}
+
+.ad-panel{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;
+}
+.ad-panel-title{font-size:.82rem;font-weight:600;margin-bottom:12px;color:var(--muted2);}
+.ad-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.ad-metric{background:var(--bg3);border-radius:8px;padding:12px 14px;}
+.ad-metric-label{font-size:.65rem;color:var(--muted);margin-bottom:4px;font-family:var(--mono);}
+.ad-metric-value{font-size:1.1rem;font-weight:700;}
+.ad-metric-note{font-size:.62rem;color:var(--muted);margin-top:2px;}
+
+/* ═══════════════════ AFFILIATE ═══════════════════ */
+.aff-section{
+  margin-top:1.5rem;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.aff-header{
+  background:rgba(0,230,118,0.05);border-bottom:1px solid var(--border);
+  padding:13px 20px;display:flex;align-items:center;gap:8px;
+}
+.aff-header-title{font-size:.88rem;font-weight:600;color:var(--text);}
+.aff-header-sub{font-size:.72rem;color:var(--muted);margin-left:auto;font-family:var(--mono);}
+
+.aff-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;gap:0 16px;
+  padding:20px 24px;border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.aff-item:last-child{border-bottom:none;}
+.aff-item:hover{background:var(--bg3);}
+
+.aff-icon{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.aff-icon-vpn{background:rgba(0,180,216,0.15);border:1px solid rgba(0,180,216,0.3);}
+.aff-icon-av{background:rgba(0,230,118,0.12);border:1px solid rgba(0,230,118,0.25);}
+.aff-icon-mw{background:rgba(255,77,77,0.12);border:1px solid rgba(255,77,77,0.25);}
+
+.aff-info{min-width:0;}
+.aff-rank{font-size:.82rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px;}
+.aff-name{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:2px;}
+.aff-stars{font-size:.82rem;color:#ffb300;margin-left:5px;letter-spacing:.05em;}
+.aff-stars-num{font-size:.75rem;color:#ffb300;font-family:var(--mono);font-weight:700;}
+.aff-desc{font-size:.92rem;color:var(--muted);line-height:1.45;}
+
+.aff-btns{display:flex;flex-direction:column;gap:6px;flex-shrink:0;}
+.aff-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  font-family:var(--sans);font-size:.85rem;font-weight:600;
+  padding:11px 24px;border-radius:8px;cursor:pointer;
+  text-decoration:none;white-space:nowrap;transition:opacity .15s,transform .1s;
+  border:none;
+}
+.aff-btn:hover{opacity:.88;transform:translateY(-1px);}
+.aff-btn-sub{background:rgba(0,230,118,0.15);color:var(--green);border:1px solid rgba(0,230,118,0.35);}
+.aff-btn-sub:hover{background:rgba(0,230,118,0.25);}
+.aff-btn-one{background:transparent;color:var(--green);border:1px solid rgba(0,230,118,.4);}
+.aff-btn-one:hover{background:var(--green-d);}
+
+.aff-badge{
+  display:inline-block;font-size:.58rem;font-family:var(--mono);font-weight:700;
+  padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;
+}
+.aff-badge-hot{background:var(--red-d);color:var(--red);}
+.aff-badge-rec{background:var(--green-d);color:var(--green);}
+
+/* ── 아마존 배너 ── */
+.amz-banners{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:12px;margin-top:1rem;
+}
+.amz-banner{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;padding:18px 20px;
+  display:flex;align-items:center;gap:14px;
+  cursor:pointer;text-decoration:none;transition:border-color .2s,transform .15s;
+}
+.amz-banner:hover{border-color:var(--border2);transform:translateY(-2px);}
+.amz-banner-icon{display:none;}
+.amz-banner-info{flex:1;min-width:0;}
+.amz-banner-label{font-size:.73rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.amz-banner-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.amz-banner-desc{font-size:.82rem;color:var(--muted);line-height:1.4;}
+.amz-banner-review{font-size:.72rem;color:var(--muted2);font-family:var(--mono);margin-top:5px;}
+.amz-banner-cta{
+  font-size:.9rem;font-weight:700;color:#FF9900;
+  font-family:var(--mono);flex-shrink:0;
+}
+
+/* ── QUICK FIX BAR ── */
+.quick-fix-bar{
+  margin:1rem 0 .5rem;
+  display:none;
+}
+.quick-fix-label{
+  font-size:.68rem;font-family:var(--mono);color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;
+}
+.quick-fix-btns{
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+}
+.qf-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:600;font-family:var(--sans);
+  padding:8px 16px;border-radius:8px;cursor:pointer;
+  text-decoration:none;border:none;transition:all .15s;
+  white-space:nowrap;
+}
+.qf-btn:hover{transform:translateY(-1px);opacity:.9;}
+.qf-vpn{background:rgba(0,180,216,0.15);color:#00b4d8;border:1px solid rgba(0,180,216,0.3);}
+.qf-av{background:rgba(0,230,118,0.12);color:#00e676;border:1px solid rgba(0,230,118,0.25);}
+.qf-mw{background:rgba(255,77,77,0.12);color:#ff6b6b;border:1px solid rgba(255,77,77,0.25);}
+
+
+
+
+
+
+.site-footer{
+  border-top:1px solid var(--border);
+  text-align:center;font-size:.72rem;color:var(--muted);
+  padding:1.5rem 1.25rem;line-height:1.8;margin-top:1rem;
+}
+
+/* ═══════════════════ CHALLENGE ═══════════════════ */
+.challenge-box{
+  background:linear-gradient(135deg,rgba(0,230,118,0.06) 0%,rgba(64,196,255,0.06) 100%);
+  border:1px solid rgba(0,230,118,0.25);border-radius:16px;
+  padding:1.75rem 1.5rem;text-align:center;margin-top:1.25rem;
+}
+.challenge-title{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;}
+.challenge-title span{color:var(--green);}
+.challenge-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;}
+.challenge-input-row{
+  display:flex;gap:8px;max-width:400px;margin:0 auto 1rem;
+}
+.challenge-nick{
+  flex:1;background:var(--bg3);border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;font-family:var(--sans);
+  font-size:.87rem;color:var(--text);outline:none;
+  transition:border-color .2s;
+}
+.challenge-nick:focus{border-color:rgba(0,230,118,.4);}
+.challenge-nick::placeholder{color:var(--muted);}
+.btn-challenge{
+  background:var(--green);color:#000;font-family:var(--sans);
+  font-weight:700;font-size:.87rem;padding:10px 20px;
+  border:none;border-radius:8px;cursor:pointer;
+  transition:opacity .15s;white-space:nowrap;
+}
+.btn-challenge:hover{opacity:.88;}
+.btn-challenge:disabled{opacity:.4;cursor:not-allowed;}
+.challenge-result{
+  font-size:.82rem;color:var(--green);font-family:var(--mono);
+  margin-top:.5rem;min-height:20px;
+}
+.challenge-result.error{color:var(--red);}
+.my-score-display{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:10px;padding:10px 18px;margin-bottom:1rem;
+}
+.my-score-num{font-size:1.6rem;font-weight:700;font-family:var(--mono);}
+.my-score-grade{font-size:1rem;font-family:var(--mono);}
+.btn-fix-vuln{
+  width:100%;margin-top:.85rem;
+  padding:11px 20px;
+  background:transparent;
+  border:1px solid var(--border2);
+  border-radius:8px;
+  color:var(--muted2);
+  font-family:var(--sans);font-size:.88rem;font-weight:600;
+  cursor:pointer;
+  transition:border-color .2s,color .2s,background .2s;
+  letter-spacing:.01em;
+}
+.btn-fix-vuln:hover{
+  border-color:rgba(0,230,118,.4);
+  color:var(--green);
+  background:var(--green-d);
+}
+
+/* ═══════════════════ LEADERBOARD ═══════════════════ */
+.lb-wrap{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.lb-header{
+  background:rgba(0,230,118,0.06);border-bottom:1px solid var(--border);
+  padding:14px 20px;display:flex;align-items:center;justify-content:space-between;
+}
+.lb-title{font-size:.95rem;font-weight:700;}
+.lb-title span{color:var(--green);}
+.lb-live{
+  display:flex;align-items:center;gap:6px;
+  font-size:.7rem;color:var(--muted);font-family:var(--mono);
+}
+.lb-row{
+  display:grid;grid-template-columns:44px 1fr auto auto;
+  align-items:center;gap:0 12px;
+  padding:16px 24px;border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.lb-row:last-child{border-bottom:none;}
+.lb-row:hover{background:var(--bg3);}
+.lb-rank{
+  font-size:1.5rem;font-weight:700;font-family:var(--mono);
+  text-align:center;
+}
+.rank-1{color:#FFD700;}
+.rank-2{color:#C0C0C0;}
+.rank-3{color:#CD7F32;}
+.rank-other{color:var(--muted);}
+.lb-nick{font-size:1.05rem;font-weight:600;color:var(--text);}
+.lb-os{font-size:.8rem;color:var(--muted);margin-top:2px;}
+.lb-grade{
+  font-size:.85rem;font-family:var(--mono);font-weight:700;
+  padding:4px 12px;border-radius:6px;
+}
+.lb-score{
+  font-size:1.15rem;font-weight:700;font-family:var(--mono);
+  color:var(--green);min-width:44px;text-align:right;
+}
+.lb-empty{
+  text-align:center;padding:2.5rem;
+  font-size:.82rem;color:var(--muted);line-height:1.8;
+}
+.lb-loading{
+  text-align:center;padding:2rem;
+  font-size:.78rem;color:var(--muted);font-family:var(--mono);
+}
+.lb-updated{
+  text-align:center;padding:.75rem;
+  font-size:.65rem;color:var(--muted);font-family:var(--mono);
+  border-top:1px solid var(--border);
+}
+
+
+/* READER PANEL */
+.reader-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px);}
+.reader-overlay.open{opacity:1;pointer-events:all;}
+.reader-panel{position:fixed;top:0;right:0;bottom:0;width:min(820px,100vw);background:var(--bg2);border-left:1px solid var(--border);z-index:201;overflow-y:auto;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.reader-panel.open{transform:translateX(0);}
+.reader-top{position:sticky;top:0;height:3px;background:rgba(17,22,32,.95);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);z-index:10;}
+.reader-top-title{display:none;}
+.reader-close{position:fixed;top:8px;right:8px;width:32px;height:32px;border-radius:7px;border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:202;transition:all .15s;}
+.reader-close:hover{background:var(--bg4);}
+.reader-close:hover{background:var(--bg4);color:var(--text);}
+.reader-body{padding:2rem 2rem 3rem;}
+.reader-h1{font-size:1.25rem;font-weight:700;line-height:1.35;letter-spacing:-.02em;color:var(--text);margin-bottom:1rem;}
+.reader-byline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:.72rem;color:var(--muted);font-family:var(--mono);padding-bottom:1rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem;}
+.reader-summary{background:var(--bg3);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:14px 16px;font-size:.87rem;color:var(--muted2);line-height:1.75;margin-bottom:1.5rem;}
+.reader-keypoints{margin-bottom:1.5rem;}
+.reader-keypoints h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;}
+.kp-item{display:flex;align-items:flex-start;gap:8px;font-size:.83rem;color:var(--muted2);margin-bottom:7px;line-height:1.55;}
+.kp-dot{width:5px;height:5px;border-radius:50%;background:var(--green);margin-top:7px;flex-shrink:0;}
+.reader-source-box{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:1.5rem;}
+.rsb-left{font-size:.8rem;color:var(--muted);}
+.rsb-left strong{color:var(--text);display:block;margin-bottom:2px;}
+.btn-orig{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--muted2);font-family:var(--sans);font-weight:600;font-size:.85rem;padding:9px 20px;border:1px solid var(--border2);border-radius:7px;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.btn-orig:hover{background:var(--green-d);color:var(--green);border-color:rgba(0,230,118,.4);}
+.reader-related h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;}
+
+/* ── BOTTOM LINE / ACTION TODAY ── */
+.reader-bottom-line{background:var(--bg3);border-left:3px solid #ffb300;border-radius:0 8px 8px 0;padding:13px 15px;margin-bottom:.85rem;}
+.reader-bottom-line .bl-label{font-size:.65rem;font-family:var(--mono);color:#c8900a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
+.reader-bottom-line .bl-text{font-size:.88rem;font-weight:600;color:var(--text);line-height:1.55;}
+.reader-action-today{background:rgba(0,230,118,.07);border:1px solid rgba(0,230,118,.22);border-radius:8px;padding:12px 15px;margin-bottom:1.5rem;display:flex;align-items:flex-start;gap:10px;}
+.reader-action-today .at-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.reader-action-today .at-label{font-size:.65rem;font-family:var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.reader-action-today .at-text{font-size:.87rem;font-weight:600;color:var(--text);line-height:1.5;}
+
+/* ── SUMMARY EDITOR ── */
+.summary-section{margin-top:1rem;border-top:1px solid var(--border);padding-top:.75rem;}
+.summary-section h4{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.85rem;}
+.title-editor{
+  width:100%;background:var(--bg3);border:1px solid var(--border);
+  border-radius:10px;padding:10px 13px;font-family:var(--sans);
+  font-size:.92rem;font-weight:600;color:var(--text);
+  outline:none;transition:border-color .2s;margin-bottom:.75rem;
+  box-sizing:border-box;
+}
+.title-editor:focus{border-color:rgba(0,230,118,.4);}
+.title-editor::placeholder{color:var(--muted);font-weight:400;}
+.summary-editor{
+  width:100%;min-height:240px;background:var(--bg3);
+  border:1px solid var(--border);border-radius:10px;
+  padding:12px 14px;font-family:var(--sans);font-size:.87rem;
+  color:var(--text);line-height:1.75;resize:vertical;
+  transition:border-color .2s;outline:none;
+}
+.summary-editor:focus{border-color:rgba(0,230,118,.4);}
+.summary-editor::placeholder{color:var(--muted);}
+.summary-actions{display:flex;align-items:center;justify-content:space-between;margin-top:8px;flex-wrap:wrap;gap:8px;}
+.summary-hint{font-size:.68rem;color:var(--muted);display:none;}
+.btn-save-summary{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--green);color:#000;font-family:var(--sans);
+  font-weight:700;font-size:.75rem;padding:7px 16px;
+  border:none;border-radius:7px;cursor:pointer;transition:opacity .15s;
+}
+.btn-save-summary:hover{opacity:.88;}
+.summary-saved-badge{
+  font-size:.7rem;color:var(--green);font-family:var(--mono);
+  display:none;align-items:center;gap:4px;
+}
+
+/* ── REACTION BAR ── */
+.reaction-bar{
+  display:flex;align-items:center;gap:8px;
+  margin-top:1.25rem;flex-wrap:wrap;
+}
+.reaction-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:99px;padding:6px 14px;cursor:pointer;
+  font-size:.8rem;color:var(--muted2);transition:all .15s;
+  font-family:var(--sans);
+}
+.reaction-btn:hover{border-color:var(--border2);color:var(--text);}
+.reaction-btn.reacted{background:var(--green-d);border-color:rgba(0,230,118,.35);color:var(--green);}
+.reaction-btn.reacted-warn{background:var(--amber-d);border-color:rgba(255,179,0,.35);color:var(--amber);}
+.reaction-count{font-family:var(--mono);font-size:.72rem;}
+
+/* ── 보안 히스토리 ── */
+.history-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
+.history-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
+.history-list{display:flex;flex-direction:column;gap:6px;}
+.history-item{display:flex;align-items:center;gap:10px;font-size:.78rem;}
+.history-date{color:var(--muted);font-family:var(--mono);width:90px;flex-shrink:0;}
+.history-bar{flex:1;height:6px;background:var(--bg4);border-radius:3px;overflow:hidden;}
+.history-fill{height:100%;border-radius:3px;transition:width .6s ease;}
+.history-score{font-weight:700;width:40px;text-align:right;flex-shrink:0;}
+.history-diff{font-size:.7rem;width:40px;text-align:right;flex-shrink:0;}
+
+/* ── VPN 비교 ── */
+.vpn-compare-wrap{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;}
+.vpn-compare-title{font-size:.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
+.vpn-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.vpn-col{background:var(--bg4);border-radius:8px;padding:10px 12px;}
+.vpn-col-label{font-size:.65rem;color:var(--muted);margin-bottom:6px;font-family:var(--mono);}
+.vpn-col-score{font-size:1.4rem;font-weight:800;margin-bottom:4px;}
+.vpn-col-detail{font-size:.72rem;color:var(--muted2);line-height:1.6;}
+.vpn-save-btn{width:100%;margin-top:.75rem;padding:9px;background:rgba(64,196,255,0.12);
+  border:1px solid rgba(64,196,255,0.25);border-radius:8px;color:var(--blue);
+  font-size:.8rem;font-weight:600;cursor:pointer;font-family:var(--sans);}
+.vpn-save-btn:hover{background:rgba(64,196,255,0.2);}
+
+/* ── 공유 버튼 ── */
+.share-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:.5rem;}
+.share-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;
+  border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;
+  border:none;font-family:var(--sans);transition:opacity .15s;}
+.share-btn:hover{opacity:.85;}
+.share-twitter{background:#1DA1F2;color:#fff;}
+.share-copy{background:var(--bg4);color:var(--text);border:1px solid var(--border)!important;}
+.share-img{background:var(--green);color:#000;}
+
+#shareCanvas{display:none;}
+
+.related-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
+.related-row:last-child{border:none;}
+.related-row:hover .related-title{color:var(--green);}
+.related-arrow{color:var(--muted);font-size:.75rem;flex-shrink:0;}
+.related-title{font-size:.82rem;color:var(--text);transition:color .15s;flex:1;}
+.related-time{font-size:.66rem;color:var(--muted);font-family:var(--mono);flex-shrink:0;}
+
+/* ── 기사 리더 진단 CTA ── */
+.reader-diag-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;
+  padding:11px 32px;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:.92rem;font-family:var(--mono);
+  color:var(--muted);
+  cursor:pointer;
+  transition:border-color .2s,color .2s,background .2s;
+  letter-spacing:.02em;
+  width:fit-content;
+  display:block;
+  text-align:center;
+}
+.reader-diag-cta:hover{
+  border-color:rgba(0,230,118,.35);
+  color:var(--green);
+  background:var(--green-d);
+}
+
+/* ═══════════════════ MOBILE ═══════════════════ */
+@media (max-width: 600px) {
+
+  /* 레이아웃 여백 */
+  .page-shell { padding: 0 .85rem 2rem; }
+
+  /* 헤더 */
+  .header-inner { padding: .6rem .85rem; gap: .75rem; }
+  .live-clock { display: none; }
+  .nav-link { font-size: .92rem; padding: 5px 9px; }
+
+  /* 뉴스 그리드 — 1열 */
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .news-tabs { gap: 5px; }
+  .news-tab { font-size: .78rem; padding: 4px 11px; }
+
+  /* 진단 카드 그리드 — 1열 */
+  .card-grid { grid-template-columns: 1fr; gap: 8px; }
+
+  /* 어필리에이트 아이템 — 버튼 아래로 */
+  .aff-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px 12px;
+  }
+  .aff-btns {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .aff-btn { flex: 1; justify-content: center; }
+
+  /* 어필리에이트 배너 */
+  .amz-banners { grid-template-columns: 1fr; }
+
+  /* 점수 바 */
+  .score-bars { max-width: 100%; }
+  .sbar-label { width: 90px; font-size: .7rem; }
+
+  /* 챌린지 */
+  .challenge-input-row { flex-direction: column; }
+  .challenge-nick { width: 100%; }
+  .btn-challenge { width: 100%; }
+
+  /* 랭킹 */
+  .lb-row { grid-template-columns: 36px 1fr auto auto; gap: 0 8px; padding: 11px 14px; }
+  .lb-nick { font-size: .88rem; }
+  .lb-score { font-size: 1rem; }
+
+  /* VPN 비교 */
+  .vpn-compare-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .vpn-col-score { font-size: 1.2rem; }
+
+  /* 리더 패널 */
+  .reader-panel { width: 100%; border-radius: 0; }
+  .reader-body { padding: 1rem; }
+  .reader-source-box { flex-direction: column; align-items: flex-start; }
+  .btn-orig { width: 100%; justify-content: center; }
+
+  /* 공유 버튼 */
+  .btn-row { flex-direction: column; }
+  .btn-ghost, .btn-outline-green { width: 100%; justify-content: center; }
+
+  /* 통계 그리드 */
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  /* h1 */
+  h1 { font-size: clamp(1.25rem, 5vw, 1.6rem); }
+}
+
+@media (max-width: 380px) {
+  .page-shell { padding: 0 .65rem 2rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .vpn-compare-grid { grid-template-columns: 1fr; }
+  .aff-btn { font-size: .68rem; padding: 6px 10px; }
+}
+
+.admin-login-btn{
+  font-size:.72rem;color:var(--muted);background:transparent;
+  border:1px solid var(--border);border-radius:6px;
+  padding:4px 10px;cursor:pointer;font-family:var(--sans);
+  transition:all .15s;
+}
+.admin-login-btn:hover{background:var(--bg3);color:var(--text);}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="#" onclick="goHome();return false;">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 바깥 원 -->
+          <circle cx="40" cy="40" r="34" stroke="rgba(0,230,118,0.25)" stroke-width="1.5"/>
+          <!-- 중간 원 -->
+          <circle cx="40" cy="40" r="22" stroke="rgba(0,230,118,0.4)" stroke-width="1.5"/>
+          <!-- 안쪽 원 -->
+          <circle cx="40" cy="40" r="10" fill="rgba(0,230,118,0.1)" stroke="rgba(0,230,118,0.7)" stroke-width="1.5"/>
+          <!-- 회전 호 (레이더 스윕) -->
+          <path d="M40 6 A34 34 0 0 1 74 40" stroke="#00e676" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- 중심점 -->
+          <circle cx="40" cy="40" r="3.5" fill="#00e676"/>
+        </svg>
+      </div>
+      <span class="logo-text">보안<span>레이더</span></span>
+    </a>
+    <nav class="site-nav">
+  <button class="admin-login-btn" id="adminLoginBtn" onclick="adminLogin()">🔐 관리자</button>
+      <a class="nav-link" href="#news-section">뉴스</a>
+      <a class="nav-link" href="#diag-section">PC진단</a>
+      <a class="nav-link" href="#leaderboardWrap">랭킹</a>
+    </nav>
+    <div class="live-clock" id="liveClock">00:00:00</div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <!-- ══════════════ NEWS ══════════════ -->
+  <div id="news-section" style="padding-top:2rem;">
+    <div class="news-header">
+      <div class="news-title">오늘의 보안 뉴스 <span class="live-dot"></span></div>
+      <div class="news-meta">
+        <span style="color:var(--muted);font-size:.72rem;">매일 오전 업데이트</span>
+      </div>
+    </div>
+    <div class="news-tabs">
+      <button class="news-tab active" onclick="filterNews('all',this)">전체</button>
+      <button class="news-tab" onclick="filterNews('해킹',this)">해킹</button>
+      <button class="news-tab" onclick="filterNews('취약점',this)">취약점</button>
+      <button class="news-tab" onclick="filterNews('랜섬웨어',this)">랜섬웨어</button>
+      <button class="news-tab" onclick="filterNews('개인정보',this)">개인정보</button>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <div class="news-skeleton"></div>
+      <div class="news-skeleton"></div>
+      <div class="news-skeleton"></div>
+      <div class="news-skeleton"></div>
+      <div class="news-skeleton"></div>
+      <div class="news-skeleton"></div>
+    </div>
+  </div>
+
+  <!-- READER OVERLAY + PANEL -->
+  <div class="reader-overlay" id="readerOverlay" onclick="closeReader()"></div>
+  <div class="reader-panel" id="readerPanel">
+    <div class="reader-top">
+      <div class="reader-top-title" id="readerTopTitle">기사 읽기</div>
+      <button class="reader-close" onclick="closeReader()">✕</button>
+    </div>
+    <div class="reader-body" id="readerBody"></div>
+  </div>
+
+  <!-- ══════════════ DIAGNOSTIC ══════════════ -->
+  <div class="section-divider" id="diag-section"><h2>🔍 무료 PC 보안 진단</h2></div>
+  <div class="diag-wrap">
+
+    <section id="landing">
+      <div class="scan-icon">
+        <svg viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="rgba(0,230,118,0.12)" stroke-width="1.5"/>
+          <circle cx="40" cy="40" r="26" stroke="rgba(0,230,118,0.22)" stroke-width="1.5"/>
+          <circle cx="40" cy="40" r="16" fill="rgba(0,230,118,0.08)" stroke="rgba(0,230,118,0.45)" stroke-width="1.5"/>
+          <g class="scan-ring">
+            <path d="M40 4 A36 36 0 0 1 76 40" stroke="#00e676" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <circle cx="40" cy="40" r="4" fill="#00e676"/>
+        </svg>
+      </div>
+      <h1>단 한 번의 클릭으로<br><span>내 PC 보안 위협</span>을 확인하세요</h1>
+      <p class="subtitle">브라우저에서 바로 확인하는 보안 위협과 최신 뉴스<br>공개 IP · WebRTC 누출 확인 · DNS 누출 테스트 · OS 취약점 · 인터넷 속도 — 무료 즉시 진단<br><span style="color:var(--green);font-size:.82rem;">🔒 진단 데이터는 서버로 전송되지 않습니다</span></p>
+      <button class="btn-scan" id="startBtn">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        무료 보안 진단 시작
+      </button>
+      <div class="trust-tags">
+        <span class="trust-tag">🔒 서버 전송 없음</span>
+        <span class="trust-tag">⚡ 약 20초</span>
+        <span class="trust-tag">📋 KISA 기준</span>
+        <span class="trust-tag">🌐 IPv6 탐지</span>
+        <span class="trust-tag">🔑 보안 키 감지</span>
+      </div>
+    </section>
+
+    <section id="scanning">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="tdot" style="background:#ff5f57"></div>
+          <div class="tdot" style="background:#febc2e"></div>
+          <div class="tdot" style="background:#28c840"></div>
+          <span class="terminal-title">Security Analyzer v2.4</span>
+        </div>
+        <div id="logBox"></div>
+      </div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-label" id="progressLabel">0%</div>
+    </section>
+
+    <section id="diag-results">
+      <div class="d-section-head"><h3>🌐 네트워크 · IP 정보</h3></div>
+      <div id="ipExpandCard" style="margin-bottom:10px;"></div>
+      <div class="card-grid" id="netCards"></div>
+      <button id="sysToggleBtn" onclick="toggleSysInfo()"
+        style="width:100%;margin:1.25rem 0 0;padding:10px 14px;
+        background:transparent;border:1px solid var(--border);border-radius:9px;
+        color:var(--muted);font-size:.75rem;font-weight:500;cursor:pointer;
+        font-family:var(--mono);text-align:left;transition:all .15s;
+        display:flex;align-items:center;justify-content:space-between;"
+        onmouseover="this.style.borderColor='var(--border2)';this.style.color='var(--text)'"
+        onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+        <span>🖥️ 이 시스템 정보는 PC에 접근하지 않습니다 — 브라우저 범위 안에서만 표시</span>
+        <span id="sysToggleArrow" style="margin-left:10px;flex-shrink:0;">▼</span>
+      </button>
+      <div id="sysCards" class="card-grid" style="display:none;margin-top:10px;"></div>
+      <div class="d-section-head"><h3>🔍 자동 보안 점검</h3></div>
+      <div class="check-list" id="autoChecks"></div>
+      <div class="d-section-head"><h3 style="font-size:.82rem;color:var(--muted2);">✅ 30초면 끝. 체크할수록 담장이 높아짐.</h3></div>
+      <div id="manualChecklist"></div>
+      <div id="checklistMore" style="display:none;"></div>
+      <button id="checklistToggleBtn" onclick="toggleChecklist()"
+        style="width:100%;margin-top:6px;padding:9px;background:transparent;
+        border:1px solid var(--border);border-radius:8px;color:var(--muted);
+        font-size:.78rem;font-weight:600;cursor:pointer;font-family:var(--sans);
+        transition:all .15s;"
+        onmouseover="this.style.borderColor='var(--border2)';this.style.color='var(--text)'"
+        onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+        ＋ 더보기 — 6개 항목 (+43점 가능)
+      </button>
+      <button class="btn-calc" id="calcBtn">내 점수는?</button>
+    </section>
+
+    <section id="score-section">
+      <div class="d-section-head"><h3>📊 최종 진단 결과</h3></div>
+      <div class="score-wrap">
+        <div class="grade-ring" id="gradeRing"></div>
+        <div class="score-num" id="scoreNum"></div>
+        <div class="score-lbl" id="scoreLbl"></div>
+        <div class="score-bars" id="scoreBars"></div>
+        <div class="reco-list" id="recoList"></div>
+        <div class="btn-row">
+          <button class="btn-ghost" id="shareBtn">📋 결과 공유하기</button>
+          <button class="btn-outline-green" id="retryBtn">↺ 다시 진단</button>
+        </div>
+
+        <!-- 공유 버튼 확장 -->
+        <div class="share-btns" id="shareBtns" style="display:none;">
+          <button class="share-btn share-img" id="shareImgBtn">🖼️ 이미지 저장</button>
+          <button class="share-btn share-twitter" id="shareTwitterBtn">🐦 트위터</button>
+          <button class="share-btn" id="shareFacebookBtn" style="background:#1877F2;color:#fff;">f 페이스북</button>
+          <button class="share-btn" id="shareLinkedinBtn" style="background:#0A66C2;color:#fff;">in 링크드인</button>
+          <button class="share-btn share-copy" id="shareCopyBtn">📋 텍스트 복사</button>
+        </div>
+        <canvas id="shareCanvas" width="600" height="340"></canvas>
+
+        <!-- 보안 히스토리 -->
+        <div class="history-wrap" id="historyWrap" style="display:none;">
+          <div class="history-title">📈 내 보안 점수 히스토리</div>
+          <div class="history-list" id="historyList"></div>
+        </div>
+
+        <!-- VPN 전후 비교 -->
+        <div class="vpn-compare-wrap" id="vpnCompareWrap">
+          <div class="vpn-compare-title">🔒 VPN 효과 측정</div>
+          <div class="vpn-compare-grid" id="vpnCompareGrid">
+            <div class="vpn-col" id="vpnBeforeCol">
+              <div class="vpn-col-label">VPN 전</div>
+              <div class="vpn-col-score" id="vpnBeforeScore" style="color:var(--muted);">—</div>
+              <div class="vpn-col-detail" id="vpnBeforeDetail">저장된 데이터 없음</div>
+            </div>
+            <div class="vpn-col" id="vpnAfterCol">
+              <div class="vpn-col-label">VPN 후 (현재)</div>
+              <div class="vpn-col-score" id="vpnAfterScore" style="color:var(--muted);">—</div>
+              <div class="vpn-col-detail" id="vpnAfterDetail">진단 완료 후 표시</div>
+            </div>
+          </div>
+          <button class="vpn-save-btn" id="vpnSaveBtn">
+            💾 현재 결과를 "VPN 전" 데이터로 저장
+          </button>
+        </div>
+
+        <!-- 챌린지 참여 박스 -->
+        <div class="challenge-box" id="challengeBox">
+          <div class="challenge-title">🏆 <span>보안 점수 챌린지</span>에 참여하세요!</div>
+          <div class="challenge-desc">
+            내 점수를 랭킹에 등록하고 다른 사람들과 비교해보세요.<br>
+            닉네임만 입력하면 무료로 참여할 수 있습니다.
+          </div>
+          <div class="my-score-display">
+            <span class="my-score-grade" id="challengeGrade"></span>
+            <span class="my-score-num" id="challengeScore"></span>
+            <span style="font-size:.78rem;color:var(--muted)">/ 100점</span>
+          </div>
+          <div class="challenge-input-row">
+            <input class="challenge-nick" id="challengeNick"
+              placeholder="닉네임 입력 (예: 보안고수123)"
+              maxlength="15">
+            <button class="btn-challenge" id="challengeSubmitBtn"
+              onclick="submitToChallenge()">🏆 등록</button>
+          </div>
+          <div class="challenge-result" id="challengeResult"></div>
+          <button class="btn-fix-vuln" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })()">
+            내 취약점 해결하기 →
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /diag-wrap -->
+
+  <!-- ══════════════ LEADERBOARD ══════════════ -->
+  <div class="section-divider"><h2>지금 이 순간, 가장 뚫기 어려운 PC</h2></div>
+  <div class="lb-wrap" id="leaderboardWrap">
+    <div class="lb-header">
+      <div class="lb-title"><svg width="14" height="14" viewBox="0 0 80 80" fill="none" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="40" cy="40" r="36" stroke="rgba(0,230,118,0.4)" stroke-width="2"/><circle cx="40" cy="40" r="22" stroke="rgba(0,230,118,0.6)" stroke-width="2"/><circle cx="40" cy="40" r="6" fill="#00e676"/><line x1="40" y1="4" x2="40" y2="40" stroke="#00e676" stroke-width="2"/></svg> <span>보안레이더</span> 챌린지 랭킹</div>
+      <div class="lb-live"><span class="live-dot"></span> LIVE</div>
+    </div>
+    <div id="leaderboardList">
+      <div class="lb-loading">🔄 랭킹을 불러오는 중...</div>
+    </div>
+    <div class="lb-updated" id="lbUpdated">—</div>
+  </div>
+
+  <!-- ══════════════ AFFILIATE PRODUCTS ══════════════ -->
+  <div class="section-divider" style="margin-top:2rem;"><h2>🛡️ 해커에게 어떤 집은 10초, 어떤 집은 포기</h2></div>
+
+  <!-- 점수별 개인화 메시지 -->
+  <div id="affPersonalMsg" style="
+    background:rgba(255,77,77,0.08);border:1px solid rgba(255,77,77,0.2);
+    border-radius:10px;padding:12px 18px;margin-bottom:1rem;
+    font-size:.85rem;color:var(--muted2);line-height:1.6;display:none;">
+  </div>
+
+  <div class="aff-section" id="affSection">
+    <div class="aff-header">
+      <div class="aff-header-title">✅ 보안 전문가들이 실제로 사용하는 검증된 솔루션</div>
+      <div class="aff-header-sub">무료 체험 가능 · 환불 보장</div>
+    </div>
+
+    <!-- 1. VPN -->
+    <div class="aff-item" id="affNordVPN">
+      <div class="aff-info">
+        <div class="aff-rank">글로벌 1위 · IP노출 · WebRTC누출 · 공공 Wi-Fi 위험 · 1년 월 약 5,500원 / 2년 월 약 3,900원</div>
+        <div class="aff-name">NordVPN <span class="aff-badge aff-badge-hot">67% 할인</span> <span class="aff-stars">★★★★★ <span class="aff-stars-num">4.8</span></span></div>
+        <div class="aff-desc">IP가 보이면 집주소가 노출된 것과 마찬가지 — 암호화로 즉시 닫힌다. 30일 환불 보장.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-one" href="https://go.nordvpn.net/SHBM0" target="_blank" rel="noopener sponsored" style="font-size:.78rem;">1년 · 최대 60%↓</a>
+        <a class="aff-btn aff-btn-sub" href="https://go.nordvpn.net/SHBM0" target="_blank" rel="noopener sponsored" style="font-size:.78rem;">2년 · 70% + 4개월 무료</a>
+      </div>
+    </div>
+
+    <!-- 2. 백신 -->
+    <div class="aff-item">
+      <div class="aff-info">
+        <div class="aff-rank">랜섬웨어 · 악성코드 · 제로데이 위협 · 1년 월 약 4,500원 / 2년 월 약 3,100원</div>
+        <div class="aff-name">Bitdefender <span class="aff-badge aff-badge-rec">4년 연속 1위</span> <span class="aff-stars">★★★★★ <span class="aff-stars-num">4.9</span></span></div>
+        <div class="aff-desc">도둑이 들어와도 모르는 집 — 실시간 감시가 그걸 바꾼다. PC 성능 저하 없이 실시간 보호.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-one" href="#" target="_blank" rel="noopener sponsored" style="font-size:.78rem;">1년 · 최대 55%↓</a>
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored" style="font-size:.78rem;">2년 · 최대 60%↓</a>
+      </div>
+    </div>
+
+    <!-- 3. 멀웨어 -->
+    <div class="aff-item">
+      <div class="aff-info">
+        <div class="aff-rank">이미 감염됐을 수 있습니다 · 지금 무료 검사 · Premium 월 약 8,900원</div>
+        <div class="aff-name">Malwarebytes <span class="aff-badge aff-badge-hot">무료 검사 가능</span> <span class="aff-stars">★★★★☆ <span class="aff-stars-num">4.6</span></span></div>
+        <div class="aff-desc">지금 이 화면, 나만 보고 있는 게 아닐 수 있다 — 무료 버전으로 먼저 검사. 발견되면 제거는 Premium으로.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">지금 체험하기</a>
+      </div>
+    </div>
+
+    <!-- 4. PC 최적화 -->
+    <div class="aff-item">
+      <div class="aff-info">
+        <div class="aff-rank">개인정보 흔적 · 레지스트리 오류 · 불필요한 파일 · 1년 월 약 2,900원</div>
+        <div class="aff-name">CCleaner <span class="aff-badge aff-badge-rec">PC 최적화 1위</span> <span class="aff-stars">★★★★☆ <span class="aff-stars-num">4.5</span></span></div>
+        <div class="aff-desc">흔적을 남기는 사람은 언제든 추적됨 — 한 번에 완전 삭제. 레지스트리 오류 수정으로 PC 속도 함께 개선.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">지금 체험하기</a>
+      </div>
+    </div>
+
+    <!-- 5. Revo Uninstaller -->
+    <div class="aff-item">
+      <div class="aff-info">
+        <div class="aff-rank">의심 프로그램 · 악성코드 잔여 파일 · 레지스트리 완전 삭제 · 1년 월 약 2,500원</div>
+        <div class="aff-name">Revo Uninstaller <span class="aff-badge" style="background:rgba(100,149,237,0.2);color:cornflowerblue;">완전 삭제 1위</span> <span class="aff-stars">★★★★☆ <span class="aff-stars-num">4.4</span></span></div>
+        <div class="aff-desc">지웠다고 생각한 것들이 아직 거기 있다 — 레지스트리까지 완전 제거. 악성코드·애드웨어 잔여 파일 정리에 효과적.</div>
+      </div>
+      <div class="aff-btns">
+        <a class="aff-btn aff-btn-sub" href="#" target="_blank" rel="noopener sponsored">지금 체험하기</a>
+      </div>
+    </div>
+
+  </div><!-- /aff-section -->
+
+  <!-- ══════════════ AMAZON BANNERS ══════════════ -->
+  <div class="section-divider">
+    <h2>하드웨어로 한 단계 더 안전하게</h2>
+  </div>
+  <div class="amz-banners" style="margin-bottom:2rem;">
+    <a class="amz-banner" href="https://www.coupang.com/np/search?q=YubiKey+보안키" target="_blank" rel="noopener sponsored">
+      <div class="amz-banner-info">
+        <div class="amz-banner-label">쿠팡 · 피싱 완벽 차단</div>
+        <div class="amz-banner-title">YubiKey 보안 키</div>
+        <div class="amz-banner-desc">비밀번호 없이 로그인 · 피싱 100% 방어 · USB-A/C 동시 지원</div>
+        <div class="amz-banner-review">쿠팡 리뷰 12,000+</div>
+      </div>
+      <div class="amz-banner-cta">보러가기 ↗</div>
+    </a>
+    <a class="amz-banner" href="https://link.coupang.com/a/ehrTWlo5PU" target="_blank" rel="noopener sponsored">
+      <div class="amz-banner-info">
+        <div class="amz-banner-label">쿠팡 · 집 전체 네트워크 보호</div>
+        <div class="amz-banner-title">GL.iNet VPN 라우터</div>
+        <div class="amz-banner-desc">공유기에서 VPN 직접 실행 · 연결된 모든 기기 동시 보호</div>
+        <div class="amz-banner-review">쿠팡 리뷰 8,500+</div>
+      </div>
+      <div class="amz-banner-cta">보러가기 ↗</div>
+    </a>
+  </div><!-- /amz-banners -->
+
+  <!-- ── GL.iNet 가성비 ── -->
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:.75rem;">
+    <a href="https://link.coupang.com/a/ehslvaw2Oi" target="_blank" rel="noopener sponsored"
+      style="display:flex;align-items:center;justify-content:space-between;
+      background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+      padding:12px 16px;text-decoration:none;transition:border-color .15s;"
+      onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text);">GL.iNet VPN 라우터 (가성비)</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px;">$39 · 공유기에서 VPN 직접 실행 · 연결된 모든 기기 동시 보호</div>
+        <div style="font-size:.68rem;color:var(--muted2);font-family:var(--mono);margin-top:3px;">쿠팡 리뷰 7,500+</div>
+      </div>
+      <span style="font-size:.75rem;font-weight:600;color:var(--amber);white-space:nowrap;margin-left:12px;">보러가기 ↗</span>
+    </a>
+  </div>
+
+  <!-- ── 추가 보안 추천 ── -->
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:.75rem;">
+    <a href="https://link.coupang.com/a/efhGBDbdXU" target="_blank" rel="noopener sponsored"
+      style="display:flex;align-items:center;justify-content:space-between;
+      background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+      padding:12px 16px;text-decoration:none;transition:border-color .15s;"
+      onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text);">USB 데이터 블로커</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px;">공공 충전기 꽂는 순간 개인정보 빠져나갑니다</div>
+        <div style="font-size:.68rem;color:var(--muted2);font-family:var(--mono);margin-top:3px;">쿠팡 리뷰 2,400+</div>
+      </div>
+      <span style="font-size:.75rem;font-weight:600;color:var(--amber);white-space:nowrap;margin-left:12px;">보러가기 ↗</span>
+    </a>
+    <a href="https://link.coupang.com/a/efh0mPa1tc" target="_blank" rel="noopener sponsored"
+      style="display:flex;align-items:center;justify-content:space-between;
+      background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+      padding:12px 16px;text-decoration:none;transition:border-color .15s;"
+      onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text);">RFID 차단 지갑</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px;">지갑 꺼내지 않아도 카드 정보가 복사됩니다</div>
+        <div style="font-size:.68rem;color:var(--muted2);font-family:var(--mono);margin-top:3px;">쿠팡 리뷰 6,800+</div>
+      </div>
+      <span style="font-size:.75rem;font-weight:600;color:var(--amber);white-space:nowrap;margin-left:12px;">보러가기 ↗</span>
+    </a>
+    <a href="https://link.coupang.com/a/efh2tVVZT2" target="_blank" rel="noopener sponsored"
+      style="display:flex;align-items:center;justify-content:space-between;
+      background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+      padding:12px 16px;text-decoration:none;transition:border-color .15s;"
+      onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text);">트래블 보안 파우치</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px;">여권 RFID 차단 + 소매치기 방지 · 해외여행 필수</div>
+        <div style="font-size:.68rem;color:var(--muted2);font-family:var(--mono);margin-top:3px;">쿠팡 리뷰 4,100+</div>
+      </div>
+      <span style="font-size:.75rem;font-weight:600;color:var(--amber);white-space:nowrap;margin-left:12px;">보러가기 ↗</span>
+    </a>
+  </div>
+  <p style="font-size:.62rem;color:var(--muted);line-height:1.6;margin:0 0 2rem;padding:0 2px;">
+    ※ 이 페이지의 일부 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+  </p>
+
+<footer class="site-footer">
+  <button onclick="goHome()"
+    style="display:inline-flex;align-items:center;gap:6px;
+    background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);
+    color:var(--green);font-size:1rem;font-weight:600;font-family:var(--sans);
+    padding:12px 32px;border-radius:20px;cursor:pointer;margin-bottom:1.2rem;
+    transition:background .15s;">
+    홈으로
+  </button><br>
+  보안레이더 — 사이버 보안 실시간 뉴스 & PC 무료 진단<br>
+  뉴스 출처: KISA 보호나라 · 보안뉴스 · Google News (한국)<br>
+  ※ 진단 데이터는 서버로 전송되지 않습니다. 개인정보 보호 정책 적용.<br>
+  <span style="font-size:.68rem;color:var(--muted);margin-top:.5rem;display:inline-block;">© 2026 SecurityRadar (securityradar.io). All rights reserved.</span>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+/* ════════════════════════════════════════════════
+   ★ 도메인 전용 실행 제한
+   ════════════════════════════════════════════════ */
+(function(){
+  const host = location.hostname;
+  const protocol = location.protocol;
+
+  // 허용 도메인 목록 — 도메인 구매 후 실제 주소로 교체하세요
+  const ALLOWED_DOMAINS = [
+    'securityradar.com',
+    'www.securityradar.com',
+    'security-radar.com',
+    'www.security-radar.com',
+    'securityradar.io',
+    'www.securityradar.io',
+    // 개발/테스트용 임시 허용
+    'localhost',
+    '127.0.0.1',
+  ];
+
+  const isFile   = protocol === 'file:';
+  const isLocal  = ALLOWED_DOMAINS.includes(host);
+
+  // file:// 로컬 파일로 열었을 때 차단
+  if(isFile){
+    document.documentElement.innerHTML = `
+      <html lang="ko">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>보안레이더 — 도메인 접속 필요</title>
+        <style>
+          *{box-sizing:border-box;margin:0;padding:0;}
+          body{background:#090d12;color:#dde3ee;font-family:system-ui,sans-serif;
+            display:flex;align-items:center;justify-content:center;
+            min-height:100vh;text-align:center;padding:2rem;}
+          .box{background:#111620;border:1px solid rgba(255,255,255,0.08);
+            border-radius:16px;padding:3rem 2rem;max-width:480px;}
+          .icon{font-size:3rem;margin-bottom:1rem;}
+          h1{font-size:1.3rem;font-weight:700;margin-bottom:.75rem;color:#fff;}
+          p{font-size:.88rem;color:#6b7a94;line-height:1.7;margin-bottom:1.25rem;}
+          .url{font-size:.82rem;background:#1a2030;border-radius:8px;
+            padding:8px 16px;color:#00e676;font-family:monospace;
+            display:inline-block;margin-top:.5rem;}
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <div class="icon">🛡️</div>
+          <h1>도메인 접속이 필요합니다</h1>
+          <p>보안레이더는 공식 도메인에서만 정상 작동합니다.<br>
+          로컬 파일(file://)에서는 보안 기능이 제한됩니다.</p>
+          <p>아래 주소로 접속해 주세요:</p>
+          <div class="url">www.securityradar.com</div>
+        </div>
+      </body>
+      </html>`;
+    return;
+  }
+})();
+
+/* ════════════════════════════════════════════════
+   ★ FIREBASE 설정 — 본인 Firebase 프로젝트 값으로 교체하세요
+   console.firebase.google.com → 프로젝트 생성 →
+   웹앱 추가 → 아래 값 복사 붙여넣기
+   ════════════════════════════════════════════════ */
+const FIREBASE_CONFIG = {
+  apiKey:            "AIzaSyCducSfOyVdBGC7YQJEYMxN0Ot3oVFIpd8",
+  authDomain:        "security-radar-a375d.firebaseapp.com",
+  databaseURL:       "https://security-radar-a375d-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId:         "security-radar-a375d",
+  storageBucket:     "security-radar-a375d.firebasestorage.app",
+  messagingSenderId: "681124719283",
+  appId:             "1:681124719283:web:527cf17588a061a8e35ec6"
+};
+
+let db = null;
+let firebaseReady = false;
+
+function initFirebase(){
+  // 즉시 데모 랭킹 먼저 표시
+  renderDemoLeaderboard();
+  try{
+    if(!firebase || FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY'){
+      console.warn('Firebase 미설정 — 데모 모드로 실행');
+      return;
+    }
+    firebase.initializeApp(FIREBASE_CONFIG);
+    db = firebase.database();
+    firebaseReady = true;
+    // Firebase 연결 성공하면 실제 데이터로 교체
+    listenLeaderboard();
+  }catch(e){
+    console.warn('Firebase 초기화 실패:', e.message);
+    // 데모 데이터는 이미 표시 중 — 그대로 유지
+  }
+}
+
+/* ─── 실시간 랭킹 리스닝 ─── */
+function listenLeaderboard(){
+  if(!firebaseReady || !db) return;
+
+  db.ref('challenge/scores_ko')
+    .orderByChild('score')
+    .limitToLast(10)
+    .on('value', snap => {
+      let rows = [];
+      snap.forEach(child => {
+        rows.push({ _key: child.key, ...child.val() });
+      });
+
+      rows.sort((a, b) => b.score - a.score || b.timestamp - a.timestamp);
+
+      // 동점이면 최신 유저만 표시 (점수별 가장 최신 1명만 유지)
+      const seen = new Set();
+      const filtered = rows.filter(r => {
+        if(seen.has(r.score)) return false;
+        seen.add(r.score);
+        return true;
+      });
+
+      renderLeaderboard(filtered.slice(0, 5));
+
+      const updated = document.getElementById('lbUpdated');
+      if(updated) updated.textContent =
+        '마지막 업데이트: ' + new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+    });
+}
+
+/* ─── 랭킹 렌더링 ─── */
+const RANK_EMOJI = ['🥇','🥈','🥉','4','5'];
+const RANK_CLASS = ['rank-1','rank-2','rank-3','rank-other','rank-other'];
+
+function gradeColor(score){
+  if(score>=90) return '#00e676';
+  if(score>=80) return '#00e676';
+  if(score>=70) return '#40c4ff';
+  if(score>=55) return '#ffb300';
+  if(score>=40) return '#ff7043';
+  return '#ff4d4d';
+}
+function gradeLabel(score){
+  if(score>=90) return 'A+';
+  if(score>=80) return 'A';
+  if(score>=70) return 'B';
+  if(score>=55) return 'C';
+  if(score>=40) return 'D';
+  return 'F';
+}
+
+function rankSubText(score){
+  if(score>=95) return '해커가 못 보고 지나감.';
+  if(score>=80) return '시도하지만 막힘.';
+  if(score>=60) return '앞문은 잠겼지만 뒷문은 보임.';
+  if(score>=40) return '이미 리스트에?';
+  if(score>=20) return '오늘도 열려있다?';
+  return '지금도 보고 있을까?';
+}
+
+function renderLeaderboard(rows){
+  const list = document.getElementById('leaderboardList');
+  const updated = document.getElementById('lbUpdated');
+  if(!rows||rows.length===0){
+    list.innerHTML=`<div class="lb-empty">
+      🏆 아직 참여자가 없습니다!<br>
+      첫 번째 챌린저가 되어보세요.<br>
+      <span style="font-size:.7rem;color:var(--muted)">PC 보안 진단 후 점수를 등록하면 랭킹에 올라갑니다</span>
+    </div>`;
+    return;
+  }
+  list.innerHTML = rows.map((r,i)=>{
+    const color = gradeColor(r.score);
+    const grade = gradeLabel(r.score);
+    return `<div class="lb-row">
+      <div class="lb-rank ${RANK_CLASS[i]}" style="${i>=3?'font-size:1rem;':''}"> ${RANK_EMOJI[i]}</div>
+      <div>
+        <div class="lb-nick">${escapeHtml(r.nick||'익명')}</div>
+        <div class="lb-os">${rankSubText(r.score)}</div>
+      </div>
+      <div class="lb-grade" style="background:${color}22;color:${color}">${grade}</div>
+      <div class="lb-score" style="color:${color}">${r.score}점</div>
+    </div>`;
+  }).join('');
+  if(updated) updated.textContent =
+    '마지막 업데이트: '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+}
+
+/* ─── 데모 랭킹 (Firebase 미설정 시) ─── */
+function renderDemoLeaderboard(){
+  const demo = [
+    {nick:'보안마스터🛡️',  score:94, os:'Windows 11', browser:'Chrome',  grade:'A+'},
+    {nick:'철벽수비수',     score:88, os:'macOS',      browser:'Safari',  grade:'A'},
+    {nick:'해킹방어왕',    score:76, os:'Windows 10', browser:'Edge',    grade:'B'},
+    {nick:'초보보안러',    score:61, os:'Windows 11', browser:'Chrome',  grade:'C'},
+    {nick:'방화벽지킴이',  score:45, os:'Windows 10', browser:'Firefox', grade:'D'},
+  ];
+  renderLeaderboard(demo);
+  const updated = document.getElementById('lbUpdated');
+  if(updated) updated.textContent = '🏆 지금 진단하고 랭킹에 도전해보세요!';
+}
+
+/* ─── 챌린지 점수 등록 ─── */
+let _challengeScore = 0;
+let _challengeGrade = '';
+
+function openChallengeBox(score, grade){
+  _challengeScore = score;
+  _challengeGrade = grade;
+  const gs = document.getElementById('challengeGrade');
+  const sn = document.getElementById('challengeScore');
+  if(gs) gs.textContent = grade;
+  if(sn) sn.textContent = score;
+  if(gs) gs.style.color = gradeColor(score);
+  if(sn) sn.style.color = gradeColor(score);
+}
+
+async function submitToChallenge(){
+  const nickEl  = document.getElementById('challengeNick');
+  const resultEl= document.getElementById('challengeResult');
+  const btn     = document.getElementById('challengeSubmitBtn');
+  const nick    = ((nickEl&&nickEl.value.trim()) || '익명').slice(0,15);
+
+  if(!resultEl||!btn) return;
+
+  btn.disabled = true;
+  resultEl.className='challenge-result';
+  resultEl.textContent='🔄 등록 중...';
+
+  const demoFill2 = [
+    {nick:'보안마스터🛡️', score:94, os:'Windows 11', browser:'Chrome',  grade:'A+', isDemo:true},
+    {nick:'철벽수비수',    score:88, os:'macOS',      browser:'Safari',  grade:'A',  isDemo:true},
+    {nick:'해킹방어왕',   score:76, os:'Windows 10', browser:'Edge',    grade:'B',  isDemo:true},
+    {nick:'초보보안러',   score:61, os:'Windows 11', browser:'Chrome',  grade:'C',  isDemo:true},
+    {nick:'방화벽지킴이', score:45, os:'Windows 10', browser:'Firefox', grade:'D',  isDemo:true},
+  ];
+
+  // ★ Fix: 제출할 entry를 먼저 만들어두고 렌더에 직접 포함 (race condition 방지)
+  function buildAndRenderWithEntry(dbRows, newEntry){
+    // ★ Fix: newEntry를 항상 직접 포함 (DB re-fetch가 누락할 수 있으므로)
+    const combined = [...dbRows];
+    if(newEntry && !combined.find(r=>r.nick===newEntry.nick && r.score===newEntry.score)){
+      combined.push(newEntry);
+    }
+    // 실제 항목 정렬
+    combined.sort((a,b)=>b.score-a.score || b.timestamp-a.timestamp);
+    // 빈 자리 데모로 채우기
+    for(const d of demoFill2){
+      if(combined.length >= 5) break;
+      if(!combined.find(r=>r.nick===d.nick)) combined.push(d);
+    }
+    combined.sort((a,b)=>b.score-a.score || b.timestamp-a.timestamp);
+    renderLeaderboard(combined.slice(0,5));
+    const updated = document.getElementById('lbUpdated');
+    if(updated) updated.textContent =
+      '마지막 업데이트: '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+  }
+
+  try{
+    if(firebaseReady && db){
+      const os      = detectOS();
+      const browser = detectBrowser();
+      const entry   = {
+        nick,
+        score: _challengeScore,
+        grade: _challengeGrade,
+        os,
+        browser,
+        timestamp: Date.now(),
+        date: new Date().toLocaleDateString('ko-KR'),
+      };
+
+      // 닉네임 기준 기존 기록 확인
+      const snapshot = await db.ref('challenge/scores_ko').orderByChild('nick').equalTo(nick).once('value');
+
+      let existingKey = null;
+      let existingScore = 0;
+      snapshot.forEach(child => {
+        existingKey = child.key;
+        existingScore = child.val().score;
+      });
+
+      // 기존 기록 없으면 새로 등록, 있으면 더 높은 점수일 때만 갱신
+      if(!existingKey) {
+        await db.ref('challenge/scores_ko').push(entry);
+        resultEl.textContent = '🏆 랭킹에 등록됐습니다!';
+      } else if(_challengeScore > existingScore) {
+        await db.ref('challenge/scores_ko').child(existingKey).set(entry);
+        resultEl.textContent = '📈 최고 기록이 갱신됐습니다!';
+      } else {
+        resultEl.textContent = '이미 더 높은 기록이 있습니다.';
+      }
+    } else {
+      // Firebase 미연결 — 로컬에서만 보여주기
+      const entry = {
+        nick, score:_challengeScore, grade:_challengeGrade,
+        os:detectOS(), browser:detectBrowser(),
+        timestamp:Date.now(), date:new Date().toLocaleDateString('ko-KR'),
+      };
+      buildAndRenderWithEntry([], entry);
+      resultEl.textContent='✅ 등록 완료! (오프라인)';
+    }
+  }catch(e){
+    console.error('챌린지 등록 오류:', e);
+    // ★ Fix: 에러가 나도 로컬에서라도 렌더링
+    const entry = {
+      nick, score:_challengeScore, grade:_challengeGrade,
+      os:detectOS(), browser:detectBrowser(),
+      timestamp:Date.now(), date:new Date().toLocaleDateString('ko-KR'),
+    };
+    buildAndRenderWithEntry([], entry);
+    resultEl.textContent='⚠ 서버 연결 실패 — 로컬에서 표시합니다';
+    resultEl.className='challenge-result error';
+  } finally {
+    resultEl.className='challenge-result';
+    btn.disabled = false;
+    // 버튼 유지, 바로 랭킹으로 스크롤
+    setTimeout(()=>{
+      document.getElementById('leaderboardWrap')
+        ?.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 600);
+  }
+}
+
+// Firebase 초기화
+window.addEventListener('load', initFirebase);
+
+/* ─── 관리자 인증 ─── */
+const ADMIN_EMAIL = 'maeilisyu@gmail.com';
+let isAdmin = false;
+
+function adminLogin(){
+  const auth = firebase.auth();
+  if(isAdmin){
+    // 로그아웃
+    auth.signOut().then(()=>{
+      isAdmin = false;
+      showAdminControls(false);
+      document.getElementById('adminLoginBtn').textContent = '🔐 관리자';
+      document.getElementById('adminLoginBtn').style.color = '';
+    });
+    return;
+  }
+  // 로그인
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider).then(result => {
+    const email = result.user.email;
+    if(email === ADMIN_EMAIL){
+      showAdminControls(true);
+      document.getElementById('adminLoginBtn').textContent = '✅ 로그아웃';
+      document.getElementById('adminLoginBtn').style.color = 'var(--green)';
+    } else {
+      alert('관리자 계정이 아닙니다.');
+      auth.signOut();
+    }
+  }).catch(e => console.error('로그인 실패:', e));
+}
+
+function showAdminControls(show){
+  isAdmin = show;
+  document.querySelectorAll('.admin-only').forEach(el => {
+    el.style.display = show ? '' : 'none';
+  });
+}
+
+// 페이지 로드 시 로그인 상태 확인
+window.addEventListener('load', ()=>{
+  if(typeof firebase !== 'undefined' && firebase.apps.length){
+    firebase.auth().onAuthStateChanged(user => {
+      if(user && user.email === ADMIN_EMAIL){
+        showAdminControls(true);
+        document.getElementById('adminLoginBtn').textContent = '✅ 관리자';
+        document.getElementById('adminLoginBtn').style.color = 'var(--green)';
+      }
+    });
+  }
+});
+
+/* ─── CLOCK ─── */
+function toggleFpGuide(){
+  const g=document.getElementById('fpGuide'), b=document.getElementById('fpGuideBtn');
+  if(!g) return;
+  const open=g.style.display==='none';
+  g.style.display=open?'block':'none';
+  b.textContent=open?'⚡ 핑거프린팅 차단 방법 ▲':'⚡ 핑거프린팅 차단 방법 ▼';
+}
+function toggleCvGuide(){
+  const g=document.getElementById('cvGuide'), b=document.getElementById('cvGuideBtn');
+  if(!g) return;
+  const open=g.style.display==='none';
+  g.style.display=open?'block':'none';
+  b.textContent=open?'⚡ Canvas 추적 차단 방법 ▲':'⚡ Canvas 추적 차단 방법 ▼';
+}
+
+function toggleBsecGuide(){
+  const guide = document.getElementById('bsecGuide');
+  const btn   = document.getElementById('bsecGuideBtn');
+  if(!guide) return;
+  const open = guide.style.display === 'none';
+  guide.style.display = open ? 'block' : 'none';
+  btn.textContent = open
+    ? '⚡ 브라우저별 추적방지 설정법 ▲'
+    : '⚡ 브라우저별 추적방지 설정법 ▼';
+}
+
+function toggleWebRTCGuide(){
+  const guide = document.getElementById('webrtcGuide');
+  const btn   = document.getElementById('webrtcGuideBtn');
+  if(!guide) return;
+  const open = guide.style.display === 'none';
+  guide.style.display = open ? 'block' : 'none';
+  btn.textContent = open
+    ? '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▲'
+    : '⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▼';
+}
+
+function toggleIPReveal(){
+  const panel = document.getElementById('ipRevealPanel');
+  const arrow = document.getElementById('ipRevealArrow');
+  const card  = document.getElementById('ipRevealCard');
+  const open  = panel.style.display === 'none';
+  panel.style.display = open ? 'block' : 'none';
+  arrow.textContent   = open ? '▲ 닫기' : '▼ 내 위치 확인';
+  card.style.borderColor = open ? 'rgba(255,77,77,0.4)' : 'rgba(255,180,0,0.3)';
+}
+
+function goHome(){
+  // 스캔 관련 섹션 숨기기
+  ['scanning','diag-results','score-section'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
+
+  // 랜딩(스타트 버튼) 섹션 다시 보이기
+  const landing=document.getElementById('landing');
+  if(landing) landing.style.display='';
+
+  // 카드 초기화
+  ['ipExpandCard','netCards','sysCards','autoChecks','manualChecklist'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.innerHTML='';
+  });
+
+  // 로딩바·로그 초기화
+  const lb=document.getElementById('loadingBar');
+  if(lb) lb.style.display='none';
+  const log=document.getElementById('logBox');
+  if(log) log.innerHTML='';
+
+  // 스타트 버튼 복원
+  const btn=document.getElementById('startBtn');
+  if(btn) btn.disabled=false;
+
+  // 맨 위로 — 뉴스 재로딩 없음
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function tickClock(){
+  const now=new Date();
+  document.getElementById('liveClock').textContent=
+    now.toLocaleTimeString('ko-KR',{hour12:false});
+}
+tickClock(); setInterval(tickClock,1000);
+
+
+
+/* ─── NEWS FETCH ─── */
+let allArticles=[];
+
+// ── 한국어 보안 뉴스 소스만 (영어 제거)
+// rss2json.com 무료 = 하루 60회 제한 → 복수 프록시로 대응
+const KO_RSS_FEEDS = [
+  // KISA 보호나라 → Google 뉴스로 대체 (boho.or.kr 외부 차단)
+  'https://news.google.com/rss/search?q=KISA+보호나라+보안공지&hl=ko&gl=KR&ceid=KR:ko',
+  // Google 뉴스 한국 — 보안 키워드
+  'https://news.google.com/rss/search?q=사이버보안+해킹+랜섬웨어&hl=ko&gl=KR&ceid=KR:ko',
+  // Google 뉴스 한국 — 취약점 키워드
+  'https://news.google.com/rss/search?q=보안취약점+악성코드+개인정보유출&hl=ko&gl=KR&ceid=KR:ko',
+  // 보안뉴스 직접 RSS
+  'https://www.boannews.com/rss/rss_all.xml',
+];
+
+const RSS_PROXIES = [
+  url => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&count=12&_=${Date.now()}`,
+  url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}&_=${Date.now()}`,
+];
+
+const CATEGORY_MAP=[
+  {k:'랜섬웨어',c:'badge-red',label:'랜섬웨어'},
+  {k:'ransomware',c:'badge-red',label:'Ransomware'},
+  {k:'해킹',c:'badge-amber',label:'해킹'},
+  {k:'hack',c:'badge-amber',label:'해킹'},
+  {k:'취약점',c:'badge-blue',label:'취약점'},
+  {k:'vulnerabilit',c:'badge-blue',label:'취약점'},
+  {k:'개인정보',c:'badge-red',label:'개인정보'},
+  {k:'phish',c:'badge-amber',label:'피싱'},
+  {k:'malware',c:'badge-red',label:'악성코드'},
+  {k:'악성코드',c:'badge-red',label:'악성코드'},
+  {k:'patch',c:'badge-green',label:'보안패치'},
+  {k:'패치',c:'badge-green',label:'보안패치'},
+  {k:'ddos',c:'badge-amber',label:'DDoS'},
+  {k:'제로데이',c:'badge-red',label:'제로데이'},
+  {k:'zero-day',c:'badge-red',label:'제로데이'},
+];
+
+function categorize(title){
+  const t=title.toLowerCase();
+  for(const m of CATEGORY_MAP){
+    if(t.includes(m.k.toLowerCase())) return {cls:m.c,label:m.label};
+  }
+  return {cls:'badge-blue',label:'보안뉴스'};
+}
+
+function timeAgo(dateStr){
+  const diff=(Date.now()-new Date(dateStr).getTime())/1000;
+  if(diff<60) return '방금 전';
+  if(diff<3600) return Math.floor(diff/60)+'분 전';
+  if(diff<86400) return Math.floor(diff/3600)+'시간 전';
+  return Math.floor(diff/86400)+'일 전';
+}
+
+function deduplicateArticles(articles){
+  const seen = new Set();
+  return articles.filter(a=>{
+    const key = (a.title||'').slice(0,30);
+    if(seen.has(key)) return false;
+    seen.add(key); return true;
+  });
+}
+
+function renderNews(articles){
+  const grid=document.getElementById('newsGrid');
+  if(!articles||articles.length===0){
+    grid.innerHTML=`<div class="news-loading" style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted);font-size:.82rem;">
+      뉴스를 불러오지 못했습니다. <button onclick="fetchNews()" style="background:var(--green);color:#000;border:none;padding:4px 12px;border-radius:5px;cursor:pointer;font-size:.78rem;margin-left:8px;">다시 시도</button>
+    </div>`;
+    return;
+  }
+  grid.innerHTML=articles.slice(0,9).map((a,idx)=>{
+    const cat=categorize(a.title||'');
+    return `<div class="news-card" onclick="openNewsCard(${idx})" style="cursor:pointer" data-title="${(a.title||'').toLowerCase()}">
+      <div class="nc-top">
+        <span class="nc-badge ${cat.cls}">${cat.label}</span>
+        <span class="nc-time">${timeAgo(a.pubDate||new Date())}</span>
+      </div>
+      <div class="nc-title">${a.title||'제목 없음'}</div>
+      <div class="nc-source">📰 ${a.source||a.author||'보안뉴스'}</div>
+    </div>`;
+  }).join('');
+}
+
+function filterNews(kw,btn){
+  document.querySelectorAll('.news-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.news-card').forEach(c=>{
+    const t=c.dataset.title||'';
+    c.style.display=(kw==='all'||t.includes(kw))?'':'none';
+  });
+}
+
+// rss2json 프록시로 파싱
+async function fetchViaRss2json(feedUrl){
+  const url = RSS_PROXIES[0](feedUrl);
+  const r = await fetch(url, {signal:AbortSignal.timeout(7000)});
+  const d = await r.json();
+  if(d.status==='ok' && d.items && d.items.length>0) return d.items;
+  return [];
+}
+
+// allorigins 프록시로 파싱 (fallback)
+async function fetchViaAllOrigins(feedUrl){
+  const url = RSS_PROXIES[1](feedUrl);
+  const r = await fetch(url, {signal:AbortSignal.timeout(7000)});
+  const d = await r.json();
+  if(!d.contents) return [];
+  // XML 파싱
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(d.contents, 'text/xml');
+  const items = [...xml.querySelectorAll('item')];
+  return items.map(item=>({
+    title: item.querySelector('title')?.textContent||'',
+    link:  item.querySelector('link')?.textContent||
+           item.querySelector('guid')?.textContent||'',
+    pubDate: item.querySelector('pubDate')?.textContent||new Date().toISOString(),
+    source: xml.querySelector('channel > title')?.textContent||'보안뉴스',
+    summary: item.querySelector('description')?.textContent||'',
+  }));
+}
+
+async function fetchNews(){
+  
+  allArticles = [];
+
+  // ── 1순위: GitHub Actions가 매일 생성하는 news_data.json ──
+  try{
+    const r = await fetch('./news_data.json?_='+Date.now(), {signal:AbortSignal.timeout(8000)});
+    if(r.ok){
+      const d = await r.json();
+      if(d.articles && d.articles.length > 0){
+        allArticles = d.articles;
+      }
+    }
+  }catch(e){}
+
+  // ── 2순위(fallback): RSS 프록시 직접 fetch ──
+  if(allArticles.length === 0){
+    for(const feedUrl of KO_RSS_FEEDS){
+      try{
+        let items = await fetchViaRss2json(feedUrl);
+        if(items.length === 0){
+          items = await fetchViaAllOrigins(feedUrl);
+        }
+        allArticles = [...allArticles, ...items];
+      }catch(e){}
+    }
+    allArticles = deduplicateArticles(allArticles)
+      .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+  }
+
+  if(allArticles.length===0){
+    allArticles=getFallbackNews();
+  }
+
+  renderNews(allArticles);
+}
+
+function getFallbackNews(){
+  return [
+    {title:'악성코드 유포 조직, 피싱 이메일로 기업 내부망 침투 시도',link:'https://www.boannews.com',pubDate:new Date(Date.now()-3600000).toISOString(),source:'보안뉴스'},
+    {title:'랜섬웨어 공격 올해 상반기 47% 증가 — KISA 경보 발령',link:'https://www.boho.or.kr/kr/bbs/list.do?bbsId=B0000127',pubDate:new Date(Date.now()-7200000).toISOString(),source:'KISA 보호나라'},
+    {title:'Chrome 최신 업데이트에 심각도 높은 제로데이 취약점 패치',link:'https://chromereleases.googleblog.com',pubDate:new Date(Date.now()-10800000).toISOString(),source:'Google Chrome Blog'},
+    {title:'공공 Wi-Fi 통해 개인정보 탈취하는 신종 해킹 기법 발견',link:'https://thehackernews.com',pubDate:new Date(Date.now()-14400000).toISOString(),source:'The Hacker News'},
+    {title:'Windows Defender 우회하는 신형 트로이목마 변종 확산',link:'https://www.bleepingcomputer.com',pubDate:new Date(Date.now()-18000000).toISOString(),source:'BleepingComputer'},
+    {title:'국내 쇼핑몰 DB 해킹으로 회원정보 23만 건 유출',link:'https://www.boannews.com',pubDate:new Date(Date.now()-21600000).toISOString(),source:'보안뉴스'},
+  ];
+}
+
+// 최초 로드
+fetchNews();
+// 30분마다 자동 갱신
+setInterval(fetchNews, 30 * 60 * 1000);
+
+
+function openNewsCard(idx){
+  openReader(idx);
+}
+
+function openReader(idx){
+  const a = allArticles[idx];
+  if(!a) return;
+  // ★ Fix: 기사 고유 ID — 위치(idx)가 아닌 URL 해시 기반으로 저장/로드
+  const articleId = a.id || String(idx);
+  const title   = cleanHtml(a.title||'제목 없음');
+  const cat     = boardCategorize(a.title||'');
+  const pubDate = boardFormatDate(a.pubDate||new Date());
+  const ago     = boardTimeAgo(a.pubDate||new Date());
+  const source  = a.source||a.author||'보안레이더';
+  const link    = a.link && a.link !== '#' ? a.link : null;
+  const searchQ = encodeURIComponent(title);
+  const searchLink = 'https://www.google.com/search?q=' + searchQ + '+보안';
+  const related = (() => {
+    const others = allArticles.filter((r,i) => i!==idx);
+    const start = idx % Math.max(1, others.length - 2);
+    return others.slice(start, start+3).concat(others.slice(0, Math.max(0, 3-(others.length-start)))).slice(0,3);
+  })();
+
+  // AI 요약 데이터 (fetch_news.py가 생성)
+  const ai = a.ai_summary || null;
+  const kps = ai && ai.keypoints && ai.keypoints.length
+    ? ai.keypoints
+    : ['원문 기사에서 상세 내용을 확인하세요.'];
+  const analysisItems = ai && ai.analysis && ai.analysis.length
+    ? ai.analysis
+    : [];
+  const bottomLine = ai && ai.bottom_line ? ai.bottom_line : null;
+  const actionToday = ai && ai.action_today ? ai.action_today : null;
+
+  // 원문 출처명 정리 (Google 뉴스 경유 기사는 실제 매체명 추출)
+  const sourceLabel = source.replace(/Google 뉴스 — /,'').replace(/"([^"]+)"/,'$1');
+
+  // ★ Fix: articleId 기반으로 저장값 로드 — 순서 바뀌어도 정확한 기사 내용 유지
+  const defaultSummary = loadSummary(articleId) ||
+    (ai && ai.analysis && ai.analysis.length
+      ? ai.analysis.map((item,i)=>(i+1)+'. '+(item.t||item.title)+'\n'+(item.d||item.desc)).join('\n\n')
+      : '');
+
+  document.getElementById('readerTopTitle').textContent = title;
+  document.getElementById('readerBody').innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+      <span class="board-cat ${cat.c}" style="font-size:.7rem">${cat.l}</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.5rem;">
+      <div class="reader-h1" style="margin-bottom:0;">${title}</div>
+      <a class="btn-orig" href="${link || searchLink}" target="_blank" rel="noopener noreferrer" style="flex-shrink:0;margin-top:4px;">
+        ${link ? '원문 보기' : '관련 기사 검색'}
+      </a>
+    </div>
+    <div class="reader-byline">
+      <span>📰 ${sourceLabel}</span>
+      <span>📅 ${pubDate}</span>
+      <span>🕐 ${ago}</span>
+      <span style="color:var(--muted);font-size:.7rem;">· 매일 오전 업데이트</span>
+    </div>
+
+    <div class="reader-keypoints">
+      <h4>[ 핵심 포인트 ]</h4>
+      ${kps.map(k=>`<div class="kp-item"><div class="kp-dot"></div><span>${k}</span></div>`).join('')}
+    </div>
+
+    ${bottomLine ? `
+    <div class="reader-bottom-line">
+      <div class="bl-label">💡 Bottom Line</div>
+      <div class="bl-text">${bottomLine}</div>
+    </div>` : ''}
+
+    ${actionToday ? `
+    <div class="reader-action-today">
+      <div class="at-icon">⚡</div>
+      <div class="at-inner">
+        <div class="at-label">오늘 할 일</div>
+        <div class="at-text">${actionToday}</div>
+      </div>
+    </div>` : ''}
+
+    ${related.length>0?`
+    <div class="reader-related">
+      <h4>[ 관련 기사 ]</h4>
+      ${related.map(r=>`
+        <div class="related-row" onclick="openReader(${allArticles.indexOf(r)})">
+          <span class="related-arrow">›</span>
+          <span class="related-title">${cleanHtml(r.title||'')}</span>
+          <span class="related-time">${boardTimeAgo(r.pubDate||new Date())}</span>
+        </div>`).join('')}
+    </div>`:''}
+
+
+    <!-- ── 요약글 에디터 ── -->
+    <div class="summary-section">
+
+
+      <p style="font-size:.72rem;color:var(--muted);margin-bottom:.4rem;">
+      </p>
+      <input class="title-editor" id="titleEditor_${idx}"
+        placeholder="예) SKT 유심 해킹 — 지금 당장 유심보호서비스 신청하세요"
+        value="${loadTitle(articleId) || (a.ai_summary && a.ai_summary.suggested_title) || title}"
+        oninput="autoSaveTitle('${articleId}', this.value)">
+
+      <textarea class="summary-editor" id="summaryEditor_${idx}"
+        placeholder="예) 이번 해킹 사고의 핵심은... / 한국 사용자가 지금 당장 해야 할 것은..."
+        oninput="autoSaveSummary('${articleId}', this.value)">${defaultSummary}</textarea>
+      <div class="summary-actions">
+        <span class="summary-hint">💡 자동 저장됩니다</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="summary-saved-badge" id="savedBadge_${idx}">✓ 저장됨</span>
+          <button class="btn-save-summary admin-only" onclick="saveAll('${articleId}', ${idx})" style="${isAdmin ? 'display:inline-flex' : 'display:none'}">💾 저장</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 반응 버튼 ── -->
+    <div class="reaction-bar" id="reactionBar_${idx}">
+      <span style="font-size:.72rem;color:var(--muted);font-family:var(--mono);">이 기사가 도움이 됐나요?</span>
+      <button class="reaction-btn ${getReaction(idx)==='useful'?'reacted':''}"
+        onclick="setReaction(${idx},'useful',this)">
+        👍 <span>유용해요</span> <span class="reaction-count">${getReactionCount(idx,'useful')}</span>
+      </button>
+      <button class="reaction-btn ${getReaction(idx)==='danger'?'reacted-warn':''}"
+        onclick="setReaction(${idx},'danger',this)" style="${getReaction(idx)==='danger'?'background:var(--amber-d);border-color:rgba(255,179,0,.35);color:var(--amber)':''}">
+        ⚠️ <span>위험해요</span> <span class="reaction-count">${getReactionCount(idx,'danger')}</span>
+      </button>
+      <button class="reaction-btn ${getReaction(idx)==='share'?'reacted':''}"
+        onclick="shareArticle('${title}','${link||searchLink}')">
+        🔗 <span>공유</span>
+      </button>
+      <button class="reaction-btn" style="background:#1DA1F2;border-color:#1DA1F2;color:#fff;"
+        onclick="shareArticleTwitter('${title.replace(/'/g,"\\'").replace(/"/g,'\\"')}','${(link||searchLink).replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
+        𝕏
+      </button>
+      <button class="reaction-btn" style="background:#1877F2;border-color:#1877F2;color:#fff;"
+        onclick="shareArticleFacebook('${(link||searchLink).replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
+        f
+      </button>
+      <button class="reaction-btn" style="background:#0A66C2;border-color:#0A66C2;color:#fff;"
+        onclick="shareArticleLinkedin('${title.replace(/'/g,"\\'").replace(/"/g,'\\"')}','${(link||searchLink).replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
+        in
+      </button>
+    </div>
+
+  `;
+  document.getElementById('readerPanel').scrollTop = 30;
+  document.getElementById('readerOverlay').classList.add('open');
+  document.getElementById('readerPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeReader(){
+  document.getElementById('readerOverlay').classList.remove('open');
+  document.getElementById('readerPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeReader(); });
+
+/* ─── SUMMARY FUNCTIONS ─── */
+// ★ Fix: idx(위치) 대신 기사 고유 ID 사용 — 뉴스 순서 바뀌어도 저장값 유지
+function summaryKey(id){ return 'sr_summary_'+id; }
+function titleKey(id)  { return 'sr_title_'+id; }
+function loadSummary(id){ try{ return localStorage.getItem(summaryKey(id))||''; }catch{ return ''; } }
+function loadTitle(id)  { try{ return localStorage.getItem(titleKey(id))||''; }catch{ return ''; } }
+
+let saveTimer = null;
+// id = 기사 고유ID (저장 키), idx = DOM 엘리먼트 위치 (badge 표시용)
+function autoSaveSummary(id, val){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>saveSummary(id, val), 1500);
+}
+function autoSaveTitle(id, val){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>saveTitle(id, val), 1500);
+}
+function saveSummary(id, val){
+  const text = val !== undefined ? val : '';
+  try{ localStorage.setItem(summaryKey(id), text); }catch{}
+}
+function saveTitle(id, val){
+  const text = val !== undefined ? val : '';
+  try{ localStorage.setItem(titleKey(id), text); }catch{}
+}
+function saveAll(id, idx){
+  const summaryEl = document.getElementById('summaryEditor_'+idx);
+  const titleEl   = document.getElementById('titleEditor_'+idx);
+  if(summaryEl) saveSummary(id, summaryEl.value);
+  if(titleEl)   saveTitle(id, titleEl.value);
+  showSaved(idx);
+}
+function showSaved(idx){
+  const badge = document.getElementById('savedBadge_'+idx);
+  if(badge){ badge.style.display='flex'; setTimeout(()=>badge.style.display='none', 2000); }
+}
+
+/* ─── REACTION FUNCTIONS ─── */
+function reactionKey(idx, type){ return 'sr_reaction_'+idx+'_'+type; }
+function myReactionKey(idx){ return 'sr_myreaction_'+idx; }
+function getReaction(idx){ try{ return localStorage.getItem(myReactionKey(idx))||''; }catch{ return ''; } }
+function getReactionCount(idx, type){
+  try{ return parseInt(localStorage.getItem(reactionKey(idx,type))||'0'); }catch{ return 0; }
+}
+function setReaction(idx, type, btn){
+  const prev = getReaction(idx);
+  if(prev === type){
+    // 취소
+    localStorage.setItem(myReactionKey(idx),'');
+    const cnt = Math.max(0, getReactionCount(idx,type)-1);
+    localStorage.setItem(reactionKey(idx,type), cnt);
+  } else {
+    // 이전 반응 취소
+    if(prev){ const pc=Math.max(0,getReactionCount(idx,prev)-1); localStorage.setItem(reactionKey(idx,prev),pc); }
+    localStorage.setItem(myReactionKey(idx), type);
+    localStorage.setItem(reactionKey(idx,type), getReactionCount(idx,type)+1);
+  }
+  // 리렌더
+  const bar = document.getElementById('reactionBar_'+idx);
+  if(bar){
+    bar.querySelectorAll('.reaction-count').forEach((el,i)=>{
+      const types=['useful','danger'];
+      if(types[i]) el.textContent = getReactionCount(idx, types[i]);
+    });
+    bar.querySelectorAll('.reaction-btn').forEach(b=>{
+      b.classList.remove('reacted','reacted-warn');
+      b.style='';
+    });
+    const cur = getReaction(idx);
+    if(cur==='useful') bar.querySelectorAll('.reaction-btn')[0].classList.add('reacted');
+    if(cur==='danger'){
+      const d=bar.querySelectorAll('.reaction-btn')[1];
+      d.classList.add('reacted-warn');
+      d.style='background:var(--amber-d);border-color:rgba(255,179,0,.35);color:var(--amber)';
+    }
+  }
+}
+function shareArticle(title, link){
+  const text = '🛡️ '+title+'\n\n보안레이더에서 읽기 → '+location.href;
+  if(navigator.share){ navigator.share({title,text,url:link}).catch(()=>{}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(text).then(()=>alert('📋 링크가 복사됐습니다!')); }
+  else{ prompt('복사하세요:',text); }
+}
+function shareArticleTwitter(title, link){
+  const txt=encodeURIComponent('🛡️ '+title+' #보안레이더 #보안뉴스');
+  window.open('https://twitter.com/intent/tweet?text='+txt+'&url='+encodeURIComponent(link),'_blank');
+}
+function shareArticleFacebook(link){
+  window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(link),'_blank');
+}
+function shareArticleLinkedin(title, link){
+  window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(link)+'&title='+encodeURIComponent('🛡️ '+title),'_blank');
+}
+
+
+
+/* ─── READER UTILS ─── */
+function boardCategorize(title){
+  const CMAP=[
+    {k:'랜섬웨어',c:'badge-red',l:'랜섬웨어'},{k:'ransomware',c:'badge-red',l:'Ransomware'},
+    {k:'해킹',c:'badge-amber',l:'해킹'},{k:'hack',c:'badge-amber',l:'Hack'},
+    {k:'취약점',c:'badge-blue',l:'취약점'},{k:'vulnerab',c:'badge-blue',l:'Vulnerability'},
+    {k:'개인정보',c:'badge-red',l:'개인정보'},{k:'malware',c:'badge-red',l:'Malware'},
+    {k:'patch',c:'badge-green',l:'보안패치'},{k:'패치',c:'badge-green',l:'보안패치'},
+    {k:'phish',c:'badge-amber',l:'피싱'},{k:'zero-day',c:'badge-red',l:'제로데이'},
+  ];
+  const t=title.toLowerCase();
+  for(const m of CMAP){if(t.includes(m.k.toLowerCase()))return{c:m.c,l:m.l};}
+  return{c:'badge-blue',l:'보안뉴스'};
+}
+function boardTimeAgo(ds){
+  const diff=(Date.now()-new Date(ds).getTime())/1000;
+  if(diff<3600)return Math.floor(diff/60)+'분 전';
+  if(diff<86400)return Math.floor(diff/3600)+'시간 전';
+  return Math.floor(diff/86400)+'일 전';
+}
+function boardFormatDate(ds){
+  const d=new Date(ds);
+  return d.getFullYear()+'.'+(d.getMonth()+1).toString().padStart(2,'0')+'.'+d.getDate().toString().padStart(2,'0');
+}
+function escapeHtml(str){
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function cleanHtml(html){
+  return(html||'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/\s+/g,' ').trim();
+}
+function generateKeypoints(summary,title){
+  const clean=cleanHtml(summary);
+  const sentences=clean.split(/[.!?。]\s+/).filter(s=>s.length>20).slice(0,5);
+  if(sentences.length>0)return sentences;
+  return['이 보안 이슈는 즉각적인 주의가 필요합니다.','관련 시스템 업데이트 및 패치 적용을 권장합니다.','원문 기사에서 상세 내용을 확인하세요.'];
+}
+
+/* ─── DIAGNOSTIC ENGINE ─── */
+const $=id=>document.getElementById(id);
+let scanData={},autoScores={},manualScores={};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+function addLog(text){
+  const box=$('logBox');
+  const line=document.createElement('div');
+  line.className='log-line';
+  const ts=new Date().toLocaleTimeString('ko-KR',{hour12:false});
+  line.innerHTML=`<span class="dim">[${ts}]</span> ${text}`;
+  box.appendChild(line);
+  box.scrollTop=box.scrollHeight;
+}
+function setProgress(pct,label){
+  $('progressBar').style.width=pct+'%';
+  $('progressLabel').textContent=label||pct+'%';
+}
+function detectOS(){
+  const ua=navigator.userAgent;
+  if(/Windows NT 10/.test(ua)) return 'Windows 10/11';
+  if(/Windows NT 6.1/.test(ua)) return 'Windows 7';
+  if(/Mac OS X/.test(ua)){const m=ua.match(/Mac OS X ([\d_]+)/);return 'macOS '+(m?m[1].replace(/_/g,'.'):'')}
+  if(/Android/.test(ua)) return 'Android';
+  if(/iPhone|iPad/.test(ua)) return 'iOS';
+  if(/Linux/.test(ua)) return 'Linux';
+  return '알 수 없음';
+}
+function detectBrowser(){
+  const ua=navigator.userAgent;
+  if(/Edg\//.test(ua)){const m=ua.match(/Edg\/([\d.]+)/);return 'Edge '+(m?m[1]:'');}
+  if(/Chrome\//.test(ua)){const m=ua.match(/Chrome\/([\d.]+)/);return 'Chrome '+(m?m[1]:'');}
+  if(/Firefox\//.test(ua)){const m=ua.match(/Firefox\/([\d.]+)/);return 'Firefox '+(m?m[1]:'');}
+  if(/Safari\//.test(ua)) return 'Safari';
+  return 'Unknown';
+}
+async function detectWebRTC(){
+  return new Promise(resolve=>{
+    const ips=new Set();
+    try{
+      const pc=new RTCPeerConnection({iceServers:[{urls:'stun:stun.l.google.com:19302'}]});
+      pc.createDataChannel('');
+      pc.onicecandidate=e=>{
+        if(!e||!e.candidate)return;
+        const ip=e.candidate.candidate.match(/(\d{1,3}\.){3}\d{1,3}/);
+        if(ip) ips.add(ip[0]);
+      };
+      pc.createOffer().then(o=>pc.setLocalDescription(o)).catch(()=>{});
+      setTimeout(()=>{try{pc.close();}catch(e){}resolve([...ips]);},3000);
+    }catch{resolve([]);}
+  });
+}
+async function fetchIP(){
+  try{
+    const r=await fetch('https://ipapi.co/json/',{signal:AbortSignal.timeout(6000)});
+    return await r.json();
+  }catch{
+    try{const r=await fetch('https://api.ipify.org?format=json',{signal:AbortSignal.timeout(4000)});const d=await r.json();return{ip:d.ip,country_name:'확인불가',org:'확인불가'};}
+    catch{return{ip:'조회 실패',country_name:'-',org:'-'};}
+  }
+}
+
+/* ─── NEW: DNS LEAK DETECTION ─── */
+async function detectDNSLeak(publicIP){
+  try{
+    const r=await fetch('https://cloudflare-dns.com/dns-query?name=whoami.cloudflare&type=TXT',{
+      headers:{accept:'application/dns-json'},
+      signal:AbortSignal.timeout(5000)
+    });
+    const d=await r.json();
+    const dnsIP=(d.Answer&&d.Answer[0])?d.Answer[0].data.replace(/"/g,''):null;
+    if(!dnsIP) return {status:'unknown',dnsIP:null};
+    // DNS IP가 공개 IP와 다르면 DNS 누출 가능성
+    const leaked=publicIP&&dnsIP&&!dnsIP.startsWith(publicIP.split('.').slice(0,2).join('.'));
+    return {status:leaked?'leak':'safe',dnsIP};
+  }catch{
+    return {status:'unknown',dnsIP:null};
+  }
+}
+
+/* ─── NEW: BROWSER FINGERPRINT SCORE ─── */
+function calcFingerprintScore(){
+  const attrs=[
+    {name:'User-Agent',         val:navigator.userAgent},
+    {name:'언어',               val:navigator.language},
+    {name:'타임존',             val:Intl.DateTimeFormat().resolvedOptions().timeZone},
+    {name:'화면 해상도',        val:screen.width+'x'+screen.height+'x'+screen.colorDepth},
+    {name:'CPU 코어',           val:navigator.hardwareConcurrency},
+    {name:'메모리(GB)',         val:navigator.deviceMemory},
+    {name:'플러그인 수',        val:navigator.plugins?navigator.plugins.length:null},
+    {name:'터치포인트',         val:navigator.maxTouchPoints},
+    {name:'DNT 설정',           val:navigator.doNotTrack},
+    {name:'WebGL',              val:!!document.createElement('canvas').getContext('webgl')},
+  ];
+  const exposed=attrs.filter(a=>a.val!==undefined&&a.val!==null&&a.val!==false).length;
+  const pct=Math.round((exposed/attrs.length)*100);
+  return {attrs,exposed,total:attrs.length,pct};
+}
+
+/* ─── NEW: CANVAS / WEBGL FINGERPRINT ─── */
+function detectCanvasWebGL(){
+  const result={canvas:{exposed:false,blocked:false},webgl:{renderer:'N/A',vendor:'N/A',supported:false}};
+  // Canvas fingerprint
+  try{
+    const cv=document.createElement('canvas');
+    cv.width=200;cv.height=50;
+    const ctx=cv.getContext('2d');
+    ctx.textBaseline='alphabetic';
+    ctx.fillStyle='#f60';ctx.fillRect(125,1,62,20);
+    ctx.fillStyle='#069';ctx.font='11pt Arial';
+    ctx.fillText('보안레이더🛡️',2,15);
+    ctx.fillStyle='rgba(102,204,0,0.7)';ctx.font='18pt Arial';
+    ctx.fillText('SecurityRadar',4,45);
+    const url=cv.toDataURL();
+    result.canvas.exposed=url.length>100;
+    result.canvas.blocked=url==='data:,';
+  }catch{result.canvas.blocked=true;}
+  // WebGL fingerprint
+  try{
+    const cv2=document.createElement('canvas');
+    const gl=cv2.getContext('webgl')||cv2.getContext('experimental-webgl');
+    if(gl){
+      result.webgl.supported=true;
+      const ext=gl.getExtension('WEBGL_debug_renderer_info');
+      result.webgl.renderer=ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER);
+      result.webgl.vendor=ext?gl.getParameter(ext.UNMASKED_VENDOR_WEBGL):gl.getParameter(gl.VENDOR);
+    }
+  }catch{}
+  return result;
+}
+
+/* ─── NEW: OPEN PORT INDIRECT DETECTION (WebSocket timing) ─── */
+async function detectOpenPorts(){
+  const PORTS=[
+    {port:22,  name:'SSH',      risk:'원격 접속 포트 — 외부 노출 시 브루트포스 위험'},
+    {port:3389,name:'RDP',      risk:'원격 데스크톱 — 랜섬웨어 주요 공격 경로'},
+    {port:5900,name:'VNC',      risk:'화면 공유 포트 — 무단 접근 가능'},
+    {port:8080,name:'HTTP-Alt', risk:'내부 HTTP 서버 노출'},
+  ];
+  const open=[];
+  await Promise.allSettled(PORTS.map(({port,name,risk})=>
+    new Promise(resolve=>{
+      const ws=new WebSocket('ws://127.0.0.1:'+port);
+      const t=setTimeout(()=>{try{ws.close();}catch{}resolve();},1200);
+      ws.onopen=()=>{clearTimeout(t);open.push({port,name,risk});try{ws.close();}catch{}resolve();};
+      ws.onerror=()=>{clearTimeout(t);resolve();};
+    })
+  ));
+  return open;
+}
+
+/* ─── IPv6 누출 탐지 ─── */
+async function detectIPv6Leak(){
+  return new Promise(resolve=>{
+    const v6=new Set();
+    try{
+      const pc=new RTCPeerConnection({iceServers:[
+        {urls:'stun:stun.l.google.com:19302'},
+        {urls:'stun:stun1.l.google.com:19302'}
+      ]});
+      pc.createDataChannel('');
+      pc.onicecandidate=e=>{
+        if(!e||!e.candidate) return;
+        const m=e.candidate.candidate.match(/([a-fA-F0-9]{0,4}:){2,}[a-fA-F0-9]{0,4}/g);
+        if(m) m.forEach(ip=>{ if(ip.includes(':')&&ip!='::1') v6.add(ip); });
+      };
+      pc.createOffer().then(o=>pc.setLocalDescription(o)).catch(()=>{});
+      setTimeout(()=>{ try{pc.close();}catch{} resolve([...v6]); },3000);
+    }catch{ resolve([]); }
+  });
+}
+
+/* ─── 브라우저 보안 설정 탐지 ─── */
+function detectBrowserSecurity(){
+  const dnt=navigator.doNotTrack==='1'||navigator.doNotTrack==='yes'||window.doNotTrack==='1';
+  const ua=navigator.userAgent;
+  const trackingProtection=/Firefox\//.test(ua)||(/Safari\//.test(ua)&&!/Chrome\//.test(ua));
+  let storageBlocked=false;
+  try{ localStorage.setItem('_sr','1'); localStorage.removeItem('_sr'); }catch{ storageBlocked=true; }
+  return { dnt, trackingProtection, cookiesEnabled:navigator.cookieEnabled,
+           storageBlocked, secureCtx:window.isSecureContext===true };
+}
+
+/* ─── 보안 키(YubiKey 등) 감지 ───────────────────────────────────
+   WebAuthn API로 하드웨어 보안 키 지원 여부를 확인합니다.
+   브라우저 개인정보 보호 정책상 브랜드(YubiKey)는 특정 불가.
+   "외부 보안 키 연결됨" 까지만 감지 가능합니다.
+──────────────────────────────────────────────────────────────── */
+async function detectSecurityKey(){
+  try{
+    if(!window.PublicKeyCredential)
+      return { supported:false, platform:false, conditional:false, reason:'WebAuthn 미지원' };
+    const hasPlatform = await PublicKeyCredential
+      .isUserVerifyingPlatformAuthenticatorAvailable().catch(()=>false);
+    const hasConditional = typeof PublicKeyCredential.isConditionalMediationAvailable==='function'
+      ? await PublicKeyCredential.isConditionalMediationAvailable().catch(()=>false)
+      : false;
+    return { supported:true, platform:hasPlatform, conditional:hasConditional };
+  }catch{
+    return { supported:false, platform:false, conditional:false, reason:'감지 불가' };
+  }
+}
+
+/* ─── 인터넷 속도 측정 ────────────────────────────────────────────
+   Cloudflare speed test 서버에서 1MB 다운로드 시간 측정
+   → 다운로드 속도(Mbps) + 레이턴시(ms) 계산
+   서버로 개인 데이터 전송 없음 (파일 크기만 측정)
+──────────────────────────────────────────────────────────────── */
+async function measureInternetSpeed(){
+  const TEST_URL = 'https://speed.cloudflare.com/__down?bytes=2000000'; // 2MB
+  const PING_URL = 'https://speed.cloudflare.com/__down?bytes=1';
+
+  try{
+    // 레이턴시 측정 (ping)
+    const p1 = performance.now();
+    await fetch(PING_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(3000)});
+    const latency = Math.round(performance.now() - p1);
+
+    // 다운로드 속도 측정
+    const s1 = performance.now();
+    const res = await fetch(TEST_URL + '&t=' + Date.now(), {cache:'no-store', signal:AbortSignal.timeout(15000)});
+    const blob = await res.blob();
+    const duration = (performance.now() - s1) / 1000;
+    const mbps = ((blob.size * 8) / duration / 1024 / 1024).toFixed(1);
+
+    return { mbps: parseFloat(mbps), latency, status: 'ok' };
+  }catch(e){
+    return { mbps: 0, latency: 0, status: 'fail' };
+  }
+}
+
+function makeCard(label,value,sub,badge,bc){
+  return`<div class="dcard"><div class="dcard-label">${label}</div><div class="dcard-value">${value}</div>${sub?`<div class="dcard-sub">${sub}</div>`:''} ${badge?`<div class="dcard-badge ${bc}">${badge}</div>`:''}</div>`;
+}
+function makeCheck(icon,name,desc,status,cls,btn){
+  const btnHtml=btn?`<button onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })()"
+    style="margin-top:6px;font-size:.7rem;font-weight:600;color:${btn.color};background:rgba(0,0,0,0.25);
+    border:1px solid ${btn.color}44;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:var(--sans);">
+    ${btn.text} ↓</button>`:'';
+  return`<div class="check-item" style="flex-wrap:wrap;">
+    <div class="check-left"><div class="check-icon">${icon}</div>
+    <div><div class="check-name">${name}</div><div class="check-desc">${desc}</div>${btnHtml}</div></div>
+    <div class="check-status ${cls}">${status}</div></div>`;
+}
+
+const CHECKLIST_TOP = [
+  {id:'antivirus', title:'백신 프로그램 설치됨',    desc:'Windows Defender, V3, 알약 등 실시간 감시 활성화', pts:15},
+  {id:'twofa',     title:'주요 서비스 2단계 인증',   desc:'이메일, SNS, 금융 앱 모두 설정',                  pts:10},
+  {id:'browser_up',title:'브라우저 최신 버전 사용',  desc:'구버전은 보안 취약점 노출 위험',                  pts:8},
+];
+const CHECKLIST_MORE = [
+  {id:'win_update', title:'Windows 최신 업데이트 완료',   desc:'설정 > Windows 업데이트 확인',             pts:15},
+  {id:'firewall',   title:'방화벽 켜져 있음',             desc:'제어판 > Windows Defender 방화벽',         pts:12},
+  {id:'strong_pw',  title:'Wi-Fi 비밀번호 8자 이상',      desc:'영문+숫자+특수문자 조합 권장',             pts:12},
+  {id:'wpa2',       title:'Wi-Fi 암호화 WPA2 또는 WPA3', desc:'공유기 관리 페이지에서 확인',              pts:12},
+  {id:'public_wifi',title:'공공 Wi-Fi 중요 작업 안 함',  desc:'은행·쇼핑은 반드시 개인 네트워크',         pts:10},
+  {id:'clean_apps', title:'출처 불명 앱 미설치',          desc:'토렌트·비공식 경로 프로그램 없음',         pts:6},
+];
+const CHECKLIST = [...CHECKLIST_TOP, ...CHECKLIST_MORE];
+
+function makeCheckItem(item){
+  return`<label class="checklist-item" id="cl_${item.id}">
+    <input type="checkbox" data-id="${item.id}" data-pts="${item.pts}" onchange="onCheck(this)">
+    <div><div class="cl-title">${item.title}</div><div class="cl-desc">${item.desc}</div></div>
+    <div class="cl-pts">+${item.pts}점</div>
+  </label>`;
+}
+
+let sysExpanded = false;
+function toggleSysInfo(){
+  sysExpanded = !sysExpanded;
+  const cards = $('sysCards');
+  const arrow = $('sysToggleArrow');
+  cards.style.display = sysExpanded ? 'grid' : 'none';
+  arrow.textContent   = sysExpanded ? '▲' : '▼';
+}
+
+function renderChecklist(){
+  $('manualChecklist').innerHTML = CHECKLIST_TOP.map(makeCheckItem).join('');
+  $('checklistMore').innerHTML   = CHECKLIST_MORE.map(makeCheckItem).join('');
+}
+
+let checklistExpanded = false;
+function toggleChecklist(){
+  checklistExpanded = !checklistExpanded;
+  const more = $('checklistMore');
+  const btn  = $('checklistToggleBtn');
+  if(checklistExpanded){
+    more.style.display = 'block';
+    btn.textContent = '－ 접기';
+  } else {
+    more.style.display = 'none';
+    btn.textContent = '＋ 더보기 — 6개 항목 (+43점 가능)';
+  }
+}
+function onCheck(el){
+  const id=el.dataset.id,pts=parseInt(el.dataset.pts);
+  el.checked?manualScores[id]=pts:delete manualScores[id];
+  el.closest('label').classList.toggle('checked',el.checked);
+}
+
+async function runScan(){
+  $('landing').style.display='none';
+  $('scanning').style.display='block';
+  addLog('<span class="dim">보안 진단 엔진 초기화...</span>');
+  setProgress(5); await sleep(500);
+
+  const os=detectOS(),browser=detectBrowser();
+  const cores=navigator.hardwareConcurrency||'?';
+  const memory=navigator.deviceMemory?navigator.deviceMemory+'GB':'?';
+  const conn=navigator.connection;
+  const connType=conn?(conn.effectiveType||conn.type||'unknown'):'unknown';
+  addLog(`OS 감지: <span class="ok">${os}</span>`);
+  addLog(`브라우저: <span class="ok">${browser}</span>`);
+  addLog(`CPU ${cores}코어 / RAM ${memory}`);
+  scanData={os,browser,cores,memory,connType,screen:screen.width+'×'+screen.height};
+  setProgress(18,'시스템 분석...'); await sleep(400);
+
+  addLog('공개 IP 조회 중...');
+  const ipData=await fetchIP();
+  scanData.ip=ipData;
+  addLog(`공개 IP: <span class="ok">${ipData.ip}</span> — ${ipData.country_name||''} ${ipData.org||''}`);
+  autoScores.ip=ipData.ip&&ipData.ip!=='조회 실패'?10:0;
+  setProgress(32,'IP 조회...');
+
+  addLog('WebRTC IP 누출 검사...');
+  const wips=await detectWebRTC();
+  scanData.wips=wips;
+  const localIPs=wips.filter(ip=>/^(192\.168|10\.|172\.(1[6-9]|2\d|3[01]))/.test(ip));
+  const pubViaRTC=wips.filter(ip=>!localIPs.includes(ip));
+  pubViaRTC.length>0
+    ?addLog(`<span class="err">WebRTC 공개 IP 노출: ${pubViaRTC.join(', ')}</span>`)
+    :addLog('<span class="ok">WebRTC 누출: 없음 (안전)</span>');
+  autoScores.webrtc=pubViaRTC.length>0?0:15;
+  setProgress(48,'WebRTC 검사...');
+
+  // WebRTC로 잡은 공인 IP가 있고 ipapi.co에서 상세 정보 못 받았을 때 재조회
+  if(pubViaRTC.length>0 && !ipData.city){
+    try{
+      addLog('WebRTC IP로 위치 재조회 중...');
+      const r=await fetch(`https://ipapi.co/${pubViaRTC[0]}/json/`,{signal:AbortSignal.timeout(5000)});
+      const d=await r.json();
+      if(d.city){
+        // 위치 정보만 병합 (IP는 기존 유지)
+        Object.assign(ipData, {
+          city: d.city, region: d.region,
+          country_name: d.country_name||ipData.country_name,
+          org: d.org||ipData.org,
+          latitude: d.latitude, longitude: d.longitude,
+          timezone: d.timezone
+        });
+        addLog(`위치 확인: <span class="ok">${d.city}, ${d.region||''} (${d.org||''})</span>`);
+      }
+    }catch{}
+  }
+
+  addLog('HTTPS 보안 연결 확인...');
+  await sleep(300);
+  const isHttps=location.protocol==='https:';
+  autoScores.https=isHttps?10:0;
+  addLog(`HTTPS: <span class="${isHttps?'ok':'err'}">${isHttps?'암호화됨 ✓':'미적용 ✗'}</span>`);
+
+  const osOld=/Windows 7|Windows XP/.test(os);
+  autoScores.os=osOld?0:12;
+  setProgress(58,'시스템 검사...');
+
+  /* ── NEW: DNS LEAK ── */
+  addLog('DNS 누출 검사 중...');
+  const dnsResult=await detectDNSLeak(ipData.ip);
+  scanData.dns=dnsResult;
+  if(dnsResult.status==='leak'){
+    addLog(`<span class="err">DNS 누출 감지: 리졸버 IP ${dnsResult.dnsIP}</span>`);
+    autoScores.dns=0;
+  } else if(dnsResult.status==='safe'){
+    addLog(`<span class="ok">DNS 안전: 리졸버 ${dnsResult.dnsIP}</span>`);
+    autoScores.dns=8;
+  } else {
+    addLog('<span class="warn">DNS 상태: 확인 불가</span>');
+    autoScores.dns=4;
+  }
+  setProgress(68,'DNS 검사...');
+
+  /* ── NEW: FINGERPRINT ── */
+  addLog('브라우저 핑거프린팅 분석 중...');
+  await sleep(200);
+  const fpResult=calcFingerprintScore();
+  scanData.fp=fpResult;
+  addLog(`핑거프린팅 노출: <span class="${fpResult.pct>70?'err':'warn'}">${fpResult.exposed}/${fpResult.total}개 속성 추적 가능 (${fpResult.pct}%)</span>`);
+  autoScores.fingerprint=fpResult.pct<=50?6:fpResult.pct<=75?3:0;
+  setProgress(78,'핑거프린팅 분석...');
+
+  /* ── NEW: CANVAS / WEBGL ── */
+  addLog('Canvas / WebGL 식별 검사 중...');
+  await sleep(200);
+  const cvResult=detectCanvasWebGL();
+  scanData.cv=cvResult;
+  if(cvResult.canvas.blocked){
+    addLog('<span class="ok">Canvas 핑거프린팅: 차단됨 (안전)</span>');
+    autoScores.canvas=5;
+  } else if(cvResult.canvas.exposed){
+    addLog(`<span class="warn">Canvas 핑거프린팅: 노출 — 고유 식별 가능</span>`);
+    autoScores.canvas=2;
+  } else {
+    addLog('<span class="ok">Canvas 핑거프린팅: 정상</span>');
+    autoScores.canvas=5;
+  }
+  if(cvResult.webgl.supported) addLog(`WebGL 렌더러: <span class="warn">${cvResult.webgl.renderer||'N/A'}</span>`);
+  setProgress(87,'Canvas/WebGL 검사...');
+
+  /* ── NEW: PORT SCAN ── */
+  addLog('위험 포트 간접 탐지 중 (SSH·RDP·VNC)...');
+  const openPorts=await detectOpenPorts();
+  scanData.ports=openPorts;
+  if(openPorts.length>0){
+    openPorts.forEach(p=>addLog(`<span class="err">⚠ 포트 ${p.port} (${p.name}) 열림 감지 — ${p.risk}</span>`));
+    autoScores.ports=0;
+  } else {
+    addLog('<span class="ok">위험 포트: 감지 안 됨 (안전)</span>');
+    autoScores.ports=8;
+  }
+  setProgress(95,'포트 탐지...');
+
+  /* ── IPv6 누출 ── */
+  addLog('IPv6 누출 검사 중...');
+  const ipv6List=await detectIPv6Leak();
+  scanData.ipv6=ipv6List;
+  const ipv6Public=ipv6List.filter(ip=>!/^fe80|^::1|^fd/.test(ip));
+  if(ipv6Public.length>0){
+    addLog(`<span class="err">IPv6 주소 노출: ${ipv6Public[0]}</span>`);
+    autoScores.ipv6=0;
+  } else {
+    addLog('<span class="ok">IPv6 누출: 없음 (안전)</span>');
+    autoScores.ipv6=5;
+  }
+
+  /* ── 보안 키 (YubiKey 등) 감지 ── */
+  addLog('하드웨어 보안 키 감지 중...');
+  const skResult = await detectSecurityKey();
+  scanData.securityKey = skResult;
+  if(!skResult.supported){
+    addLog('<span class="warn">WebAuthn 미지원 — 보안 키 감지 불가</span>');
+  } else if(skResult.platform || skResult.conditional){
+    addLog('<span class="ok">하드웨어 인증기 감지됨 (보안 키 또는 생체인식)</span>');
+  } else {
+    addLog('<span class="warn">하드웨어 보안 키 미감지 — YubiKey 미연결 상태</span>');
+  }
+  autoScores.securityKey = (skResult.platform || skResult.conditional) ? 8 : 0;
+  setProgress(82,'보안 키 감지...');
+
+  /* ── 인터넷 속도 측정 ── */
+  addLog('인터넷 속도 측정 중...');
+  const speedResult = await measureInternetSpeed();
+  scanData.speed = speedResult;
+  if(speedResult.status === 'ok'){
+    const grade = speedResult.mbps >= 100 ? '🟢 빠름'
+                : speedResult.mbps >= 30  ? '🟡 보통'
+                : speedResult.mbps >= 10  ? '🟠 느림'
+                : '🔴 매우 느림';
+    addLog(`속도: <span class="ok">${speedResult.mbps} Mbps</span> · 레이턴시: ${speedResult.latency}ms · ${grade}`);
+    autoScores.speed = speedResult.mbps >= 30 ? 5 : 2;
+  } else {
+    addLog('<span class="warn">속도 측정 실패</span>');
+    autoScores.speed = 0;
+  }
+  setProgress(88,'속도 측정...');
+
+  addLog('브라우저 보안 설정 분석 중...');
+  const bsec=detectBrowserSecurity();
+  scanData.bsec=bsec;
+  autoScores.bsec=(bsec.dnt?2:0)+(bsec.trackingProtection?2:0)+(bsec.secureCtx?1:0);
+  addLog(`보안 설정: DNT ${bsec.dnt?'<span class="ok">켜짐</span>':'<span class="warn">꺼짐</span>'} · 추적방지 ${bsec.trackingProtection?'<span class="ok">활성</span>':'<span class="warn">비활성</span>'}`);
+
+  await sleep(400);
+  addLog('<span class="ok">분석 완료. 결과를 출력합니다...</span>');
+  setProgress(100); await sleep(600);
+
+  $('scanning').style.display='none';
+  $('diag-results').style.display='block';
+
+  const pubRTC=wips.filter(ip=>!/^(192\.168|10\.|172\.(1[6-9]|2\d|3[01]))/.test(ip));
+  const webrtcLeak=pubRTC.length>0;
+  const osOldFlag=/Windows 7|Windows XP/.test(os);
+
+  // ISP 이름 정리 (AS12345 KT Corp → KT Corp)
+  const ispRaw = ipData.org||'';
+  const isp    = ispRaw.replace(/^AS\d+\s*/,'');
+  const city   = ipData.city||'';
+  const region = ipData.region||'';
+  const lat    = ipData.latitude  ? ipData.latitude.toFixed(2)  : '';
+  const lon    = ipData.longitude ? ipData.longitude.toFixed(2) : '';
+  const tz     = ipData.timezone||'';
+  const hasDetail = !!(city || isp || lat);
+  // 주소 포맷: 경상남도 창원시 순서로
+  const addrStr = [region, city].filter(Boolean).join(' ');
+
+  // IP 카드 — 전체 폭 (그리드 밖)
+  $('ipExpandCard').innerHTML=
+    `<div class="dcard" id="ipRevealCard"
+      style="cursor:pointer;border-color:rgba(255,180,0,0.3);background:rgba(255,180,0,0.04);"
+      onclick="toggleIPReveal()">
+      <div class="dcard-label">🌍 공개 IP — 클릭하여 노출 정보 확인</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;">
+        <div class="dcard-value">${ipData.ip||'조회 실패'}</div>
+        <div id="ipRevealArrow" style="font-size:.8rem;color:var(--amber);white-space:nowrap;">▼ 내 위치 확인</div>
+      </div>
+      <div class="dcard-badge b-warn">외부 노출됨</div>
+
+      <div id="ipRevealPanel" style="display:none;margin-top:14px;padding-top:14px;
+        border-top:1px solid rgba(255,77,77,0.2);">
+        <div style="background:rgba(255,77,77,0.07);border:1px solid rgba(255,77,77,0.25);
+          border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+          <div style="font-size:.72rem;color:#ff4d4d;font-weight:700;margin-bottom:10px;">
+            ⚠️ 지금 이 순간 노출되는 정보
+          </div>
+          ${hasDetail ? `
+          <table style="width:100%;border-collapse:collapse;font-size:.95rem;">
+            <tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;vertical-align:top;">주소</td>
+                <td style="color:var(--text);font-weight:600;">${addrStr||'확인불가'}</td></tr>
+            <tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">통신사</td>
+                <td style="color:var(--text);font-weight:600;">${isp||'확인불가'}</td></tr>
+            ${lat?`<tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">좌표</td>
+                <td style="color:var(--text);font-weight:600;">${lat}°N, ${lon}°E</td></tr>`:''}
+            ${tz?`<tr><td style="color:var(--muted);padding:4px 12px 4px 0;white-space:nowrap;">시간대</td>
+                <td style="color:var(--text);font-weight:600;">${tz}</td></tr>`:''}
+          </table>` : `
+          <p style="color:var(--muted2);font-size:.75rem;line-height:1.7;margin:0;">
+            현재 상세 위치 조회가 일시적으로 제한됩니다.<br>
+            IP 주소(<strong style="color:var(--text);">${ipData.ip}</strong>)는 여전히 외부에 노출되고 있습니다.
+          </p>`}
+          <p style="font-size:.72rem;color:var(--muted2);margin:10px 0 0;line-height:1.6;">
+            이 정보는 지금 방문하는 <strong style="color:var(--text);">모든 웹사이트에 자동으로 전송</strong>됩니다.
+          </p>
+        </div>
+        <a href="#" rel="noopener sponsored"
+          onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); document.getElementById('ipRevealPanel').style.display='none'; document.getElementById('ipRevealArrow').textContent='▼ 내 위치 확인'; })();return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          background:rgba(0,230,118,0.08);color:var(--green);font-weight:600;font-size:.95rem;
+          padding:12px 20px;border-radius:8px;text-decoration:none;
+          border:1px solid rgba(0,230,118,0.35);">
+          NordVPN으로 즉시 숨기기
+        </a>
+      </div>
+    </div>`;
+
+  // 나머지 네트워크 카드 — 그리드
+  $('netCards').innerHTML=
+    makeCard('WebRTC 누출',webrtcLeak?pubRTC.join(', '):'감지 안 됨',
+      webrtcLeak?'실제 IP 노출':'VPN 우회 방어 중',
+      webrtcLeak?'⚠ 위험':'✓ 안전',webrtcLeak?'b-bad':'b-ok')+
+    makeCard('IPv6 누출',
+      ipv6Public.length>0?ipv6Public[0]:'감지 안 됨',
+      ipv6Public.length>0?'실제 위치 노출 가능':'IPv6 경로 안전',
+      ipv6Public.length>0?'⚠ 위험':'✓ 안전',ipv6Public.length>0?'b-bad':'b-ok')+
+    makeCard('DNS 리졸버',scanData.dns?.dnsIP||'조회 완료',
+      scanData.dns?.status==='leak'?'누출 — 검색 기록 노출 중':'안전 — 암호화 상태',
+      scanData.dns?.status==='leak'?'⚠ 누출':'✓ 안전',
+      scanData.dns?.status==='leak'?'b-bad':'b-ok')+
+    makeCard('네트워크',connType.toUpperCase(),'현재 연결 방식','','b-info')+
+    makeCard('인터넷 속도',
+      scanData.speed?.status==='ok' ? scanData.speed.mbps+' Mbps' : '측정 실패',
+      scanData.speed?.status==='ok' ? `레이턴시 ${scanData.speed.latency}ms` : '',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=100?'🟢 빠름':scanData.speed.mbps>=30?'🟡 보통':scanData.speed.mbps>=10?'🟠 느림':'🔴 느림')
+        : '⚠ 오류',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=30?'b-ok':'b-warn')
+        : 'b-warn');
+
+  $('sysCards').innerHTML=
+    makeCard('운영체제',os,'',osOldFlag?'⚠ 지원 종료':'✓ 최신 계열',osOldFlag?'b-bad':'b-ok')+
+    makeCard('브라우저',browser,'','','b-info')+
+    makeCard('CPU 코어',cores+'개','브라우저 추정값<br>이 정보가 노출되는 게 위협','')+
+    makeCard('메모리',memory,'브라우저 추정값<br>이 정보가 노출되는 게 위협','')+
+    makeCard('화면 해상도',scanData.screen,'','','')+
+    makeCard('HTTPS',isHttps?'활성화':'미적용','',isHttps?'✓ 암호화':'✗ 위험',isHttps?'b-ok':'b-bad')+
+    makeCard('핑거프린팅',scanData.fp.pct+'% 추적 가능',scanData.fp.exposed+'/'+scanData.fp.total+'개 속성 노출',
+      scanData.fp.pct>75?'⚠ 고위험':scanData.fp.pct>50?'주의':'✓ 양호',
+      scanData.fp.pct>75?'b-bad':scanData.fp.pct>50?'b-warn':'b-ok')+
+    makeCard('Canvas 식별',scanData.cv.canvas.blocked?'차단됨':scanData.cv.canvas.exposed?'노출됨':'정상',
+      scanData.cv.canvas.exposed&&!scanData.cv.canvas.blocked?'고유 식별 가능':'',
+      scanData.cv.canvas.blocked?'✓ 안전':scanData.cv.canvas.exposed?'⚠ 노출':'✓ 정상',
+      scanData.cv.canvas.blocked?'b-ok':scanData.cv.canvas.exposed?'b-warn':'b-ok')+
+    makeCard('WebGL 렌더러',scanData.cv.webgl.renderer||'N/A',scanData.cv.webgl.vendor||'','','b-purple')+
+    makeCard('위험 포트',scanData.ports.length>0?scanData.ports.map(p=>p.port+'/'+p.name).join(', '):'없음',
+      scanData.ports.length>0?'즉시 차단 필요':'위험 포트 미감지',
+      scanData.ports.length>0?'✗ 위험':'✓ 안전',scanData.ports.length>0?'b-bad':'b-ok');
+
+  $('autoChecks').innerHTML=
+    makeCheck('','HTTPS 보안 연결','페이지 암호화 여부',isHttps?'✓ 안전':'✗ 미암호화',isHttps?'b-ok':'b-bad')+
+    makeCheck('','WebRTC IP 누출',
+      webrtcLeak
+        ? 'VPN을 켜도 브라우저가 실제 IP를 직접 노출합니다 — 해커가 내 위치를 볼 수 있는 상태'
+        : 'VPN 우회 탐지 — 실제 IP가 숨겨진 상태',
+      webrtcLeak?'✗ 누출':'✓ 안전',webrtcLeak?'b-bad':'b-ok')+
+    (webrtcLeak ? `<div style="background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.15);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.85rem;line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);margin-bottom:8px;letter-spacing:.06em;">
+        WHY — WEBRTC 누출 원리
+      </div>
+      <b style="color:var(--text);">① 직접 연결 요청</b><br>
+      WebRTC는 화상통화·데이터 전송을 빠르게 하기 위해 상대방과 <b style="color:var(--text);">P2P 직접 연결</b>을 시도합니다.<br><br>
+      <b style="color:var(--text);">② VPN 우회</b><br>
+      이 과정에서 브라우저가 VPN 터널을 거치지 않고, 컴퓨터의 <b style="color:var(--text);">실제 네트워크 카드(Wi-Fi·랜카드)</b>에 직접 IP를 물어봅니다.<br><br>
+      <b style="color:var(--text);">③ 실제 IP 노출</b><br>
+      브라우저가 STUN 서버에 응답하면서 <b style="color:var(--text);">VPN IP와 실제 IP를 동시에 노출</b>합니다.<br><br>
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:10px 12px;margin-top:4px;">
+        <b style="color:var(--green);"><svg width="13" height="13" viewBox="0 0 80 80" fill="none" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="40" cy="40" r="36" stroke="rgba(0,230,118,0.4)" stroke-width="2"/><circle cx="40" cy="40" r="22" stroke="rgba(0,230,118,0.6)" stroke-width="2"/><circle cx="40" cy="40" r="6" fill="#00e676"/><line x1="40" y1="4" x2="40" y2="40" stroke="#00e676" stroke-width="2"/></svg> 가장 확실한 방어 전략</b><br>
+        브라우저 설정을 매번 바꾸기 번거롭다면 <b style="color:var(--text);">VPN 내장 라우터(ASUS·GL.iNet)</b>를 도입하세요.<br>
+        하드웨어 킬스위치를 켜두면 WebRTC 누출 걱정 없이 모든 기기가 보호됩니다.
+      </div>
+
+      <!-- 5분 해결 가이드 -->
+      <div style="margin-top:10px;">
+        <button onclick="toggleWebRTCGuide()" id="webrtcGuideBtn"
+          style="width:100%;padding:10px 14px;background:rgba(0,180,216,0.1);
+          border:1px solid rgba(0,180,216,0.3);border-radius:8px;
+          color:#00b4d8;font-size:.82rem;font-weight:700;cursor:pointer;
+          font-family:var(--sans);text-align:left;">
+          ⚡ 5분 안에 해결하기 — NordVPN WebRTC 차단 설정법 ▼
+        </button>
+        <div id="webrtcGuide" style="display:none;margin-top:8px;
+          background:var(--bg3);border:1px solid var(--border);
+          border-radius:10px;padding:14px 16px;font-size:.8rem;
+          color:var(--muted2);line-height:1.9;">
+
+          <div style="font-size:.72rem;font-family:var(--mono);color:var(--muted);
+            margin-bottom:10px;letter-spacing:.06em;">STEP BY STEP — NORDVPN 설정</div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+              <span><b style="color:var(--text);">NordVPN 앱 설치</b><br>
+              nordvpn.com에서 Windows·Mac 앱 다운로드 후 로그인</span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+              <span><b style="color:var(--text);">브라우저 확장 프로그램 설치</b><br>
+              Chrome·Firefox 스토어에서 "NordVPN" 검색 → 설치<br>
+              <span style="color:#00b4d8;font-size:.83rem;">→ 확장 프로그램이 WebRTC를 직접 차단합니다</span></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+              <span><b style="color:var(--text);">WebRTC 차단 ON</b><br>
+              확장 프로그램 아이콘 클릭 → 설정 →
+              <b style="color:var(--text);">"WebRTC IP 주소 숨기기" 활성화</b></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--blue);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">4</span>
+              <span><b style="color:var(--text);">킬스위치 활성화</b><br>
+              NordVPN 앱 → 설정 → 킬스위치 ON<br>
+              <span style="color:var(--muted);font-size:.83rem;">VPN 연결이 끊기면 인터넷을 자동 차단합니다</span></span>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="background:var(--green);color:#000;font-weight:800;font-size:.7rem;
+                padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">5</span>
+              <span><b style="color:var(--green);">보안레이더에서 재진단</b><br>
+              설정 완료 후 다시 진단하면 WebRTC 누출이 사라집니다 ✅</span>
+            </div>
+          </div>
+
+          <a href="#" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })();return false;"
+            style="display:flex;align-items:center;justify-content:center;gap:8px;
+            margin-top:14px;padding:10px;background:transparent;color:var(--green);
+            border:1px solid rgba(0,230,118,0.4);
+            font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;">
+            NordVPN으로 즉시 숨기기
+          </a>
+        </div>
+      </div>
+    </div>` : '')+
+    makeCheck('','OS 지원 상태','지원 종료 OS 위험',osOldFlag?'✗ 종료 OS':'✓ 지원 중',osOldFlag?'b-bad':'b-ok')+
+    makeCheck('','하드웨어 정보 노출','브라우저 추정값 · 실제와 다를 수 있음 · 이 정보가 노출된다는 것 자체가 위협입니다',`CPU ${cores}코어 / RAM ${memory}`,'b-warn')+
+    makeCheck('','공개 IP 노출',ipData.country_name||'확인 불가',ipData.ip?'위치 추적 가능':'확인불가','b-warn')+
+    makeCheck('','DNS 누출 여부',
+      scanData.dns?.status==='leak'
+        ? '내가 방문하는 모든 사이트 주소가 통신사 서버에 그대로 기록됩니다 — VPN을 써도 검색 기록이 노출되는 상태'
+        : '방문 사이트가 안전하게 암호화된 상태',
+      scanData.dns?.status==='leak'?`✗ 누출 (${scanData.dns?.dnsIP})`:'✓ 안전',
+      scanData.dns?.status==='leak'?'b-bad':'b-ok')+
+    makeCheck('','브라우저 핑거프린팅',`${scanData.fp.exposed}/${scanData.fp.total}개 속성 노출`,
+      scanData.fp.pct>75?`✗ 고위험 (${scanData.fp.pct}% 추적 가능)`:
+      scanData.fp.pct>50?`⚠ 주의 (${scanData.fp.pct}% 추적 가능)`:`✓ 양호 (${scanData.fp.pct}%)`,
+      scanData.fp.pct>75?'b-bad':scanData.fp.pct>50?'b-warn':'b-ok')+
+    (scanData.fp.pct>50 ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.85rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.82rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">핑거프린팅이란?</div>
+      <b style="color:var(--text);">디지털 지문</b>이라고 생각하면 됩니다.<br>
+      브라우저 종류·화면 크기·설치된 폰트·GPU 정보 등 수십 가지를 조합해
+      <b style="color:var(--text);">쿠키 없이도 나를 추적</b>합니다.<br><br>
+      마우스를 어디서 클릭했는지, 어떤 사이트를 방문했는지
+      <b style="color:var(--text);">광고업체가 내 행동 패턴을 수집</b>합니다.<br><br>
+      쿠키를 지워도 핑거프린트는 남습니다.
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:8px 12px;margin-top:8px;font-size:.83rem;">
+        <b style="color:var(--green);">대책</b> — VPN + Firefox "엄격" 모드 조합이 가장 효과적입니다
+      </div>
+      <button onclick="toggleFpGuide()" id="fpGuideBtn"
+        style="width:100%;margin-top:8px;padding:8px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.78rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ 핑거프린팅 차단 방법 ▼
+      </button>
+      <div id="fpGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:12px 14px;font-size:.78rem;
+        color:var(--muted2);line-height:1.8;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+            <span><b style="color:var(--text);">Firefox + 엄격 모드</b><br>
+            설정 → 개인정보 → 향상된 추적 방지 → <b style="color:var(--text);">엄격</b></span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+            <span><b style="color:var(--text);">uBlock Origin 설치</b><br>
+            무료 광고·추적 차단 확장 프로그램</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--green);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+            <span><b style="color:var(--green);">VPN 사용</b><br>
+            IP + 핑거프린트를 동시에 숨깁니다</span>
+          </div>
+        </div>
+        <a href="#" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })();return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:12px;padding:9px;background:transparent;color:var(--green);border:1px solid rgba(0,230,118,0.4);
+          font-weight:700;font-size:.8rem;border-radius:8px;text-decoration:none;">
+          NordVPN으로 추적 차단 →
+        </a>
+      </div>
+    </div>` : '')+
+
+    makeCheck('','Canvas/WebGL 식별','고유 기기 값 노출 여부',
+      scanData.cv.canvas.blocked?'✓ 차단됨 (안전)':
+      scanData.cv.canvas.exposed?`⚠ 노출 — ${scanData.cv.webgl.renderer||'렌더러 미확인'}`:'✓ 정상',
+      scanData.cv.canvas.blocked?'b-ok':scanData.cv.canvas.exposed?'b-warn':'b-ok')+
+    (scanData.cv.canvas.exposed && !scanData.cv.canvas.blocked ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.85rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.82rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">Canvas 식별이란?</div>
+      브라우저마다 그래픽 렌더링 방식이 미묘하게 달라 <b style="color:var(--text);">기기 고유의 디지털 지문</b>이 생성됩니다.<br>
+      쿠키를 지워도, VPN을 써도 나를 <b style="color:var(--text);">계속 추적</b>할 수 있습니다.
+      <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.15);
+        border-radius:8px;padding:8px 12px;margin-top:8px;font-size:.83rem;">
+        <b style="color:var(--green);">대책</b> — Firefox에서 Canvas 접근을 차단하거나 Tor Browser 사용
+      </div>
+      <button onclick="toggleCvGuide()" id="cvGuideBtn"
+        style="width:100%;margin-top:8px;padding:8px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.78rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ Canvas 추적 차단 방법 ▼
+      </button>
+      <div id="cvGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:12px 14px;font-size:.78rem;
+        color:var(--muted2);line-height:1.8;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
+            <span><b style="color:var(--text);">Firefox 설정</b><br>
+            about:config → privacy.resistFingerprinting → <b style="color:var(--text);">true</b></span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
+            <span><b style="color:var(--text);">Canvas Blocker 확장</b><br>
+            Canvas API 요청을 자동으로 차단합니다</span>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <span style="background:var(--green);color:#000;font-weight:800;font-size:.76rem;
+              padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
+            <span><b style="color:var(--green);">NordVPN 사용</b><br>
+            IP 변경으로 Canvas 값과 실제 신원 연결을 차단합니다</span>
+          </div>
+        </div>
+        <a href="#" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })();return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:12px;padding:9px;background:transparent;color:var(--green);border:1px solid rgba(0,230,118,0.4);
+          font-weight:700;font-size:.8rem;border-radius:8px;text-decoration:none;">
+          NordVPN으로 신원 보호 →
+        </a>
+      </div>
+    </div>` : '')+
+    makeCheck('','위험 포트 감지','SSH·RDP·VNC 포트 간접 탐지',
+      scanData.ports.length>0?`✗ ${scanData.ports.map(p=>p.name).join('·')} 포트 열림`:'✓ 위험 포트 없음',
+      scanData.ports.length>0?'b-bad':'b-ok')+
+    makeCheck('','IPv6 누출',
+      ipv6Public.length>0?`노출: ${ipv6Public[0]}`:'IPv6 안전',
+      ipv6Public.length>0?'✗ 누출':'✓ 안전',
+      ipv6Public.length>0?'b-bad':'b-ok')+
+    makeCheck('','인터넷 속도',
+      scanData.speed?.status==='ok'
+        ? `${scanData.speed.mbps} Mbps · 레이턴시 ${scanData.speed.latency}ms`
+        : '속도 측정 실패',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=100?'🟢 빠름':scanData.speed.mbps>=30?'🟡 보통':scanData.speed.mbps>=10?'🟠 느림':'🔴 매우 느림')
+        : '⚠ 측정 실패',
+      scanData.speed?.status==='ok'
+        ? (scanData.speed.mbps>=30?'b-ok':'b-warn')
+        : 'b-warn')+
+    makeCheck('','하드웨어 보안 키 (YubiKey)',
+      scanData.securityKey?.conditional
+        ? 'Passkey 활성 — 금융·업무 계정은 YubiKey 추천'
+        : scanData.securityKey?.platform
+        ? 'Touch ID / Face ID 감지됨 — 생체인식 인증 활성 상태'
+        : 'YubiKey 등 보안 키 미감지 — 피싱·계정 탈취에 노출된 상태',
+      scanData.securityKey?.conditional
+        ? '✓ Passkey 활성'
+        : scanData.securityKey?.platform
+        ? '✓ 생체인식'
+        : '✗ 미연결',
+      (scanData.securityKey?.platform || scanData.securityKey?.conditional)
+        ? 'b-ok' : 'b-bad')+
+    makeCheck('','브라우저 보안 설정',
+      `DNT ${scanData.bsec.dnt?'ON':'OFF'} · 추적방지 ${scanData.bsec.trackingProtection?'활성':'비활성'}`,
+      scanData.bsec.dnt&&scanData.bsec.trackingProtection?'✓ 잘 설정됨':
+      scanData.bsec.dnt||scanData.bsec.trackingProtection?'⚠ 부분 설정':'✗ 설정 필요',
+      scanData.bsec.dnt&&scanData.bsec.trackingProtection?'b-ok':
+      scanData.bsec.dnt||scanData.bsec.trackingProtection?'b-warn':'b-bad')+
+    (!(scanData.bsec.dnt&&scanData.bsec.trackingProtection) ? `
+    <div style="background:rgba(255,180,0,0.05);border:1px solid rgba(255,180,0,0.2);
+      border-radius:10px;padding:14px 16px;margin-bottom:4px;font-size:.85rem;
+      line-height:1.85;color:var(--muted2);">
+      <div style="font-size:.82rem;font-family:var(--mono);color:var(--muted);
+        margin-bottom:8px;letter-spacing:.06em;">WHY — 추적방지가 꺼져 있으면</div>
+      <b style="color:var(--text);">① 광고·추적 스크립트에 완전 노출</b><br>
+      방문하는 모든 사이트에서 <b style="color:var(--text);">행동 패턴·관심사가 수집</b>됩니다.<br><br>
+      <b style="color:var(--text);">② 크로스 사이트 추적</b><br>
+      쇼핑몰에서 본 상품이 다른 사이트 광고로 따라다니는 이유입니다.<br><br>
+      <b style="color:var(--text);">③ 데이터 판매</b><br>
+      수집된 데이터가 <b style="color:var(--text);">제3자 광고업체에 판매</b>됩니다.
+
+      <button onclick="toggleBsecGuide()" id="bsecGuideBtn"
+        style="width:100%;margin-top:10px;padding:9px 14px;
+        background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
+        border-radius:8px;color:var(--amber);font-size:.8rem;font-weight:700;
+        cursor:pointer;font-family:var(--sans);text-align:left;">
+        ⚡ 브라우저별 추적방지 설정법 ▼
+      </button>
+      <div id="bsecGuide" style="display:none;margin-top:8px;
+        background:var(--bg3);border:1px solid var(--border);
+        border-radius:10px;padding:14px 16px;font-size:.8rem;
+        color:var(--muted2);line-height:1.9;">
+        <div style="font-size:.82rem;font-family:var(--mono);color:var(--muted);
+          margin-bottom:10px;letter-spacing:.06em;">BROWSER SETTINGS</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🌐 Chrome</div>
+            <div style="font-size:.83rem;">설정 → 개인정보 및 보안 → 쿠키 및 기타 사이트 데이터<br>
+            → <b style="color:var(--text);">"서드 파티 쿠키 차단"</b> 선택<br>
+            설정 → 개인정보 보호 → <b style="color:var(--text);">"추적 안함 요청 전송"</b> ON</div>
+          </div>
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🦊 Firefox</div>
+            <div style="font-size:.83rem;">설정 → 개인 정보 및 보안<br>
+            → <b style="color:var(--text);">"향상된 추적 방지" → "엄격"</b> 선택<br>
+            → 가장 강력한 추적 차단 모드입니다</div>
+          </div>
+
+          <div style="padding:10px 12px;background:var(--bg4);border-radius:8px;">
+            <div style="font-weight:700;color:var(--text);margin-bottom:4px;">🧭 Safari</div>
+            <div style="font-size:.83rem;">환경설정 → 개인정보 보호<br>
+            → <b style="color:var(--text);">"크로스 사이트 추적 방지"</b> 체크<br>
+            → Apple ITP가 자동으로 추적을 차단합니다</div>
+          </div>
+
+          <div style="padding:10px 12px;background:rgba(0,230,118,0.06);
+            border:1px solid rgba(0,230,118,0.15);border-radius:8px;">
+            <div style="font-weight:700;color:var(--green);margin-bottom:4px;">
+              🛡️ 가장 확실한 방법
+            </div>
+            <div style="font-size:.83rem;">브라우저 설정과 관계없이
+            <b style="color:var(--text);">VPN을 사용하면 추적 스크립트를 원천 차단</b>합니다.<br>
+            설정 후 보안레이더에서 재진단하면 점수가 올라갑니다 ✅</div>
+          </div>
+        </div>
+        <a href="#" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })();return false;"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;
+          margin-top:14px;padding:10px;background:transparent;color:var(--green);border:1px solid rgba(0,230,118,0.4);
+          font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;">
+          NordVPN으로 추적 완전 차단 →
+        </a>
+      </div>
+    </div>` : '');
+
+  renderChecklist();
+  $('calcBtn').onclick=calcScore;
+}
+
+function calcScore(){
+  const aT=Object.values(autoScores).reduce((a,b)=>a+b,0);
+  const mT=Object.values(manualScores).reduce((a,b)=>a+b,0);
+  const aN=Math.round((aT/74)*50);
+  const mN=Math.round((mT/100)*50);
+  const total=Math.min(100,aN+mN);
+
+  let grade,color,label1,label2;
+  if(total>=95){grade='A+';color='#00e676';label1='이미 요새화.';label2='이 상태를 유지하는 도구들.';}
+  else if(total>=80){grade='A';color='#00e676';label1='거의 완성.';label2='하나만 추가하면 해커가 포기하는 집.';}
+  else if(total>=60){grade='B';color='#40c4ff';label1='잠금장치는 있다.';label2='뒷문이 열린 걸 해커는 이미 안다.';}
+  else if(total>=40){grade='C';color='#ffb300';label1='평범한 PC.';label2='그러나 해커 리스트에 올라가 있다.';}
+  else if(total>=20){grade='D';color='#ff7043';label1='누구나 들어갈 수 있는 집.';label2='지금 누군가 들어와 있을 지도.';}
+  else{grade='F';color='#ff4d4d';label1='가장 쉬운 타겟.';label2='지금 이 순간도.';}
+
+  $('diag-results').style.display='none';
+  $('score-section').style.display='block';
+  setTimeout(()=>{ document.getElementById('score-section')?.scrollIntoView({behavior:'smooth',block:'start'}); },100);
+
+  $('gradeRing').innerHTML=`
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="9"/>
+      <circle cx="60" cy="60" r="52" fill="none" stroke="${color}" stroke-width="9"
+        stroke-dasharray="${2*Math.PI*52}" stroke-dashoffset="${2*Math.PI*52*(1-total/100)}"
+        stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset 1s ease"/>
+    </svg>
+    <div class="grade-letter" style="color:${color}">${grade}</div>`;
+
+  $('scoreNum').innerHTML=`<span style="color:${color}">${total}점</span> / 100점`;
+  $('scoreLbl').innerHTML=`<span class="lbl-main" style="color:${color}">${label1}</span><span class="lbl-sub">${label2}</span>`;
+  $('scoreBars').innerHTML=[
+    {label:'자동 보안 감지',val:Math.round(aT/74*100),c:'#40c4ff'},
+    {label:'수동 체크리스트',val:Math.round(mT),c:'#00e676'},
+    {label:'종합 점수',val:total,c:color},
+  ].map(b=>`<div class="sbar-row"><div class="sbar-label">${b.label}</div><div class="sbar-track"><div class="sbar-fill" style="background:${b.c};width:${b.val}%"></div></div><div class="sbar-val">${b.val}점</div></div>`).join('');
+
+  // 권고사항 — 텍스트 + 어필리에이트 링크 객체 구조
+  const recos=[];
+  if(scanData.speed?.status==='ok' && scanData.speed.mbps < 10) recos.push({
+    text:`인터넷 속도가 ${scanData.speed.mbps} Mbps로 매우 느립니다 — VPN 사용 중이라면 고속 서버로 변경하세요.`,
+    link:'#', linkText:'NordVPN 고속 서버로 전환', color:'#00b4d8'
+  });
+  if(autoScores.webrtc===0) recos.push({
+    text:'WebRTC IP 누출 감지 — VPN을 켜도 브라우저가 실제 IP를 직접 노출하고 있습니다. 지금 이 순간 해커·광고주가 내 위치를 볼 수 있는 상태입니다.',
+    link:'#', linkText:'NordVPN으로 즉시 차단하기', color:'#00b4d8'
+  });
+  if(autoScores.os===0) recos.push({
+    text:'지원 종료 OS 사용 중 — Windows 10/11로 업그레이드를 강력 권장합니다.',
+    link:null, linkText:null
+  });
+  if(autoScores.dns===0) recos.push({
+    text:'DNS 누출 감지 — VPN을 써도 방문하는 모든 사이트 주소가 통신사 서버에 그대로 기록되고 있습니다. 검색 기록이 완전히 노출된 상태입니다.',
+    link:'#', linkText:'NordVPN DNS 보호 적용하기', color:'#00b4d8'
+  });
+  if(scanData.fp&&scanData.fp.pct>75) recos.push({
+    text:'브라우저 핑거프린팅 고위험 — 광고주가 당신을 추적할 수 있습니다.',
+    link:'#', linkText:'NordVPN으로 추적 차단하기', color:'#00b4d8'
+  });
+  if(scanData.cv&&scanData.cv.canvas.exposed&&!scanData.cv.canvas.blocked) recos.push({
+    text:'Canvas 핑거프린팅 노출 — 고유 기기 값으로 브라우저가 식별되고 있습니다.',
+    link:'#', linkText:'Bitdefender로 브라우저 보호하기', color:'#00e676'
+  });
+  if(scanData.ports&&scanData.ports.length>0) recos.push({
+    text:`위험 포트 열림 감지 (${scanData.ports.map(p=>p.port+'/'+p.name).join(', ')}) — 악성코드가 이미 침투했을 수 있습니다.`,
+    link:'#', linkText:'Malwarebytes 무료 검사 시작', color:'#ff4d4d'
+  });
+  if(scanData.ipv6&&scanData.ipv6.filter(ip=>!/^fe80|^::1|^fd/.test(ip)).length>0) recos.push({
+    text:'IPv6 주소 노출 — VPN을 사용해도 IPv6 경로로 실제 위치가 유출될 수 있습니다.',
+    link:'#', linkText:'NordVPN IPv6 누출 차단하기', color:'#00b4d8'
+  });
+  if(scanData.bsec&&!scanData.bsec.dnt&&!scanData.bsec.trackingProtection) recos.push({
+    text:'브라우저 추적 방지가 꺼져 있습니다 — 광고·추적 스크립트에 완전히 노출된 상태입니다.',
+    link:'#', linkText:'Malwarebytes로 추적 스크립트 차단', color:'#ff4d4d'
+  });
+  if(!scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
+    text:'하드웨어 보안 키 미감지 — YubiKey를 사용하면 피싱 공격을 100% 차단하고 비밀번호 없이 로그인할 수 있습니다.',
+    link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
+    text:'Touch ID / Face ID 감지됨 — 생체인식보다 한 단계 강한 보안이 필요하다면 YubiKey를 추가하세요.',
+    link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(scanData.securityKey?.conditional) recos.push({
+    text:'Passkey 활성 — 일반 피싱은 차단되지만 금융·암호화폐·업무 계정은 클라우드 침해 시 위험합니다. YubiKey는 오프라인 물리 보안으로 완전히 다른 수준의 보호를 제공합니다.',
+    link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
+  });
+  if(!manualScores['antivirus']) recos.push({
+    text:'백신이 없거나 비활성화 상태입니다 — 랜섬웨어 공격에 무방비 상태입니다.',
+    link:'#', linkText:'Bitdefender 무료로 시작하기', color:'#00e676'
+  });
+  if(!manualScores['win_update']) recos.push({
+    text:'OS 업데이트가 필요합니다 — 취약점의 70%는 업데이트만으로 차단됩니다.',
+    link:'#', linkText:'CCleaner로 PC 정리 후 업데이트', color:'#ffa500'
+  });
+  if(!manualScores['browser_up']) recos.push({
+    text:'브라우저 캐시·쿠키에 개인정보 흔적이 남아있습니다 — 추적에 악용될 수 있습니다.',
+    link:'#', linkText:'CCleaner로 흔적 완전 삭제', color:'#ffa500'
+  });
+  if(!manualScores['wpa2']) recos.push({
+    text:'Wi-Fi 암호화가 취약합니다 — WEP는 30초 안에 크래킹됩니다.',
+    link:'#', linkText:'공공 Wi-Fi 보호 — NordVPN 시작하기', color:'#00b4d8'
+  });
+  if(!manualScores['twofa']) recos.push({
+    text:'2단계 인증 미설정 — 계정 탈취 공격의 99%를 차단할 수 있습니다.',
+    link:null, linkText:null
+  });
+  if(!manualScores['clean_apps']) recos.push({
+    text:'출처 불명 앱 감지 — Windows 기본 제거로는 숨겨진 파일·레지스트리가 남습니다. Revo Uninstaller로 완전히 제거하세요.',
+    link:'#', linkText:'Revo Uninstaller로 완전 삭제', color:'cornflowerblue'
+  });
+  if(!manualScores['antivirus']||autoScores.webrtc===0||autoScores.dns===0) recos.push({
+    text:'악성코드가 이미 설치되어 있을 수 있습니다 — 지금 바로 무료 검사를 해보세요.',
+    link:'#', linkText:'Malwarebytes 무료 검사 시작', color:'#ff4d4d'
+  });
+  if(recos.length===0) recos.push({
+    text:'현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다! 🎉',
+    link:null, linkText:null
+  });
+
+  $('recoList').innerHTML='<div style="font-size:.75rem;color:var(--muted);margin-bottom:12px;">[ 지금 바로 해결할 수 있어요 ]</div>'+
+    recos.map(r=>`
+      <div class="reco-item" style="flex-direction:column;align-items:flex-start;gap:5px;margin-bottom:10px;">
+        <div style="display:flex;align-items:flex-start;gap:7px;">
+          <div class="reco-dot" style="margin-top:6px;flex-shrink:0;"></div>
+          <span>${r.text}</span>
+        </div>
+        ${r.linkText ? `<button onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })()"
+          style="margin-left:11px;font-size:.75rem;font-weight:600;color:${r.color||'#00e676'};
+          background:rgba(0,0,0,0.2);border:1px solid ${r.color||'#00e676'}33;
+          padding:4px 12px;border-radius:5px;cursor:pointer;font-family:var(--sans);
+          transition:opacity .15s;"
+          onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          ${r.linkText} ↓
+        </button>` : ''}
+      </div>`).join('');
+
+  // ── 어필리에이트 개인화 메시지 (점수 기반) ──
+  const affMsg = document.getElementById('affPersonalMsg');
+  if(affMsg){
+    let msg = '';
+    if(total < 20){
+      msg = `<span class="lbl-main">가장 쉬운 타겟.</span><span class="lbl-sub">지금 이 순간도.</span>`;
+    } else if(total < 40){
+      msg = `<span class="lbl-main">누구나 들어갈 수 있는 집.</span><span class="lbl-sub">지금 누군가 들어와 있을 지도.</span>`;
+    } else if(total < 60){
+      msg = `<span class="lbl-main">평범한 PC.</span><span class="lbl-sub">그러나 해커 리스트에 올라가 있다.</span>`;
+    } else if(total < 80){
+      msg = `<span class="lbl-main">잠금장치는 있다.</span><span class="lbl-sub">뒷문이 열린 걸 해커는 이미 안다.</span>`;
+    } else if(total < 95){
+      msg = `<span class="lbl-main">거의 완성.</span><span class="lbl-sub">하나만 추가하면 해커가 포기하는 집.</span>`;
+    } else {
+      msg = `<span class="lbl-main">이미 요새화.</span><span class="lbl-sub">이 상태를 유지하는 도구들.</span>`;
+    }
+    affMsg.innerHTML = msg;
+    affMsg.style.display = 'block';
+    // 점수 낮으면 빨간색, 높으면 초록색 테두리
+    if(total < 60){
+      affMsg.style.borderColor = 'rgba(255,77,77,0.3)';
+      affMsg.style.background = 'rgba(255,77,77,0.06)';
+    } else {
+      affMsg.style.borderColor = 'rgba(0,230,118,0.2)';
+      affMsg.style.background = 'rgba(0,230,118,0.04)';
+    }
+  }
+
+  /* ── 공유 버튼 ── */
+  $('shareBtn').onclick=()=>{
+    const btns = $('shareBtns');
+    btns.style.display = btns.style.display==='none' ? 'flex' : 'none';
+  };
+
+  // 이미지 카드 생성 + 저장
+  $('shareImgBtn').onclick=()=>{
+    const c = $('shareCanvas');
+    c.style.display='block';
+    const ctx = c.getContext('2d');
+    const color = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
+
+    // 배경
+    ctx.fillStyle='#0d1117';
+    ctx.fillRect(0,0,600,340);
+
+    // 상단 바
+    ctx.fillStyle=color;
+    ctx.fillRect(0,0,600,6);
+
+    // 로고
+    ctx.font='bold 18px system-ui';
+    ctx.fillStyle='#ffffff';
+    ctx.fillText('🛡️ 보안레이더', 36, 52);
+
+    // 점수
+    ctx.font='bold 88px system-ui';
+    ctx.fillStyle=color;
+    ctx.fillText(total, 36, 165);
+
+    ctx.font='bold 24px system-ui';
+    ctx.fillStyle='rgba(255,255,255,0.4)';
+    ctx.fillText('/ 100점', 36, 195);
+
+    // 등급
+    ctx.font='bold 22px system-ui';
+    ctx.fillStyle=color;
+    ctx.fillText(grade+' '+label1, 36, 235);
+    ctx.font='15px system-ui';
+    ctx.fillStyle='rgba(255,255,255,0.5)';
+    ctx.fillText(label2, 36, 258);
+
+    // 날짜
+    ctx.font='14px system-ui';
+    ctx.fillStyle='rgba(255,255,255,0.3)';
+    ctx.fillText(new Date().toLocaleDateString('ko-KR'), 36, 275);
+
+    // URL
+    ctx.font='13px monospace';
+    ctx.fillStyle='rgba(255,255,255,0.2)';
+    ctx.fillText('securityradar.io', 36, 310);
+
+    // 우측 항목 표시
+    const items=[
+      {label:'WebRTC', ok: autoScores.webrtc>0,  okText:'안전', failText:'누출'},
+      {label:'DNS',    ok: autoScores.dns>0,      okText:'안전', failText:'누출'},
+      {label:'IPv6',   ok: autoScores.ipv6>0,     okText:'안전', failText:'누출'},
+      {label:'포트',   ok: scanData.ports?.length===0, okText:'안전', failText:'위험'},
+      {label:'보안키', ok: autoScores.securityKey>0,   okText:'활성', failText:'미감지'},
+    ];
+    items.forEach((item,i)=>{
+      const x=400, y=60+(i*50);
+      const color=item.ok?'#00e676':'#ff4d4d';
+      const bg=item.ok?'rgba(0,230,118,0.12)':'rgba(255,77,77,0.12)';
+      ctx.fillStyle=bg;
+      roundRect(ctx, x, y, 170, 38, 7);
+      ctx.fillStyle=color;
+      ctx.font='bold 13px system-ui';
+      const status=item.ok?`✓ ${item.label} ${item.okText}`:`✗ ${item.label} ${item.failText}`;
+      ctx.fillText(status, x+14, y+24);
+    });
+
+    const link = document.createElement('a');
+    link.download=`보안레이더_${total}점.png`;
+    link.href = c.toDataURL();
+    link.click();
+    c.style.display='none';
+  };
+
+  function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);
+    ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);
+    ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);
+    ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);
+    ctx.arcTo(x,y,x+r,y,r);ctx.closePath();ctx.fill();
+  }
+
+  // 트위터 공유
+  $('shareTwitterBtn').onclick=()=>{
+    const txt=encodeURIComponent(`🛡️ 내 PC 보안 점수: ${total}점/100점 (${grade} ${label1} ${label2})\nWebRTC누출·DNS누출·IP추적 등 무료 보안진단\n#보안레이더 #PC보안`);
+    const url=encodeURIComponent(location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${txt}&url=${url}`,'_blank');
+  };
+
+  // 텍스트 복사
+  $('shareCopyBtn').onclick=()=>{
+    const txt=`🛡️ PC 보안 진단 결과\n등급: ${grade} (${total}점/100점)\n${label1} ${label2}\n\n보안레이더에서 내 PC 점수 확인 → ${location.href}`;
+    navigator.clipboard?.writeText(txt).then(()=>alert('📋 클립보드에 복사됐습니다!'));
+  };
+
+  // 페이스북 공유
+  $('shareFacebookBtn').onclick=()=>{
+    const url=encodeURIComponent(location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`,'_blank');
+  };
+
+  // 링크드인 공유
+  $('shareLinkedinBtn').onclick=()=>{
+    const url=encodeURIComponent(location.href);
+    const txt=encodeURIComponent(`🛡️ 내 PC 보안 점수: ${total}점/100점 (${grade} ${label1} ${label2})`);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${txt}`,'_blank');
+  };
+
+  /* ── 보안 히스토리 ── */
+  const HISTORY_KEY='sr_score_history';
+  function loadHistory(){ try{ return JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]'); }catch{ return []; } }
+  function saveHistory(score, grade){
+    const h=loadHistory();
+    h.push({ score, grade, date:new Date().toLocaleDateString('ko-KR'), ts:Date.now() });
+    if(h.length>10) h.splice(0, h.length-10); // 최근 10개만
+    try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); }catch{}
+  }
+  function renderHistory(){
+    const h=loadHistory();
+    if(h.length<2){ $('historyWrap').style.display='none'; return; }
+    $('historyWrap').style.display='block';
+    $('historyList').innerHTML=h.slice(-6).reverse().map((item,i)=>{
+      const prev=h[h.length-2-i];
+      const diff=prev?item.score-prev.score:0;
+      const color=item.score>=80?'#00e676':item.score>=60?'#40c4ff':item.score>=40?'#ffb300':'#ff4d4d';
+      return`<div class="history-item">
+        <span class="history-date">${item.date}</span>
+        <div class="history-bar"><div class="history-fill" style="width:${item.score}%;background:${color}"></div></div>
+        <span class="history-score" style="color:${color}">${item.score}</span>
+        <span class="history-diff" style="color:${diff>0?'#00e676':diff<0?'#ff4d4d':'var(--muted)'}">
+          ${diff>0?'↑'+diff:diff<0?'↓'+Math.abs(diff):'—'}
+        </span>
+      </div>`;
+    }).join('');
+  }
+  saveHistory(total, grade);
+  renderHistory();
+
+  /* ── VPN Before/After ── */
+  const VPN_KEY='sr_vpn_before';
+  function loadVpnBefore(){ try{ return JSON.parse(localStorage.getItem(VPN_KEY)||'null'); }catch{ return null; } }
+
+  // 현재 결과 표시 (After 컬럼)
+  const vpnAfterColor = total>=80?'#00e676':total>=60?'#40c4ff':total>=40?'#ffb300':'#ff4d4d';
+  $('vpnAfterScore').textContent=total+'점';
+  $('vpnAfterScore').style.color=vpnAfterColor;
+  $('vpnAfterDetail').innerHTML=`IP: ${scanData.ip?.ip||'—'}<br>WebRTC: ${autoScores.webrtc>0?'✓ 안전':'✗ 누출'}<br>속도: ${scanData.speed?.mbps||'—'} Mbps`;
+
+  // VPN 전 데이터 표시
+  const vpnBefore=loadVpnBefore();
+  if(vpnBefore){
+    const bc=vpnBefore.score>=80?'#00e676':vpnBefore.score>=60?'#40c4ff':vpnBefore.score>=40?'#ffb300':'#ff4d4d';
+    $('vpnBeforeScore').textContent=vpnBefore.score+'점';
+    $('vpnBeforeScore').style.color=bc;
+    $('vpnBeforeDetail').innerHTML=`IP: ${vpnBefore.ip||'—'}<br>WebRTC: ${vpnBefore.webrtc?'✓ 안전':'✗ 누출'}<br>속도: ${vpnBefore.mbps||'—'} Mbps`;
+    $('vpnSaveBtn').textContent='💾 현재 결과로 "VPN 전" 데이터 업데이트';
+
+    // 점수 차이 계산
+    const diff=total-vpnBefore.score;
+    if(diff!==0){
+      const diffEl=document.createElement('div');
+      diffEl.style.cssText='text-align:center;margin-top:10px;font-size:.82rem;font-weight:700;';
+      diffEl.style.color=diff>0?'#00e676':'#ff4d4d';
+      diffEl.textContent=diff>0?`▲ ${diff}점 향상 — VPN 효과 확인됨 ✅`:`▼ ${Math.abs(diff)}점 하락 — VPN 속도 영향 확인`;
+      $('vpnCompareGrid').after(diffEl);
+    }
+  }
+
+  // VPN 전 저장 버튼
+  $('vpnSaveBtn').onclick=()=>{
+    try{
+      localStorage.setItem(VPN_KEY, JSON.stringify({
+        score:total, grade, ip:scanData.ip?.ip,
+        webrtc:autoScores.webrtc>0, mbps:scanData.speed?.mbps, date:new Date().toLocaleDateString('ko-KR')
+      }));
+      $('vpnSaveBtn').textContent='✓ 저장됐습니다! VPN 연결 후 다시 진단하세요';
+      $('vpnSaveBtn').style.background='rgba(0,230,118,0.12)';
+      $('vpnSaveBtn').style.borderColor='rgba(0,230,118,0.3)';
+      $('vpnSaveBtn').style.color='var(--green)';
+    }catch{}
+  };
+  $('retryBtn').onclick=()=>{
+    [$('scanning'),$('diag-results'),$('score-section')].forEach(s=>s.style.display='none');
+    $('landing').style.display='block';
+    scanData={};autoScores={};manualScores={};
+    $('logBox').innerHTML='';
+    setTimeout(()=>{
+      $('landing').scrollIntoView({behavior:'smooth', block:'center'});
+    }, 50);
+  };
+
+  // ── 챌린지 박스 활성화 ──
+  openChallengeBox(total, grade);
+
+  // ── 점수별 빠른 해결 버튼 생성 ──
+}
+
+$('startBtn').onclick=()=>runScan().catch(e=>addLog(`<span class="err">오류: ${e.message}</span>`));
+</script>
+</body>
+</html>
