@@ -3626,8 +3626,8 @@ function calcScore(){
   let grade,color,label1,label2;
   if(total>=95){grade='A+';color='#00e676';label1='이미 요새화.';label2='이 상태를 유지하는 도구들.';}
   else if(total>=80){grade='A';color='#00e676';label1='거의 완성.';label2='하나만 추가하면 해커가 포기하는 집.';}
-  else if(total>=60){grade='B';color='#40c4ff';label1='잠금장치는 있다.';label2='뒷문이 열린 걸 해커는 이미 안다.';}
-  else if(total>=40){grade='C';color='#ffb300';label1='평범한 PC.';label2='그러나 해커 리스트에 올라가 있다.';}
+  else if(total>=60){grade='B';color='#40c4ff';label1='잠금장치는 있다.';label2='그러나 뒷문이 열린 걸 해커는 이미 안다.';}
+  else if(total>=40){grade='C';color='#ffb300';label1='평범한 PC.';label2='그러나 해커의 표적이 될 수 있다.';}
   else if(total>=20){grade='D';color='#ff7043';label1='누구나 들어갈 수 있는 집.';label2='지금 누군가 들어와 있을 지도.';}
   else{grade='F';color='#ff4d4d';label1='가장 쉬운 타겟.';label2='지금 이 순간도.';}
 
@@ -3659,7 +3659,7 @@ function calcScore(){
     link:'#', linkText:'NordVPN 고속 서버로 전환', color:'#00b4d8'
   });
   if(autoScores.webrtc===0) recos.push({
-    text:'WebRTC IP 누출 감지 — VPN을 켜도 브라우저가 실제 IP를 직접 노출하고 있습니다. 지금 이 순간 해커·광고주가 내 위치를 볼 수 있는 상태입니다.',
+    text:'WebRTC IP 누출 감지 — VPN을 켜도 브라우저가 실제 IP를 직접 노출하고 있습니다. 지금 이 순간 해커·광고주가 내 위치를 볼 수 있는 상태.',
     link:'#', linkText:'NordVPN으로 즉시 차단하기', color:'#00b4d8'
   });
   if(autoScores.os===0) recos.push({
@@ -3699,7 +3699,7 @@ function calcScore(){
     link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
   });
   if(scanData.securityKey?.conditional) recos.push({
-    text:'Passkey 활성 — 일반 피싱은 차단되지만 금융·암호화폐·업무 계정은 클라우드 침해 시 위험합니다. YubiKey는 오프라인 물리 보안으로 완전히 다른 수준의 보호를 제공합니다.',
+    text:'Passkey 활성 — 일반 피싱은 차단되지만 금융·암호화폐·업무 계정은 클라우드 침해 시 위험. YubiKey는 오프라인 물리 보안으로 완전히 다른 수준의 보호를 제공합니다.',
     link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
   });
   if(!manualScores['antivirus']) recos.push({
