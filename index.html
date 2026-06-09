@@ -3681,7 +3681,7 @@ function calcScore(){
     link:'#', linkText:'NordVPN 고속 서버로 전환', color:'#00b4d8'
   });
   if(autoScores.webrtc===0) recos.push({
-    text:'WebRTC IP 누출 감지 — VPN을 켜도 브라우저가 실제 IP를 직접 노출하고 있습니다. 지금 이 순간 해커·광고주가 내 위치를 볼 수 있는 상태.',
+    text:'WebRTC IP 누출 감지 — WebRTC는 영상통화 등에 쓰이는 브라우저 기능, VPN과 무관하게 직접 IP를 주고받습니다. 차단하지 않으면 이를 활용하는 사이트에서 실제 IP 노출 가능.',
     link:'#', linkText:'NordVPN으로 즉시 차단하기', color:'#00b4d8'
   });
   if(autoScores.os===0) recos.push({
@@ -3689,59 +3689,59 @@ function calcScore(){
     link:null, linkText:null
   });
   if(autoScores.dns===0) recos.push({
-    text:'DNS 누출 감지 — VPN을 써도 방문하는 모든 사이트 주소가 통신사 서버에 그대로 기록되고 있습니다. 검색 기록이 완전히 노출된 상태입니다.',
+    text:'DNS는 사이트 주소를 IP로 변환하는 기능. VPN을 켜도 이 요청이 통신사 서버로 새어나가면, 어떤 도메인에 접속했는지 노출. 검색어나 페이지 내용은 아니지만, 방문 패턴만으로도 충분히 민감한 정보.',
     link:'#', linkText:'NordVPN DNS 보호 적용하기', color:'#00b4d8'
   });
   if(scanData.fp&&scanData.fp.pct>75) recos.push({
-    text:'브라우저 핑거프린팅 고위험 — 광고주가 당신을 추적할 수 있습니다.',
+    text:'브라우저 핑거프린팅 — 쿠키나 IP 없이도 기기 고유의 특성을 조합해 사용자를 식별하는 기술, 쿠키를 삭제, VPN을 켜도 추적이 유지될 수 있어, 일반적인 프라이버시 보호 수단이 통하지 않는 경우가 많다.',
     link:'#', linkText:'NordVPN으로 추적 차단하기', color:'#00b4d8'
   });
   if(scanData.cv&&scanData.cv.canvas.exposed&&!scanData.cv.canvas.blocked) recos.push({
-    text:'Canvas 핑거프린팅 노출 — 고유 기기 값으로 브라우저가 식별되고 있습니다.',
+    text:'Canvas 핑거프린팅 감지 — 기기 고유 값으로 브라우저가 식별될 수 있습니다.',
     link:'#', linkText:'Bitdefender로 브라우저 보호하기', color:'#00e676'
   });
   if(scanData.ports&&scanData.ports.length>0) recos.push({
-    text:`위험 포트 열림 감지 (${scanData.ports.map(p=>p.port+'/'+p.name).join(', ')}) — 악성코드가 이미 침투했을 수 있습니다.`,
+    text:`위험 포트 열림 감지 (${scanData.ports.map(p=>p.port+'/'+p.name).join(', ')}) — 외부에서 접근 가능한 포트가 확인. 불필요한 포트는 보안 위협의 진입점이 될 수 있습니다.`,
     link:'#', linkText:'Malwarebytes 무료 검사 시작', color:'#ff4d4d'
   });
   if(scanData.ipv6&&scanData.ipv6.filter(ip=>!/^fe80|^::1|^fd/.test(ip)).length>0) recos.push({
-    text:'IPv6 주소 노출 — VPN을 사용해도 IPv6 경로로 실제 위치가 유출될 수 있습니다.',
+    text:'IPv6 주소 노출 — VPN을 사용해도 IPv6 경로로 실제 IP가 유출될 수 있습니다.',
     link:'#', linkText:'NordVPN IPv6 누출 차단하기', color:'#00b4d8'
   });
   if(scanData.bsec&&!scanData.bsec.dnt&&!scanData.bsec.trackingProtection) recos.push({
-    text:'브라우저 추적 방지가 꺼져 있습니다 — 광고·추적 스크립트에 완전히 노출된 상태입니다.',
+    text:'브라우저 추적 방지가 꺼져 있습니다 — 방문한 사이트의 추적 스크립트가 차단 없이 실행될 수 있습니다.',
     link:'#', linkText:'Malwarebytes로 추적 스크립트 차단', color:'#ff4d4d'
   });
   if(!scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
-    text:'하드웨어 보안 키 미감지 — YubiKey를 사용하면 피싱 공격을 100% 차단하고 비밀번호 없이 로그인할 수 있습니다.',
+    text:'하드웨어 보안 키 미감지 — YubiKey를 사용하면 계정 탈취형 피싱 공격을 강력하게 차단할 수 있습니다.',
     link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
   });
   if(scanData.securityKey?.platform && !scanData.securityKey?.conditional) recos.push({
-    text:'Touch ID / Face ID 감지됨 — 생체인식보다 한 단계 강한 보안이 필요하다면 YubiKey를 추가하세요.',
+    text:'Touch ID / Face ID 감지됨 — 피싱·원격 공격까지 차단하려면 YubiKey를 추가해 보안을 강화하세요.',
     link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
   });
   if(scanData.securityKey?.conditional) recos.push({
-    text:'Passkey 활성 — 일반 피싱은 차단되지만 금융·암호화폐·업무 계정은 클라우드 침해 시 위험. YubiKey는 오프라인 물리 보안으로 완전히 다른 수준의 보호를 제공합니다.',
+    text:'Passkey 활성 — 일반 피싱은 차단, Passkey가 클라우드에 저장된 경우 계정 동기화 침해 시 위험에 노출 가능성. YubiKey는 물리 기기에만 키가 저장되어 원격 탈취가 불가능합니다.',
     link:'#', linkText:'Amazon에서 YubiKey 보기', color:'#ffa500'
   });
   if(!manualScores['antivirus']) recos.push({
-    text:'백신이 없거나 비활성화 상태입니다 — 랜섬웨어 공격에 무방비 상태입니다.',
+    text:'백신이 없거나 비활성화 상태입니다 — 랜섬웨어·악성코드 감염 위험이 높아집니다. 실시간 보호가 꺼져 있으면 위협 탐지가 지연될 수 있습니다.',
     link:'#', linkText:'Bitdefender 무료로 시작하기', color:'#00e676'
   });
   if(!manualScores['win_update']) recos.push({
-    text:'OS 업데이트가 필요합니다 — 취약점의 70%는 업데이트만으로 차단됩니다.',
+    text:'OS 업데이트가 필요합니다 — 대부분의 보안 패치는 이미 알려진 취약점을 차단. 업데이트가 늦어질수록 공격에 노출되는 시간이 길어집니다.',
     link:'#', linkText:'CCleaner로 PC 정리 후 업데이트', color:'#ffa500'
   });
   if(!manualScores['browser_up']) recos.push({
-    text:'브라우저 캐시·쿠키에 개인정보 흔적이 남아있습니다 — 추적에 악용될 수 있습니다.',
+    text:'브라우저 캐시·쿠키에 개인정보 흔적이 남아있음 — 로그인 상태, 방문 기록, 개인 설정 등이 저장되어 있어 사이트 추적이나 같은 기기 사용자에게 노출될 수 있습니다.',
     link:'#', linkText:'CCleaner로 흔적 완전 삭제', color:'#ffa500'
   });
   if(!manualScores['wpa2']) recos.push({
-    text:'Wi-Fi 암호화가 취약합니다 — WEP는 30초 안에 크래킹됩니다.',
+    text:'Wi-Fi 암호화가 취약합니다 — WEP는 전문 도구로 수분 내 크래킹이 가능한 구식 방식. WPA3 또는 WPA2로 즉시 변경하는 것을 권장합니다.',
     link:'#', linkText:'공공 Wi-Fi 보호 — NordVPN 시작하기', color:'#00b4d8'
   });
   if(!manualScores['twofa']) recos.push({
-    text:'2단계 인증 미설정 — 계정 탈취 공격의 99%를 차단할 수 있습니다.',
+    text:'2단계 인증 미설정 — 비밀번호가 유출되어도 2단계 인증이 있으면 대부분의 계정 탈취 시도를 차단할 수 있습니다.',
     link:null, linkText:null
   });
   if(!manualScores['clean_apps']) recos.push({
@@ -3749,11 +3749,11 @@ function calcScore(){
     link:'#', linkText:'Revo Uninstaller로 완전 삭제', color:'cornflowerblue'
   });
   if(!manualScores['antivirus']||autoScores.webrtc===0||autoScores.dns===0) recos.push({
-    text:'악성코드가 이미 설치되어 있을 수 있습니다 — 지금 바로 무료 검사를 해보세요.',
+    text:'정기적인 악성코드 검사를 권장합니다 — 지금 바로 무료 검사를 해보세요.',
     link:'#', linkText:'Malwarebytes 무료 검사 시작', color:'#ff4d4d'
   });
   if(recos.length===0) recos.push({
-    text:'현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다! 🎉',
+    text:'현재 확인된 취약점이 없습니다. 정기적인 점검을 권장합니다. 수고하셨습니다!',
     link:null, linkText:null
   });
 
