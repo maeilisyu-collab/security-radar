@@ -3425,7 +3425,7 @@ async function runScan(){
         background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.3);
         border-radius:8px;color:var(--amber);font-size:.78rem;font-weight:700;
         cursor:pointer;font-family:var(--sans);text-align:left;">
-        ⚡ 핑거프린팅 차단 방법 ▼
+        ⚡ 웹 추적(핑거프린팅+IP) 차단 3단계▼
       </button>
       <div id="fpGuide" style="display:none;margin-top:8px;
         background:var(--bg3);border:1px solid var(--border);
@@ -3436,19 +3436,19 @@ async function runScan(){
             <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
               padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">1</span>
             <span><b style="color:var(--text);">Firefox + 엄격 모드</b><br>
-            설정 → 개인정보 → 향상된 추적 방지 → <b style="color:var(--text);">엄격</b></span>
+            설정 → 개인정보 → 향상된 추적 방지 → '엄격' (브라우저 지문 수집 방어) → <b style="color:var(--text);">엄격</b></span>
           </div>
           <div style="display:flex;gap:10px;">
             <span style="background:var(--blue);color:#000;font-weight:800;font-size:.76rem;
               padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">2</span>
             <span><b style="color:var(--text);">uBlock Origin 설치</b><br>
-            무료 광고·추적 차단 확장 프로그램</span>
+            가볍고 강력한 무료 광고·숨겨진 추적 스크립트 차단기</span>
           </div>
           <div style="display:flex;gap:10px;">
             <span style="background:var(--green);color:#000;font-weight:800;font-size:.76rem;
               padding:1px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;">3</span>
             <span><b style="color:var(--green);">VPN 사용</b><br>
-            IP + 핑거프린트를 동시에 숨깁니다</span>
+            내 진짜 IP 주소와 위치 정보를 숨겨 익명성 극대화 (1, 2번과 시너지)</span>
           </div>
         </div>
         <a href="#" onclick="(function(){ const el=document.getElementById('affNordVPN'); const y=el.getBoundingClientRect().top+window.scrollY-50; window.scrollTo({top:y,behavior:'smooth'}); })();return false;"
