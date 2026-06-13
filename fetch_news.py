@@ -288,6 +288,19 @@ def main():
     print(f"   실행 시각: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"   AI 요약: {'✓ 활성 (Claude Haiku)' if api_key else '✗ 비활성 (ANTHROPIC_API_KEY 없음)'}\n")
 
+    # ── 기존 데이터 로드 (AI 요약 재사용 + 기사 합치기용) ──
+    existing_articles = []
+    if os.path.exists("news_data.json"):
+        try:
+            with open("news_data.json", "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                existing_articles = old_data.get("articles", [])
+            print(f"   기존 기사: {len(existing_articles)}건 로드됨")
+        except Exception as e:
+            print(f"   기존 데이터 로드 실패: {e}")
+
+    existing_map = {a["id"]: a for a in existing_articles}
+
     all_articles = []
     for src in sorted(RSS_SOURCES, key=lambda x: x["priority"]):
         articles = fetch_source(src)
@@ -295,19 +308,29 @@ def main():
         time.sleep(1)
 
     unique = deduplicate(all_articles)
-    unique.sort(key=lambda x: x["pubDate"], reverse=True)
+
+    # ── 기존 AI 요약 재사용 (이미 있는 기사는 API 호출 안 함) ──
+    for a in unique:
+        if not a.get("ai_summary") and a["id"] in existing_map:
+            a["ai_summary"] = existing_map[a["id"]].get("ai_summary")
+
+    # ── 새 기사 + 기존 기사 합치기 (기사가 같아도 updated 시간 갱신됨) ──
+    new_ids = {a["id"] for a in unique}
+    combined = unique + [a for a in existing_articles if a["id"] not in new_ids]
+    combined.sort(key=lambda x: x["pubDate"], reverse=True)
+    final_articles = combined[:30]
 
     output = {
-        "updated":  datetime.now(timezone.utc).isoformat(),
-        "count":    len(unique[:30]),
+        "updated":  datetime.now(timezone.utc).isoformat(),  # 항상 현재 시간
+        "count":    len(final_articles),
         "lang":     "ko",
-        "articles": unique[:30],
+        "articles": final_articles,
     }
 
     with open("news_data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    ai_count = sum(1 for a in unique[:30] if a.get("ai_summary"))
+    ai_count = sum(1 for a in final_articles if a.get("ai_summary"))
     print(f"\n══ 완료 ══")
     print(f"   총 수집: {len(all_articles)}건 → 중복 제거 후 {len(unique)}건")
     print(f"   AI 요약 생성: {ai_count}건")
