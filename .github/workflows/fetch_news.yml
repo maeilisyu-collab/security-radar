@@ -1,10 +1,10 @@
 name: 보안 뉴스 자동 수집
 # © 2026 SecurityRadar (securityradar.io). All rights reserved.
-# Unauthorized copying or distribution is prohibited.
 on:
   schedule:
     - cron: '0 1 * * *'   # 매일 한국시간 오전 10시 (UTC 01:00)
-  workflow_dispatch:        # 수동 실행 가능
+  workflow_dispatch:
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -22,5 +22,5 @@ jobs:
           git config user.name "news-bot"
           git config user.email "bot@example.com"
           git add news_data.json
-          git diff --staged --quiet || git commit -m "뉴스 업데이트 $(date '+%Y-%m-%d %H:%M')"
+          git diff --staged --quiet && git commit --allow-empty -m "뉴스 확인 $(date '+%Y-%m-%d %H:%M')" || git commit -m "뉴스 업데이트 $(date '+%Y-%m-%d %H:%M')"
           git push
