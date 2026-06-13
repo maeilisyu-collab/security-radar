@@ -2325,7 +2325,7 @@ async function fetchNews(){
 
   // ── 1순위: GitHub Actions가 매일 생성하는 news_data.json ──
   try{
-    const r = await fetch('https://raw.githubusercontent.com/maeilisyu-collab/security-radar/main/news_data.json?_='+Date.now(), ...);
+    const r = await fetch('./news_data.json?_='+Date.now(), {signal:AbortSignal.timeout(8000)});
     if(r.ok){
       const d = await r.json();
       if(d.articles && d.articles.length > 0){
