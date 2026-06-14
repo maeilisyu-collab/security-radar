@@ -1,8 +1,824 @@
 {
-  "updated": "2026-06-13T10:48:41.001967+00:00",
+  "updated": "2026-06-14T05:32:22.183657+00:00",
   "count": 30,
   "lang": "ko",
   "articles": [
+    {
+      "id": "e29188770d63",
+      "title": "마이크로소프트, 200개 취약점 긴급 수정… 공개된 제로데이 5건·실제 공격 악용 1건 포함",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207134",
+      "summary": "마이크로소프트가 6월 정기 보안 업데이트를 통해 총 200개의 보안 취약점을 수정했다. 이번 업데이트에는 공개적으로 알려진 제로데이 취약점 5건과 실제 공격에 악용된 제로데이 취약점 1건이 포함됐다.수정된 취약점 가운데 원격 코드 실행(RCE) 취약점은 55건으로 가장 큰 비중을 차지했다. 권한 상승 취약점은 65건, 정보 유출 취약점은 30건, 스푸핑 취약점은 27건, 보안 기능 우회 취약점은 19건, 서비스 거부 취약점은 7건으로 집계됐다.이번 패치는 윈도우 운영체제뿐 아니라 비트로커, HTTP.sys, 익스체인지 서버 등 기업",
+      "pubDate": "2026-06-14T05:27:55.006733+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "취약점",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "마이크로소프트 200개 취약점 긴급 수정",
+          "제로데이 6건 포함, 실제 공격 악용 확인"
+        ],
+        "analysis": [
+          {
+            "title": "취약점 규모",
+            "desc": "6월 정기 업데이트로 200개 취약점 수정. RCE 55건, 권한 상승 65건 등 심각도 높음."
+          },
+          {
+            "title": "제로데이 위협",
+            "desc": "공개 제로데이 5건, 실제 악용 제로데이 1건 포함. 이미 공격 중인 취약점 존재."
+          },
+          {
+            "title": "영향 범위",
+            "desc": "윈도우, 비트로커, HTTP.sys, 익스체인지 등 광범위한 제품 영향."
+          }
+        ],
+        "suggested_title": "마이크로소프트 긴급 패치, 제로데이 악용 공격 진행 중",
+        "bottom_line": "지금 당신 윈도우가 공격받고 있을 수도 있다. 패치는 선택이 아닌 필수다.",
+        "action_today": "윈도우 설정 → 시스템 → 정보 → 업데이트 확인 → 지금 설치"
+      }
+    },
+    {
+      "id": "f615f28292de",
+      "title": "스패로우, SAI 2026 성료…AI 시대 SBOM 기반 SW 공급망 보안 전략 제시",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207135",
+      "summary": "스패로우가 AI 개발 환경 확산에 따른 소프트웨어 공급망 보안 전략을 제시했다.애플리케이션 보안 전문기업 스패로우는 11일 서울 용산 나인트리 프리미어 로카우스 호텔에서 연례 고객 초청 행사 ‘SAI 2026’을 개최했다고 밝혔다.SAI는 기존 연례 행사인 ‘PUC’의 새 이름이다. 스패로우는 애플리케이션 보안 전반에 대한 인사이트를 제공한다는 취지로 올해부터 행사명을 변경했다. 올해 행사는 ‘AI 혁신으로 완성하는 SW 공급망 보안’을 주제로 열렸으며, 국내 주요 기업과 기관의 IT·보안 리더, 실무자들이 참석했다.이날 행사에서는",
+      "pubDate": "2026-06-14T05:27:49.532197+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "AI 시대 SBOM 기반 공급망 보안",
+          "스패로우 SAI 2026 연례 행사 개최"
+        ],
+        "analysis": [
+          {
+            "title": "행사 개요",
+            "desc": "스패로우가 서울에서 SAI 2026 고객 초청 행사 개최. 기존 PUC에서 이름 변경."
+          },
+          {
+            "title": "핵심 주제",
+            "desc": "AI 혁신으로 완성하는 SW 공급망 보안 전략 제시. SBOM 기반 접근 강조."
+          },
+          {
+            "title": "참석 대상",
+            "desc": "국내 주요 기업·기관의 IT·보안 리더 및 실무자. 산업별 의사결정층 참여."
+          }
+        ],
+        "suggested_title": "SBOM 기반 SW 공급망 보안, AI 시대 전략",
+        "bottom_line": "당신 회사 소프트웨어도 공급망 공격 경로가 되고 있을 수 있다.",
+        "action_today": "조직 내 SBOM 현황 파악 → IT담당자 연락 → 도입 일정 확인 (5분)"
+      }
+    },
+    {
+      "id": "862eb683c0c6",
+      "title": "스콥정보통신, 인터롭 도쿄 2026 참가…IPScan NAC 앞세워 일본 NAC 시장 공략 확대",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207136",
+      "summary": "네트워크 보안 전문기업 스콥정보통신⁠은 일본 최대 ICT 전시회인 인터롭 도쿄(Interop Tokyo) 2026에 참가해 자사의 네트워크 접근제어(NAC) 솔루션인 IPScan NAC를 선보이며 일본 시장 공략에 나섰다고 12일 밝혔다.이번 전시회는 일본 지바현에 위치한 마쿠하리 메세에서 6월 10일부터 12일까지 개최됐다. 인터롭 도쿄는 1994년부터 이어져 온 일본 대표 ICT 전시회로, 매년 전 세계 주요 네트워크·보안·클라우드 기업들이 참가해 최신 기술과 시장 동향을 공유하는 행사다.제로 트러스트 시대 핵심 기술 ‘IPSc",
+      "pubDate": "2026-06-14T05:27:43.225182+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "NAC 솔루션 일본 시장 진출",
+          "제로 트러스트 보안 기술 확대"
+        ],
+        "analysis": [
+          {
+            "title": "시장 공략",
+            "desc": "스콥정보통신이 IPScan NAC를 내세워 일본 최대 ICT 전시회 인터롭 도쿄 2026에 참가해 아시아 진출 본격화"
+          },
+          {
+            "title": "기술 트렌드",
+            "desc": "제로 트러스트 시대 핵심 NAC 기술로 네트워크 접근제어 중요성 대두. 국경 없는 보안 수요 증가"
+          },
+          {
+            "title": "업계 영향",
+            "desc": "국내 보안 솔루션 업체의 해외 진출 가속화. 일본 NAC 시장 경쟁 심화 예상"
+          }
+        ],
+        "suggested_title": "NAC 솔루션 주도권, 스콥정보통신 일본 시장 공략 시작",
+        "bottom_line": "당신 회사 네트워크도 제로 트러스트 모드로 전환 압박이 시작됐다는 신호다.",
+        "action_today": "회사 보안팀에 NAC 솔루션 검토 현황 확인 메일 발송 (5분)"
+      }
+    },
+    {
+      "id": "8df4a445e5d9",
+      "title": "해커조직 샤이니헌터스, 오라클 제로데이로 대학·기업 해킹",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207137",
+      "summary": "해킹 조직 샤이니헌터스(ShinyHunters)가 오라클 피플소프트의 제로데이 취약점을 악용해 대학과 기업 시스템에 침투한 것으로 확인됐다.구글 맨디언트에 따르면 공격은 지난 5월 27일부터 6월 9일까지 진행됐다. 오라클이 관련 보안 권고를 발표한 것은 6월 10일로, 공격자들은 패치가 나오기 전 취약점을 먼저 악용했다.문제가 된 취약점은 CVE-2026-35273이다. 인증 없이 원격에서 서버를 장악할 수 있는 원격 코드 실행(RCE) 취약점으로 위험도는 최고 수준인 9.8점이다. 공격 대상은 인터넷에 노출된 피플소프트 환경관리",
+      "pubDate": "2026-06-14T05:27:37.320145+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "오라클 제로데이 악용한 대규모 침투",
+          "패치 전 선제 공격으로 9.8점 위험도"
+        ],
+        "analysis": [
+          {
+            "title": "공격 집단",
+            "desc": "해킹 조직 샤이니헌터스가 오라클 피플소프트 제로데이 취약점을 악용해 대학·기업 시스템 침투"
+          },
+          {
+            "title": "공격 시점",
+            "desc": "5월 27일~6월 9일 공격 진행. 오라클 보안 권고는 6월 10일 발표로 사흘 늦음"
+          },
+          {
+            "title": "취약점 심각성",
+            "desc": "CVE-2026-35273, 인증 없이 원격 코드 실행 가능. CVSS 9.8 최고 위험도"
+          }
+        ],
+        "suggested_title": "제로데이 악용한 샤이니헌터스, 오라클 대학·기업 해킹",
+        "bottom_line": "당신의 회사 피플소프트가 이미 뚫렸을 가능성이 있다.",
+        "action_today": "오라클 피플소프트 설치 확인 → CVE-2026-35273 패치 설치 여부 점검 (5분)"
+      }
+    },
+    {
+      "id": "d362026ad69f",
+      "title": "더 젠틀맨 랜섬웨어, 478곳 해킹 주장…웜처럼 확산되는 RaaS 위협 심각",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207138",
+      "summary": "러시아어권 랜섬웨어 조직 더 젠틀맨(The Gentlemen)이 2026년 들어 가장 빠르게 성장한 랜섬웨어 서비스형 범죄 생태계(RaaS) 중 하나로 지목됐다. 6월 11일 공개된 보안 분석 자료에 따르면, 이 조직은 2025년 3월부터 활동한 것으로 파악됐으며, 랜섬웨어 피해자 공개 현황을 집계하는 랜섬웨어라이브 기준 현재까지 478곳이 공격을 받은 것으로 알려졌다. 더 젠틀맨은 단순히 파일을 암호화하는 랜섬웨어 조직에 그치지 않았다. 피해 기업의 데이터를 먼저 빼낸 뒤 암호화를 진행하고, 협상이 지연되면 유출을 압박하는 이중",
+      "pubDate": "2026-06-14T05:27:32.316395+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "랜섬웨어",
+      "level": "danger",
+      "ai_summary": {
+        "keypoints": [
+          "더 젠틀맨 478곳 피해",
+          "이중 협박형 랜섬웨어 확산"
+        ],
+        "analysis": [
+          {
+            "title": "빠른 성장",
+            "desc": "2025년 3월 활동 시작 후 최고 속도 성장 중인 RaaS 조직"
+          },
+          {
+            "title": "이중 협박",
+            "desc": "데이터 탈취 후 암호화, 협상 거부 시 유출 압박"
+          },
+          {
+            "title": "웜 특성",
+            "desc": "웜처럼 빠르게 전파되는 서비스형 범죄 생태계"
+          }
+        ],
+        "suggested_title": "랜섬웨어 더 젠틀맨, 478개 기업 해킹",
+        "bottom_line": "당신 회사 백업이 암호화되기 전에 해커가 이미 파일을 복사했을 수 있다.",
+        "action_today": "Windows 설정 → 시스템 → 백업 → 자동 백업 ON"
+      }
+    },
+    {
+      "id": "1176d96ea91c",
+      "title": "가트너, 올해 글로벌 데이터센터 전력 소비 26% 증가할 것",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207139",
+      "summary": "가트너는 2026년 전 세계 데이터센터 전력 소비량이 지난해 447테라와트시(TWh)에서 올해 565TWh로 26% 증가한다고 밝혔다. 연산 집약적인 AI 워크로드 수요가 급증하면서 데이터센터 전력 확보가 글로벌 AI 시장의 규모 확장과 수익성을 결정짓는 요소로 부상했기 때문이다.데이터센터 전력 수요는 2025년 104기가와트(GW)에서 올해 132GW로 27% 늘어난 뒤, 2030년에는 290GW까지 확대될 것으로 예상된다. 생성형 AI의 확산이 데이터센터 인프라와 전력 운영 전반에 장기적인 부담을 주는 요인으로 작용하고 있다.특",
+      "pubDate": "2026-06-14T05:27:26.796072+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "AI 수요로 데이터센터 전력 26% 급증",
+          "2030년 전력 수요 290GW까지 확대 예상"
+        ],
+        "analysis": [
+          {
+            "title": "전력 소비 급증",
+            "desc": "올해 글로벌 데이터센터 전력 소비가 447TWh에서 565TWh로 26% 증가. AI 워크로드 확산이 주원인."
+          },
+          {
+            "title": "수요 예측",
+            "desc": "데이터센터 전력 수요는 2025년 104GW에서 2030년 290GW까지 3배 가까이 확대될 전망."
+          },
+          {
+            "title": "산업 영향",
+            "desc": "전력 확보가 글로벌 AI 시장 규모 확장과 수익성을 결정하는 핵심 요소로 부상 중."
+          }
+        ],
+        "suggested_title": "AI 열풍, 데이터센터 전력 부족 시대 온다",
+        "bottom_line": "AI 붐이 전력 인프라를 압박하면서 에너지 가격이 곧 IT 경쟁력을 좌우할 것이다.",
+        "action_today": "클라우드 서비스 제공업체의 재생에너지 정책 확인하기 (5분)"
+      }
+    },
+    {
+      "id": "4ef2890cc177",
+      "title": "미소정보기술, 연세대 미래캠퍼스와 AI 혁신 인재 양성 위해 협력",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207140",
+      "summary": "미소정보기술이 연세대학교 미래캠퍼스 AI부트캠프사업단과 손잡고 첨단산업 분야의 인재 양성을 위한 산학협력에 나선다.양 기관은 산업 현장에서 즉시 활용할 수 있는 실무형 AI 인재를 육성하기 위해 교육과정을 공동 개발하고 현장 중심의 실습 교육을 추진하기로 했다.최근 생성형 AI와 데이터 기반 기술이 전 산업으로 확산되면서 현장의 문제를 직접 해결할 수 있는 실무 역량을 갖춘 인재 확보가 기업들의 주요 과제로 떠올랐다. 연세대 미래캠퍼스 AI부트캠프사업단은 이 같은 수요에 맞춰 지역 산업 맞춤형 AI 전문인력 양성을 목표로 운영된다.",
+      "pubDate": "2026-06-14T05:27:20.849101+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "미소정보기술-연세대 AI 인재 양성 협력",
+          "실무형 생성형 AI 전문가 육성 가속화"
+        ],
+        "analysis": [
+          {
+            "title": "산학협력 추진",
+            "desc": "미소정보기술과 연세대 미래캠퍼스가 AI 부트캠프 운영으로 현장 중심 교육과정 개발 중"
+          },
+          {
+            "title": "산업 수요 반영",
+            "desc": "생성형 AI 확산으로 실무 역량 있는 개발자 부족 심화, 기업들의 시급한 과제로 대두"
+          },
+          {
+            "title": "지역 맞춤 전략",
+            "desc": "지역 산업 특성에 맞춘 AI 전문인력 양성으로 고용 미스매치 해소 목표"
+          }
+        ],
+        "suggested_title": "AI 인재 부족, 산학협력으로 돌파",
+        "bottom_line": "생성형 AI 시대, 제대로 된 개발자 찾기가 기업의 생존 문제가 되었다.",
+        "action_today": "커리어 플랫폼 → AI 부트캠프 → 채용공고 확인 (5분)"
+      }
+    },
+    {
+      "id": "c6d4350f8d36",
+      "title": "한국소프트웨어저작권협회-한국소프트웨어감정평가학회, 소프트웨어포렌식센터 공동 출범",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207141",
+      "summary": "한국소프트웨어저작권협회와 한국소프트웨어감정평가학회는 12일 소프트웨어포렌식센터를 개소하고 포렌식·감정 서비스를 본격 개시했다. 초대 공동 센터장으로는 협회 이동규 대외협력실장과 학회 감정평가위원회 위원장을 맡고 있는 김시열 학회장이 선임됐다.소프트웨어 분쟁은 기술적 전문성과 법적 사고가 동시에 요구되는 영역이다. 저작권 침해나 영업비밀 유출 분쟁 시 명확한 사실 확인이 필수적이어서 전문 감정과 포렌식 수요가 지속적으로 증가해 왔다. 이에 양 기관은 올해 1월 업무협약을 체결한 뒤 공동으로 센터 설립을 준비해 왔다.소프트웨어포렌식센터",
+      "pubDate": "2026-06-14T05:27:13.895370+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "소프트웨어 포렌식 센터 개소",
+          "저작권·영업비밀 분쟁 전문 감정 서비스"
+        ],
+        "analysis": [
+          {
+            "title": "센터 출범",
+            "desc": "한국소프트웨어저작권협회와 감정평가학회가 포렌식센터를 개소하고 전문 감정 서비스 시작"
+          },
+          {
+            "title": "분쟁 증가",
+            "desc": "소프트웨어 저작권 침해, 영업비밀 유출 분쟁 증가에 따른 전문 포렌식 수요 증대"
+          },
+          {
+            "title": "협력 체계",
+            "desc": "두 기관이 1월 업무협약 후 공동 센터 설립으로 기술·법적 전문성 결합"
+          }
+        ],
+        "suggested_title": "소프트웨어포렌식센터 개소, 저작권 분쟁 전문 감정 시작",
+        "bottom_line": "당신의 소스코드 유출이 적발되려면 이제 법정까지 갈 필요 없다.",
+        "action_today": "협회 홈페이지 → 포렌식센터 → 감정 신청 절차 확인 (5분)"
+      }
+    },
+    {
+      "id": "4538bd0062d7",
+      "title": "카스퍼스키 \"투명성·AI·OT 보안 앞세워 한국 시장 공략 강화\"",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207142",
+      "summary": "글로벌 사이버보안 기업 카스퍼스키가 6월 12일 서울에서 기자간담회를 열고 2025년 글로벌 실적과 아시아태평양 사업 전략, 한국 시장 공략 방향을 발표했다. 이날 간담회에는 이효은 카스퍼스키코리아 지사장을 비롯해 이나 나자로바 인터내셔널 기업영업 총괄, 아드리안 히아 아시아태평양 총괄 사장, 이고르 쿠즈네초프 글로벌 연구분석팀(GReAT) 디렉터가 참석했다.간담회는 카스퍼스키가 서울에서 개최한 ‘2026 APAC 파트너 컨퍼런스’와 맞물려 진행됐다. 회사는 한국을 아시아태평양 지역의 주요 성장 거점으로 보고 있으며, 기업용 보안,",
+      "pubDate": "2026-06-14T05:27:07.984499+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "카스퍼스키, 한국 시장 공략 강화",
+          "투명성·AI·OT보안 3대 전략"
+        ],
+        "analysis": [
+          {
+            "title": "전략 전환",
+            "desc": "카스퍼스키가 투명성, AI, OT보안을 앞세워 아시아태평양 지역 주요 거점인 한국 시장 공략에 집중"
+          },
+          {
+            "title": "조직 확대",
+            "desc": "국제 영업, 아태 총괄, 글로벌 연구팀 등 핵심 임원진이 참석해 한국 사업 중요성 표시"
+          },
+          {
+            "title": "기업 보안",
+            "desc": "2026 APAC 파트너 컨퍼런스 개최로 기업용 보안 솔루션 강화 신호"
+          }
+        ],
+        "suggested_title": "카스퍼스키, AI·OT보안으로 한국 시장 공략",
+        "bottom_line": "글로벌 보안사 다투어 한국에 진출하는 이유, 당신 회사 데이터가 타겟이기 때문이다.",
+        "action_today": "카스퍼스키 공식 사이트 → 한국 기업용 솔루션 → 무료 보안 진단 신청"
+      }
+    },
+    {
+      "id": "9af1016c5cb0",
+      "title": "김정혁 교수 “금융 인프라, 멀티 에이전트와 오케스트레이션 중심으로 재설계해야”",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207143",
+      "summary": "디지털금융법포럼(윤성승 회장, 아주대 교수)은 6월 12일 서울 여의도 서울국제금융오피스에서 ‘에이전틱 AI 금융생태계 확장과 보안과제’를 주제로 2026년 하계학술대회를 개최했다. 이날 김정혁 서울사이버대 석좌교수는 ‘에이전틱 AI 금융인프라 동향과 전망’을 주제로 강연하며 금융권 AI 활용이 생성형 AI를 넘어 에이전틱 AI 중심으로 빠르게 전환되고 있다고 설명했다.김 교수는 금융 AI의 변화 방향을 오케스트라 지휘자에 비유했다. 앞으로 금융회사에는 고객 상담, 결제, 송금, 자산관리, 신용평가, 규제 대응, 보안 탐지 등을 맡",
+      "pubDate": "2026-06-14T05:27:00.664596+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "에이전틱 AI 중심 금융 인프라 재설계",
+          "멀티 에이전트 오케스트레이션 기술 도입"
+        ],
+        "analysis": [
+          {
+            "title": "AI 기술 전환",
+            "desc": "금융권에서 생성형 AI를 넘어 에이전틱 AI 중심으로 빠르게 전환 중이며, 이는 금융 서비스 전반의 자동화와 고도화를 의미한다."
+          },
+          {
+            "title": "오케스트라 모델",
+            "desc": "금융 AI를 지휘자에 비유하며 고객 상담, 결제, 송금, 자산관리, 신용평가 등 다양한 기능을 통합 조율하는 구조로 변화한다."
+          },
+          {
+            "title": "보안 과제",
+            "desc": "멀티 에이전트 시스템 확대에 따른 규제 대응과 보안 탐지 기능의 강화가 향후 금융 인프라 설계의 핵심 과제로 대두된다."
+          }
+        ],
+        "suggested_title": "에이전틱 AI, 금융 인프라 완전 재설계 시작",
+        "bottom_line": "당신의 계좌 거래를 이제 AI 에이전트들이 나눠서 관리한다는 뜻이다.",
+        "action_today": "금융사 모바일앱 → 설정 → 보안 → AI 기반 이상거래 탐지 ON 확인"
+      }
+    },
+    {
+      "id": "20f432ae7a06",
+      "title": "[디지털금융법포럼 토론회] 김시홍 위원 “AI는 보조수단이어야…인간 개입권과 법적 책임체계 마련 필요”",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207144",
+      "summary": "에이전틱 AI가 금융산업의 새로운 전환점으로 부상하고 있는 가운데, 금융 생태계 활성화를 위해서는 기술 도입만큼 신뢰성, 통제 가능성, 법적 책임체계 마련이 중요하다는 의견이 제기됐다.6월 12일 열린 디지털금융법포럼 세미나에서는 ‘에이전틱 AI 금융생태계 활성화와 주요 이슈’를 주제로 토론회가 진행됐다. 좌장은 류혁선 KAIST 교수가 맡았으며, 박이락 송현경제연구소 본부장과 김시홍 라이크 법률사무소 전문위원이 토론자로 참여했다. 류혁선 교수 “AI가 금융 의사결정과 실행의 일부 주체가 될 가능성”좌장을 맡은 류혁선 교수는 토론에",
+      "pubDate": "2026-06-14T05:26:54.295377+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "금융AI 신뢰성과 통제체계 구축",
+          "인간개입권과 법적책임 명확화"
+        ],
+        "analysis": [
+          {
+            "title": "AI 보조역할 정의",
+            "desc": "에이전틱 AI를 금융의사결정 주체가 아닌 보조수단으로 한정해야 함."
+          },
+          {
+            "title": "규제체계 필요성",
+            "desc": "기술 도입 전에 신뢰성, 통제 가능성, 법적책임체계 선행 필요."
+          },
+          {
+            "title": "생태계 활성화 조건",
+            "desc": "기술혁신과 안전장치의 균형으로 금융산업 신뢰도 제고."
+          }
+        ],
+        "suggested_title": "금융AI, 인간개입권 보장이 먼저다",
+        "bottom_line": "지금 금융사가 도입하는 AI가 당신 자산을 결정하는데 책임자가 없을 수 있다.",
+        "action_today": "내 계좌 자동거래 설정 → 세부내용 확인 → AI개입범위 제한 검토"
+      }
+    },
+    {
+      "id": "af1d1e2b6f94",
+      "title": "쿠팡 개인정보 유출 집단분쟁조정 재개…6월 26일까지 추가 신청 접수",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207145",
+      "summary": "쿠팡 개인정보 유출 사고와 관련해 일시 정지됐던 집단분쟁조정 절차가 재개됐다. 개인정보 분쟁조정위원회는 개인정보를 유출한 쿠팡을 상대로 제기된 집단분쟁조정 신청사건 2건을 하나의 사건으로 병합하고 6월 12일부터 조정절차를 다시 진행한다고 밝혔다.이번에 병합된 사건은 2025년 12월 11일 50명이 신청한 사건과 같은 달 23일 1,626명이 신청한 사건이다. 분쟁조정위는 두 사건이 동일한 개인정보 유출 사안과 관련돼 있는 만큼 단일 건으로 병합해 처리하기로 했다.6월 12일부터 26일까지 추가 참가자 모집분쟁조정위는 조정절차 재",
+      "pubDate": "2026-06-14T05:26:48.004845+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "개인정보",
+      "level": "danger",
+      "ai_summary": {
+        "keypoints": [
+          "쿠팡 개인정보 유출 집단분쟁조정 재개",
+          "6월 26일까지 추가 신청 접수"
+        ],
+        "analysis": [
+          {
+            "title": "사건 병합",
+            "desc": "12월 신청 두 건(50명, 1,626명)을 단일 사건으로 병합해 처리 진행 중"
+          },
+          {
+            "title": "일정 안내",
+            "desc": "6월 12일부터 조정절차 재개, 26일까지 추가 참가자 신청 접수 가능"
+          },
+          {
+            "title": "유출 범위",
+            "desc": "동일한 개인정보 유출 사안으로 1,600명 이상 피해자가 집단분쟁조정 신청"
+          }
+        ],
+        "suggested_title": "개인정보 유출 쿠팡, 집단분쟁조정 6월 재개",
+        "bottom_line": "당신의 쿠팡 가입 정보가 유출됐다면, 6월 26일 전 신청 창구를 놓치지 마라.",
+        "action_today": "개인정보분쟁조정위원회 홈페이지 → 사건번호 검색 → 참가자 신청 (5분)"
+      }
+    },
+    {
+      "id": "632bee6c2d75",
+      "title": "[부고] 엔키화이트햇 전성학 부사장 부친상",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207146",
+      "summary": "엔키화이트햇 전성학 부사장 부친상-온라인 부고: 링크故 전영수(88세)아들: 전성학사위: 김태수 김재영 홍성훈딸: 전은주 전은희 전은선며느리: 조정선손: 전병건 전준형 김동선 김민선 김석현 김정현부인: 조화자빈소: 연세대학교신촌장례식장 8호실입관: 2026년 06월 15일 오후 2시 00분발인:2026년 06월 16일 오전 7시 00분장지: 남양주 에덴 추모공원",
+      "pubDate": "2026-06-14T05:26:42.774742+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "엔키화이트햇 전성학 부사장 부친상",
+          "남양주 에덴추모공원 장지"
+        ],
+        "analysis": [
+          {
+            "title": "고인 정보",
+            "desc": "故 전영수(88세), 엔키화이트햇 전성학 부사장의 부친"
+          },
+          {
+            "title": "장례 일정",
+            "desc": "입관 6월 15일 오후 2시, 발인 6월 16일 오전 7시"
+          },
+          {
+            "title": "빈소 위치",
+            "desc": "연세대학교신촌장례식장 8호실"
+          }
+        ],
+        "suggested_title": "엔키화이트햇 전성학 부사장 부친상",
+        "bottom_line": "보안업계 리더의 갑작스러운 상실이 회사 운영에 미칠 파장이 예상된다.",
+        "action_today": "조화자 부인께 조의를 표하고 필요시 조문 방문 예약"
+      }
+    },
+    {
+      "id": "45ee7d0565f4",
+      "title": "한국, AI·6G 보안 국제표준 개발 착수…ITU-T SG17서 신규 표준화 항목 14건 승인",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207148",
+      "summary": "대한민국이 인공지능(AI), 6G 이동통신, 디지털 신원, 소프트웨어 공급망 보안 등 미래 핵심 보안기술 분야에서 국제표준 개발을 본격화했다.과학기술정보통신부는 6월 1일부터 10일까지 스위스 제네바에서 열린 국제전기통신연합 전기통신표준화 부문 정보보호연구반(ITU-T SG17) 국제회의에서 우리나라가 제안한 신규 표준화 항목 14건이 승인됐다고 밝혔다. 이와 함께 국제표준 7건이 사전채택됐고, 국제표준 6건과 기술보고서 2건도 최종 승인됐다.ITU-T SG17은 정보보호 분야 국제표준을 다루는 핵심 연구반이다. 이번 회의에는 전",
+      "pubDate": "2026-06-14T05:26:37.429984+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "AI·6G 보안 국제표준 14건 승인",
+          "한국, 미래기술 표준화 주도권 확보"
+        ],
+        "analysis": [
+          {
+            "title": "추진 현황",
+            "desc": "ITU-T SG17 회의에서 신규 표준화 14건 승인, 기존 표준 7건 사전채택 및 6건 최종승인"
+          },
+          {
+            "title": "핵심 영역",
+            "desc": "AI, 6G, 디지털 신원, 소프트웨어 공급망 보안 등 미래 보안기술 중점 추진"
+          },
+          {
+            "title": "전략 의미",
+            "desc": "국제표준 개발 주도로 한국 기업의 글로벌 경쟁력 강화 및 기술 영향력 확대"
+          }
+        ],
+        "suggested_title": "AI·6G 보안 표준화, 한국이 주도한다",
+        "bottom_line": "국제표준을 먼저 쓰는 나라가 시장을 먼저 잡는다.",
+        "action_today": "과학기술정보통신부 뉴스 → 'ITU-T SG17' 검색 → 세부 표준 항목 확인"
+      }
+    },
+    {
+      "id": "af04b280cf81",
+      "title": "개인정보위, AI 시대 개인정보 쟁점 다루는 모의재판 경연대회 참가자 사전 모집",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207149",
+      "summary": "개인정보보호위원회가 인공지능 시대의 개인정보 보호와 활용 문제를 다루는 모의재판 경연대회 참가자를 사전 모집한다.개인정보보호위원회는 개인정보 분야의 법률적·기술적 전문성을 갖춘 미래 인재를 발굴하고, 개인정보 보호 현안에 대한 국민적 관심을 높이기 위해 오는 8월 27일 ‘제4회 개인정보 보호 모의재판 경연대회’를 개최한다고 밝혔다.올해 4회째를 맞은 이번 대회는 최근 국내외에서 주요 쟁점으로 떠오른 ‘인공지능 시대의 개인정보 보호와 활용’을 주제로 진행된다. 참가자들은 AI 기술 발전 과정에서 발생할 수 있는 개인정보 처리, 활용",
+      "pubDate": "2026-06-14T05:26:31.972720+00:00",
+      "source": "데일리시큐",
+      "lang": "ko",
+      "category": "개인정보",
+      "level": "danger",
+      "ai_summary": {
+        "keypoints": [
+          "AI 시대 개인정보 보호 모의재판",
+          "미래 법률 전문가 발굴 및 인재 육성"
+        ],
+        "analysis": [
+          {
+            "title": "대회 개요",
+            "desc": "개인정보위가 8월 27일 제4회 모의재판 경연대회 개최. AI 시대 개인정보 보호와 활용을 주제로 진행."
+          },
+          {
+            "title": "주요 쟁점",
+            "desc": "AI 기술 발전 과정에서 발생 가능한 개인정보 처리 및 활용 문제를 다룬다."
+          },
+          {
+            "title": "참가 대상",
+            "desc": "법률·기술 전문성을 갖춘 미래 인재 발굴. 개인정보 보호 현안에 대한 국민적 관심 제고."
+          }
+        ],
+        "suggested_title": "AI 개인정보 보호, 모의재판으로 법적 쟁점 점검",
+        "bottom_line": "당신의 AI 학습 데이터, 법정에서 어떻게 보호받을지 결정된다.",
+        "action_today": "개인정보위 홈페이지 → 공지사항 → 모의재판 경연대회 공고 확인"
+      }
+    },
+    {
+      "id": "cad8e5ce8168",
+      "title": "이찬진 금감원장, 금융권 모의해킹 점검… “CEO가 보안 직접 챙겨야” - 조선비즈 - Chosunbiz",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQWlZpNExScG9idzVyc1IzQVF3WjRfYzBsclpqaV9YZzh3QnM0RkhyVE03dncwMUR6aDNjRGZGZlltZ21MQVFERHlnMnlKWmZ5RWlDdFNRbllaQ2tmOFBhTmkzcVVpQ1hjT3FiaUJGUHFLUjNfRXVQN3FKVXJyTS01bNIBlAFBVV95cUxQQkVlZXBBNVYtcGE0Skkta055OG5adUFvTl8zUDdCakJXcVVTVGc3dUtfUkh6OFNoeHQxOFBKejFCR21SY2dRVzZCVlJuWURiNEM2YmVzbF84YS16RlIyUnBBbFgxdGlMcWNhNDNaa3hmc3lkbWlieEtvWVRYRGtZVUZZYW5GN3pNVHJIMmJEay1NeUdN?oc=5",
+      "summary": "이찬진 금감원장, 금융권 모의해킹 점검… “CEO가 보안 직접 챙겨야” - 조선비즈&nbsp;&nbsp;Chosunbiz",
+      "pubDate": "2026-06-14T05:05:00+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "금융권 CEO 직접 보안 관리",
+          "모의해킹으로 취약점 점검"
+        ],
+        "analysis": [
+          {
+            "title": "리더십의 변화",
+            "desc": "금감원장이 직접 나서 금융권 보안 강화를 주문. CEO급 경영진의 적극적 관여 필요성 강조."
+          },
+          {
+            "title": "모의해킹 점검",
+            "desc": "금융권의 실제 보안 수준을 테스트하는 모의해킹 프로그램 추진 중. 사전 대비 체계 구축."
+          },
+          {
+            "title": "금융 사이버 위협",
+            "desc": "금융기관이 주요 해킹 대상. 조직 차원의 보안 체계 강화 절실한 상황."
+          }
+        ],
+        "suggested_title": "금감원, 금융권 CEO 보안 직접 관리 강제",
+        "bottom_line": "당신의 통장 보안은 은행 임원의 관심도에 달려 있다.",
+        "action_today": "내 계좌 거래 은행 → 보안센터 → 보안등급 확인 (5분)"
+      }
+    },
+    {
+      "id": "09e2fa360140",
+      "title": "“사이버 보안, CEO가 직접 챙겨라”…이찬진, 금융권 ‘불시 해킹’ 훈련 점검 - v.daum.net",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5FeUdQRlcza2h6TnhURWZMZ201bWxRcVZ5cTNybW9aNmlISXV0Wkg1OENmN19xUVQ2X2F5eWJhQmpqeTJxRDRGZHZVN2JzWFE?oc=5",
+      "summary": "“사이버 보안, CEO가 직접 챙겨라”…이찬진, 금융권 ‘불시 해킹’ 훈련 점검&nbsp;&nbsp;v.daum.net",
+      "pubDate": "2026-06-14T03:34:03+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "CEO 주도 사이버보안 관리",
+          "금융권 해킹 대응 훈련"
+        ],
+        "analysis": [
+          {
+            "title": "경영진 역할",
+            "desc": "사이버보안은 IT 부서 책임이 아닌 CEO가 직접 챙겨야 할 핵심 경영 이슈"
+          },
+          {
+            "title": "훈련 점검",
+            "desc": "금융권 대상 불시 해킹 훈련으로 실전 대응 능력 평가 및 취약점 파악"
+          },
+          {
+            "title": "업계 신호",
+            "desc": "규제당국의 적극 개입으로 금융기관의 보안 투자 강화 추세 가시화"
+          }
+        ],
+        "suggested_title": "CEO 필독, 금융권 사이버보안 대응 훈련 강화",
+        "bottom_line": "보안 책임을 미루는 금융사는 이미 해킹 대상 1순위다.",
+        "action_today": "우리은행 앱 → 설정 → 보안 → 이상거래 알림 ON"
+      }
+    },
+    {
+      "id": "094fc2c6d6ce",
+      "title": "이찬진 감원장, 금융권 모의해킹 점검…CEO 보안책임 강조 - 뉴스웍스",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBBLUVjTExmeTBycm9FYmt3MVQzc2hsTkk0ZjdPRktDMnhZZDB5cEtUZ084T00tWTNmY05xcm05blZqblU5SnV0aUMzTEQ1bHBBTlYyWnhJcGh6aXF0RGE2dm5OVzc2YmVxcVl5U2Z4WWtnV2PSAXNBVV95cUxQQS1FY0xMZnkwcnJvRWJrdzFUM3NobE5JNGY3T0ZLQzJ4WWQweXBLVGdPOE9NLVkzZmNOcXJtOW5Wam5VOUp1dGlDM0xENWxwQU5WMlp4SXBoemlxdERhNnZuTlc3NmJlcXFZeVNmeFlrZ1dj?oc=5",
+      "summary": "이찬진 감원장, 금융권 모의해킹 점검…CEO 보안책임 강조&nbsp;&nbsp;뉴스웍스",
+      "pubDate": "2026-06-14T03:05:11+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "금융권 모의해킹 점검 실시",
+          "CEO 보안책임 강화"
+        ],
+        "analysis": [
+          {
+            "title": "감시 강화",
+            "desc": "금융감독당국이 실제 해킹 상황을 대비한 모의훈련으로 금융기관 보안태세 점검"
+          },
+          {
+            "title": "경영진 책임",
+            "desc": "최고경영자가 보안정책 수립과 이행의 일차적 책임자임을 명시"
+          },
+          {
+            "title": "산업 파급",
+            "desc": "금융권 전반에 보안 투자 강화와 체계적 대응 요구 예상"
+          }
+        ],
+        "suggested_title": "금융권 모의해킹으로 CEO 보안책임 점검",
+        "bottom_line": "당신 은행의 CEO가 해킹 상황 대응 계획을 아직도 모를 수 있다는 뜻이다.",
+        "action_today": "자신이 쓰는 금융앱 → 설정 → 보안 알림 ON 확인 (2분)"
+      }
+    },
+    {
+      "id": "c10ba7a14962",
+      "title": "이찬진, 금융권 모의해킹 훈련 현장점검…\"CEO, 보안 투자 확대해야\" - 네이트",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE0tQlU3VXRpVmtQeTRnd0RnVnFKdDFLUU1rZlo3eW5KcURDSHdvWC12R2tyaW1WeDU1b0p6RUZyVzZ3cy1aNVdzMzR6b3dFRWdTM01Z?oc=5",
+      "summary": "이찬진, 금융권 모의해킹 훈련 현장점검…\"CEO, 보안 투자 확대해야\"&nbsp;&nbsp;네이트",
+      "pubDate": "2026-06-14T03:01:00+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "금융권 모의해킹 훈련 현장점검",
+          "CEO 보안 투자 확대 촉구"
+        ],
+        "analysis": [
+          {
+            "title": "훈련 현황",
+            "desc": "이찬진이 금융권의 모의해킹 훈련 현장을 직접 점검하며 보안 태세를 확인했다."
+          },
+          {
+            "title": "투자 필요성",
+            "desc": "경영진이 보안 부문에 대한 투자 규모를 확대해야 한다는 입장을 제시했다."
+          },
+          {
+            "title": "산업 시사점",
+            "desc": "금융권의 사이버 위협 대응 역량 강화가 경영 과제로 부상하고 있음을 보여준다."
+          }
+        ],
+        "suggested_title": "금융권 보안, CEO 투자 확대가 답",
+        "bottom_line": "모의훈련 본다고 안심했다면, 지금 당신 계좌는 무방비 상태다.",
+        "action_today": "금융앱 → 설정 → 보안 → 생체인증 활성화 확인 (2분)"
+      }
+    },
+    {
+      "id": "66946dcb92f0",
+      "title": "이찬진 금감원장 \"사이버보안, CEO가 직접 현장서 확인하라\" - 마켓인",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1ZSjcybDZZWlUtT2REcFM3dUZQODMxNXBoQVd0U2J1ZmVHZjRhbUlyNW5rQlZrQU8xTDFmWklGUlh2SGpYMGRYSGUtYjh0N1BZMVVUb2RzTGZwUEczODNtS3lmSjlLRmFSM3NRX1dtNkZ2ZnM?oc=5",
+      "summary": "이찬진 금감원장 \"사이버보안, CEO가 직접 현장서 확인하라\"&nbsp;&nbsp;마켓인",
+      "pubDate": "2026-06-14T03:00:51+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "CEO 현장 보안 점검 강화",
+          "사이버보안 경영 책임화"
+        ],
+        "analysis": [
+          {
+            "title": "리더십 역할",
+            "desc": "최고경영자가 직접 보안 현황을 확인하고 감시해야 한다는 규제 강화 기조"
+          },
+          {
+            "title": "실행성 강조",
+            "desc": "서면 보고서 중심에서 벗어나 현장 방문을 통한 직접 검증으로 전환"
+          },
+          {
+            "title": "금융권 의무",
+            "desc": "금감원장의 발언으로 금융회사들의 사이버보안 거버넌스 개선이 시급한 상황"
+          }
+        ],
+        "suggested_title": "CEO 현장 점검 필수, 금감원 사이버보안 강화",
+        "bottom_line": "CEO가 보안 현장을 직접 안 가본다면, 당신의 회사는 이미 노출 중일 수 있다.",
+        "action_today": "회사 IT 담당자에게 최근 보안 감시 현황 보고서 요청 (내일 회의 어젠다 추가)"
+      }
+    },
+    {
+      "id": "57ef068b4d13",
+      "title": "금감원장 모의해킹훈련 점검…\"사고 발생시 소비자보호 최우선\" - 연합뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBaM2dDcmp5MjdDVjQ1alZfZUtOMGdTU3VUT2xvZnFXeDUzTlFHY1FZZ1RNUmZjZHIxTGZGT3NMWVNRZzhudXBqVFRrRG5lb2JqNktKT19YSFdZYW9USWVEUNIBYEFVX3lxTFBaM2dDcmp5MjdDVjQ1alZfZUtOMGdTU3VUT2xvZnFXeDUzTlFHY1FZZ1RNUmZjZHIxTGZGT3NMWVNRZzhudXBqVFRrRG5lb2JqNktKT19YSFdZYW9USWVEUA?oc=5",
+      "summary": "금감원장 모의해킹훈련 점검…\"사고 발생시 소비자보호 최우선\"&nbsp;&nbsp;연합뉴스",
+      "pubDate": "2026-06-14T03:00:03+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "해킹",
+      "level": "warning",
+      "ai_summary": {
+        "keypoints": [
+          "금감원 모의해킹훈련 실시",
+          "금융사고 시 소비자보호 강화"
+        ],
+        "analysis": [
+          {
+            "title": "훈련 목적",
+            "desc": "금감원장이 주도적으로 모의해킹훈련을 점검하며 금융권 사이버보안 대응능력 강화"
+          },
+          {
+            "title": "소비자 보호",
+            "desc": "해킹 사고 발생 시 소비자보호를 최우선으로 삼겠다는 의지 표현"
+          },
+          {
+            "title": "시사점",
+            "desc": "금융기관들의 보안 체계 점검으로 디지털금융 신뢰도 제고 추진 중"
+          }
+        ],
+        "suggested_title": "금감원, 모의해킹훈련으로 금융사이버보안 강화",
+        "bottom_line": "당신의 계좌는 지금 이 훈련의 대상이다. 금융권 보안은 준비 중이다.",
+        "action_today": "국민은행·카카오뱅크 앱 → 보안 → 접근권한 재설정 (5분)"
+      }
+    },
+    {
+      "id": "7a26bcdd1349",
+      "title": "이찬진 금감원장 \"사이버보안, 핵심 경영 리스크…CEO가 직접 챙겨야\" - 뉴시스",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qR2w1LUk2RmxOYUVRZWZFT1k4UnlEbGlPbjUzc21TSk5YRm5fVXgxd1hJWkxCMGt5WTlCblFKRnlUVC10THpldk4yZmUxWGZzTWpXYTlqOV94Q0tDYmw2cnVDN1JUQ2IwQ0ZwTW1QYnBfNFJNLXBldNIBeEFVX3lxTE9qR2w1LUk2RmxOYUVRZWZFT1k4UnlEbGlPbjUzc21TSk5YRm5fVXgxd1hJWkxCMGt5WTlCblFKRnlUVC10THpldk4yZmUxWGZzTWpXYTlqOV94Q0tDYmw2cnVDN1JUQ2IwQ0ZwTW1QYnBfNFJNLXBldA?oc=5",
+      "summary": "이찬진 금감원장 \"사이버보안, 핵심 경영 리스크…CEO가 직접 챙겨야\"&nbsp;&nbsp;뉴시스",
+      "pubDate": "2026-06-14T03:00:00+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "사이버보안 경영진 책임화",
+          "금융권 보안 리스크 강조"
+        ],
+        "analysis": [
+          {
+            "title": "CEO 직접 관여",
+            "desc": "금감원장이 사이버보안을 경영진이 직접 챙겨야 할 핵심 리스크로 지목했다."
+          },
+          {
+            "title": "금융권 강조",
+            "desc": "금감원이 금융기관들의 보안 체계 강화를 직접 독려하는 메시지를 전달했다."
+          },
+          {
+            "title": "리스크 인식",
+            "desc": "사이버 위협이 이제 단순 IT 이슈가 아닌 경영상 위기 요소로 인식되고 있다."
+          }
+        ],
+        "suggested_title": "사이버보안, CEO가 챙기는 경영 리스크",
+        "bottom_line": "당신 회사 CEO는 지금 이 이야기를 듣고 있을까?",
+        "action_today": "우리 회사 사이버보안 담당자 연락처 찾기 (5분)"
+      }
+    },
+    {
+      "id": "f8913ea927cd",
+      "title": "이찬진 금감원장, 금융회사 보안 역량 강화 위한 경영진 역할 독려 - 한국보험신문",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9OY1B0V2pUMjI0X0tvMk1qcGhXZTJ2dnR3ZEF3MC1OeDlFTkxkelNKeFdxSGEyUGJOaFVPUnY3VDhxOGdzeDlPaHJrQTB6YmZGaEtMU05NU05nR3FlNXprSDdjYnNlLW1RUXdB0gFvQVVfeXFMUHJyenU2U0wtMzBNbGUycUc3QWpQR1ZvT2NPQkV5N0xGSE44YjVzVnlzc1JBSXFOYlVzWkRjWmNCRUZUZS1CUFNVMEpHR01zRzA4elZ0VDlNa0hNZlNXRGV5dFQtdGVyakZ1bmpiM3Bn?oc=5",
+      "summary": "이찬진 금감원장, 금융회사 보안 역량 강화 위한 경영진 역할 독려&nbsp;&nbsp;한국보험신문",
+      "pubDate": "2026-06-14T03:00:00+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "금융회사 보안 역량 강화",
+          "경영진 주도 보안 문화 조성"
+        ],
+        "analysis": [
+          {
+            "title": "규제당국 지시",
+            "desc": "금감원장이 금융회사 경영진에게 보안 역량 강화를 직접 독려하며 규제 강화 신호"
+          },
+          {
+            "title": "경영진 책임",
+            "desc": "보안이 더 이상 IT팀 담당이 아닌 경영진 필수 역할로 격상되는 추세"
+          },
+          {
+            "title": "업계 영향",
+            "desc": "금융사들 보안 투자 확대 및 조직 개편으로 이어질 가능성 높음"
+          }
+        ],
+        "suggested_title": "금융 보안, 이제 경영진이 책임진다",
+        "bottom_line": "당신이 쓰는 금융앱 보안은 CEO의 우선순위에 달렸다는 뜻이다.",
+        "action_today": "내가 자주 쓰는 은행·증권 앱 → 설정 → 보안 알림 ON"
+      }
+    },
+    {
+      "id": "9c0fc473123c",
+      "title": "이찬진 금감원장 AI發 사이버 위협 커져…금융사 CEO가 보안 직접 챙겨야 - 아주경제",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBneDdTNU4zalV0aTE4ZDBiZVcwM0VGaFJ0VVZZSGU5X1NwY0N4STNULUVUMmN2cjJEZXRXandIWWM3Y1RsU0R0c3JkbHV0TUNSY29aOUlIZ1EtQdIBWEFVX3lxTFA1WlJTbXJ5OFpCWF8wUk1VeWFHbnBpNE56dERMaFlSMWtFUGdwaTg3XzhxNG5kUzRNT1lxeGRqXzIyYWpHN3Y1Ny13dUhxUzNsazlZVk1ocnM?oc=5",
+      "summary": "이찬진 금감원장 AI發 사이버 위협 커져…금융사 CEO가 보안 직접 챙겨야&nbsp;&nbsp;아주경제",
+      "pubDate": "2026-06-14T03:00:00+00:00",
+      "source": "Google 뉴스 — 보안 최신",
+      "lang": "ko",
+      "category": "보안뉴스",
+      "level": "info",
+      "ai_summary": {
+        "keypoints": [
+          "AI 기반 사이버 위협 증가",
+          "금융사 경영진 보안 관리 강화"
+        ],
+        "analysis": [
+          {
+            "title": "위협 진화",
+            "desc": "AI 기술이 사이버 공격 수단으로 악용되며 위협 수준이 급상승하는 중"
+          },
+          {
+            "title": "책임 전환",
+            "desc": "금감원이 CEO 직접 관여 요구로 보안을 경영 최우선 과제로 격상"
+          },
+          {
+            "title": "대응 강화",
+            "desc": "금융권 전반에 보안 체계 고도화 및 실시간 대응 체계 구축 필요"
+          }
+        ],
+        "suggested_title": "AI 사이버 위협, 금융사 CEO가 직접 챙겨야 하는 이유",
+        "bottom_line": "보안은 이제 IT팀 일이 아니라 최고경영진의 생존 문제가 됐다.",
+        "action_today": "금융사 근무자: 회사 보안 정책 최신 내용 확인 → 부서장에게 질문"
+      }
+    },
     {
       "id": "7e3adb935527",
       "title": "딥노이드, 국가데이터처장과 국가데이터 정책 논의",
@@ -140,380 +956,6 @@
       }
     },
     {
-      "id": "e29188770d63",
-      "title": "마이크로소프트, 200개 취약점 긴급 수정… 공개된 제로데이 5건·실제 공격 악용 1건 포함",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207134",
-      "summary": "마이크로소프트가 6월 정기 보안 업데이트를 통해 총 200개의 보안 취약점을 수정했다. 이번 업데이트에는 공개적으로 알려진 제로데이 취약점 5건과 실제 공격에 악용된 제로데이 취약점 1건이 포함됐다.수정된 취약점 가운데 원격 코드 실행(RCE) 취약점은 55건으로 가장 큰 비중을 차지했다. 권한 상승 취약점은 65건, 정보 유출 취약점은 30건, 스푸핑 취약점은 27건, 보안 기능 우회 취약점은 19건, 서비스 거부 취약점은 7건으로 집계됐다.이번 패치는 윈도우 운영체제뿐 아니라 비트로커, HTTP.sys, 익스체인지 서버 등 기업",
-      "pubDate": "2026-06-13T10:44:00.793549+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "취약점",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "마이크로소프트 200개 취약점 긴급 수정",
-          "제로데이 6건 포함, 원격코드실행 55건"
-        ],
-        "analysis": [
-          {
-            "title": "위협 규모",
-            "desc": "공개된 제로데이 5건과 실제 악용 1건이 포함된 200개 취약점 동시 공개. 원격 코드 실행이 55건으로 최다."
-          },
-          {
-            "title": "취약점 유형",
-            "desc": "권한상승 65건, 정보유출 30건, 스푸핑 27건, 기능우회 19건, 서비스거부 7건으로 분류됨."
-          },
-          {
-            "title": "영향 범위",
-            "desc": "윈도우 OS뿐 아니라 비트로커, HTTP.sys, 익스체인지 등 엔터프라이즈 솔루션 전반 영향."
-          }
-        ],
-        "suggested_title": "200개 취약점 긴급 수정, 제로데이 6건 포함",
-        "bottom_line": "지금 패치하지 않으면 해커가 이미 당신 시스템에 침투했을 수 있다.",
-        "action_today": "윈도우 설정 → Windows Update → 지금 업데이트 (5분)"
-      }
-    },
-    {
-      "id": "f615f28292de",
-      "title": "스패로우, SAI 2026 성료…AI 시대 SBOM 기반 SW 공급망 보안 전략 제시",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207135",
-      "summary": "스패로우가 AI 개발 환경 확산에 따른 소프트웨어 공급망 보안 전략을 제시했다.애플리케이션 보안 전문기업 스패로우는 11일 서울 용산 나인트리 프리미어 로카우스 호텔에서 연례 고객 초청 행사 ‘SAI 2026’을 개최했다고 밝혔다.SAI는 기존 연례 행사인 ‘PUC’의 새 이름이다. 스패로우는 애플리케이션 보안 전반에 대한 인사이트를 제공한다는 취지로 올해부터 행사명을 변경했다. 올해 행사는 ‘AI 혁신으로 완성하는 SW 공급망 보안’을 주제로 열렸으며, 국내 주요 기업과 기관의 IT·보안 리더, 실무자들이 참석했다.이날 행사에서는",
-      "pubDate": "2026-06-13T10:43:54.963188+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "SBOM 기반 SW 공급망 보안",
-          "AI 환경 확산에 따른 보안 전략"
-        ],
-        "analysis": [
-          {
-            "title": "행사 개최",
-            "desc": "스패로우가 'SAI 2026' 행사를 개최해 AI 시대 애플리케이션 보안 전략을 논의했다."
-          },
-          {
-            "title": "주제 설정",
-            "desc": "'AI 혁신으로 완성하는 SW 공급망 보안'을 주제로 SBOM 기반 전략을 제시했다."
-          },
-          {
-            "title": "참석 대상",
-            "desc": "국내 주요 기업과 기관의 IT·보안 리더 및 실무자들이 참석해 인사이트를 공유했다."
-          }
-        ],
-        "suggested_title": "AI 시대 SBOM으로 소프트웨어 공급망 보안 강화",
-        "bottom_line": "AI 도입하는 회사라면, 공급망 보안 감시 없이는 언제 뚫릴지 모른다는 경고다.",
-        "action_today": "회사 개발팀과 협력 → 사용 중인 오픈소스 목록 SBOM화 시작하기"
-      }
-    },
-    {
-      "id": "862eb683c0c6",
-      "title": "스콥정보통신, 인터롭 도쿄 2026 참가…IPScan NAC 앞세워 일본 NAC 시장 공략 확대",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207136",
-      "summary": "네트워크 보안 전문기업 스콥정보통신⁠은 일본 최대 ICT 전시회인 인터롭 도쿄(Interop Tokyo) 2026에 참가해 자사의 네트워크 접근제어(NAC) 솔루션인 IPScan NAC를 선보이며 일본 시장 공략에 나섰다고 12일 밝혔다.이번 전시회는 일본 지바현에 위치한 마쿠하리 메세에서 6월 10일부터 12일까지 개최됐다. 인터롭 도쿄는 1994년부터 이어져 온 일본 대표 ICT 전시회로, 매년 전 세계 주요 네트워크·보안·클라우드 기업들이 참가해 최신 기술과 시장 동향을 공유하는 행사다.제로 트러스트 시대 핵심 기술 ‘IPSc",
-      "pubDate": "2026-06-13T10:43:49.307118+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "NAC 솔루션 일본 시장 진출",
-          "제로 트러스트 보안 강화"
-        ],
-        "analysis": [
-          {
-            "title": "시장 공략",
-            "desc": "스콥정보통신이 IPScan NAC로 일본 최대 ICT 전시회 인터롭 도쿄 2026에 참가해 본격적인 시장 공략 시작"
-          },
-          {
-            "title": "기술 가치",
-            "desc": "제로 트러스트 시대의 핵심 기술인 NAC 솔루션으로 네트워크 접근제어 강화 및 보안 위협 대응"
-          },
-          {
-            "title": "전시회 규모",
-            "desc": "1994년부터 이어온 일본 대표 ICT 행사로 세계 주요 네트워크·보안 기업들이 참가하는 영향력 있는 플랫폼"
-          }
-        ],
-        "suggested_title": "NAC 솔루션, 일본 시장 본격 진출",
-        "bottom_line": "당신 회사 네트워크, 이미 누군가는 접근하려 하고 있다.",
-        "action_today": "회사 IT부서 연락 → 현재 NAC 도입 여부 확인"
-      }
-    },
-    {
-      "id": "8df4a445e5d9",
-      "title": "해커조직 샤이니헌터스, 오라클 제로데이로 대학·기업 해킹",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207137",
-      "summary": "해킹 조직 샤이니헌터스(ShinyHunters)가 오라클 피플소프트의 제로데이 취약점을 악용해 대학과 기업 시스템에 침투한 것으로 확인됐다.구글 맨디언트에 따르면 공격은 지난 5월 27일부터 6월 9일까지 진행됐다. 오라클이 관련 보안 권고를 발표한 것은 6월 10일로, 공격자들은 패치가 나오기 전 취약점을 먼저 악용했다.문제가 된 취약점은 CVE-2026-35273이다. 인증 없이 원격에서 서버를 장악할 수 있는 원격 코드 실행(RCE) 취약점으로 위험도는 최고 수준인 9.8점이다. 공격 대상은 인터넷에 노출된 피플소프트 환경관리",
-      "pubDate": "2026-06-13T10:43:43.578680+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "오라클 제로데이 악용 대규모 침투",
-          "패치 전 선제 공격으로 9.8점 고위험"
-        ],
-        "analysis": [
-          {
-            "title": "공격 집단",
-            "desc": "샤이니헌터스가 오라클 피플소프트 제로데이를 악용해 대학·기업 시스템 침입"
-          },
-          {
-            "title": "취약점 상세",
-            "desc": "CVE-2026-35273, 인증 불필요 원격 코드 실행, CVSS 9.8 최고 위험도"
-          },
-          {
-            "title": "공격 시점",
-            "desc": "5월 27일~6월 9일 활동, 공식 패치 발표(6월 10일) 전 악용"
-          }
-        ],
-        "suggested_title": "제로데이 악용 샤이니헌터스, 오라클 시스템 대규모 침투",
-        "bottom_line": "지금 당신 회사 오라클 서버도 해킹당했을 수 있다는 뜻이다.",
-        "action_today": "오라클 피플소프트 → 시스템 설정 → CVE-2026-35273 보안 패치 즉시 적용"
-      }
-    },
-    {
-      "id": "d362026ad69f",
-      "title": "더 젠틀맨 랜섬웨어, 478곳 해킹 주장…웜처럼 확산되는 RaaS 위협 심각",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207138",
-      "summary": "러시아어권 랜섬웨어 조직 더 젠틀맨(The Gentlemen)이 2026년 들어 가장 빠르게 성장한 랜섬웨어 서비스형 범죄 생태계(RaaS) 중 하나로 지목됐다. 6월 11일 공개된 보안 분석 자료에 따르면, 이 조직은 2025년 3월부터 활동한 것으로 파악됐으며, 랜섬웨어 피해자 공개 현황을 집계하는 랜섬웨어라이브 기준 현재까지 478곳이 공격을 받은 것으로 알려졌다. 더 젠틀맨은 단순히 파일을 암호화하는 랜섬웨어 조직에 그치지 않았다. 피해 기업의 데이터를 먼저 빼낸 뒤 암호화를 진행하고, 협상이 지연되면 유출을 압박하는 이중",
-      "pubDate": "2026-06-13T10:43:38.041378+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "랜섬웨어",
-      "level": "danger",
-      "ai_summary": {
-        "keypoints": [
-          "더 젠틀맨 RaaS 478곳 피해",
-          "이중 협박형 랜섬웨어 확산"
-        ],
-        "analysis": [
-          {
-            "title": "조직 개요",
-            "desc": "러시아어권 더 젠틀맨, 2025년 3월부터 활동 시작. 현재 가장 빠르게 성장 중인 RaaS 생태계."
-          },
-          {
-            "title": "공격 방식",
-            "desc": "데이터 탈취 후 암호화, 협상 지연 시 유출 협박. 웜처럼 광범위 확산 중."
-          },
-          {
-            "title": "피해 규모",
-            "desc": "랜섬웨어라이브 기준 478개 기업 피해. 서비스형 범죄 모델로 운영 중."
-          }
-        ],
-        "suggested_title": "RaaS 위협, 더 젠틀맨 478곳 해킹",
-        "bottom_line": "당신 회사 데이터는 이미 빼갔을 수도 있다는 겁니다.",
-        "action_today": "윈도우 설정 → Windows Update → 지금 업데이트 (5분)"
-      }
-    },
-    {
-      "id": "1176d96ea91c",
-      "title": "가트너, 올해 글로벌 데이터센터 전력 소비 26% 증가할 것",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207139",
-      "summary": "가트너는 2026년 전 세계 데이터센터 전력 소비량이 지난해 447테라와트시(TWh)에서 올해 565TWh로 26% 증가한다고 밝혔다. 연산 집약적인 AI 워크로드 수요가 급증하면서 데이터센터 전력 확보가 글로벌 AI 시장의 규모 확장과 수익성을 결정짓는 요소로 부상했기 때문이다.데이터센터 전력 수요는 2025년 104기가와트(GW)에서 올해 132GW로 27% 늘어난 뒤, 2030년에는 290GW까지 확대될 것으로 예상된다. 생성형 AI의 확산이 데이터센터 인프라와 전력 운영 전반에 장기적인 부담을 주는 요인으로 작용하고 있다.특",
-      "pubDate": "2026-06-13T10:43:32.511645+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "AI 수요로 데이터센터 전력 26% 급증",
-          "2030년 전력 소비 290GW 돌파 예상"
-        ],
-        "analysis": [
-          {
-            "title": "전력 위기 심화",
-            "desc": "2026년 565TWh로 급증하며 글로벌 에너지 인프라 부담 극심화"
-          },
-          {
-            "title": "AI 종속성 심화",
-            "desc": "생성형 AI 확산이 데이터센터 운영의 장기적 제약 요소로 고착"
-          },
-          {
-            "title": "공급망 위험",
-            "desc": "전력 확보가 AI 시장 수익성 결정 요소로 부상, 경쟁 심화 가능"
-          }
-        ],
-        "suggested_title": "AI 폭발로 데이터센터 전력 26% 급증, 2030년 한계점 도달",
-        "bottom_line": "당신의 클라우드 서비스 요금이 오를 수밖에 없는 구조가 이미 고착됐다는 뜻이다.",
-        "action_today": "본사 클라우드 인프라 비용 현황 확인 및 전력 효율성 감사 계획 수립"
-      }
-    },
-    {
-      "id": "4ef2890cc177",
-      "title": "미소정보기술, 연세대 미래캠퍼스와 AI 혁신 인재 양성 위해 협력",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207140",
-      "summary": "미소정보기술이 연세대학교 미래캠퍼스 AI부트캠프사업단과 손잡고 첨단산업 분야의 인재 양성을 위한 산학협력에 나선다.양 기관은 산업 현장에서 즉시 활용할 수 있는 실무형 AI 인재를 육성하기 위해 교육과정을 공동 개발하고 현장 중심의 실습 교육을 추진하기로 했다.최근 생성형 AI와 데이터 기반 기술이 전 산업으로 확산되면서 현장의 문제를 직접 해결할 수 있는 실무 역량을 갖춘 인재 확보가 기업들의 주요 과제로 떠올랐다. 연세대 미래캠퍼스 AI부트캠프사업단은 이 같은 수요에 맞춰 지역 산업 맞춤형 AI 전문인력 양성을 목표로 운영된다.",
-      "pubDate": "2026-06-13T10:43:26.947022+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "산학협력 AI 인재 양성",
-          "실무형 생성AI 교육과정"
-        ],
-        "analysis": [
-          {
-            "title": "협력 체계",
-            "desc": "미소정보기술과 연세대 미래캠퍼스가 AI부트캠프 운영으로 산업 맞춤형 인재 육성"
-          },
-          {
-            "title": "교육 방식",
-            "desc": "공동 개발 교육과정과 현장 중심 실습으로 즉시 활용 가능한 실무 역량 강화"
-          },
-          {
-            "title": "시장 배경",
-            "desc": "생성형 AI 확산으로 기업들이 현장 문제 해결 능력 갖춘 인재 확보를 우선 과제로 인식"
-          }
-        ],
-        "suggested_title": "AI 인재 양성, 산학협력으로 실무형 교육 추진",
-        "bottom_line": "생성AI 시대에 대학 졸업만으로는 취업이 안 된다는 신호다.",
-        "action_today": "연세대 미래캠퍼스 AI부트캠프 사이트 → 모집 공고 확인 → 지원 요건 검토"
-      }
-    },
-    {
-      "id": "c6d4350f8d36",
-      "title": "한국소프트웨어저작권협회-한국소프트웨어감정평가학회, 소프트웨어포렌식센터 공동 출범",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207141",
-      "summary": "한국소프트웨어저작권협회와 한국소프트웨어감정평가학회는 12일 소프트웨어포렌식센터를 개소하고 포렌식·감정 서비스를 본격 개시했다. 초대 공동 센터장으로는 협회 이동규 대외협력실장과 학회 감정평가위원회 위원장을 맡고 있는 김시열 학회장이 선임됐다.소프트웨어 분쟁은 기술적 전문성과 법적 사고가 동시에 요구되는 영역이다. 저작권 침해나 영업비밀 유출 분쟁 시 명확한 사실 확인이 필수적이어서 전문 감정과 포렌식 수요가 지속적으로 증가해 왔다. 이에 양 기관은 올해 1월 업무협약을 체결한 뒤 공동으로 센터 설립을 준비해 왔다.소프트웨어포렌식센터",
-      "pubDate": "2026-06-13T10:43:21.057375+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "소프트웨어포렌식센터 공식 개소",
-          "저작권·영업비밀 분쟁 감정 서비스 시작"
-        ],
-        "analysis": [
-          {
-            "title": "센터 출범",
-            "desc": "한국소프트웨어저작권협회와 감정평가학회가 포렌식센터를 공동으로 개소해 전문 감정·포렌식 서비스 본격 개시"
-          },
-          {
-            "title": "서비스 범위",
-            "desc": "저작권 침해, 영업비밀 유출 등 소프트웨어 분쟁에서 기술적 증거 분석 및 법적 감정 제공"
-          },
-          {
-            "title": "필요성",
-            "desc": "소프트웨어 분쟁 증가로 기술·법률 전문성이 동시에 필요한 상황에서 전문기관의 역할 확대"
-          }
-        ],
-        "suggested_title": "소프트웨어포렌식센터 개소, 저작권 분쟁 해결 본격화",
-        "bottom_line": "소프트웨어 도용 적발 시 법정 증거로 인정받을 전문 기관이 생겼다는 뜻이다.",
-        "action_today": "한국소프트웨어저작권협회 홈페이지 → 포렌식센터 → 서비스 상담 신청"
-      }
-    },
-    {
-      "id": "4538bd0062d7",
-      "title": "카스퍼스키 \"투명성·AI·OT 보안 앞세워 한국 시장 공략 강화\"",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207142",
-      "summary": "글로벌 사이버보안 기업 카스퍼스키가 6월 12일 서울에서 기자간담회를 열고 2025년 글로벌 실적과 아시아태평양 사업 전략, 한국 시장 공략 방향을 발표했다. 이날 간담회에는 이효은 카스퍼스키코리아 지사장을 비롯해 이나 나자로바 인터내셔널 기업영업 총괄, 아드리안 히아 아시아태평양 총괄 사장, 이고르 쿠즈네초프 글로벌 연구분석팀(GReAT) 디렉터가 참석했다.간담회는 카스퍼스키가 서울에서 개최한 ‘2026 APAC 파트너 컨퍼런스’와 맞물려 진행됐다. 회사는 한국을 아시아태평양 지역의 주요 성장 거점으로 보고 있으며, 기업용 보안,",
-      "pubDate": "2026-06-13T10:43:15.067858+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "카스퍼스키 한국 시장 공략 강화",
-          "투명성·AI·OT 보안 전략 발표"
-        ],
-        "analysis": [
-          {
-            "title": "시장 공략",
-            "desc": "카스퍼스키가 한국을 아시아태평양 지역 주요 성장 거점으로 선정하고 기업용 보안 사업 강화에 나선다."
-          },
-          {
-            "title": "핵심 전략",
-            "desc": "투명성 확보, AI 기술 활용, OT 보안 강화를 3대 추진 축으로 삼아 글로벌 경쟁력 강화 중이다."
-          },
-          {
-            "title": "리더십 체계",
-            "desc": "한국 지사장을 중심으로 글로벌 임원진이 직접 나서 지역 전략과 기술 전문성을 결합한다."
-          }
-        ],
-        "suggested_title": "AI·OT 보안으로 한국 시장 진출 카스퍼스키",
-        "bottom_line": "글로벌 보안 강자가 한국에 눈 돌렸다면, 로컬 보안사들은 차별화 전략이 절실하다.",
-        "action_today": "카스퍼스키 공식 홈페이지 → 뉴스 → 2026 APAC 전략 자료 다운로드"
-      }
-    },
-    {
-      "id": "9af1016c5cb0",
-      "title": "김정혁 교수 “금융 인프라, 멀티 에이전트와 오케스트레이션 중심으로 재설계해야”",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207143",
-      "summary": "디지털금융법포럼(윤성승 회장, 아주대 교수)은 6월 12일 서울 여의도 서울국제금융오피스에서 ‘에이전틱 AI 금융생태계 확장과 보안과제’를 주제로 2026년 하계학술대회를 개최했다. 이날 김정혁 서울사이버대 석좌교수는 ‘에이전틱 AI 금융인프라 동향과 전망’을 주제로 강연하며 금융권 AI 활용이 생성형 AI를 넘어 에이전틱 AI 중심으로 빠르게 전환되고 있다고 설명했다.김 교수는 금융 AI의 변화 방향을 오케스트라 지휘자에 비유했다. 앞으로 금융회사에는 고객 상담, 결제, 송금, 자산관리, 신용평가, 규제 대응, 보안 탐지 등을 맡",
-      "pubDate": "2026-06-13T10:43:08.959640+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "에이전틱 AI 중심 금융인프라 재설계",
-          "멀티 에이전트 오케스트레이션 도입"
-        ],
-        "analysis": [
-          {
-            "title": "AI 패러다임 전환",
-            "desc": "금융권이 생성형 AI에서 에이전틱 AI로 빠르게 전환 중. 자동화된 의사결정 체계로 진화하는 중."
-          },
-          {
-            "title": "오케스트라 지휘 구조",
-            "desc": "고객 상담, 결제, 송금, 자산관리, 신용평가, 규제, 보안 탐지 등을 통합 관리하는 중앙 조율 시스템 필요."
-          },
-          {
-            "title": "보안 과제 대두",
-            "desc": "멀티 에이전트 확대로 인한 보안 위협 증가. 각 금융사가 통합 보안 전략 수립 필수."
-          }
-        ],
-        "suggested_title": "에이전틱 AI 금융시스템, 보안 재설계 시급",
-        "bottom_line": "당신 통장 관리하는 AI가 여러 개면서 보안은 여전히 구식이다.",
-        "action_today": "금융사 앱 설정 → 보안 → 생체인증 2중 활성화 확인 (5분)"
-      }
-    },
-    {
-      "id": "20f432ae7a06",
-      "title": "[디지털금융법포럼 토론회] 김시홍 위원 “AI는 보조수단이어야…인간 개입권과 법적 책임체계 마련 필요”",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207144",
-      "summary": "에이전틱 AI가 금융산업의 새로운 전환점으로 부상하고 있는 가운데, 금융 생태계 활성화를 위해서는 기술 도입만큼 신뢰성, 통제 가능성, 법적 책임체계 마련이 중요하다는 의견이 제기됐다.6월 12일 열린 디지털금융법포럼 세미나에서는 ‘에이전틱 AI 금융생태계 활성화와 주요 이슈’를 주제로 토론회가 진행됐다. 좌장은 류혁선 KAIST 교수가 맡았으며, 박이락 송현경제연구소 본부장과 김시홍 라이크 법률사무소 전문위원이 토론자로 참여했다. 류혁선 교수 “AI가 금융 의사결정과 실행의 일부 주체가 될 가능성”좌장을 맡은 류혁선 교수는 토론에",
-      "pubDate": "2026-06-13T10:43:03.322786+00:00",
-      "source": "데일리시큐",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "AI 금융 의사결정 투명성 강화",
-          "인간 개입권과 법적 책임체계 구축"
-        ],
-        "analysis": [
-          {
-            "title": "AI 보조 역할 정립",
-            "desc": "금융산업의 AI는 의사결정 주체가 아닌 보조수단으로 명확히 정의해야 한다는 입장"
-          },
-          {
-            "title": "신뢰성 통제체계",
-            "desc": "기술 도입 못지않게 AI 신뢰성과 통제 가능성 확보가 금융생태계 활성화의 전제조건"
-          },
-          {
-            "title": "책임 주체 명확화",
-            "desc": "AI 기반 금융거래 시 인간의 최종 개입권과 법적 책임주체를 명시적으로 규정할 필요"
-          }
-        ],
-        "suggested_title": "AI 금융결정, 인간 통제권 없으면 위험",
-        "bottom_line": "당신의 금융상품을 추천하는 AI가 책임을 질 수 없다는 뜻이다.",
-        "action_today": "금융앱 → 자동거래 설정 → 사람 승인 필수 활성화"
-      }
-    },
-    {
       "id": "2b6a365984b5",
       "title": "美 CISA, AI 해킹 위협에 사이버보안 조치 시한 3일로 단축 - 보안뉴스",
       "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9yeUdQNG9xN2g3Uzg1V1hpc3U3THI1UjUzTEZQLWx6THNKcXRLejVHRDMwand2ZV9Xd3c1RUtXQnJISU5zbVNGV1dZdFpCbGN3SkNqR0pYdHZJZXprRTZVNXpsTThsd25aR3Z4MWZR?oc=5",
@@ -525,26 +967,26 @@
       "level": "warning",
       "ai_summary": {
         "keypoints": [
-          "AI 해킹 위협 대응 시한 단축",
-          "CISA 사이버보안 조치 긴급화"
+          "AI 해킹 위협 대응",
+          "보안 조치 시한 단축"
         ],
         "analysis": [
           {
-            "title": "긴급 시한 단축",
-            "desc": "미국 CISA가 AI 기반 해킹 위협에 대응하기 위해 사이버보안 조치 시한을 3일로 단축했다."
+            "title": "위협 변화",
+            "desc": "AI 기술을 악용한 해킹 공격이 증가하면서 기존 대응 체계의 한계 노출"
           },
           {
-            "title": "AI 해킹 위협 고조",
-            "desc": "인공지능 기술을 악용한 사이버공격이 증가하면서 정부 차원의 긴급 대응이 시작됐다."
+            "title": "시간 단축",
+            "desc": "CISA가 사이버보안 조치 시한을 3일로 단축하며 긴급 대응 체제 돌입"
           },
           {
-            "title": "기업 보안 강화",
-            "desc": "정부 시스템 연계 기업들은 즉시 보안 점검 및 취약점 패치가 필수가 됐다."
+            "title": "즉시 대응",
+            "desc": "조직은 빠른 취약점 파악과 패치 적용으로 침해 위험 최소화 필요"
           }
         ],
-        "suggested_title": "AI 해킹 위협에 보안조치 시한 3일로 단축",
-        "bottom_line": "정부가 3일 시한을 정한 것은, 이미 당신 회사도 해킹당했을 수 있다는 뜻이다.",
-        "action_today": "윈도우 설정 → Windows Update → 지금 업데이트 확인 (5분)"
+        "suggested_title": "AI 해킹 대응 3일 시한, CISA 긴급 조치",
+        "bottom_line": "3일 안에 안 하면 당신 시스템은 이미 노출되어 있을 수 있다.",
+        "action_today": "관리 시스템 → 보안 업데이트 → 즉시 패치 적용 확인 (5분)"
       }
     },
     {
@@ -565,462 +1007,20 @@
         "analysis": [
           {
             "title": "미토스 공개",
-            "desc": "앤스로픽이 사이버 보안 기능을 강화한 새로운 AI 모델 미토스를 발표했다."
+            "desc": "앤스로픽이 사이버 보안 기능을 강화한 AI 모델 미토스를 발표했다."
           },
           {
-            "title": "보안 기능",
-            "desc": "해킹 및 악성 공격으로부터 AI 시스템을 보호하는 다층 방어 장치 탑재."
+            "title": "보안 장치",
+            "desc": "새로운 모델에는 악의적 사용 방지 및 공격 탐지 기술이 탑재됐다."
           },
           {
-            "title": "산업 영향",
-            "desc": "엔터프라이즈급 AI 도입 시 보안 신뢰도 제고로 채택 확대 예상."
+            "title": "산업영향",
+            "desc": "AI 시스템의 보안 표준을 높이는 선례가 될 것으로 예상된다."
           }
         ],
-        "suggested_title": "앤스로픽 미토스, AI 보안 강화 모델 공개",
-        "bottom_line": "당신이 쓰는 AI가 해킹당하고 있을 수도 있다는 뜻이다.",
-        "action_today": "앤스로픽 공식사이트 방문 → 미토스 보안 기능 상세 확인 (5분)"
-      }
-    },
-    {
-      "id": "4d64d2a978a1",
-      "title": "드론 띄우고 해킹하고… 한전원자력연료, 고강도 통합훈련 - 산업인뉴스",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBZOGVnd01GYnk5WV9TSzJ2dnNrUGhsQlpHbHdsSWF6cDdMNFRId2h4dU9kNUtqRk1Pb3lWcjNadENvaDJxMEFMSk1GVlI1dThmV2dDZ3pVTW1fMVZObWpfZ2gzU2NBNXJucjJhQlF3?oc=5",
-      "summary": "드론 띄우고 해킹하고… 한전원자력연료, 고강도 통합훈련&nbsp;&nbsp;산업인뉴스",
-      "pubDate": "2026-06-10T09:23:49+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "원전 시설 사이버 보안 훈련",
-          "드론·해킹 공격 시뮬레이션"
-        ],
-        "analysis": [
-          {
-            "title": "훈련 내용",
-            "desc": "한전원자력연료가 드론 침입, 해킹 등 다층 위협에 대한 고강도 통합훈련 실시"
-          },
-          {
-            "title": "위협 대상",
-            "desc": "원전 관련 시설의 물리적·사이버 보안 취약점을 동시에 점검하는 방식"
-          },
-          {
-            "title": "의미",
-            "desc": "국가 기반시설 보호 강화로 에너지 안보 대응 능력 제고 목표"
-          }
-        ],
-        "suggested_title": "원전 사이버 방어훈련, 드론·해킹 동시 차단",
-        "bottom_line": "원전이 겨냥되면 나라가 멈춘다는 뜻이다.",
-        "action_today": "국가기반시설 보안 뉴스레터 구독 (1분)"
-      }
-    },
-    {
-      "id": "0984f3de96a6",
-      "title": "‘사이버 보안 충격’ 앤스로픽 미토스, 정식 출시... ‘안전장치’ 추가 - 조선일보",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOZ2RGTzFTU0x6WXhVUnhZMWlvVlVFSWJTdE4tMWJFazYtZ3JidC1kUk9DUHdKS1BOSTNEbjFCNFBFbUFXVFFqWkYzT29uMlZBbFZVemQ0NHZyQzJUVlJGbHU3LXdtSE9pcGtVaWc5SlBmV2ZoWWNGRVRjMFNpZkNZRWgxcw?oc=5",
-      "summary": "‘사이버 보안 충격’ 앤스로픽 미토스, 정식 출시... ‘안전장치’ 추가&nbsp;&nbsp;조선일보",
-      "pubDate": "2026-06-10T07:47:21+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "앤스로픽 미토스 정식 출시",
-          "AI 안전장치 강화 적용"
-        ],
-        "analysis": [
-          {
-            "title": "미토스 출시",
-            "desc": "앤스로픽이 새로운 AI 모델 미토스를 공식 출시했으며, 사이버 보안 분야에서 주목받고 있다."
-          },
-          {
-            "title": "안전장치 추가",
-            "desc": "기존 모델 대비 향상된 보안 안전장치가 탑재되어 악용 위험을 줄였다."
-          },
-          {
-            "title": "산업 영향",
-            "desc": "AI 보안 표준 강화로 업계 전반에 파급 효과가 예상된다."
-          }
-        ],
-        "suggested_title": "앤스로픽 미토스 출시, AI 보안 강화",
-        "bottom_line": "강력한 AI가 더 강한 보안장치로 무장했다는 건 양날의 검이다.",
-        "action_today": "앤스로픽 공식 블로그 → 미토스 안전 가이드 → 다운로드 및 숙지"
-      }
-    },
-    {
-      "id": "ab9dc3159af9",
-      "title": "[미토스 디데이]해킹 공격은 이틀, 보안 패치는 두 달...사이버 보안 속도 높이려면 - v.daum.net",
-      "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE04YlBUa1UxR1Zfd2FaVUw0SlptT05KY2VUVG9VSTdiRVZSeWlGNy1oZ3lZNGdONUdFUnlWa1dDbHg1Q3Y2Nnc?oc=5",
-      "summary": "[미토스 디데이]해킹 공격은 이틀, 보안 패치는 두 달...사이버 보안 속도 높이려면&nbsp;&nbsp;v.daum.net",
-      "pubDate": "2026-06-09T08:39:10+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "해킹 2일, 패치 60일 시간 격차",
-          "사이버 보안 대응 속도 개선 필수"
-        ],
-        "analysis": [
-          {
-            "title": "속도 괴리",
-            "desc": "공격은 이틀이면 가능하지만 패치는 2개월 걸린다. 이 사이 보안 공백이 생긴다."
-          },
-          {
-            "title": "현황 분석",
-            "desc": "기업과 보안업체의 대응 속도 격차가 심화되고 있다. 정보 공유 부족이 원인."
-          },
-          {
-            "title": "해결책",
-            "desc": "패치 자동화, 취약점 정보 실시간 공유, 보안팀 인력 확충이 시급하다."
-          }
-        ],
-        "suggested_title": "해킹은 2일, 보안패치는 60일...대응 속도 차 메우려면",
-        "bottom_line": "당신이 패치를 미룬 사이, 해커는 이미 침투했을 수도 있다.",
-        "action_today": "윈도우 설정 → 업데이트 및 보안 → 지금 확인 (5분)"
-      }
-    },
-    {
-      "id": "ea98d6823a42",
-      "title": "[주목 e-AI] \"철통 보안 뚫어, 세계 금융 발칵~\" … 스스로 해킹코드 생성 AI '미토스' - 이코노미톡뉴스",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9MVk1WYWY2a3hKbE9UQ1lOZFdzWnVGT2ZvdmdEUkdiRzlza3V0aHRDS1hzRHRqYXdfNUM1ZVdVLWQwZVNRUl84ZlpwMC14ZS1zX1RuU2k5NU55dXNxZjc4b05nU1dyWUpkQnNTSA?oc=5",
-      "summary": "[주목 e-AI] \"철통 보안 뚫어, 세계 금융 발칵~\" … 스스로 해킹코드 생성 AI '미토스'&nbsp;&nbsp;이코노미톡뉴스",
-      "pubDate": "2026-06-08T02:37:52+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "AI 기반 자동 해킹코드 생성",
-          "금융 시스템 보안 위협 심화"
-        ],
-        "analysis": [
-          {
-            "title": "미토스 AI 위협",
-            "desc": "스스로 해킹코드를 생성하는 AI 기술로 기존 보안 체계 우회 가능성 대두"
-          },
-          {
-            "title": "금융권 영향",
-            "desc": "철통 같던 금융시스템의 보안 허점 노출로 글로벌 금융권 경계 강화"
-          },
-          {
-            "title": "대응 시급성",
-            "desc": "AI 기반 사이버 위협에 대한 새로운 방어 기술 개발 필요성 대두"
-          }
-        ],
-        "suggested_title": "AI 해킹코드 생성 '미토스', 금융보안 위협",
-        "bottom_line": "당신의 은행계좌 보안도 AI 해커의 표적이 될 수 있다는 뜻이다.",
-        "action_today": "은행 앱 → 보안설정 → 생체인증 활성화 (2분)"
-      }
-    },
-    {
-      "id": "a2abf1878fde",
-      "title": "KISA 보호나라 홈페이지 바로가기 - 브런치",
-      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1kT1ZUSUxQNHFMZGQxeXBXaHNNNHF2Y2hNbVVYNUVYMHdjS19CMHpkTlJ6TFZZXzlkQ1ZaVTRsYkRSblI2cVZOb2lR?oc=5",
-      "summary": "KISA 보호나라 홈페이지 바로가기&nbsp;&nbsp;브런치",
-      "pubDate": "2026-06-07T17:32:57+00:00",
-      "source": "KISA 보호나라",
-      "lang": "ko",
-      "category": "보안뉴스",
-      "level": "info",
-      "ai_summary": {
-        "keypoints": [
-          "KISA 보호나라 접근성 강화",
-          "정부 보안 서비스 통합 제공"
-        ],
-        "analysis": [
-          {
-            "title": "서비스 소개",
-            "desc": "KISA 보호나라는 국내 사이버 보안 통합 포털로, 개인과 기업 대상 보안 정보를 제공한다."
-          },
-          {
-            "title": "접근 방법",
-            "desc": "공식 홈페이지 바로가기를 통해 즉시 접속 가능하며, 보안 위협 관련 최신 정보를 확인할 수 있다."
-          },
-          {
-            "title": "활용 권장",
-            "desc": "기업 보안담당자와 일반 사용자 모두 정기적 방문으로 사이버 위협 대응 능력을 강화할 수 있다."
-          }
-        ],
-        "suggested_title": "KISA 보호나라 홈페이지 바로가기",
-        "bottom_line": "지금 보호나라 들어가서 당신 기기가 위협 받고 있진 않은지 확인해봐야 할 시점이다.",
-        "action_today": "웹브라우저 → 'KISA 보호나라' 검색 → 공식 사이트 접속 후 보안 진단 (5분)"
-      }
-    },
-    {
-      "id": "669e108dec08",
-      "title": "[항공보안학회 춘계 학술대회 ②] 여객기 해킹·사후 소송에 떠는 조종사…당국에 실효적 ‘사이버 복원력·면책권’ 요구 - 에너지경제신문",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mZ2JOX1FCR3J2NEMyRy1rekxqNmgyeXdCc09kcHRFMHdKVTB5eGV4QXNZdTMzNndNUHo1TnlUY254d2JrdFpJVndBLWFrUFFnTHJ3ODhDT05MWW8?oc=5",
-      "summary": "[항공보안학회 춘계 학술대회 ②] 여객기 해킹·사후 소송에 떠는 조종사…당국에 실효적 ‘사이버 복원력·면책권’ 요구&nbsp;&nbsp;에너지경제신문",
-      "pubDate": "2026-06-06T07:51:55+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "항공기 사이버 공격 대응 체계 미흡",
-          "조종사 법적 보호 및 면책권 부재"
-        ],
-        "analysis": [
-          {
-            "title": "항공기 해킹 위협",
-            "desc": "여객기 시스템 침투 가능성 증대. 조종사의 비상 상황 대응 능력 한계 노출."
-          },
-          {
-            "title": "법적 책임 공백",
-            "desc": "사이버 공격 발생 시 조종사가 개인적 법적 책임 부담. 명확한 면책 기준 없음."
-          },
-          {
-            "title": "제도 개선 요구",
-            "desc": "당국의 사이버 복원력 구축과 조종사 보호 법안 마련 시급. 업계 차원 협력 필요."
-          }
-        ],
-        "suggested_title": "항공기 해킹 시 조종사가 법적 책임 진다",
-        "bottom_line": "당신이 탄 비행기의 조종사가 해킹 피해를 입어도 보호받지 못한다는 뜻이다.",
-        "action_today": "항공기 탑승 전 항공사 사이버보안 현황 확인 (항공사 웹사이트 공시 정보)"
-      }
-    },
-    {
-      "id": "a918da3be50a",
-      "title": "AI 덕분? “만인의 만인을 향한 해킹 가능해” - 애플경제",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBBdUxKRldXMlFlZU5GS2tmdXFPaGxoSFhZQ0lrXzctLVphM0hMd1FnTUg1VHZteE92MHdUNmlZLVBoc0ItTWNnaVV0RXhkWHpPNWRtSC1RcHItTFdRMFh6VGRGUnMyUTJyLXVPR09rTlo?oc=5",
-      "summary": "AI 덕분? “만인의 만인을 향한 해킹 가능해”&nbsp;&nbsp;애플경제",
-      "pubDate": "2026-06-05T02:43:33+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "AI 기술로 대중적 해킹 진입 장벽 붕괴",
-          "누구나 손쉽게 사이버 공격 수행 가능"
-        ],
-        "analysis": [
-          {
-            "title": "AI의 양면성",
-            "desc": "생성형 AI가 코딩 자동화를 가능하게 하면서 해킹 기술의 대중화 속도 가속"
-          },
-          {
-            "title": "위협 확대",
-            "desc": "전문 기술 부재한 공격자도 AI 도구로 정교한 사이버 공격 자동 생성 가능"
-          },
-          {
-            "title": "방어 과제",
-            "desc": "기존 보안 대응 체계로는 기하급수적 증가 공격량 대처 한계 직면"
-          }
-        ],
-        "suggested_title": "AI 악용으로 해킹 기술 대중화 시대 도래",
-        "bottom_line": "당신의 비밀번호는 이미 AI의 타깃 목록에 올라 있을 수 있다.",
-        "action_today": "윈도우 설정 → 보안 → Windows Defender → 바이러스 검사 실행"
-      }
-    },
-    {
-      "id": "797cc3e9c3ed",
-      "title": "사이버보안 연구원이 말하는 원자력 해킹의 실체! - 영상 | 멀티미디어 - 대한민국 정책브리핑",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8xZ0tMRE9BX1EtMXNJQ0V1bTVHTnAwY3BRb25DTUF1Sm42UXZORGhoRzhtVzF6U2xCTXN5SDkzYlJPXzhraGpKemgzMENLdncwQW56VFNQdUVnTUNjdFFWM2JNNXBZeDFmN1J0bg?oc=5",
-      "summary": "사이버보안 연구원이 말하는 원자력 해킹의 실체! - 영상 | 멀티미디어&nbsp;&nbsp;대한민국 정책브리핑",
-      "pubDate": "2026-06-01T07:00:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "원자력 시설 사이버 위협 심화",
-          "핵심 인프라 해킹 취약점 노출"
-        ],
-        "analysis": [
-          {
-            "title": "원전 해킹 위험",
-            "desc": "사이버보안 전문가가 지적한 원자력 시설의 해킹 실태와 잠재적 위협 요소를 분석한다."
-          },
-          {
-            "title": "국가 인프라 취약성",
-            "desc": "핵심 에너지 인프라의 보안 허점이 구체적으로 드러나면서 대비책 강화의 필요성이 대두된다."
-          },
-          {
-            "title": "전문가 진단",
-            "desc": "사이버보안 연구원의 현장 경험과 기술적 분석을 통해 실질적 위협 수준을 제시한다."
-          }
-        ],
-        "suggested_title": "원자력 해킹 실태, 전문가가 폭로하다",
-        "bottom_line": "당신이 쓰는 전기, 해커 손 안 탈 보장이 없다는 뜻이다.",
-        "action_today": "정부 사이버안보센터 웹사이트 → 정보보호 뉴스 → 구독 설정"
-      }
-    },
-    {
-      "id": "60db980340d5",
-      "title": "[AI픽] AI 해킹 비상…정부, 민간 보안 총력 대응 - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBueGFwbFFScTkyRkVQUVlBUXpHOGJKSFk0MEV3YXAxRzhTZzZFSE5CMldYWXdSam9MOVlBSkhMZUk0aXJJdGNsaC1zNUlIVEVleUotR2ZGQ3JxYUHSAWBBVV95cUxNUUE5YlpfQlFGdXJhOEVlcHh6dnEwd283LTgzdk9UMi0yQ2F4emJWNFZWQnZ3a3VVNjJib19oWEdMcjVMejFrZldSNFpIbzVYdTZpXzlQWFhuUG9vZS1GTy0?oc=5",
-      "summary": "[AI픽] AI 해킹 비상…정부, 민간 보안 총력 대응&nbsp;&nbsp;연합뉴스",
-      "pubDate": "2026-05-29T07:00:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "AI 시스템 해킹 공격 급증",
-          "정부-민간 보안 협력 체계"
-        ],
-        "analysis": [
-          {
-            "title": "AI 위협",
-            "desc": "해킹 그룹들이 AI 모델과 학습 데이터를 노리며 공격 고도화 중"
-          },
-          {
-            "title": "정부 대응",
-            "desc": "관계부처 합동으로 보안 가이드라인 수립 및 점검 체계 강화"
-          },
-          {
-            "title": "기업 방어",
-            "desc": "민간 보안사들이 AI 시스템 취약점 진단 및 패치 지원 확대"
-          }
-        ],
-        "suggested_title": "AI 해킹 전쟁, 지금이 위험한 이유",
-        "bottom_line": "당신의 AI 사용 기업이 해킹 당하면 개인정보도 함께 털린다는 뜻이다.",
-        "action_today": "회사 AI 도구 → 보안 설정 → 접근 권한 최소화 확인"
-      }
-    },
-    {
-      "id": "296a1c4bfc7d",
-      "title": "\"달리는 컴퓨터 노린 해킹 막는다\"…정부, 자동차 사이버보안 대응 강화 - v.daum.net",
-      "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE95ZWkwR2xJTVlUSDhienNaRGd2T3VTbmMtRzIyWDY0d3RNcGRfLWhBOTFNbld2LWM4NEdCeUdvemg4VnlVMlE?oc=5",
-      "summary": "\"달리는 컴퓨터 노린 해킹 막는다\"…정부, 자동차 사이버보안 대응 강화&nbsp;&nbsp;v.daum.net",
-      "pubDate": "2026-05-27T07:00:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "자동차 사이버보안 강화",
-          "정부 해킹 대응 정책"
-        ],
-        "analysis": [
-          {
-            "title": "위협 현황",
-            "desc": "커넥티드카 확산으로 자동차 해킹 위험 증가. 원격 제어 악용 가능성 대두."
-          },
-          {
-            "title": "정부 대응",
-            "desc": "자동차 사이버보안 기준 마련 및 검증 체계 구축. 제조사 의무화 추진."
-          },
-          {
-            "title": "기대 효과",
-            "desc": "운전자 안전 강화 및 국내 자동차산업 신뢰도 제고. 글로벌 기준 선도."
-          }
-        ],
-        "suggested_title": "자동차 사이버보안, 정부가 직접 나선다",
-        "bottom_line": "당신 차의 브레이크를 원격으로 멈출 수 있다는 뜻이다.",
-        "action_today": "내 차 정보 → 차량 소프트웨어 버전 확인 → 최신 업데이트 있는지 확인"
-      }
-    },
-    {
-      "id": "8013fc313e49",
-      "title": "민관 집단지성으로 해킹 막는다... 美 CISA 실전형 제보 플랫폼 가동 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBiU19zWktXMnZ4RTdGT2o0YU5tMFAwNy1vVGtheWdSMS16d0xpYlZVMmM1Sk5sYWI3TUFZNE54dkN3Q2xKVUtQcV9SMEtnMzZ3ZUg0c3Babjh4eG5qQXFz?oc=5",
-      "summary": "민관 집단지성으로 해킹 막는다... 美 CISA 실전형 제보 플랫폼 가동&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2026-05-26T07:00:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "미국 CISA 해킹 제보 플랫폼 출범",
-          "민관 협력 사이버 위협 정보 공유"
-        ],
-        "analysis": [
-          {
-            "title": "플랫폼 목표",
-            "desc": "CISA가 민간 기업과 정부 기관의 협력으로 사이버 위협 정보를 실시간 수집·공유하는 제보 체계 구축"
-          },
-          {
-            "title": "작동 원리",
-            "desc": "기업과 개인이 발견한 해킹 시도·취약점을 플랫폼에 제보하면 CISA가 검증 후 방어 정보로 배포"
-          },
-          {
-            "title": "기대 효과",
-            "desc": "집단지성 기반으로 영점데이 공격 및 신종 위협에 신속 대응, 국가 사이버 방어력 강화"
-          }
-        ],
-        "suggested_title": "해킹 정보 공유 플랫폼, CISA 실전형 운영 시작",
-        "bottom_line": "당신의 회사가 발견한 해킹이 다른 기업까지 지킬 수 있는 정보가 된다.",
-        "action_today": "CISA 홈페이지 → 제보 프로그램 → 계정 등록 (5분)"
-      }
-    },
-    {
-      "id": "0ef906d61d8d",
-      "title": "[한국정보공학기술사 보안을 論하다-40] 大 해킹 시대 위협 관리 서비스: 사이버 보험 - 보안뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9kQ3p3R3FwVWIwdkxFMUFLN1J2aUNrSE9Cc3VYS0RzMGlENENEU0VNb2ZtWjAtVzVxTkxMbVExTzZjUEJoQ055a1hJLU9TNUc3YkNaOUhOUEp3cWtoMFVz?oc=5",
-      "summary": "[한국정보공학기술사 보안을 論하다-40] 大 해킹 시대 위협 관리 서비스: 사이버 보험&nbsp;&nbsp;보안뉴스",
-      "pubDate": "2026-05-26T06:49:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "대규모 해킹 위협 증가",
-          "사이버 보험 필수화"
-        ],
-        "analysis": [
-          {
-            "title": "해킹 확산",
-            "desc": "기업과 개인 대상 대규모 사이버 공격 급증 추세"
-          },
-          {
-            "title": "보험 역할",
-            "desc": "해킹 피해 복구와 손실 보상을 위한 사이버 보험의 중요성"
-          },
-          {
-            "title": "위협 관리",
-            "desc": "보험을 통한 포괄적 위협 대응 및 리스크 관리 전략"
-          }
-        ],
-        "suggested_title": "사이버 보험, 대해킹 시대의 필수 방어막",
-        "bottom_line": "보험 없이 해킹당하면, 복구 비용은 전부 당신 몫이다.",
-        "action_today": "금융감독원 사이트 → 사이버보험 → 가입 상품 비교"
-      }
-    },
-    {
-      "id": "3cb5da42208c",
-      "title": "인천 공공기관 ‘AI 사이버보안 허브’ 구축…해킹에 공동 방어 - v.daum.net",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE85eS1aZkpnWkhjb2tjXzNseEU5dFJCZUY2NGJiaXN2WTNoMkFIbmpLUHdtYlRnRVJ3SjkxdkpMc2c2OHdsV1NJWmNDWUxEWHc?oc=5",
-      "summary": "인천 공공기관 ‘AI 사이버보안 허브’ 구축…해킹에 공동 방어&nbsp;&nbsp;v.daum.net",
-      "pubDate": "2026-05-21T07:00:00+00:00",
-      "source": "Google 뉴스 — 보안 최신",
-      "lang": "ko",
-      "category": "해킹",
-      "level": "warning",
-      "ai_summary": {
-        "keypoints": [
-          "AI 기반 사이버보안 통합 허브 구축",
-          "공공기관 공동 해킹 방어 체계"
-        ],
-        "analysis": [
-          {
-            "title": "허브 구축",
-            "desc": "인천 공공기관들이 AI 기술을 활용한 사이버보안 허브를 구축하여 통합 방어 체계 마련"
-          },
-          {
-            "title": "공동 대응",
-            "desc": "해킹 위협에 대해 여러 공공기관이 함께 대응하는 협력 체계 운영"
-          },
-          {
-            "title": "기술 고도화",
-            "desc": "인공지능 기술로 사이버 위협 탐지 및 대응 능력 강화"
-          }
-        ],
-        "suggested_title": "AI 사이버보안 허브로 공공기관 해킹 방어",
-        "bottom_line": "공공기관도 AI 방어막이 필요할 정도로 해킹이 지능화되고 있다는 신호다.",
-        "action_today": "본인이 이용 중인 공공기관 서비스 → 로그인 후 보안 알림 확인 (2분)"
+        "suggested_title": "앤스로픽, 보안 강화 AI 모델 미토스 공개",
+        "bottom_line": "생성형 AI 악용이 갈수록 정교해지는데, 보안 없는 AI는 이제 구식이다.",
+        "action_today": "앤스로픽 공식 홈페이지 → 미토스 보안 문서 → 주요 기능 확인"
       }
     }
   ]
